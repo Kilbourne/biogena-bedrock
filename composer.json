@@ -38,7 +38,7 @@
     "vlucas/phpdotenv": "^2.0.1",
     "johnpbloch/wordpress": "4.3.1",
     "wpackagist-plugin/advanced-custom-fields": "4.4.3",
-    "roots/soil": "dev-master",
+    "roots/soil": "3.6.0",
     "wpackagist-plugin/admin-post-navigation": "1.9.2",
     "lamosty/bedrock-plugin-control": "^1.0",
     "wpackagist-plugin/tinymce-advanced": "4.2.5"
