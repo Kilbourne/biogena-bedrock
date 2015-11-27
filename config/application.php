@@ -67,6 +67,19 @@ define('DISABLE_WP_CRON', getenv('DISABLE_WP_CRON') ?: false);
 define('DISALLOW_FILE_EDIT', true);
 
 /**
+ * Plugins which get force-enabled in development environment.
+ * Include them in your composer.json "require-dev" so they get installed only on dev machine.
+ *
+ * Specify relative path to plugin's main PHP file.
+ */
+
+$BEDROCK_DEV_PLUGINS = array(
+    'query-monitor/query-monitor.php',
+    'debug-bar/debug-bar.php',
+    'p3-profiler/p3-profiler.php'
+);
+
+/**
  * Bootstrap WordPress
  */
 if (!defined('ABSPATH')) {

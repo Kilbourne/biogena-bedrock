@@ -38,9 +38,16 @@
     "vlucas/phpdotenv": "^2.0.1",
     "johnpbloch/wordpress": "4.3.1",
     "wpackagist-plugin/advanced-custom-fields": "4.4.3",
-    "roots/soil": "3.5.0",
+    "roots/soil": "dev-master",
     "wpackagist-plugin/admin-post-navigation": "1.9.2",
-
+    "lamosty/bedrock-plugin-control": "^1.0",
+    "wpackagist-plugin/tinymce-advanced": "4.2.5"
+  },
+  "require-dev": {
+    "wpackagist-plugin/p3-profiler": "1.5.3.9",
+    
+    "wpackagist-plugin/query-monitor": "2.8.1",
+    "wpackagist-plugin/debug-bar": "0.8.2"
   },
   "extra": {
     "installer-paths": {
