@@ -41,7 +41,8 @@
     "roots/soil": "3.6.0",
     "wpackagist-plugin/admin-post-navigation": "1.9.2",
     "lamosty/bedrock-plugin-control": "^1.0",
-    "wpackagist-plugin/tinymce-advanced": "4.2.5"
+    "wpackagist-plugin/tinymce-advanced": "4.2.5",
+    "kilbourne/biogena-data": "dev-master@dev"
   },
   "require-dev": {
     "wpackagist-plugin/p3-profiler": "1.5.3.9",
