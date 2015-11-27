@@ -1,0 +1,278 @@
+/* ANDY  */
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin background-gradient($start-color, $end-color, $orientation) {
+    background: $start-color;
+
+    @if $orientation == 'vertical' {
+      background: -webkit-linear-gradient(top, $start-color, $end-color);
+      background: linear-gradient(to bottom, $start-color, $end-color);
+    } @else if $orientation == 'horizontal' {
+      background: -webkit-linear-gradient(left, $start-color, $end-color);
+      background: linear-gradient(to right, $start-color, $end-color);
+    } @else {
+      background: -webkit-radial-gradient(center, ellipse cover, $start-color, $end-color);
+      background: radial-gradient(ellipse at center, $start-color, $end-color);
+    }
+}
+
+@mixin scale($scale-change:1.1, $animation-properties: 1s ease-in-out) {
+  $alias: 'scale-' + str-replace($scale-change + '', '.', '-');
+
+  @include keyframes($alias){
+    0%, 100% {
+      @include transform(scale(1));
+    }
+    50% {
+      @include transform(scale($scale-change));
+    }
+  }
+
+  @include prefix(animation, $alias $animation-properties, 'webkit');
+}
+@mixin fade($fade-from: 0, $fade-to: 1, $animation-properties: 1s ease) {
+    $alias: fade- + str-replace($fade-from + '', '.', '-') + '-' + str-replace($fade-to + '', '.', '-');
+    @include keyframes($alias){
+    from {
+      @include opacity($fade-from);
+    }
+    to {
+      @include opacity($fade-to);
+    }
+  }
+  @include prefix(animation, $alias $animation-properties, 'webkit');
+}
+@mixin slide-in-from($slide-axis: x, $slide-offset: -100px, $animation-properties: 3s ease-out) {
+  $slide-start: if($slide-axis == x, translateX($slide-offset), translateY($slide-offset));
+  $slide-end: if($slide-axis == x, translateX(0), translateY(0));
+
+  @include keyframes(slide-in-#{$slide-axis}-#{$slide-offset}){
+    0% {
+      @include opacity(0);
+      @include transform($slide-start);
+    }
+    75% {
+      @include transform($slide-end);
+    }
+    100% {
+      @include opacity(1);
+    }
+  }
+
+  @include prefix(animation, slide-in-#{$slide-axis}-#{$slide-offset} $animation-properties, 'webkit');
+}
+
+
+
+
+@mixin outline {
+    box-shadow: rgba(255, 255, 255, 0.5) 0 1px 0, inset rgba(0, 0, 0, 0.75) 0 1px 0;
+}
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$opacity * 100})";
+}
+@mixin text-shadow($value) {
+    text-shadow: rgba(255, 255, 255, $value) 0 1px 0;
+}
+
+
+
+
+@mixin center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+@mixin center-both {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include prefix(transform, translate(-50%, -50%), 'webkit' 'ms');
+}
+@mixin center-h($height) {
+    position: absolute;
+    top: 50%;
+    height: $height;
+    margin-top: -($height / 2);
+}
+@mixin center-h--unk {
+    position: relative;
+    top: 50%;
+    @include prefix(transform, translateY(-50%), 'webkit' 'ms');
+}
+@mixin position($type, $top: null, $right: null, $bottom: null, $left: null) {
+    position: $type;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+
+
+
+@mixin font-face($font-name, $file-name, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: quote($font-name);
+    src: url($file-name + '.eot');
+    src: url($file-name + '.eot?#iefix')  format('embedded-opentype'),
+         url($file-name + '.woff') format('woff'),
+         url($file-name + '.ttf')  format('truetype'),
+         url($file-name + '.svg##{$font-name}')  format('svg');
+    font-weight: $weight;
+    font-style: $style;
+  }
+}
+
+@mixin ha {
+    @include prefix(transform, translate3d(0, 0, 0), 'webkit' 'ms');
+}
+
+@mixin image-2x($image, $width, $height) {
+    @media (-webkit-min-device-pixel-ratio: 1.3),
+           (min-resolution: 124dpi),
+           (min-resolution: 1.3dppx) {
+        /* on retina, use image that's scaled by 2 */
+        background-image: url($image);
+        background-size: $width $height;
+    }
+}
+
+/*	JUICE */
+
+@mixin show($breakpoint: null, $display: $show-display-default) {
+	@if $breakpoint {
+		display: none;
+		@include bp($breakpoint) {
+			display: $display;
+		}
+	} @else {
+		display: $display;
+	}
+}
+@mixin hide($breakpoint: null) {
+	@if $breakpoint {
+		@include bp($breakpoint) {
+			display: none !important;
+		}
+	} @else {
+		display: none !important;
+	}
+}
+@mixin hide-text {
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+}
+
+@mixin hoverer($property, $normal, $hovered) {
+	#{$property}: $normal;
+	&:hover {
+		#{$property}: $hovered;
+	}
+}
+
+@mixin position($type,
+								$top: $position-default,
+								$right: $position-default,
+								$bottom: $position-default,
+								$left: $position-default) {
+	position: $type;
+	$allowed_types: absolute relative fixed;
+	@if not index($allowed_types, $type) {
+		@warn "Unknown position: #{$type}.";
+	}
+	@each $data in top $top, right $right, bottom $bottom, left $left {
+		#{nth($data, 1)}: nth($data, 2);
+	}
+}
+@mixin absolute($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(absolute, $top, $right, $bottom, $left);
+}
+@mixin relative($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(relative, $top, $right, $bottom, $left);
+}
+@mixin fixed($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+	@include position(fixed, $top, $right, $bottom, $left);
+}
+@mixin trbl($top: $position-default,
+								$right: $position-default,
+								$bottom: $position-default,
+								$left: $position-default) {
+	@each $data in top $top, right $right, bottom $bottom, left $left {
+		#{nth($data, 1)}: nth($data, 2);
+	}
+}
+@mixin top-left {
+	@include trbl(0,null,null,0);
+}
+@mixin top-right {
+	@include trbl(0,0);
+}
+@mixin bottom-left {
+	@include trbl(null,null,0,0);
+}
+@mixin bottom-right {
+	@include trbl(null,0,0,null);
+}
+// Cover everything
+// ----------------
+@mixin coverer {
+	@include absolute(0, null, null, 0);
+	@include size(100%);
+}
+
+
+// Preload Images
+// Credit: http://codepen.io/pixelass/details/vEKZRq
+// -------------------------------------------------
+@mixin image-preload($preload: run) {
+	@if not variable-exists(_preload-image-list) {
+		$_preload-image-list: ()!global;
+	}
+	@if not variable-exists(_preload-image-urls) {
+		$_preload-image-urls: ()!global;
+	}
+	@if not variable-exists(_preload-images-loaded) {
+		$_preload-images-loaded: false!global;
+	}
+	@if $preload == run and not $_preload-images-loaded {
+		$_preload-images-loaded: true!global;
+		html:after {
+			content: '';
+			display: none;
+			background-image: $_preload-image-urls;
+		}
+	} @else {
+		$_preload-image-list: join($preload, $_preload-image-list)!global;
+		$image-urls: ();
+		@if length($_preload-image-list) > 0 {
+			@for $i from 1 through length($_preload-image-list) {
+				$image-urls: join(url(#{nth($_preload-image-list,$i)}), $image-urls);
+			}
+			$result: ();
+			@each $item in $image-urls {
+				@if not index($result, $item) {
+						$result: append($result, $item, comma);
+				}
+			}
+			$_preload-image-urls: $result!global;
+		}
+	}
+}
+
+
