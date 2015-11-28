@@ -15,7 +15,8 @@ db-sync
 sql-dump-*.sql
 
 # Dotenv
-!.env.example
+.env
+!.env.*
 
 # Vendor (e.g. Composer)
 vendor/*
