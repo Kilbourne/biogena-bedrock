@@ -40,7 +40,10 @@
     "wpackagist-plugin/advanced-custom-fields": "4.4.3",
     "roots/soil": "3.6.0",
     "wpackagist-plugin/admin-post-navigation": "1.9.2",
-    "lamosty/bedrock-plugin-control": "^1.0",
+    "lamosty/bedrock-plugin-control": "^1.0",    
+    "wpackagist-plugin/posts-to-posts": "1.6.5",
+    "wpackagist-plugin/post-type-switcher": "1.5",
+    "wpackagist-plugin/custom-post-type-ui": "1.1.2",
     "wpackagist-plugin/tinymce-advanced": "4.2.5",
     "kilbourne/biogena-data": "dev-master@dev"
   },
