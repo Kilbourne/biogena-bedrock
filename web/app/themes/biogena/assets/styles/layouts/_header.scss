@@ -1,0 +1,473 @@
+/* UTILITIES */
+
+.inline-block{display:inline-block;}
+
+/* PAGE */
+
+.page-wrapper{
+  padding:0;
+}
+
+/* HEADER */
+
+header.banner{
+  &>.container{
+    position:relative;
+  }
+}
+
+.header-content-wrapper{
+  z-index: 21;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  bottom: 0px;
+}
+
+.nav-primary{
+  text-align: center;
+  margin: 0 auto;
+  /*max-width: 840px;*/
+  .nav{
+    margin-left: 0;
+  }
+  a{
+    color: #fff;
+    text-decoration: none;
+  }
+  &>ul>.menu-item{
+    display:none;
+    @include media-query(lap-and-up){
+      display: inline-block;
+      margin-right: 3.4rem;
+    }
+  }
+}
+.circle-container{
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%,-50%);
+}
+.s-circle{
+  border-radius: 0 0 120px 120px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(23, 102, 169);
+  border-radius: 50%;
+}
+.menu-logo {
+display:inline-block !important;
+vertical-align: middle;
+position: static !important;
+  .circle-container{
+
+  top: -3.2%;
+  }
+  .circle-fake{
+    visibility: hidden;
+    &>.s-circle{
+      padding: 6% 18%;
+    }
+  }
+  .s-circle{
+    padding: 59% 18% 13%;
+    h3{
+      font-size: 0.6rem;
+      margin:15px 0 0;
+    }
+    span{display:block;}
+  }
+}
+
+.big-claim{
+    color: white;
+    font-size: 2.3rem;
+    display: inline-block;
+    line-height: 0.3;
+    padding-left: 3%;
+    text-align: right;
+}
+
+.news-box{
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  bottom: 40px;
+  left: 30px;
+  max-width: 32%;
+  h3{
+    margin: 0px;
+    padding-left: 10px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(77, 116, 171);
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+  .news{
+    h5{
+      margin: 0px;
+      color: rgb(115, 148, 179);
+font-size: 0.9rem;
+line-height: 2;
+      padding-left: 10px;
+    }
+    .content{
+     font-size: 0.7rem;
+padding: 0px 10px 10px;
+    }
+    .more{
+      font-size: 0.6rem;
+text-align: right;
+padding: 0px 10px;
+    }
+    a{
+      text-decoration: none;
+color: rgb(88, 87, 83);
+    }
+  }
+}
+
+/* MENU */
+
+nav.nav-primary ul li {position:relative; }
+#menu-menu-1>li {vertical-align: middle; padding: 0px 0px 40px;}
+nav.nav-primary ul li a {display:block;  color:#fff; font-size:14px;}
+#menu-menu-1>li>a {padding: 2px 0.5rem 0px;}
+
+/* Second Level */
+nav.nav-primary ul li ul {display:none;background-color:#fff; top:26px;left:50%;transform:translate(-50%); z-index:25;text-align: center;margin-left:0;padding: 0% 27%;border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px; }
+nav.nav-primary ul li ul li { list-style: none; padding: 0.5% 0;text-align: left;}
+nav.nav-primary ul li ul li a {width:160px; color:#5E9CC3; padding: 1% 2%;
+white-space: pre;
+display: inline;
+text-align: center;
+margin: 0px auto;}
+nav.nav-primary ul li:hover ul {display:block; position:absolute; }
+
+/* Third Level */
+nav.nav-primary ul li ul li ul li {float:left; position:relative; text-transform:uppercase; list-style:none}
+nav.nav-primary ul li ul li ul li a {font-size:11px; padding: 1% 5%;}
+
+
+.menu-aree-terapeutiche .sub-menu li.active a{ color:#fff;text-decoration: underline;}
+.menu-item.active{background-color: #2672B0;}
+.menu-item:hover,.single #menu-menu-1 > li:hover {
+
+  &>a{color:#fff;background-color:#6ABAFB;}
+}
+.menu-item.active:hover > a{
+  background-color:inherit;
+}
+ .single #menu-menu-1 > .menu-logo:hover > a,.menu-logo:hover> a {
+ background-color:inherit;
+}
+
+/* SLIDER */
+
+.slider{
+  overflow:hidden;
+  margin-bottom: 0 !important;
+}
+.background-slider{
+  img{
+    width:100%;
+  }
+}
+
+
+.slideshow{
+  .slider{
+    display:none;
+
+padding: 0 0 20px;
+margin-bottom: 0;
+  }
+.slider.active{
+  display:block;
+}
+}
+
+/* FOOTER */
+
+footer{
+  &>.container{
+  background-color: #F5F5F5;
+  font-size: 0.75rem;
+  overflow: hidden;
+  text-align: right;
+  padding: 1% 3%;
+    &>div{
+      display:inline-block;
+      padding: 8px 0px;
+    }
+    &>.copyr{
+      float: left;
+    }
+    &>.privacy{
+      margin-right: 4.4rem;
+    }
+    &>.contatti{
+      margin-right: 11.4rem;
+    }
+    &>.social{
+      padding:0;
+      float: right;
+      .fb{
+        background-image:url('../images/fb.png');
+      }
+      .twt{
+        background-image:url('../images/twt.png');
+      }
+      .insta{
+        background-image:url('../images/insta.png');
+      }
+      .yt{
+        background-image:url('../images/yt.png');
+      }
+      span{
+        width: 30px;
+display: inline-block;
+height: 30px;
+margin-right: 5px;
+}
+    }
+  }
+}
+
+
+/* -----
+SVG Icons - svgicons.sparkk.fr
+----- */
+
+.svg-icon {
+  width: 1em;
+  height: 1em;
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #4691f6;
+}
+
+.svg-icon circle {
+  stroke: #4691f6;
+  stroke-width: 1;
+}
+
+/* SINGLLE  */
+
+.single{
+  .entry-title{
+    font-size: 1.35rem;
+    color: rgb(53, 139, 196);
+  }
+  .entry-content{
+    font-size: 0.85rem;
+    & > img{
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    & > p{
+      display:inline-block;
+    }
+  }
+}
+
+/* AREE TERAPEUTICHE */
+.single-aree-terapeutiche,.archive{
+  .content{
+    position: relative;
+    img{
+      max-width: 100%;
+    }
+  }
+}
+.content-wrapper{
+  padding: 0 0 2%;
+  font-family: robotolight;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.prevenzione{
+  vertical-align: top;
+  margin-right: 1.5rem;
+  width:48% !important;
+  h3{
+    background-color: rgb(42, 121, 178);
+    color: rgb(255, 255, 255);
+    padding: 2%;
+    font-size: 1.4rem;
+  }
+  ul{
+    margin-left: 1rem;
+  }
+  li{
+    color:#006990;
+    &>span{
+      color:#1B1B1B;
+    }
+  }
+}
+
+.slideshow.correlati{
+  h3,h4{
+    color:rgb(80, 128, 177);
+    text-align: center;
+  }
+}
+hr{
+      display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid rgb(80, 128, 177);
+    margin: 1em 0;
+    padding: 0;
+
+}
+.down-nav{
+  padding: 1% 0px 0;
+text-align: center;
+}
+.line{
+  display: inline-block;
+white-space: nowrap;
+font-size: 1.5rem;
+color: rgb(42, 121, 178);
+ .title{
+  margin: 0px 3rem;
+ }
+}
+.slider-patologie{
+  overflow: hidden;
+}
+.fake-opacity{
+  width: 100%;
+height: 4rem;
+position: absolute;
+background-color: rgba(255, 255, 255, 0.8);
+}
+.home{
+  .fake-opacity{ display:none;}
+}
+.archive,.single{
+  #menu-menu-1>li>a,.big-claim{ color:#4D74AB;}
+}
+.slider-patologie .swiper-slide{
+  text-align: center;
+}
+.slider-patologie .swiper-slide a{
+  display: inline-block;
+height: 100%;
+position: relative;
+border: 2px solid #E6E6E6;
+}
+.slider-patologie .swiper-slide a div {
+    position: absolute;
+    bottom: 0px;
+    background-color: rgba(38, 114, 176, 0.81);
+    width: 100%;
+    text-align: center;
+    padding: 2%;
+}
+.slider-patologie .swiper-slide a h3{
+  margin:0;
+  color: #fff;
+}
+.content-wrapper .lineas h3{
+  margin: 1.5rem auto;
+text-align: center;
+font-size: 2rem;
+color: #53568D;
+}
+.content-wrapper .lineas img{
+  margin: 0 auto;
+display: block;
+height: auto;
+}
+.single article{
+  padding: 2%;
+}
+.single .slideshow.correlati{
+  margin-top: 1.5rem;
+}
+.single .content-single-wrapper{
+  vertical-align: top;
+  h1,h5{
+    background-color: rgba(38, 114, 176, 0.81);
+    color:#fff;
+    text-align: center;
+  }
+  h1{ font-size: 2rem;}
+  h5{ font-size: 1.2rem;}
+  p{ font-size: 1rem;}
+
+}
+.single .thumb-wrapper{
+  img{width:100%;}
+}
+.single-aree-terapeutiche,.post-type-archive-aree-terapeutiche{
+.flag-media{
+  padding: 0% 2%;
+  .flag-thumb{
+    width: 40%;
+    margin-right: 1rem;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .flag-body{
+    display: inline-block;
+max-width: 58%;
+  }
+  img{height:auto;    width: 100%;}
+}
+.slideshow.correlati  img{width:252px !important;height:auto;}
+}
+.single-prodotti{
+  img{height:auto;}
+  .thumb-wrapper{max-width: 510px;}
+  .slider-patologie{
+    img{max-width:250px; }
+  }
+}
+.single-prodotti{
+  .slideshow.correlati>h3{
+    background-color: rgba(38, 114, 176, 0.81);
+    color: #FFF;
+    text-align: center;
+    padding:1.3%;
+}
+ .like{
+    width: 25%;
+    margin-top: 6%;
+    float: right;
+    margin-right: 6%;
+}
+}
+.home .slider-patologie .swiper-slide a {
+  max-width: 100%;
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+  &>div{
+    position: absolute;
+bottom: 0px;
+background-color: rgba(38, 114, 176, 0.81);
+width: 100%;
+text-align: center;
+padding: 2%;
+h3{
+  margin: 0px;
+color: #FFF;
+  }
+}
+}
+.home .slideshow{
+  padding: 0px 3%;
+position: relative;
+}
+
+
+
+
