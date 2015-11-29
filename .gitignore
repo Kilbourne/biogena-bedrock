@@ -5,6 +5,7 @@ web/app/plugins/*
 web/app/mu-plugins/*
 !web/app/mu-plugins/bedrock-autoloader.php
 !web/app/mu-plugins/disallow-indexing.php
+!web/app/mu-plugins/login-redirect-hack.php
 !web/app/mu-plugins/register-theme-directory.php
 web/app/upgrade
 !web/app/uploads/.gitkeep
@@ -34,3 +35,4 @@ composer.lock
 # Vagrant
 bin
 .vagrant
+
