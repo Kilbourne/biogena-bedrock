@@ -44,7 +44,6 @@
     "wpackagist-plugin/posts-to-posts": "1.6.5",
     "wpackagist-plugin/post-type-switcher": "1.5",
     "wpackagist-plugin/custom-post-type-ui": "1.1.2",
-    "wpackagist-plugin/tinymce-advanced": "4.2.5",
     "kilbourne/biogena-data": "dev-master@dev"
   },
   "require-dev": {
