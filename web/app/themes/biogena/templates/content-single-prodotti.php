@@ -48,7 +48,7 @@
         </div>
     </div>
                <div class="slideshow correlati">
-            <h3>  Altri Prodotti <?php echo ucfirst( $linea_name );?> </h3>
+            <h3>  Trattamenti coadiuvanti complementari </h3>
                 <div class=" slider-patologie active" >
                     <div class="swiper-wrapper">
 <?php                 if ( count($connected2)>0 ){

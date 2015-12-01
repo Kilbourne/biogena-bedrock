@@ -3,6 +3,7 @@
  <script id="patologia" type="text/template" >
       <% var first=arrayC[index],next=(index+1)<arrayC.length?index+1:0,prev=(index-1)>-1?(index-1):arrayC.length-1 %>
 
+ <div class="background-container"> <%= first.thumb %></div>
         <div class="down-nav">
 <div class="line">
           <span class="prev"><a href="<%= arrayC[prev].permalink %>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
@@ -15,13 +16,13 @@
             <hr>
             <div class="content-wrapper">
                 <div class="flag-media">
-                <div class="flag-thumb"><%= first.thumb %></div>
+
                  <div class="flag-body"><%= first.content %></div>
                 </div>
 
           <hr>
           <div class="u-1/2 inline-block prevenzione" >
-            <h3>Norme generali di prevenzione</h3><%= first.prevenzione %>
+            <h3>La soluzione Biogena:</h3><%= first.prevenzione %>
           </div><div class="u-1/2 inline-block lineas" >
 
           <a href="<%= first.linea_plink %> " title=""></a>
@@ -31,7 +32,7 @@
           </div>
           <hr>
           <div class="slideshow correlati">
-                      <h4>  I trattamenti coadiuvanti: </h4>
+          <h4>  I trattamenti coadiuvanti: </h4>
             <h3>  <%= first.linea_title %>  </h3>
                 <div class=" slider-patologie active" >
                     <div class="swiper-wrapper">
@@ -46,7 +47,9 @@
 
 
  </script>
+
  <div class="content">
+ <div class="background-container"> <?php echo $first->thumb;?></div>
     <div class="down-nav">
       <div class="line">
         <span class="prev"><a href="<?= $prev->permalink; ?>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
@@ -59,13 +62,13 @@
             <hr>
             <div class="content-wrapper">
                 <div class="flag-media">
-                <div class="flag-thumb"><?= $first->thumb ?></div>
+
                  <div class="flag-body"><?= $first->content ?></div>
                 </div>
 
           <hr>
           <div class="u-1/2 inline-block prevenzione" >
-            <h3>Norme generali di prevenzione</h3><?= $first->prevenzione ?>
+            <h3>La soluzione Biogena:</h3><?= $first->prevenzione ?>
           </div><div class="u-1/2 inline-block lineas" >
 
           <a href="<?= $first->linea_plink; ?> " title=""></a>

@@ -21,7 +21,9 @@ function body_class($classes) {
   if (Setup\display_sidebar()) {
     $classes[] = 'sidebar-primary';
   }
-
+  if (!is_home()) {
+    $classes[] = 'not-home';
+  }
   return $classes;
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');

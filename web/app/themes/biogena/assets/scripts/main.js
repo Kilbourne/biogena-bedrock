@@ -18,8 +18,15 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages
 
+
+
+
+          new Swiper('.background-slider', {
+                  autoplay:3500
+                  ,slidesPerView: 1
+                  ,autoplayDisableOnInteraction:true
+          });
 
 
 
@@ -28,173 +35,100 @@
         // JavaScript to be fired on all pages, after page specific JS is fired
       }
     },
-    'archive': {
+    'not_home': {
       init: function() {
-        var tplData=JSON.parse(collegamenti);
+                      // JavaScript to be fired on all pages
+        if(collegamenti) var tplData=JSON.parse(collegamenti);
+
         function lastPart(URI){
           var parts = URI.split('/');
           return parts.pop() == '' ? parts[parts.length - 1] : parts.pop();
         }
-        function linkCallback(e){
-                  e.preventDefault();
-                  var href=lastPart(e.currentTarget.href),
-                  el = tplData.filter(function(e){return lastPart(e.permalink)===href})[0];
-
-                  var index=tplData.indexOf(el);
-
-                  var circleRpl = _.template($('#patologia').text()),
-                  aaa=circleRpl({arrayC:tplData,index:index});
-
-                  $('.main>.content').html(aaa);
-                  var menu = $('.menu-aree-terapeutiche .sub-menu a').filter(function(e){
-                    return lastPart(this.href)===href;
-                  })[0];
-                  $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
-                  menu.parentElement.classList.add('active');
-                             new Swiper('.slider-patologie', {
-                  autoplay:2000
-                  ,slidesPerView: 3
-                  ,autoplayDisableOnInteraction:true
-                  });
-
-
-                  $('.down-nav .next>a,.down-nav .prev>a').click(linkCallback);
+        function searchIndex (URL){
+          var href=lastPart(URL),
+              index=tplData.indexOf(tplData.filter(function(e){
+            return lastPart(e.permalink)===href;
+          })[0]);
+          return [href,index];
         }
-
-        var href=lastPart(tplData[0].permalink);
-        var menu = $('.menu-aree-terapeutiche .sub-menu a').filter(function(e){
-                    return lastPart(this.href)===href;
-                  })[0];
-                  $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
-                  menu.parentElement.classList.add('active');
-                new Swiper('.slider-patologie', {
-
-                  slidesPerView: 3
-                  ,autoplayDisableOnInteraction:true
-                  });
-
-        $('.down-nav .next>a,.down-nav .prev>a').click(linkCallback);
-
-                 function linkCallback1(e){
-                  e.preventDefault();
-
-                  var href=lastPart(e.currentTarget.href),
-                  el = tplData.filter(function(e){return lastPart(e.permalink)===href;})[0];
-                  var index=tplData.indexOf(el);
-
-                  var circleRpl = _.template($('#patologia').text()),
-                  aaa=circleRpl({arrayC:tplData,index:index});
-
-                  $('.main>.content').html(aaa);
-                  $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
-                  e.currentTarget.parentElement.classList.add('active');
-                             new Swiper('.slider-patologie', {
-                  autoplay:2000
-                  ,slidesPerView: 3
-                  ,autoplayDisableOnInteraction:true
-                  });
-                  $('.menu-aree-terapeutiche .submenu li a').filter(function(e){
-                    return e.href
-                  })
-
-                  $('.menu-aree-terapeutiche .sub-menu a').click(linkCallback1);
-        }
-         $('.menu-aree-terapeutiche .sub-menu a').click(linkCallback1);
-
-            }
-    },
-        'single_aree_terapeutiche': {
-      init: function() {
-        var tplData=JSON.parse(collegamenti);
-               function lastPart(URI){
-          var parts = URI.split('/');
-          return parts.pop() == '' ? parts[parts.length - 1] : parts.pop();
+        function template(index){
+          var circleRpl = _.template($('#patologia').text()),
+          aaa=circleRpl({arrayC:tplData,index:index});
+          $('.main>.content').html(aaa);
         }
         function linkCallback(e){
-                  e.preventDefault();
+          e.preventDefault();
+          var data = searchIndex(e.currentTarget.href);
+          template(data[1]);
 
-                  var href=lastPart(e.currentTarget.href),
-                  el = tplData.filter(function(e){return lastPart(e.permalink)===href})[0];
-                  var index=tplData.indexOf(el);
+          if (history) history.pushState({href : e.currentTarget.href },"",e.currentTarget.href);
 
-                  var circleRpl = _.template($('#patologia').text()),
-                  aaa=circleRpl({arrayC:tplData,index:index});
-
-                  $('.main>.content').html(aaa);
-                  var menu = $('.menu-aree-terapeutiche .sub-menu a').filter(function(e){
-                    return lastPart(this.href)===href;
-                  })[0];
-                  $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
-                  menu.parentElement.classList.add('active');
-                             new Swiper('.slider-patologie', {
-                  autoplay:2000
-                  ,slidesPerView: 3
-                  ,autoplayDisableOnInteraction:true
+          $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
+          var menu = $('.menu-aree-terapeutiche .sub-menu a').filter(function(e){
+            return lastPart(this.href)===data[0];
+          })[0];
+          menu.parentElement.classList.add('active');
+                  new Swiper('.slider-patologie', {
+                    autoplay:2000
+                    ,slidesPerView: 3
+                    ,autoplayDisableOnInteraction:true
                   });
-
-
-                  $('.down-nav .next>a,.down-nav .prev>a').click(linkCallback);
+                  $('.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a').click(linkCallback);
         }
+        window.onpopstate = function(event) {
+          if(event.state){
+            var data = searchIndex(event.state.href);
+            template(data[1]);
+
+            $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
+            var menu = $('.menu-aree-terapeutiche .sub-menu a').filter(function(e){
+              return lastPart(this.href)===data[0];
+            })[0];
+            menu.parentElement.classList.add('active');
+                    new Swiper('.slider-patologie', {
+                      autoplay:2000
+                      ,slidesPerView: 3
+                      ,autoplayDisableOnInteraction:true
+                    });
+                    $('.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a').click(linkCallback);
+          }
+        };
+
         var index=tplData.indexOf(tplData.filter(function(e){
           return lastPart(e.permalink)===lastPart(document.location.toString());
         })[0]);
-        var href=tplData[index].permalink;
+        index= index!==-1?index:0;
+        var href=lastPart(tplData[index].permalink);
         var menu = $('.menu-aree-terapeutiche .sub-menu a').filter(function(e){
-                    return lastPart(this.href)===lastPart(href);
+                    return lastPart(this.href)===href;
                   })[0];
-                  $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
-                  menu.parentElement.classList.add('active');
-                new Swiper('.slider-patologie', {
-
+            // $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
+            menu.parentElement.classList.add('active');
+            new Swiper('.slider-patologie', {
                   slidesPerView: 3
                   ,autoplayDisableOnInteraction:true
                   });
 
-        $('.down-nav .next>a,.down-nav .prev>a').click(linkCallback);
+        $('.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a').click(linkCallback);
 
-                 function linkCallback1(e){
-                  e.preventDefault();
-
-                  var href=e.currentTarget.href,
-                  el = tplData.filter(function(e){return e.permalink===href})[0];
-                  var index=tplData.indexOf(el);
-
-                  var circleRpl = _.template($('#patologia').text()),
-                  aaa=circleRpl({arrayC:tplData,index:index});
-
-                  $('.main>.content').html(aaa);
-                  $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
-                  e.currentTarget.parentElement.classList.add('active');
-                             new Swiper('.slider-patologie', {
-                  autoplay:2000
-                  ,slidesPerView: 3
-                  ,autoplayDisableOnInteraction:true
-                  });
-                  $('.menu-aree-terapeutiche .submenu li a').filter(function(e){
-                    return e.href
-                  })
-
-                  $('.menu-aree-terapeutiche .sub-menu a').click(linkCallback1);
-        }
-         $('.menu-aree-terapeutiche .sub-menu a').click(linkCallback1);
+    }
+  },
+        'single_aree_terapeutiche': {
+      init: function() {
 
             }
     },
     // Home page
     'home': {
       init: function() {
-                    new Swiper('.background-slider', {
-                  autoplay:3500
-                  ,slidesPerView: 1
-                  ,autoplayDisableOnInteraction:true
-                  });
+
+
                               new Swiper('.slider-patologie', {
                   slidesPerView: 4
                   ,autoplayDisableOnInteraction:true
                   ,nextButton:'.swiper-button-next'
                   ,prevButton:'.swiper-button-prev'
           });
-
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
