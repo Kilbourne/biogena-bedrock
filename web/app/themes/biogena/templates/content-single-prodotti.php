@@ -8,10 +8,10 @@
               ));
 ?>
   <article <?php post_class(); ?>>
-    <div class="thumb-wrapper u-1/2 inline-block">
+    <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
       <div class="like"><img src="<?php echo get_stylesheet_directory_uri().'/dist/images/mi-piace-fb.jpg'; ?>" alt=""> </div>
-    </div><div class="content-single-wrapper u-1/2 inline-block">
+    </div><div class="content-single-wrapper u-1/2-lap-and-up inline-block">
         <header>
           <h1 class="entry-title"><?php the_title(); ?></h1>
         </header>
@@ -19,32 +19,46 @@
           <?php the_content(); ?>
         </div>
         <?php $field=get_field('formato'); if($field !==''){ ?>
-        <div class="formato">
-          <h5>Formato</h5>
+        <div class=" accordion">
+          <div class="dt"><a href="#formato" aria-expanded="false" aria-controls="formato" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Formato</h5></a></div>
+          <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="formato">
+
+
           <p>
             <?php echo $field;}  ?>
           </p>
+          </div>
         </div>
         <?php $field=get_field('proprietà'); if($field !==''){ ?>
-        <div class="proprieta">
-          <h5>Proprietà</h5>
+        <div class="accordion">
+          <div class="dt"><a href="#proprieta" aria-expanded="false" aria-controls="proprieta" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Proprietà</h5></a></div>
+          <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="proprieta ">
+
+
           <p>
             <?php echo $field;}  ?>
           </p>
+          </div>
         </div>
         <?php $field=get_field('uso'); if($field !==''){ ?>
-        <div class="uso">
-          <h5>Uso</h5>
+        <div class="  accordion">
+          <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Uso</h5></a></div>
+          <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="uso">
+
+
           <p>
             <?php echo $field;}  ?>
           </p>
+          </div>
         </div>
         <?php $field=get_field('precauzioni'); if($field !==''){ ?>
-        <div class="precauzioni">
-          <h5>Precauzioni</h5>
-          <p>
+        <div class="accordion">
+          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Precauzioni</h5></a></div>
+            <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
+            <p>
             <?php echo $field;}  ?>
           </p>
+          </div>
         </div>
     </div>
                <div class="slideshow correlati">

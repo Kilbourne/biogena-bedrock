@@ -50,6 +50,16 @@ function add_biogena_logo_menu( $items, $args ){
         $array_items    = explode( ',', $items );
         array_splice( $array_items, 2, 0, $new_item ); // splice in at position 3
         $items          = implode( '', $array_items );
+            $search = '<div id="sb-search" class="search menu-item sb-search inline-block">';
+    $search .= '<form method="get" id="searchform" action="'.home_url().'">';
+    $search .= '<input type="text" class="field sb-search-input" name="s" id="s" />';
+    $search .= '<input type="submit" class="submit sb-search-submit" name="submit" id="searchsubmit" value="Cerca" />';
+    $search .= '<i class="icon-search sb-icon-search fa-search"></i>';
+    $search .= '</form>';
+    $search .= '</div>';
+    $lang ='<div class="lang-container inline-block"><span class="it">IT</span><span class="en">EN</span> </div>';
+    $others='<li class="menu-item other">'.$search.$lang.'</li>';
+    $items .= $others;
     }
     return $items;
 }

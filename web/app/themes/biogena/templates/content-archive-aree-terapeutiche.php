@@ -21,14 +21,14 @@
                 </div>
 
           <hr>
-          <div class="u-1/2 inline-block prevenzione" >
+          <div class="u-1/2-lap-and-up inline-block prevenzione" >
             <h3>La soluzione Biogena:</h3><%= first.prevenzione %>
-          </div><div class="u-1/2 inline-block lineas" >
+          </div><div class="u-1/2-lap-and-up inline-block lineas" >
 
-          <a href="<%= first.linea_plink %> " title=""></a>
+          <a href="<%= first.linea_plink %> " title="">
 
           <%= first.linea_thumb %>
-
+          </a>
           </div>
           <hr>
           <div class="slideshow correlati">
@@ -67,14 +67,14 @@
                 </div>
 
           <hr>
-          <div class="u-1/2 inline-block prevenzione" >
+          <div class="u-1/2-lap-and-up inline-block prevenzione" >
             <h3>La soluzione Biogena:</h3><?= $first->prevenzione ?>
-          </div><div class="u-1/2 inline-block lineas" >
+          </div><div class="u-1/2-lap-and-up inline-block lineas" >
 
-          <a href="<?= $first->linea_plink; ?> " title=""></a>
+          <a href="<?= $first->linea_plink; ?> " title="">
 
           <?= $first->linea_thumb; ?>
-
+          </a>
           </div>
           <hr>
           <div class="slideshow correlati">
