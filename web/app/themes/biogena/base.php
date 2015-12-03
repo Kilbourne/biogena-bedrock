@@ -18,6 +18,7 @@ use Roots\Sage\Wrapper;
     <?php
       do_action('get_header');
       get_template_part('templates/header');
+      get_template_part('templates/full-background');
     ?>
 
       <div class="content row">

@@ -44,7 +44,7 @@ add_filter('wp_nav_menu_items', __NAMESPACE__ . '\\add_biogena_logo_menu', 10, 2
 function add_biogena_logo_menu( $items, $args ){
     if( $args->theme_location == 'primary_navigation' ) // only for primary menu
     {
-        $new_item       = array( '<li class="menu-logo menu-item menu-item-type-post_type menu-item-object-page"><a href="'.get_home_url().'"><div class="circle-container"><div class="s-circle"><img src="' . get_template_directory_uri() . '/assets/images/logo.svg" alt=""><h3>LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span></h3></div></div><div class="circle-fake"><div class="s-circle"><img src="' . get_template_directory_uri() . '/assets/images/logo.svg" alt=""><h3>LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span></h3></div></div></a></li>' );
+        $new_item       = array( '<li class="menu-logo menu-item menu-item-type-post_type menu-item-object-page"><a href="'.get_home_url().'"><div class="circle-container"><div class="s-circle"><img src="' . get_template_directory_uri() . '/assets/images/logo.svg" alt=""><h3>LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span></h3></div></div></a></li>' );
         $items          = preg_replace( '/<\/li>\s<li/', '</li>,<li',  $items );
 
         $array_items    = explode( ',', $items );
