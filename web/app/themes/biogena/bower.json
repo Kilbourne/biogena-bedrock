@@ -7,7 +7,6 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-
     "inuit-defaults": "latest",
     "inuit-responsive-settings": "latest",
     "inuit-functions": "latest",
@@ -47,7 +46,8 @@
     "underscore": "~1.8.3",
     "swiper": "~3.2.0",
     "jquery": "~1.11.3",
-    "font-awesome":"~4.5.0"
+    "font-awesome": "~4.5.0",
+    "FitText.js": "~1.2.0"
   },
   "overrides": {
     "background-check": {
@@ -55,7 +55,5 @@
         "background-check.js"
       ]
     }
-
-
   }
 }

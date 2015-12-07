@@ -2,7 +2,7 @@ var gulp        = require('gulp')
   , $           = require('gulp-load-plugins')({ camelize: true })
   , config      = require('../gulpconfig').fonts
   , browserSync = require("browser-sync").get('My server')
-  , del         = require('del') 
+  , del         = require('del')
 ;
 
 gulp.task('fonts', function() {
@@ -21,7 +21,7 @@ gulp.task ('font-css', function() {
 });
 
 // Remove the font-face SCSS file if a cleanup is run
-gulp.task('clean-font-css', del.bind(null, [config.scssDest]));
+gulp.task('clean-font-css', del.bind(null, [config.scssDest+'/'+config.scssName]));
 
 gulp.task('watch-font-css', function() {
   gulp.watch([config.src + config.css], ['font-css']);
