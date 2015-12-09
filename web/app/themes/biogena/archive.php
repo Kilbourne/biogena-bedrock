@@ -22,7 +22,7 @@ while (have_posts()) : the_post(); ?>
   <?php if($wp_query->current_post === 0) { get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); }?>
 <?php endwhile; ?>
 
-<?php the_posts_navigation(); 
-        
+<?php the_posts_navigation();
+
   ?>
 <?php endwhile;} endif; ?>

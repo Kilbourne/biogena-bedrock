@@ -13,7 +13,7 @@
       </div>
     </div>
     -->
-    <div class="slider slider-patologie active" >
+    <div class="slider slider-patologie active four" >
       <div class="swiper-wrapper">
     <?php
       $args = array(

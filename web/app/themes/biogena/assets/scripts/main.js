@@ -269,7 +269,7 @@ switchAccordion = function(e) {
           menu.parentElement.classList.add('active');
                   new Swiper('.slider-patologie', {
                     autoplay:2000
-                    ,slidesPerView: 3
+                    ,slidesPerView: 'auto'
                     ,autoplayDisableOnInteraction:true
                   });
                   $('.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a').click(linkCallback);
@@ -286,7 +286,7 @@ switchAccordion = function(e) {
             menu.parentElement.classList.add('active');
                     new Swiper('.slider-patologie', {
                       autoplay:2000
-                      ,slidesPerView: 3
+                      ,slidesPerView: 'auto'
                       ,autoplayDisableOnInteraction:true
                     });
                     $('.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a').click(linkCallback);
@@ -304,7 +304,7 @@ switchAccordion = function(e) {
             // $('.menu-aree-terapeutiche .sub-menu li').removeClass('active');
             menu.parentElement.classList.add('active');
             new Swiper('.slider-patologie', {
-                  slidesPerView: 3
+                  slidesPerView: 'auto'
                   ,autoplayDisableOnInteraction:true
                   });
 
@@ -323,7 +323,7 @@ switchAccordion = function(e) {
 
 
                               new Swiper('.slider-patologie', {
-                  slidesPerView: 4
+                  slidesPerView: "auto"
                   ,autoplayDisableOnInteraction:true
                   ,nextButton:'.swiper-button-next'
                   ,prevButton:'.swiper-button-prev'
@@ -343,7 +343,7 @@ switchAccordion = function(e) {
       init: function() {
               new Swiper('.slider-patologie', {
                   autoplay:2000
-                  ,slidesPerView: 3
+                  ,slidesPerView: "auto"
                   ,autoplayDisableOnInteraction:true
           });
       }

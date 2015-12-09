@@ -1,20 +1,24 @@
     <div class="background-slider slider">
+
             <div class="swiper-wrapper">
-              <?php if(is_home()){
-                  $posts = get_posts(array(
+              <?php if(is_home() || "linee" == get_post_type()){
+
+                  $slides = get_posts(array(
   'numberposts' => -1,
   'post_type' => 'background-slide'
 ));
 
-if($posts){
-  foreach($posts as $key => $post){
+if($slides){
+  foreach($slides as $key => $slide){
+
               ?>
-                <div class="swiper-slide" ><?php the_post_thumbnail( );?>      <div class="big-claim">
+
+                <div class="swiper-slide" ><?php echo get_the_post_thumbnail($slide->ID);?>      <div class="big-claim">
         <p class="up" >
-         <?php the_field('claim_parte_superiore'); ?>
+         <?php echo get_post_meta ( $slide->ID, 'claim_parte_superiore', true ); ?>
         </p>
         <p class="down" >
-         <?php the_field('claim_parte_inferiore'); ?>
+         <?php echo get_post_meta ( $slide->ID, 'claim_parte_inferiore', true ); ?>
         </p>
       </div></div>
 
