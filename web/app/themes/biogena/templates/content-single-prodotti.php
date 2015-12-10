@@ -1,8 +1,5 @@
-<?php while (have_posts()) : the_post(); ?>
-<?php delete_transient( 'biogena_data_prodotti'); $linea=biogenaData::data($post,get_post_type( $post ));
-
-
-        echo var_dump($linea);
+<?php while (have_posts()) : the_post();
+ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
 ?>
   <article <?php post_class(); ?>>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
@@ -74,11 +71,12 @@
             <h3>  Trattamenti coadiuvanti complementari </h3>
                 <div class=" slider-patologie active three" >
                     <div class="swiper-wrapper">
-<?php                 if ( count($connected2)>0 ){
+<?php   $connected2=$linea->first->conn_arr;
+              if ( count($connected2)>0 ){
 
           foreach ( $connected2 as $key2=>$prodotto ){
-          if($prodotto->ID!==$post->ID){ ?>
-                            <div class="swiper-slide"><a href="<?php echo get_permalink($prodotto->ID); ?>"><?php echo get_the_post_thumbnail($prodotto->ID); ?><div><h3><?php echo $prodotto->post_title; ?> </h3> </div> </a></div>
+          if($prodotto->permalink!==get_permalink($post)){ ?>
+                            <div class="swiper-slide"><a href="<?php echo $prodotto->permalink; ?>"><?php echo $prodotto->thumb; ?><div><h3><?php echo $prodotto->title; ?> </h3> </div> </a></div>
                          <?php
           }
 
