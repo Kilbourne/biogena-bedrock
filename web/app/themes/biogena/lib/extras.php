@@ -21,7 +21,7 @@ function body_class($classes) {
   if (Setup\display_sidebar()) {
     $classes[] = 'sidebar-primary';
   }
-  if (!is_home()) {
+  if (!is_home() && 'prodotti' != get_post_type()) {
     $classes[] = 'not-home';
   }
   return $classes;
@@ -57,7 +57,7 @@ function add_biogena_logo_menu( $items, $args ){
     $search .= '<i class="icon-search sb-icon-search fa-search"></i>';
     $search .= '</form>';
     $search .= '</div>';
-    $lang ='<div class="lang-container inline-block"><span class="it">IT</span><span class="en">EN</span> </div>';
+    $lang ='<div class="lang-container inline-block"><span class="it active">IT</span><span class="en">EN</span> </div>';
     $others='<li class="menu-item other">'.$search.$lang.'</li>';
     $items .= $others;
     }

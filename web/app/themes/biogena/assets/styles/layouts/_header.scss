@@ -36,31 +36,36 @@
     display: inline-block;
     line-height: 0.3;
     padding-left: 3%;
-    text-align: right;
+    text-align: left;
     position: absolute;
     left: 0;
     top: 33%;
     width:40%; //fitText
+    .up,.down{ white-space: nowrap;}
+    .down{ margin-left: 4rem;}
 }
-
+.swiper-slide.Slide2{
+  .down{ margin-left: 3rem;}
+}
 }
 
 .slideshow {
     .slider {
         display: none;
-        padding: 0 0 20px;
+        padding: 20px 0 ;
         margin-bottom: 0;
     }
     .slider.active {
         display: block;
     }
 }
-
+.swiper-button-prev{ left:0 !important;}
+.swiper-button-next{ right:0 !important;}
 
 /* FOOTER */
 
 footer {
-    a{ text-decoration: none;}
+    a{ text-decoration: none;color: #333;}
     &>.container {
         background-color: #F5F5F5;
         font-size: 0.75rem;
@@ -347,8 +352,8 @@ hr {
     }
 }
 
-.single-aree-terapeutiche,
-.post-type-archive-aree-terapeutiche {
+.single-aree-terapeutiche,.single-linee,
+.post-type-archive-aree-terapeutiche,.post-type-archive-linee {
     .flag-media {
         padding: 0% 2%;
         .flag-thumb {
@@ -371,7 +376,13 @@ hr {
         height: auto;
     }
 }
-
+.single-linee,.post-type-archive-linee{
+  .flag-media{
+    .flag-body{
+      width:calc(60% - 1rem);
+    }
+  }
+}
 .single-prodotti {
     img {
         height: auto;

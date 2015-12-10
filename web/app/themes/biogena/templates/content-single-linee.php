@@ -1,8 +1,8 @@
-<?php $arrayC=biogenaData::data(0,'linee'); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev; ?>
+<?php $arrayC=biogenaData::data(get_the_permalink(),'linee'); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev; ?>
  <script id="patologia" type="text/template" >
       <% var first=arrayC[index],next=(index+1)<arrayC.length?index+1:0,prev=(index-1)>-1?(index-1):arrayC.length-1 %>
            <div class="flag-media">
-                <div class="flag-thumb"><%= first.thumb %></div><div class="flag-body"><%first.content = first.content.replace(/<\/?[^>]+(>|$)/g, "").trim();if(first.content=='' ||first.content=='I TRATTAMENTI COADIUVANTI'|| first.content=='BIOGENA: I TRATTAMENTI COADIUVANTI'){first.content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'} %> <%= first.content  %></div>
+                <div class="flag-thumb"><%= first.thumb %></div><div class="flag-body"><%  first.content = first.content.replace(/<\/?[^>]+(>|$)/g, "").trim();if(first.content==''||first.content=='I TRATTAMENTI COADIUVANTI' || first.content=='BIOGENA: I TRATTAMENTI COADIUVANTI'){first.content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'} %> <%= first.content  %></div>
                 </div>
                   <hr>
         <div class="down-nav">

@@ -1,11 +1,8 @@
 <?php while (have_posts()) : the_post(); ?>
-<?php $linea=biogenaData::data($post,get_post_type( $post ));
-      $linea_name=$linea->post_name;
-        $connected2 = get_posts( array(
-                'connected_type' => 'linee_to_prodotti',
-                'connected_items' => $linea,
-                'nopaging' => true
-              ));
+<?php delete_transient( 'biogena_data_prodotti'); $linea=biogenaData::data($post,get_post_type( $post ));
+
+
+        echo var_dump($linea);
 ?>
   <article <?php post_class(); ?>>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">

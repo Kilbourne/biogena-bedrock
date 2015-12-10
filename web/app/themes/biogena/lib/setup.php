@@ -102,7 +102,7 @@ function assets() {
   wp_deregister_script('jquery' );
   wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, false);
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
-  wp_localize_script( 'sage/js', 'collegamenti', json_encode(biogenaData::data()) );
+  wp_localize_script( 'sage/js', 'collegamenti', json_encode(biogenaData::data(null,get_post_type())) );
 
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
