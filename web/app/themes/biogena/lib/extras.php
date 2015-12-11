@@ -16,7 +16,9 @@ function body_class($classes) {
       $classes[] = basename(get_permalink());
     }
   }
-
+  if (!Setup\display_full_slider() && 'aree-terapeutiche' != get_post_type() ){
+    $classes[] = 'no-full-slider';
+  }
   // Add class if sidebar is active
   if (Setup\display_sidebar()) {
     $classes[] = 'sidebar-primary';

@@ -1,4 +1,4 @@
-<?php $arrayC=biogenaData::data(get_the_permalink(),'linee'); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev; ?>
+<?php $arrayC=biogenaData::data(get_the_permalink(),'linee'); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;?>
  <script id="patologia" type="text/template" >
       <% var first=arrayC[index],next=(index+1)<arrayC.length?index+1:0,prev=(index-1)>-1?(index-1):arrayC.length-1 %>
            <div class="flag-media">

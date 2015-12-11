@@ -1,14 +1,14 @@
 
 
 
-<?php if (have_posts()) : the_post(); ?>
+
   <?php /* get_template_part('templates/page', 'header'); */ ?>
   <?php $post_type=get_post_type( $post );
         if (locate_template( "templates/content-archive-".$post_type.".php") ) { get_template_part('templates/content-archive',$post_type);}
         else{
 
 get_template_part('templates/page', 'header');
-
+ if (have_posts()) : the_post();
 while (have_posts()) : the_post(); ?>
 
 <?php if (!have_posts()) : ?>
@@ -25,4 +25,4 @@ while (have_posts()) : the_post(); ?>
 <?php the_posts_navigation();
 
   ?>
-<?php endwhile;} endif; ?>
+<?php endwhile; endif;} ?>

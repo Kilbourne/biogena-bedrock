@@ -25,15 +25,15 @@
             <h3>La soluzione Biogena:</h3><%= first.prevenzione %>
           </div><div class="inline-block lineas" >
 
-          <a href="<%= first.linea_plink %> " title="">
+          <a href="<%= first.right_obj_plink %> " title="">
 
-          <%= first.linea_thumb %>
+          <%= first.right_obj_thumb %>
           </a>
           </div>
           <hr>
           <div class="slideshow correlati">
           <h4>  I trattamenti coadiuvanti: </h4>
-            <h3>  <%= first.linea_title %>  </h3>
+            <h3>  <%= first.right_obj_title %>  </h3>
                 <div class=" slider-patologie active three" >
                     <div class="swiper-wrapper">
                   <% _.each(first.conn_arr,function(prod){ %>
@@ -71,15 +71,15 @@
             <h3>La soluzione Biogena:</h3><?= $first->prevenzione ?>
           </div><div class="inline-block lineas" >
 
-          <a href="<?= $first->linea_plink; ?> " title="">
+          <a href="<?= $first->right_obj_plink; ?> " title="">
 
-          <?= $first->linea_thumb; ?>
+          <?= $first->right_obj_thumb; ?>
           </a>
           </div>
           <hr>
           <div class="slideshow correlati">
           <h4>  I trattamenti coadiuvanti: </h4>
-            <h3>  <?= $first->linea_title; ?>  </h3>
+            <h3>  <?= $first->right_obj_title; ?>  </h3>
                 <div class=" slider-patologie active three" >
                     <div class="swiper-wrapper">
                   <?php foreach($first->conn_arr as $key=> $prod){ ?>

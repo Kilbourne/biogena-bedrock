@@ -22,11 +22,6 @@
 
 
 
-                new Swiper('.background-slider', {
-                    autoplay: 3500,
-                    slidesPerView: 1,
-                    autoplayDisableOnInteraction: true
-                });
 
 
 
@@ -34,6 +29,20 @@
             finalize: function() {
                 // JavaScript to be fired on all pages, after page specific JS is fired
                 //
+                if($('.background-slider .wp-post-image,.background-container .wp-post-image').length){
+                  BackgroundCheck.init({
+                    targets: '.nav-primary',
+                    images: '.background-slider .wp-post-image,.background-container .wp-post-image'
+                  });
+                }
+                new Swiper('.background-slider', {
+                    autoplay: 3500,
+                    slidesPerView: 1,
+                    autoplayDisableOnInteraction: true,
+                    onSlideChangeEnd: function() {
+                      BackgroundCheck.refresh();
+                    }
+                });
 
                 ;
                 (function(window) {

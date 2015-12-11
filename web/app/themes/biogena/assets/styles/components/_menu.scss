@@ -20,46 +20,133 @@ header.banner {
     border-top: 5px solid white;
     padding: 0px 7%;
     /*max-width: 840px;*/
-    .nav {
+    &>.nav {
         margin-left: 0;
         padding: 0px 10%;
-    }
-    a {
-        color: #fff;
-        text-decoration: none;
-    }
-    &>ul{
         display:flex;
         justify-content: space-around;
         align-items: center;
-        /*
-        &:after {
-            content: '';
-            display: inline-block;
-            width: 100%;
-        }
-        */
-        &>.menu-item {
-        display: none;
-        @include media-query(lap-and-up) {
-            display: inline-block;
-            /*
-            vertical-align: top;
-            margin: 3% 2.3vw 0px;
-            */
 
-        }
-        >a {
-            display: block;
+        &>.menu-item {
+          display: none;
+          position: relative;
+          &:hover .sub-menu {
+          display: block;
+          position: absolute;
+          }
+          @include media-query(lap-and-up) {
+            display: inline-block;
+          }
+          >a {
             padding: 2px 0.5rem 0px;
             >span{
-                padding-bottom: 44px;
+                padding-bottom: 44px;// !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            }
+          }
+          a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            font-size: 14px;// !!!!!!!
+          }
+          &.other{
+              position: absolute !important;
+              right: 5%;
+              top: 0px;
+              padding: 1% 0px;
+              color: rgb(255, 255, 255);
+          }
+          &.menu-logo:hover> a {
+              background-color: inherit;
+          }
+        }
+
+        .sub-menu {
+            display: none;
+            background-color: #fff;
+            top: 26px;// !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            left: 50%;
+            transform: translate(-50%);
+            z-index: 25;
+            text-align: center;
+            margin-left: 0;
+            padding: 0% 27%;
+            border-bottom-right-radius: 10px;// !!!!!!!!
+            border-bottom-left-radius: 10px;// !!!!!!!!!
+            &:hover{
+                display: block;
+                position: absolute;
+            }
+            .menu-item {
+                list-style: none;
+                padding: 0.5% 0;
+                text-align: left;
+                a {
+                    width: 160px; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                    color: #5E9CC3;
+                    padding: 1% 2%;
+                    white-space: pre;
+                    display: inline;
+                    text-align: center;
+                    margin: 0px auto;
+                }
             }
         }
+        .menu-item:hover>a {
+          text-decoration:underline;
+        }
+        .menu-item.active>a{
+          background-color: #2672B0;
+          color: #fff;
+        }
+        .menu-item.active:hover>a {
+          text-decoration:none;
+        }
+        .menu-area-baby:hover a,.menu-linea-osmin:hover a{
+          text-decoration:none;
         }
     }
 }
+/*
+.archive,
+.single {
+    #menu-menu-1>li>a,
+    {
+        color: #4D74AB;
+    }
+}
 
+
+.menu-aree-terapeutiche .sub-menu li.active a {
+    color: #fff;
+    text-decoration: underline;
+}
+.menu-linea-osmin:hover{
+    &>a {
+        color: #5E9CC3 !important;
+        background-color: inherit !important;
+    }
+}
+
+
+.menu-item:hover,
+.single #menu-menu-1 > li:hover
+.menu-item.active:hover > a {
+    background-color: inherit;
+}
+.single{
+  .header-content-wrapper {
+    position: static;
+  }
+  #menu-menu-1{
+    margin-bottom: 0;
+    >li{
+      padding:0;
+    }
+  }
+}
+
+*/
 .menu-logo{
     /*
     display: inline-block !important;
@@ -68,6 +155,7 @@ header.banner {
      */
     .circle-container {
        display:inline-block;
+       padding: 0px 0px 0.5rem;
     }
 
     .s-circle {
@@ -152,111 +240,7 @@ header.banner {
 
 /* MENU */
 
-#menu-menu-1 {
-    li {
-        position: relative;
-        &:hover ul {
-        display: block;
-        position: absolute;
-        }
-        a {
-            display: block;
-            color: #fff;
-            font-size: 14px;
-        }
-        ul {
-            display: none;
-            background-color: #fff;
-            top: 26px;
-            left: 50%;
-            transform: translate(-50%);
-            z-index: 25;
-            text-align: center;
-            margin-left: 0;
-            padding: 0% 27%;
-            border-bottom-right-radius: 10px;
-            border-bottom-left-radius: 10px;
-            &:hover{
-                display: block;
-                position: absolute;
-            }
-            li {
-                list-style: none;
-                padding: 0.5% 0;
-                text-align: left;
-                a {
-                    width: 160px;
-                    color: #5E9CC3;
-                    padding: 1% 2%;
-                    white-space: pre;
-                    display: inline;
-                    text-align: center;
-                    margin: 0px auto;
-                }
-                ul li {
-                    float: left;
-                    position: relative;
-                    text-transform: uppercase;
-                    list-style: none;
-                    a {
-                        font-size: 11px;
-                        padding: 1% 5%;
-                    }
-                }
-            }
-        }
-    }
-    >.menu-item.active>a{
-    background-color: #2672B0;
-    color: #fff;
-    }
 
-}
-.archive,
-.single {
-    #menu-menu-1>li>a,
-    {
-        color: #4D74AB;
-    }
-}
-
-.menu-aree-terapeutiche .sub-menu li.active a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-
-
-.menu-item:hover,
-.single #menu-menu-1 > li:hover {
-    &>a {
-        color: #fff !important;
-        background-color: #6ABAFB;
-    }
-}
-
-.menu-item.active:hover > a {
-    background-color: inherit;
-}
-
-.single #menu-menu-1 > .menu-logo:hover > a,
-.menu-logo:hover> a {
-    background-color: inherit;
-}
-
-.menu-linea-osmin:hover{
-    &>a {
-        color: #5E9CC3 !important;
-        background-color: inherit !important;
-    }
-}
-.nav-primary > ul >.menu-item.other{
-    position: absolute !important;
-    right: 5%;
-    top: 0px;
-    padding: 1% 0px;
-    color: rgb(255, 255, 255);
-}
 .search.menu-item {
     min-width: 1.25rem;
     height: 1.25rem;
@@ -344,3 +328,38 @@ header.banner {
 vertical-align: middle;
     }
 }
+
+.fake-opacity {
+    width: 100%;
+    left: 0px;
+    height: 5rem;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    opacity:0;
+}
+.nav-primary.background--light{
+  .fake-opacity {
+    opacity:1;
+  }
+  &>.nav{
+   a,.menu-item.other{
+    color: #5E9CC3;
+    }
+  }
+}
+.no-full-slider{
+  .header-content-wrapper{
+    background-color: rgb(77, 116, 171);
+    position: static;
+  }
+  .nav-primary .menu-item {
+    >a{
+    color:#fff
+    }
+    &.active>a{
+      background-color:#fff ;
+      color: #2672B0;
+    }
+  }
+}
+

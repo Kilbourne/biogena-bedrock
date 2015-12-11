@@ -1,5 +1,5 @@
 <?php while (have_posts()) : the_post();
- $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
+$linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
 ?>
   <article <?php post_class(); ?>>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">

@@ -106,3 +106,16 @@ function assets() {
 
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
+
+function display_full_slider() {
+  static $display;
+
+  isset($display) || $display = in_array(true, [
+    // The sidebar will NOT be displayed if ANY of the following return true.
+    // @link https://codex.wordpress.org/Conditional_Tags
+    is_home(),
+    "linee" == get_post_type()
+  ]);
+
+  return apply_filters('sage/display_full_slider', $display);
+}
