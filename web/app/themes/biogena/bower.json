@@ -47,7 +47,8 @@
     "swiper": "~3.2.0",
     "jquery": "~1.11.3",
     "font-awesome": "~4.5.0",
-    "FitText.js": "~1.2.0"
+    "FitText.js": "~1.2.0",
+    "js-url": "~2.0.2"
   },
   "overrides": {
     "background-check": {

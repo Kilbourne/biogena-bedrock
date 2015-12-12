@@ -294,7 +294,7 @@
                         slidesPerView: 'auto',
                         autoplayDisableOnInteraction: true
                     });
-                    $('.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a').click(linkCallback);
+
                 }
                 window.onpopstate = function(event) {
                     if (event.state) {
@@ -311,7 +311,7 @@
                             slidesPerView: 'auto',
                             autoplayDisableOnInteraction: true
                         });
-                        $('.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a').click(linkCallback);
+
                     }
                 };
 
@@ -330,7 +330,7 @@
                     autoplayDisableOnInteraction: true
                 });
 
-                $('.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a,.menu-prodotti .sub-menu a').click(linkCallback);
+                $('body').on('click','.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a,.menu-prodotti .sub-menu a',linkCallback);
 
             }
         },
