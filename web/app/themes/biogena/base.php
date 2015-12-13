@@ -18,10 +18,14 @@ use Roots\Sage\Wrapper;
     <?php
       do_action('get_header');
       get_template_part('templates/header');
-      get_template_part('templates/full-background');
     ?>
 
       <div class="content row">
+        <?php
+          if (Setup\display_full_slider()) :
+          get_template_part('templates/full-background');
+          endif;
+        ?>
         <main class="main">
           <?php include Wrapper\template_path(); ?>
         </main><!-- /.main -->
@@ -38,5 +42,6 @@ use Roots\Sage\Wrapper;
       wp_footer();
     ?>
     </div><!-- /.wrap -->
+    <?php get_template_part('templates/underscore-template'); ?>
   </body>
 </html>

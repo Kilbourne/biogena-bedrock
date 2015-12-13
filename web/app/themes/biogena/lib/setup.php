@@ -114,7 +114,8 @@ function display_full_slider() {
     // The sidebar will NOT be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
     is_home(),
-    "linee" == get_post_type()
+    "linee" == get_post_type(),
+    "aree-terapeutiche" == get_post_type()
   ]);
 
   return apply_filters('sage/display_full_slider', $display);

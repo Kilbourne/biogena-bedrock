@@ -52,7 +52,8 @@
   },
   "require-dev": {
     "wpackagist-plugin/p3-profiler": "1.5.3.9",
-    
+    "wpackagist-plugin/show-current-template": "0.2.2",
+    "wpackagist-plugin/debug-bar-console": "0.3",
     "wpackagist-plugin/query-monitor": "2.8.1",
     "wpackagist-plugin/debug-bar": "0.8.2"
   },
