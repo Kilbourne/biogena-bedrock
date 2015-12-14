@@ -2,7 +2,6 @@
     <div class="background-slider slider">
 
       <div class="swiper-wrapper">
-/*
 <?php
     $slides = get_posts(array('numberposts' => - 1, 'post_type' => 'background-slide'));
 

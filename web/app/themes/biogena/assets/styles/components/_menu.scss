@@ -362,4 +362,112 @@ vertical-align: middle;
     }
   }
 }
+.responsive-menu-wrapper {
+    position: fixed;
+    width: 100%;
+    background-color: #1766a9;
+    text-align: center;
+    top: 0px;
+    padding-top: 10px;
+    display: none;
+    z-index: 9999;
+    left:0;
+}
+.background-slider {
+  position: relative;
+  img {
+        width: 100%;
+        height: auto;
+        position: relative;
+  }
+  .big-claim {
+    color: white;
+    font-size: 2.3rem;
+    display: inline-block;
+    line-height: 0.3;
+    padding-left: 3%;
+    text-align: left;
+    position: absolute;
+    left: 0;
+    top: 33%;
+    width:40%; //fitText
+    .up,.down{ white-space: nowrap;}
+    .down{ margin-left: 4rem;}
+    }
+    .swiper-slide.Slide2{
+      .down{ margin-left: 3rem;}
+    }
+}
+/* SLIDER */
 
+.slider {
+    overflow: hidden;
+    margin-bottom: 0 !important;
+}
+
+
+
+.slideshow {
+    .slider {
+        display: none;
+        padding: 20px 0 ;
+        margin-bottom: 0;
+    }
+    .slider.active {
+        display: block;
+    }
+}
+.swiper-button-prev{ left:0 !important;}
+.swiper-button-next{ right:0 !important;}
+@media (max-width:53.4em) {
+  .responsive-menu-wrapper {
+    display:inline-block
+  }
+  #click-menu{
+    display: inline-block !important;
+    position: relative !important;
+    right: 0 !important;
+    top: 0 !important;
+  }
+  .page-wrapper>.content{
+    margin-top: 3.3rem;
+  }
+  .nav-primary{
+    border-top: none;
+  }
+  #click-menu.admin-bar-showing {
+    margin-top: 0 !important;
+  }
+  #responsive-menu.admin-bar-showing {
+    padding-top: 0 !important;
+  }
+  #responsive-menu #responsive-menu-title {
+    padding: 16px 0px 16px 5%;
+  }
+  .background-slider .big-claim,.news-box{
+    position:static;
+  }
+  .background-slider .big-claim{
+    width: 100%;
+    color: black;
+    line-height: 1.5;
+    padding: 0 3%;
+    .up,.down{
+      white-space:normal;
+      margin:0;
+      display:inline;
+    }
+    .down{ margin-left: 0 !important;}
+  }
+  .slideshow .slider{
+    padding-top:0;
+  }
+  .news-box{
+    max-width:100%;
+  }
+}
+#wpadminbar {
+  position:fixed!important;
+  bottom:0!important;
+  top:auto!important
+}

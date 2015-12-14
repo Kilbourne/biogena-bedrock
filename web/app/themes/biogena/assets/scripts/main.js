@@ -41,11 +41,20 @@
                         });
                     }
                 }
-                $('body').on('click', '.down-nav .next>a,.down-nav .prev>a,.menu-aree-terapeutiche .sub-menu a,.menu-prodotti .sub-menu a,.menu-aree-terapeutiche>a,.menu-prodotti>a', linkCallback);
+                $('body').on('click', '.down-nav .next>a,.down-nav .prev>a,.aree-terapeutiche .sub-menu a,.linee .sub-menu a,.aree-terapeutiche>a,.linee>a', linkCallback);
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
-            },
-            finalize:function(){
+                enquire.register("screen and (max-width:49.999em)", {
+                  match : function() {
+
+                  },
+                  unmatch : function() {}
+                });
+                enquire.register("screen and (min-width:50em)", {
+                  match : function() {},
+                  unmatch : function() {}
+                });
+
               if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions);
             }
         },
@@ -159,11 +168,9 @@
     }
 
     function kindAjax(URL) {
-        var index, checkPostType,postData,postType,menu, submenu,
-            domain = url('domain', URL),
+        var index, checkPostType,postData,postType,menu, submenu,submenus,
             last = url(-1, URL),
             penultimate = url(-2, URL);
-        if (domain === 'localho.st') {
             checkPostType = findPostType();
             postData = checkPostType[0];
             postType = checkPostType[1];
@@ -192,17 +199,18 @@
                 }
               }
             }
-            menu = $('.menu-' + postType);
-            if (!menu.hasClass('active')) {
-                $('#menu-menu-1>.menuitem').removeClass('active');
+            menu = $('.' + postType);
+            if (menu.length !== menu.add('.active').length) {
+                $('#menu-menu-1>.menu-item,#menu-mobile-menu.menu-item').removeClass('active');
                 menu.addClass('active');
             }
             submenus = menu.find('.sub-menu li');
-            submenu = submenus.slice(index - 1, index);
-            if (!menu.hasClass('active')) {
-                submenus.removeClass('active');
+            submenu = submenus.slice(index , index + 1);
+            if (submenu.length !== submenu.add('.active').length) {
+                $('.sub-menu .menu-item').removeClass('active');
                 submenu.addClass('active');
             }
+            BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
             BackgroundCheck.refresh();
             if (downSlider instanceof Swiper) downSlider.destroy(true, true);
             downSlider=null;
@@ -214,7 +222,7 @@
                     prevButton: '.swiper-button-prev'
             };
             if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions2);
-        }
+
 
         function findPostType() {
             return !!collegamenti[last] ? [collegamenti[last], last] : !!collegamenti[penultimate] ? [collegamenti[penultimate], penultimate] : null;

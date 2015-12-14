@@ -48,6 +48,8 @@ function setup() {
   // Use main stylesheet for visual editor
   // To add custom styles edit /assets/styles/layouts/_tinymce.scss
   add_editor_style(Assets\asset_path('styles/main.css'));
+
+  add_theme_support( 'admin-bar', array( 'callback' => '__return_false' ) );
 }
 add_action('after_setup_theme', __NAMESPACE__ . '\\setup');
 
@@ -120,3 +122,5 @@ function display_full_slider() {
 
   return apply_filters('sage/display_full_slider', $display);
 }
+
+

@@ -16,8 +16,7 @@
           <p class="up" >
            <?php
             echo get_post_meta($slide->ID, 'claim_parte_superiore', true); ?>
-         </p>
-         <p class="down" >
+         </p><p class="down" >
            <?php
             echo get_post_meta($slide->ID, 'claim_parte_inferiore', true); ?>
          </p>

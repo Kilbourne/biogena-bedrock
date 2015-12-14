@@ -9,6 +9,7 @@
 
 .page-wrapper {
     padding: 0;
+    overflow:hidden;
 }
 
 
@@ -16,51 +17,7 @@
 
 
 
-/* SLIDER */
 
-.slider {
-    overflow: hidden;
-    margin-bottom: 0 !important;
-}
-
-.background-slider {
-  position: relative;
-      img {
-        width: 100%;
-        height: auto;
-        position: relative;
-    }
-  .big-claim {
-    color: white;
-    font-size: 2.3rem;
-    display: inline-block;
-    line-height: 0.3;
-    padding-left: 3%;
-    text-align: left;
-    position: absolute;
-    left: 0;
-    top: 33%;
-    width:40%; //fitText
-    .up,.down{ white-space: nowrap;}
-    .down{ margin-left: 4rem;}
-}
-.swiper-slide.Slide2{
-  .down{ margin-left: 3rem;}
-}
-}
-
-.slideshow {
-    .slider {
-        display: none;
-        padding: 20px 0 ;
-        margin-bottom: 0;
-    }
-    .slider.active {
-        display: block;
-    }
-}
-.swiper-button-prev{ left:0 !important;}
-.swiper-button-next{ right:0 !important;}
 
 /* FOOTER */
 
@@ -217,23 +174,57 @@ hr {
 .down-nav {
     padding: 1% 0px 0;
     text-align: center;
+
+    .line {
+
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 1.5rem;
+      color: rgb(42, 121, 178);
+      .title {
+        display: inline-block;
+          margin: 0px 3rem;
+
+
+      }
+      .prev,.next{
+        height: 100%;
+        width: 9%;
+        vertical-align: top;
+        position: relative;
+
+        a{
+          left: 0px;
+          top: 50%;
+          transform: translateY(-50%);
+
+        }
+      }
+    }
+}
+.not-home{
+  .down-nav {
+.line {
+@include  media-query(palm){ height: 5rem ;}
+.title {
+@include media-query(palm){
+            margin: 0px 2%;
+            width: 80%;
+            white-space: normal;
+          }
+      }
+      .prev,.next{
+       @include  media-query(palm){ display: inline-block; }
+        @include  media-query(lap-and-up){ vertical-align: middle;}
+        a{
+        @include  media-query(palm){ position: absolute;}
+        }
+      }
+    }
+}
 }
 
-.line {
-    display: inline-block;
-    white-space: nowrap;
-    font-size: 1.5rem;
-    color: rgb(42, 121, 178);
-    .title {
-        margin: 0px 3rem;
-        @include media-query(palm){
-          margin:0 2rem;
-        }
-    }
-    .prev,.next{
-      vertical-align: middle;
-    }
-}
+
 
 .slider-patologie {
     overflow: hidden;
@@ -290,6 +281,7 @@ hr {
     margin: 0 auto;
     display: block;
     height: auto;
+    max-width:100%;
 }
 
 .single article {
