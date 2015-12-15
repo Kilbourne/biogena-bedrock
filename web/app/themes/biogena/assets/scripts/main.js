@@ -158,16 +158,19 @@
     // Load Events
     $(document).ready(UTIL.loadEvents);
     function popstateCallback(event) {
-      if (event.state) {
-          kindAjax(event.state.href);
+      if (!!event.state) {
+          kindAjax(event.state.href,false);
+      }else{
+
+        document.location.reload()
       }
     };
     function linkCallback(e) {
         e.preventDefault();
-        kindAjax(e.currentTarget.href);
+        kindAjax(e.currentTarget.href,true);
     }
 
-    function kindAjax(URL) {
+    function kindAjax(URL,pop) {
         var index, checkPostType,postData,postType,menu, submenu,submenus,
             last = url(-1, URL),
             penultimate = url(-2, URL);
@@ -176,10 +179,12 @@
             postType = checkPostType[1];
             index = checkIndex();
             template();
-            history.pushState(
-              { href:URL},
-              "", URL
-            );
+            if(!!pop){
+              history.pushState(
+                { href:URL},
+                "", URL
+              );
+            }
             if(postType!==oldPostType){
               oldPostType=postType;
               if(postType==='aree-terapeutiche'){

@@ -264,8 +264,9 @@ header.banner {
     padding: 1% 12% 1% 2%;
     margin: 0;
     z-index: 10;
+    text-indent: -9999px;
     font-family: inherit;
-    color: #2C3E50;
+    color: #006EB6;
 }
 
 #searchsubmit,
@@ -284,8 +285,8 @@ header.banner {
 }
 #s,
 .icon-search {
-    background-color: transparent !important ;
-    border: 0px none !important;
+    background-color: transparent ;
+    border: 0px none;
 }
 #searchsubmit {
     opacity: 0;
@@ -307,13 +308,20 @@ header.banner {
 }
 
 .sb-search.sb-search-open {
-    width: 13%
+    width: 150px;
 }
-
+.sb-search.sb-search-open #s{
+  border: 1px solid rgb(0, 110, 182);
+  background-color: #fff;
+  text-indent: inherit;
+}
 .sb-search.sb-search-open .sb-icon-search {
-    background: #fff;
-    color: #006EB6;
+    background:#006EB6;
+    color: #fff;
     z-index: 11
+}
+.sb-search.sb-search-open #searchsubmit {
+    z-index: 91;
 }
 .lang-container{
   font-size: 0.85rem;
@@ -343,7 +351,7 @@ vertical-align: middle;
   }
   &>.nav{
    a,.menu-item.other{
-    color: #5E9CC3;
+    color: #006EB6;
     }
   }
 }
