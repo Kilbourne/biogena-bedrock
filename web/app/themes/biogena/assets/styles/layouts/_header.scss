@@ -167,12 +167,12 @@ hr {
     height: 1px;
     border: 0;
     border-top: 1px solid rgb(80, 128, 177);
-    margin: 1em 0;
+    margin: 0 0 1em;
     padding: 0;
 }
 
 .down-nav {
-    padding: 1% 0px 0;
+    margin: 1em 0px;
     text-align: center;
 
     .line {
@@ -184,13 +184,12 @@ hr {
       .title {
         display: inline-block;
           margin: 0px 3rem;
-
+        vertical-align: middle;
 
       }
       .prev,.next{
-        height: 100%;
-        width: 9%;
-        vertical-align: top;
+
+        vertical-align: -7px;
         position: relative;
 
         a{
@@ -205,7 +204,7 @@ hr {
 .not-home{
   .down-nav {
 .line {
-@include  media-query(palm){ height: 5rem ;}
+
 .title {
 @include media-query(palm){
             margin: 0px 2%;
@@ -215,10 +214,8 @@ hr {
       }
       .prev,.next{
        @include  media-query(palm){ display: inline-block; }
-        @include  media-query(lap-and-up){ vertical-align: middle;}
-        a{
-        @include  media-query(palm){ position: absolute;}
-        }
+
+
       }
     }
 }
@@ -324,7 +321,7 @@ hr {
 .single-aree-terapeutiche,.single-linee,
 .post-type-archive-aree-terapeutiche,.post-type-archive-linee {
     .flag-media {
-        padding: 0% 2%;
+        padding: 0% 2% 1em;
         .flag-thumb {
             width: 40%;
             margin-right: 1rem;
@@ -334,6 +331,14 @@ hr {
         .flag-body {
             display: inline-block;
             width:100%;
+            margin: 0px;
+
+            p{
+              text-align: justify;
+              display: inline;
+              padding:0;
+              margin:0;
+            }
         }
         img {
             height: auto;

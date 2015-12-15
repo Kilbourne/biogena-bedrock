@@ -81,7 +81,9 @@
 
           <hr>
           <div class="inline-block prevenzione" >
-            <h3>La soluzione Biogena:</h3><%= first.prevenzione %>
+            <h3>La soluzione Biogena:</h3><div class="flag-media">
+
+                 <div class="flag-body"><p><%= first.prevenzione %></p></div></div>
           </div><div class="inline-block lineas" >
 
           <a href="<%= first.right_obj_plink %> " title="">
