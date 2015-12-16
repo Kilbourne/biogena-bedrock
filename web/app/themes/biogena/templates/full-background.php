@@ -49,9 +49,9 @@
  <div class="background-container">
 <?php
 if ( is_post_type_archive() ) {
-echo biogenaData::data(0)->first->thumb;
+$aaa=biogenaData::data(0)->first;echo '<img  class="attachment-post-thumbnail wp-post-image" src="'.$aaa->feat.'" alt=""><div class="big-claim">'.$aaa->claim.'</div>';
 }else if(is_single()){
- the_post_thumbnail();
+ echo '<img  class="attachment-post-thumbnail wp-post-image" src="'.get_field('immagine_full_width')['url'].'" alt=""><div class="big-claim">'.get_field('claim_').'</div>';
 
 }
 ?>

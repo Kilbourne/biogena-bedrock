@@ -26,6 +26,12 @@ use Roots\Sage\Wrapper;
           get_template_part('templates/full-background');
           endif;
         ?>
+        <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+            <?php if(function_exists('bcn_display'))
+            {
+                bcn_display();
+            }?>
+        </div>
         <main class="main">
           <?php include Wrapper\template_path(); ?>
         </main><!-- /.main -->

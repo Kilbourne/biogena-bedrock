@@ -1,4 +1,4 @@
-<?php $arrayC=biogenaData::data(0); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;?>
+<?php delete_transient( 'biogena_data_aree-terapeutiche');$arrayC=biogenaData::data(0); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;?>
 
 
 
@@ -33,8 +33,7 @@
           </div>
           <hr>
           <div class="slideshow correlati">
-          <h4>  I trattamenti coadiuvanti: </h4>
-            <h3>  <?= $first->right_obj_title; ?>  </h3>
+                <h4>  Scopri la linea <?= $first->right_obj_title; ?></h4>
                 <div class=" slider-patologie active three" >
                     <div class="swiper-wrapper">
                   <?php foreach($first->conn_arr as $key=> $prod){ ?>

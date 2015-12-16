@@ -48,7 +48,10 @@
     "wpackagist-plugin/custom-post-type-ui": "1.1.2",
     "wpackagist-plugin/responsive-menu": "2.8.5",
     "wpackagist-plugin/updraftplus": "1.11.18",
-    "kilbourne/biogena-data": "dev-master@dev"
+    "wpackagist-plugin/transients-manager": "1.7.1",
+    "wpackagist-plugin/advanced-excerpt": "4.2.3",
+    "wpackagist-plugin/breadcrumb-navxt": "5.3.1",
+    "kilbourne/biogena-data": "2.2.2"
   },
   "require-dev": {
     "wpackagist-plugin/p3-profiler": "1.5.3.9",

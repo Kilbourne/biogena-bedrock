@@ -4,6 +4,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
   <article <?php post_class(); ?>>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
+
       <div class="like">
 
 <iframe
@@ -19,6 +20,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
         </header>
         <div class="entry-content">
           <?php the_content(); ?>
+          <div class="ean"><?php echo 'EAN: '.get_field('ean'); ?></div>
         </div>
         <?php $field=get_field('formato'); if($field !==''){ ?>
         <div class=" accordion">
@@ -44,6 +46,18 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
           </div>
         </div>
         <?php }  ?>
+                <?php $field=get_field('composizione'); if($field !==''){ ?>
+        <div class="accordion">
+          <div class="dt"><a href="#composizione" aria-expanded="false" aria-controls="composizione" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Composizione</h5></a></div>
+          <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="composizione ">
+
+
+          <p>
+            <?php echo $field;  ?>
+          </p>
+          </div>
+        </div>
+        <?php }  ?>
         <?php $field=get_field('uso'); if($field !==''){ ?>
         <div class="  accordion">
           <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Uso</h5></a></div>
@@ -60,6 +74,16 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
         <div class="accordion">
           <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Precauzioni</h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
+            <p>
+            <?php echo $field;  ?>
+          </p>
+          </div>
+        </div>
+        <?php }  ?>
+        <?php $field=get_field('evidenze_cliniche'); if($field !==''){ ?>
+        <div class="accordion">
+          <div class="dt"><a href="#evidenze_cliniche" aria-expanded="false" aria-controls="evidenze_cliniche" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Evidenze Cliniche</h5></a></div>
+            <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="evidenze_cliniche">
             <p>
             <?php echo $field;  ?>
           </p>

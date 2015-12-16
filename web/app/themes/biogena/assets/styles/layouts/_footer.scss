@@ -1,0 +1,41 @@
+footer {
+    a{ text-decoration: none;color: #333;}
+    &>.container {
+        background-color: #F5F5F5;
+        font-size: 0.75rem;
+        padding: 1% 3%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        &>div {
+          padding: 8px 0px;
+          margin-right: 4%;
+          display: inline-block;
+        }
+        &>div:last-child{
+          margin-right:0;
+        }
+        &>.social {
+            padding: 0;
+            .fb {
+                background-image: url('../images/fb.png');
+            }
+            .twt {
+                background-image: url('../images/twt.png');
+            }
+            .insta {
+                background-image: url('../images/insta.png');
+            }
+            .yt {
+                background-image: url('../images/yt.png');
+            }
+            span {
+                width: 30px;
+                display: inline-block;
+                height: 30px;
+                margin-right: 5px;
+            }
+        }
+    }
+}

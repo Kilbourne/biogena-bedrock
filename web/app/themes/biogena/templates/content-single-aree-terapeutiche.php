@@ -32,8 +32,7 @@
           </div>
           <hr>
           <div class="slideshow correlati">
-          <h4>  I trattamenti coadiuvanti: </h4>
-            <h3>  <?= $first->right_obj_title; ?>  </h3>
+              <h4>  Scopri la linea <?= $first->right_obj_title; ?></h4>
                 <div class=" slider-patologie active three" >
                     <div class="swiper-wrapper">
                   <?php foreach($first->conn_arr as $key=> $prod){ ?>

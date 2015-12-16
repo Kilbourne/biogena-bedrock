@@ -61,7 +61,7 @@
  </script>
   <script id="aree-terapeutiche" type="text/template" >
 
- <div class="background-container"> <%= first.thumb %></div>
+ <div class="background-container"><img  class="attachment-post-thumbnail wp-post-image" src="<%= first.feat %>" alt=""><div class="big-claim"><%= first.claim %></div> </div>
  <main class="main">
         <div class="down-nav">
 <div class="line">
@@ -93,8 +93,8 @@
           </div>
           <hr>
           <div class="slideshow correlati">
-          <h4>  I trattamenti coadiuvanti: </h4>
-            <h3>  <%= first.right_obj_title %>  </h3>
+          <h4>  Scopri la linea <%= first.right_obj_title %>  </h4>
+
                 <div class=" slider-patologie active three" >
                     <div class="swiper-wrapper">
                   <% _.each(first.conn_arr,function(prod){ %>

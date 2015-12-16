@@ -1,0 +1,109 @@
+.accordion{
+  margin: 1.5rem auto;
+}
+.accordion dl,
+.accordion-list {
+   border:1px solid #ddd;
+   &:after {
+       content: "";
+       display:block;
+       height:1em;
+       width:100%;
+       background-color:darken(#38cc70, 10%);
+     }
+}
+.accordion .accordion-content,
+.accordion__panel {
+
+   font-size:1em;
+   line-height:1.5em;
+}
+.accordion p {
+  padding:1em 2em 1em 2em;
+}
+
+
+.accordionTitle,
+.accordion__Heading {
+
+   text-align:center;
+     font-weight:700;
+
+          display:block;
+          text-decoration:none;
+          color:#fff;
+          transition:background-color 0.5s ease-in-out;
+
+  &:before {
+   content: "+";
+   font-size:1.5em;
+   line-height:1.25em;
+   float:left;
+   transition: transform 0.3s ease-in-out;
+   margin-left: 5px;
+  }
+  &:hover {
+    background-color:darken(#38cc70, 10%);
+  }
+  h5{margin:0;}
+}
+.accordionTitleActive,
+.accordionTitle.is-expanded {
+   background-color:darken(#38cc70, 10%);
+    &:before {
+
+      transform:rotate(-225deg);
+    }
+}
+.accordion-content {
+    height:auto;
+    overflow:hidden;
+    //SHAME: magic number to allow the accordion to animate
+
+
+    transition:max-height 1s;
+
+
+    @media screen and (min-width:48em) {
+
+        transition:max-height 0.5s
+
+    }
+
+
+}
+
+.accordion-content.is-collapsed {
+    max-height:0;
+}
+.no-js .accordionItem.is-collapsed {
+  max-height: auto;
+}
+.animateIn {
+     animation: accordionIn 0.45s normal ease-in-out both 1;
+}
+.animateOut {
+     animation: accordionOut 0.45s alternate ease-in-out both 1;
+}
+@keyframes accordionIn {
+  0% {
+    opacity: 0;
+    transform:scale(0.9) rotateX(-60deg);
+    transform-origin: 50% 0;
+  }
+  100% {
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+@keyframes accordionOut {
+    0% {
+       opacity: 1;
+       transform:scale(1);
+     }
+     100% {
+          opacity:0;
+           transform:scale(0.9) rotateX(-60deg);
+       }
+}
