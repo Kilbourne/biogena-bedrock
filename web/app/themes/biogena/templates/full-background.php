@@ -1,4 +1,4 @@
-<?php if(is_home() || "linee" == get_post_type()){ ?>
+<?php if(is_home()){ ?>
     <div class="background-slider slider">
 
       <div class="swiper-wrapper">
@@ -57,5 +57,20 @@ $aaa=biogenaData::data(0)->first;echo '<img  class="attachment-post-thumbnail wp
 ?>
 </div>
 
-<?php } ?>
+<?php }else if("linee" == get_post_type()){ ?>
+<div class="background-container">
+<?php
 
+
+if ( is_post_type_archive() ) {
+  $aaa=biogenaData::data(0,'linee')->first;//echo var_dump($aaa);
+echo $aaa->thumb.'<div class="big-claim">'.$aaa->claim.'</div>';
+}else if(is_single()){
+$aaa=biogenaData::data(get_the_permalink(),'linee')->first;//echo var_dump($aaa);
+ echo the_post_thumbnail( ).'<div class="big-claim">'.$aaa->claim.'</div>';
+
+}
+?>
+</div>
+
+<?php } ?>

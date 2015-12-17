@@ -20,25 +20,37 @@
 .single article {
     padding: 2%;
 }
+.single-prodotti article {
+    padding: 0;
+}
 
 .single .slideshow.correlati {
     margin-top: 1.5rem;
+        background: rgba(255,255,255,1);
+    background-image: linear-gradient(to bottom, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
 }
 
 .single .content-single-wrapper {
     vertical-align: top;
+    header{
+      margin-bottom: 1rem;
+    }
     h1,
     h5 {
-        background-color: rgba(38, 114, 176, 0.81);
-        color: #fff;
-        text-align: center;
-        margin: 0px auto 1.5rem;
+       color: rgb(36, 86, 155);
+    text-align: center;
+    margin: 0px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid;
+    padding: 1.3% 0px;
     }
     h1 {
         font-size: 2rem;
     }
     h5 {
-        font-size: 1.2rem;
+        font-size: 1.075rem;
+        padding: 0.25rem 0;
+        color:#fff;
     }
     p {
         font-size: 1rem;
@@ -81,15 +93,49 @@
   width:calc(50% - 0.75rem);
   };
 }
+.single-aree-terapeutiche,.single-linee,
+.post-type-archive-aree-terapeutiche,.post-type-archive-linee {
+    .flag-media {
+        padding:  1em 2%;
+        .flag-thumb {
+            width: 40%;
+            margin-right: 1rem;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .flag-body {
+            display: inline-block;
+            width:100%;
+            margin: 0px;
+            padding: 0px 2% 1%;
+            font-size:0.9rem;
+            p{
+              text-align: justify;
+              display: inline;
+              padding:0;
+              margin:0;
+            }
+        }
+        img {
+            height: auto;
+            width: 100%;
+        }
+    }
+    .slideshow.correlati img {
+        width: 252px !important;
+        height: auto;
+    }
+}
 .prevenzione {
     vertical-align: top;
     margin-right: 1.5rem;
     padding: 0px 3px;
     h3 {
-        background-color: rgb(42, 121, 178);
+        background-color: #24569B ;
         color: rgb(255, 255, 255);
         padding: 2%;
         font-size: 1.4rem;
+        margin: 0px 7% 1%;
     }
     ul {
         margin-left: 1rem;
@@ -100,11 +146,15 @@
             color: #1B1B1B;
         }
     }
+    .flag-media{
+        padding: 0px 6% 1em;
+    }
 }
 .lineas{
   @include media-query(lap-and-up){
     margin-top: 2.9rem;
   }
+  padding: 0px 2%;
 }
 
 .down-nav {
@@ -159,38 +209,7 @@
     max-width:100%;
 }
 
-.single-aree-terapeutiche,.single-linee,
-.post-type-archive-aree-terapeutiche,.post-type-archive-linee {
-    .flag-media {
-        padding: 0% 2% 1em;
-        .flag-thumb {
-            width: 40%;
-            margin-right: 1rem;
-            display: inline-block;
-            vertical-align: top;
-        }
-        .flag-body {
-            display: inline-block;
-            width:100%;
-            margin: 0px;
 
-            p{
-              text-align: justify;
-              display: inline;
-              padding:0;
-              margin:0;
-            }
-        }
-        img {
-            height: auto;
-            width: 100%;
-        }
-    }
-    .slideshow.correlati img {
-        width: 252px !important;
-        height: auto;
-    }
-}
 .single-linee,.post-type-archive-linee{
   .flag-media{
     .flag-body{
@@ -204,7 +223,7 @@
     }
     .thumb-wrapper {
         max-width: 510px;
-        padding:0px 5% 2%;
+        padding: 0px 5% 0%;
     }
     .slider-patologie {
         img {
@@ -214,17 +233,23 @@
 }
 
 .single-prodotti {
-    .slideshow.correlati>h3 {
-        background-color: rgba(38, 114, 176, 0.81);
-        color: #FFF;
-        text-align: center;
-        padding: 1.3%;
+    .slider-title{
+      padding:0 5%;
+      &>h3 {
+    color: rgb(36, 86, 155);
+    text-align: center;
+    margin: 0px;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid;
+    padding: 1.3% 0px;
     }
+    }
+
     .like {
       text-align: right;
       position: absolute;
-      bottom: 0;
-      right: 3%;
+right: 5%;
+bottom: -4%;
     }
 }
 
@@ -235,5 +260,103 @@
   .wp-post-image{
     width:100%;
     height:auto;
+  }
+}
+.nav-bread{
+  margin: 0.5rem 0px;
+}
+.breadcrumbs-table{
+
+  color: rgb(77, 116, 171);
+  border: 1px solid !important;
+  width: 25%;
+  padding: 0.5rem 1% 0.25rem;
+  .breadcrumbs-legend{
+    font-size: 0.7rem;
+    line-height: 0.5;
+    margin-bottom: 0.25rem;
+    &>span:first-child{
+      margin-right: 4rem;
+    }
+  }
+  .breadcrumbs{
+    a{
+      text-decoration: none;
+      color: rgb(77, 116, 171);
+    }
+  }
+}
+.go-back{
+  margin: 0.5rem 0 0;
+font-size: 0.7rem;
+    &>a{
+      text-decoration: none;
+      color: rgb(77, 116, 171);
+    }
+}
+
+.single-prodotti .accordion h5{
+  background-color:rgba(38, 114, 176, 0.81);
+}
+.single-prodotti{
+  .formato{
+
+    font-size: 0.75rem;
+    margin-left: 0.5rem;
+
+  }
+}
+.accordionTitle.is-expanded, .accordionTitleActive{
+  background-color:#24569B;
+}
+
+.single-linee,.post-type-archive-linee{
+  .background-container{
+    margin: 0px 0px 1.5rem;
+    &>img{ width:45%;}
+    .big-claim{
+      width: 55%;
+      top:0;
+      left: 45%;
+    }
+  }
+  .content>.desc{
+
+  }
+  .content-wrapper{
+    border: 2px solid rgb(36, 86, 155);
+    margin-top: 1rem;
+    a{ text-decoration: none;}
+    &>h3{
+      background-color: #24569B;
+      color: #FFF;
+      font-size: 1.4rem;
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 1.15rem;
+      margin: 0px auto;
+      a{ text-decoration: none;color:#fff;}
+    }
+    .flag-media{
+      border-bottom: 1px solid #318EC8;
+      position:relative;
+      &.odd{ background: rgba(255,255,255,1);background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);}
+      &.even{ background: #83a4d4; /* fallback for old browsers */
+background:transparent linear-gradient(to bottom, #7FDBFF 0%, #528CA3 100%) repeat scroll 0% 0%;}
+      .product-title{color:#24569B;text-align: center;margin-bottom: 0;}
+      img{
+        width:150px;
+      }
+      .flag-thumb{ width:auto;margin-right: 0;vertical-align: middle;}
+      .flag-body{
+        width:calc(100% - 150px );
+        .more{
+          position: absolute;
+          right: 3%;
+          bottom: 10%;
+          a{ color:#000;}
+        }
+      }
+    }
   }
 }

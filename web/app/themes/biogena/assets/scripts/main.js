@@ -16,7 +16,9 @@
                     autoplay: 2000,
                     slidesPerView: 'auto',
                     autoplayDisableOnInteraction: true,
-                    pagination:'.slideshow .navigation'
+                    pagination:'.slideshow .navigation',
+                    loop:true,
+                    paginationClickable:true
                   //,nextButton: '.swiper-button-next',
                   //  prevButton: '.swiper-button-prev'
     };
@@ -227,7 +229,8 @@
                     nextButton: '.swiper-button-next',
                     prevButton: '.swiper-button-prev',
                     pagination:'.slideshow .navigation',
-                    loop:true
+                    loop:true,
+                    paginationClickable:true
             };
             if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions2);
 

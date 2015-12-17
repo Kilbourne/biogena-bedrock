@@ -83,7 +83,7 @@
           text-decoration:underline;
         }
         .menu-item.active>a{
-          background-color: #2672B0;
+          background-color: #24569B	;
           color: #fff;
         }
         .menu-item.active:hover>a {
@@ -216,7 +216,7 @@ vertical-align: middle;
 }
 .no-full-slider{
   .header-content-wrapper{
-    background-color: rgb(77, 116, 171);
+    background:url(../images/abstract-blue-backgrounds.jpg);
     position: static;
   }
   .nav-primary .menu-item {
@@ -225,7 +225,7 @@ vertical-align: middle;
     }
     &.active>a{
       background-color:#fff ;
-      color: #2672B0;
+      color: #24569B	;
     }
   }
 }
@@ -272,4 +272,7 @@ vertical-align: middle;
   position:fixed!important;
   bottom:0!important;
   top:auto!important
+}
+.single-prodotti .nav-primary > .nav{
+  margin-bottom:0;
 }

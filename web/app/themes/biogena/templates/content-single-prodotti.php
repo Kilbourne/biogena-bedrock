@@ -1,8 +1,13 @@
 <?php while (have_posts()) : the_post();
 $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
 // echo var_dump($linea);
+
 ?>
   <article <?php post_class(); ?>>
+  <div class="nav-bread">
+<!--
+  <div class="breadcrumbs-table">
+<div class="breadcrumbs-legend"><span>Linea</span><span>Prodotto</span></div>
 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/" >
   <span property="itemListElement" typeof="ListItem">
     <a href="<?= $linea->first->right_obj_plink ?>" property="item" typeof="WebPage" title="Vai alla linea."  class="post post-linee-archive" >
@@ -12,6 +17,11 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
       <span property="name"><?= the_title(); ?></span></span>
 
         </div>
+
+</div>
+-->
+ <div class="go-back">  <a href="<?= $linea->first->right_obj_plink ?>" title=""> &lt;&lt; Torna alla linea <?= $linea->first->right_obj_title ?></a></div>
+</div>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
 
@@ -26,24 +36,17 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
 </div>
     </div><div class="content-single-wrapper u-1/2-lap-and-up inline-block">
         <header>
-          <h1 class="entry-title"><?php the_title(); ?></h1>
+          <h1 class="entry-title"><?php the_title(); ?>         <?php $field=get_field('formato'); if($field !==''){ ?>
+
+            <span class="formato"><?php echo $field;  ?></span>
+
+        <?php }  ?></h1>
         </header>
         <div class="entry-content">
           <?php the_content(); ?>
           <div class="ean"><?php echo 'EAN: '.get_field('ean'); ?></div>
         </div>
-        <?php $field=get_field('formato'); if($field !==''){ ?>
-        <div class=" accordion">
-          <div class="dt"><a href="#formato" aria-expanded="false" aria-controls="formato" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Formato</h5></a></div>
-          <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="formato">
 
-
-          <p>
-            <?php echo $field;  ?>
-          </p>
-          </div>
-        </div>
-        <?php }  ?>
         <?php $field=get_field('proprietà'); if($field !==''){ ?>
         <div class="accordion">
           <div class="dt"><a href="#proprieta" aria-expanded="false" aria-controls="proprieta" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Proprietà</h5></a></div>
@@ -102,7 +105,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
         <?php }  ?>
     </div>
                <div class="slideshow correlati">
-            <h3>  Trattamenti coadiuvanti complementari </h3>
+            <div class="slider-title">  <h3>  Trattamenti coadiuvanti complementari </h3></div>
                 <div class=" slider-patologie active three" >
                     <div class="swiper-wrapper">
 <?php   $connected2=$linea->first->conn_arr;

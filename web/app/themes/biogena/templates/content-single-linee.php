@@ -1,9 +1,9 @@
-<?php $arrayC=biogenaData::data(get_the_permalink(),'linee'); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;?>
+<?php delete_transient( 'biogena_data_linee'); $arrayC=biogenaData::data(get_the_permalink(),'linee'); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;?>
 
  <div class="content">
-                 <div class="flag-media">
-                <div class="flag-thumb"><?php echo $first->thumb;?></div><div class="flag-body"><?php $content=strip_tags($first->content); if($content=='' || 'BIOGENA: I TRATTAMENTI COADIUVANTI'){$content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';}echo $content; ?></div>
-                </div>
+
+               <div class="desc"><?php $content=strip_tags($first->content); if($content=='' || 'BIOGENA: I TRATTAMENTI COADIUVANTI'){$content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';}echo $content; ?></div>
+
                   <hr>
     <div class="down-nav">
       <div class="line">
@@ -21,7 +21,7 @@
 
 
                   <?php foreach($first->conn_arr as $key=> $prod){ ?>
-                                <div class="product flag-media"><div class="flag-thumb"> <a href="<?= $prod->permalink; ?>"><?= $prod->thumb; ?> <div><h3><?= $prod->title; ?> </h3> </div> </a></div><div class="flag-body"><?= $prod->content; ?></div> </div>
+                                <div class="product flag-media <?php echo $key % 2 == 0?'odd':'even'; ?>"><a href="<?= $prod->permalink; ?>"> <div><h3 class='product-title'><?= $prod->title; ?> </h3> </div> </a><div class="flag-thumb"> <a href="<?= $prod->permalink; ?>"><?= $prod->thumb; ?>  </a></div><div class="flag-body"><?= $prod->content; ?><div class="more"><a href="<?= $prod->permalink; ?>" title="">Vai alla scheda articolo</a> </div> </div> </div>
                   <?php } ?>
                   </div>
               </div>

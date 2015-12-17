@@ -93,7 +93,7 @@ max-width: 100%;
     &>div {
         position: absolute;
         bottom: 0px;
-        background-color: rgba(38, 114, 176, 0.81);
+        background-color: #24569B	;
         width: 100%;
         text-align: center;
         padding: 2%;
@@ -105,9 +105,9 @@ max-width: 100%;
 }
 }
 .slideshow.correlati {
-    h3,
-    h4 {
-        color:#2672B0;
+    color:#24569B	;
+    &>h4 {
+        font-size: 2rem;
         text-align: center;
         font-variant: all-small-caps;
     }
@@ -135,15 +135,16 @@ max-width: 100%;
 }
 
 .slider-patologie .swiper-slide a div {
-    background-color: rgba(38, 114, 176, 0.81);
+    background-color: #24569B	;
     width: 100%;
     text-align: center;
-    padding: 2%;
+    padding: 3% 2%;
 }
 
 .slider-patologie .swiper-slide a h3 {
     margin: 0;
     color: #fff;
+    font-size:1.25rem;
 }
 
 .not-home{
@@ -157,7 +158,7 @@ max-width: 100%;
 }
 }
  .big-claim {
-    color: #2672B0;
+    color: #24569B	;
     font-size: 1.9rem;
     display: inline-block;
     line-height: 1.5;
@@ -169,10 +170,20 @@ max-width: 100%;
     white-space: nowrap;
     font-weight: 900;
     text-align: left;
-    .title{ font-size:2.25rem;text-align: center;display:inline-block;width:100%;}
-    .little{ font-size:1.2rem;display:inline;}
+    .title{ font-size: 2.75rem;display:inline-block;width:100%;}
+    .little{ font-size:1rem;display:inline;}
     }
 .background-container{
     position:relative;
     ;
+}
+.navigation{
+  text-align: center;
+  margin: 1.5rem auto 0.5rem;
+  .swiper-pagination-bullet{
+    height:14px;
+    width:14px;
+    margin-right: 5px;
+    background:#24569B;
+  }
 }

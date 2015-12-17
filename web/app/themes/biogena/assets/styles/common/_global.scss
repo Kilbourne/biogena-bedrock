@@ -7,7 +7,7 @@ html{
 }
 hr {
     display: block;
-    height: 1px;
+    height: 0px;
     border: 0;
     border-top: 1px solid rgb(80, 128, 177);
     margin: 0;
@@ -16,3 +16,4 @@ hr {
 strong{
   color:#2672B0;
 }
+i{ font-style: italic; }
