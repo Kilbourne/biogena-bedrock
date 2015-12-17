@@ -40,6 +40,7 @@
                                 <div class="swiper-slide"><a href="<?= $prod->permalink; ?>"><?= $prod->thumb; ?> <div><h3><?= $prod->title; ?> </h3> </div> </a></div>
                   <?php } ?>
                     </div>
+                    <div class="navigation"></div>
                 </div>
           </div>
               </div>

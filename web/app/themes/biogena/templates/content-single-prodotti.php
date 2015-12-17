@@ -1,7 +1,17 @@
 <?php while (have_posts()) : the_post();
 $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
+// echo var_dump($linea);
 ?>
   <article <?php post_class(); ?>>
+<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/" >
+  <span property="itemListElement" typeof="ListItem">
+    <a href="<?= $linea->first->right_obj_plink ?>" property="item" typeof="WebPage" title="Vai alla linea."  class="post post-linee-archive" >
+      <span property="name" ><?= $linea->first->right_obj_title ?></span>
+    </a>
+  </span> &gt; <span property="itemListElement" typeof="ListItem" >
+      <span property="name"><?= the_title(); ?></span></span>
+
+        </div>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
 
@@ -109,6 +119,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
 
 
                     </div>
+                    <div class="navigation"></div>
                 </div>
           </div>
 

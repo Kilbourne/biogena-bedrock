@@ -15,7 +15,8 @@
     downSliderOptions={
                     autoplay: 2000,
                     slidesPerView: 'auto',
-                    autoplayDisableOnInteraction: true
+                    autoplayDisableOnInteraction: true,
+                    pagination:'.slideshow .navigation'
                   //,nextButton: '.swiper-button-next',
                   //  prevButton: '.swiper-button-prev'
     };
@@ -224,7 +225,9 @@
                     slidesPerView: 'auto',
                     autoplayDisableOnInteraction: true,
                     nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev'
+                    prevButton: '.swiper-button-prev',
+                    pagination:'.slideshow .navigation',
+                    loop:true
             };
             if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions2);
 
