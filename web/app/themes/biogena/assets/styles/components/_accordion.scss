@@ -31,17 +31,17 @@
 
           display:block;
           text-decoration:none;
-          color:#fff;
+          color: rgba(38, 114, 176, 0.81);
           transition:background-color 0.5s ease-in-out;
 
   &:before {
-   content: "+";
-   font-size:1.5em;
-   line-height:1.25em;
-   float:left;
+
+   line-height:2.5rem;
+   float:right;
    transition: transform 0.3s ease-in-out;
-   margin-left: 5px;
+   margin-right: 5px;
   }
+
   &:hover {
     background-color:darken(#38cc70, 10%);
   }
@@ -50,10 +50,12 @@
 .accordionTitleActive,
 .accordionTitle.is-expanded {
    background-color:darken(#38cc70, 10%);
+
     &:before {
 
-      transform:rotate(-225deg);
+      transform:rotate(90deg);
     }
+
 }
 .accordion-content {
     height:auto;

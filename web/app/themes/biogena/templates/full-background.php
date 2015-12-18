@@ -49,9 +49,9 @@
  <div class="background-container">
 <?php
 if ( is_post_type_archive() ) {
-$aaa=biogenaData::data(0)->first;echo '<img  class="attachment-post-thumbnail wp-post-image" src="'.$aaa->feat.'" alt=""><div class="big-claim">'.$aaa->claim.'</div>';
+$aaa=biogenaData::data(0)->first;echo '<img  class="attachment-post-thumbnail wp-post-image" src="'.$aaa->feat.'" alt="">'.$aaa->claim;
 }else if(is_single()){
- echo '<img  class="attachment-post-thumbnail wp-post-image" src="'.get_field('immagine_full_width')['url'].'" alt=""><div class="big-claim">'.get_field('claim_').'</div>';
+ echo '<img  class="attachment-post-thumbnail wp-post-image" src="'.get_field('immagine_full_width')['url'].'" alt="">'.get_field('claim_');
 
 }
 ?>
@@ -64,10 +64,10 @@ $aaa=biogenaData::data(0)->first;echo '<img  class="attachment-post-thumbnail wp
 
 if ( is_post_type_archive() ) {
   $aaa=biogenaData::data(0,'linee')->first;//echo var_dump($aaa);
-echo $aaa->thumb.'<div class="big-claim">'.$aaa->claim.'</div>';
+echo $aaa->thumb.$aaa->claim;
 }else if(is_single()){
 $aaa=biogenaData::data(get_the_permalink(),'linee')->first;//echo var_dump($aaa);
- echo the_post_thumbnail( ).'<div class="big-claim">'.$aaa->claim.'</div>';
+ echo the_post_thumbnail( ).$aaa->claim;
 
 }
 ?>

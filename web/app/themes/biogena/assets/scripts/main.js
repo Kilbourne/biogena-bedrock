@@ -59,6 +59,7 @@
                 });
 
               if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions);
+              $('.content-wrapper>.flag-media>.flag-body').readmore();
             }
         },
         'home':{

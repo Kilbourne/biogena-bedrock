@@ -46,6 +46,10 @@
     }
     h1 {
         font-size: 2rem;
+        >span{
+          display: block;
+          margin-top: 0.5rem;
+        }
     }
     h5 {
         font-size: 1.075rem;
@@ -296,7 +300,11 @@ font-size: 0.7rem;
 }
 
 .single-prodotti .accordion h5{
-  background-color:rgba(38, 114, 176, 0.81);
+  background: rgb(255, 255, 255) none repeat scroll 0% 0%;
+border-bottom: 1px solid rgba(38, 114, 176, 0.81);
+
+text-align: left;
+color: rgba(38, 114, 176, 0.81);
 }
 .single-prodotti{
   .formato{

@@ -49,7 +49,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
 
         <?php $field=get_field('proprietà'); if($field !==''){ ?>
         <div class="accordion">
-          <div class="dt"><a href="#proprieta" aria-expanded="false" aria-controls="proprieta" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Proprietà</h5></a></div>
+          <div class="dt"><a href="#proprieta" aria-expanded="false" aria-controls="proprieta" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right  "> <h5>Proprietà</h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="proprieta ">
 
 
@@ -61,7 +61,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
         <?php }  ?>
                 <?php $field=get_field('composizione'); if($field !==''){ ?>
         <div class="accordion">
-          <div class="dt"><a href="#composizione" aria-expanded="false" aria-controls="composizione" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Composizione</h5></a></div>
+          <div class="dt"><a href="#composizione" aria-expanded="false" aria-controls="composizione" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5>Composizione</h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="composizione ">
 
 
@@ -73,7 +73,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
         <?php }  ?>
         <?php $field=get_field('uso'); if($field !==''){ ?>
         <div class="  accordion">
-          <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Uso</h5></a></div>
+          <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5>Uso</h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="uso">
 
 
@@ -85,7 +85,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
         <?php }  ?>
         <?php $field=get_field('precauzioni'); if($field !==''){ ?>
         <div class="accordion">
-          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Precauzioni</h5></a></div>
+          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5>Precauzioni</h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
             <p>
             <?php echo $field;  ?>
@@ -95,7 +95,7 @@ $linea=biogenaData::data(get_the_permalink( ),get_post_type( $post ));
         <?php }  ?>
         <?php $field=get_field('evidenze_cliniche'); if($field !==''){ ?>
         <div class="accordion">
-          <div class="dt"><a href="#evidenze_cliniche" aria-expanded="false" aria-controls="evidenze_cliniche" class="accordion-title accordionTitle js-accordionTrigger"> <h5>Evidenze Cliniche</h5></a></div>
+          <div class="dt"><a href="#evidenze_cliniche" aria-expanded="false" aria-controls="evidenze_cliniche" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5>Evidenze Cliniche</h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="evidenze_cliniche">
             <p>
             <?php echo $field;  ?>
