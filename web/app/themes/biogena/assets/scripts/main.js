@@ -19,9 +19,10 @@
                     pagination:'.slideshow .navigation',
                     loop:true,
                     paginationClickable:true
-                  //,nextButton: '.swiper-button-next',
-                  //  prevButton: '.swiper-button-prev'
-    };
+                  ,nextButton: '.swiper-button-next',
+                  prevButton: '.swiper-button-prev'
+    },
+    bodyClasses=['home','post-type-archive-linee','azienda','single-linee','single-area-skin-care','post-type-archive-area-skin-care','no-full-slider'];
     // Use this variable to set up the common and page specific functions. If you
     // rename this variable, you will also need to rename the namespace below.
     var Sage = {
@@ -44,29 +45,15 @@
                         });
                     }
                 }
-                $('body').on('click', '.down-nav .next>a,.down-nav .prev>a,.aree-terapeutiche .sub-menu a,.linee .sub-menu a,.aree-terapeutiche>a,.linee>a', linkCallback);
+
+                $('body').on('click', 'a[href*="/area-skin-care/"],a[href*="/linee/"]', linkCallback);
+
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
-                enquire.register("screen and (max-width:49.999em)", {
-                  match : function() {
-
-                  },
-                  unmatch : function() {}
-                });
-                enquire.register("screen and (min-width:50em)", {
-                  match : function() {},
-                  unmatch : function() {}
-                });
 
               if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions);
-              $('.content-wrapper>.flag-media>.flag-body').readmore();
+              //$('.content-wrapper>.flag-media>.flag-body').readmore();
             }
-        },
-        'home':{
-          init:function(){
-            downSliderOptions.nextButton='.swiper-button-next';
-            downSliderOptions.prevButton='.swiper-button-prev';
-          }
         },
         'single_prodotti': {
             init: function() {
@@ -183,29 +170,22 @@
             postType = checkPostType[1];
             index = checkIndex();
             template();
+            var body=$('body');
+            body.removeClass(bodyClasses.join(' '));
+            body.addClass('single-'+postType);
+            if(postType==='linee')body.addClass('no-full-slider');
             if(!!pop){
               history.pushState(
                 { href:URL},
                 "", URL
               );
             }
+            if (fullSlider instanceof Swiper) fullSlider.destroy(true, true);
+            fullSlider=null;
             if(postType!==oldPostType){
               oldPostType=postType;
-              if(postType==='aree-terapeutiche'){
-                if (fullSlider) fullSlider.destroy(true, true);
-                $('.background-slider').remove();
-              }else if(postType==='linee'){
-                $('.background-container').remove();
-                if ($('.background-slider .wp-post-image').length) {
-                        fullSlider = new Swiper('.background-slider', {
-                            autoplay: 3500,
-                            slidesPerView: 1,
-                            autoplayDisableOnInteraction: true,
-                            onSlideChangeEnd: function() {
-                                BackgroundCheck.refresh();
-                            }
-                        });
-                }
+              if(postType==='linee'){
+
               }
             }
             menu = $('.' + postType);
@@ -219,21 +199,18 @@
                 $('.sub-menu .menu-item').removeClass('active');
                 submenu.addClass('active');
             }
-            BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
-            BackgroundCheck.refresh();
+            if ($('.background-slider .wp-post-image,.background-container .wp-post-image').length) {
+              BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
+              BackgroundCheck.refresh();
+            }
             if (downSlider instanceof Swiper) downSlider.destroy(true, true);
             downSlider=null;
-            var downSliderOptions2={
-                    autoplay: 2000,
+            if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', {                    autoplay: 2000,
                     slidesPerView: 'auto',
                     autoplayDisableOnInteraction: true,
-                    nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev',
                     pagination:'.slideshow .navigation',
                     loop:true,
-                    paginationClickable:true
-            };
-            if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions2);
+                    paginationClickable:true});
 
 
         function findPostType() {
@@ -241,21 +218,24 @@
         }
 
         function checkIndex() {
-            var index = postData.indexOf(postData.filter(function(e) {
-                return url(-1, e.permalink) === last;
-            })[0]);
+            var keys  = Object.keys(postData)
+            var rightK=keys.filter(function(e) {
+                return url(-1, postData[e].permalink) === last;
+            })[0]
+            var index = keys.indexOf(rightK);
             return index !== -1 ? index : 0;
         }
 
         function template() {
-
+            var keys  = Object.keys(postData)
             var circleRpl = _.template($('#'+postType).text()),
-                aaa = circleRpl({
-                    first:postData[index],
-                    next:postData[(index+1)<postData.length?index+1:0] ,
-                    prev:postData[(index-1)>-1?(index-1):postData.length-1]
-                });
-            $('.page-wrapper>.content').html(aaa);
+                data={
+                    first:postData[keys[index]],
+                    next:postData[keys[(index+1)<keys.length?index+1:0]] ,
+                    prev:postData[keys[(index-1)>-1?(index-1):keys.length-1]]
+                },
+                aaa = circleRpl(data);
+            $('.page-wrapper>.content>.main').html(aaa);
         }
     }
     (function(window) {

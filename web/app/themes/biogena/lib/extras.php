@@ -16,16 +16,14 @@ function body_class($classes) {
       $classes[] = basename(get_permalink());
     }
   }
-  if (!is_home() && 'aree-terapeutiche' != get_post_type() ){
+  if (!is_home() && 'area-skin-care' != get_post_type() ){
     $classes[] = 'no-full-slider';
   }
   // Add class if sidebar is active
   if (Setup\display_sidebar()) {
     $classes[] = 'sidebar-primary';
   }
-  if (!is_home() && 'prodotti' != get_post_type()) {
-    $classes[] = 'not-home';
-  }
+
   return $classes;
 }
 add_filter('body_class', __NAMESPACE__ . '\\body_class');
@@ -68,8 +66,8 @@ function add_biogena_logo_menu( $items, $args ){
 
 function connection_patologie_to_linee() {
     p2p_register_connection_type( array(
-        'name' => 'patologie_to_linee',
-        'from' => 'aree-terapeutiche',
+        'name' => 'area-skin-care_to_linee',
+        'from' => 'area-skin-care',
         'to' => 'linee'
     ) );
 }

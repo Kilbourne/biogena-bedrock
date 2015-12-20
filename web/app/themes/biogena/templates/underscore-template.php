@@ -1,38 +1,21 @@
  <script id="linee" type="text/template" >
-    <div class="background-slider slider">
+<div class="background-container">
+<%= first['thumbnail'] %>
+<%= first['area-skin-care']['fields']['claim_'] %>
+ </div>
+ <div class="content">
 
-      <div class="swiper-wrapper">
-<?php
-    $slides = get_posts(array('numberposts' => - 1, 'post_type' => 'background-slide'));
-
-    if ($slides) {
-        foreach ($slides as $key => $slide) {
-?>
-
-        <div class="swiper-slide <?php
-            echo $slide->post_title; ?>" ><?php
-            echo get_the_post_thumbnail($slide->ID); ?>      <div class="big-claim">
-          <p class="up" >
-           <?php
-            echo get_post_meta($slide->ID, 'claim_parte_superiore', true); ?>
-         </p>
-         <p class="down" >
-           <?php
-            echo get_post_meta($slide->ID, 'claim_parte_inferiore', true); ?>
-         </p>
-       </div></div>
-
-       <?php
-        }
-    } ?>
-*/
-     </div>
-
-</div>
-<main class="main">
-           <div class="flag-media">
-                <div class="flag-thumb"><%= first.thumb %></div><div class="flag-body"><%first.content = first.content.replace(/<\/?[^>]+(>|$)/g, "").trim();if(first.content=='' ||first.content=='I TRATTAMENTI COADIUVANTI'|| first.content=='BIOGENA: I TRATTAMENTI COADIUVANTI'){first.content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'} %> <%= first.content  %></div>
-                </div>
+               <div class="desc">
+               <div class="desc-text">   <%= first['content'] %></div>
+               <% attivi=first['fields']['attivi_di_linea']; if(attivi){ %>
+               <ul class="attivi">
+                  <h3>Attivi di Linea: </h3>
+                 <% _.each(attivi ,function(attivo,i){ %>
+                   <li class="attivo"><%= attivo['attivo'] %></li>
+                 <% }) %>
+               </ul>
+               <% } %>
+               </div>
                   <hr>
         <div class="down-nav">
 <div class="line">
@@ -45,24 +28,29 @@
             </svg></a></span></div></div>
             <hr>
             <div class="content-wrapper">
-                <h3>Trattamento coadiuvante per <a href="<%= first.right_obj_plink %>" title=""><%= first.right_obj_title %></a></h3>
+                <h3>Trattamento coadiuvante per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
                 <div class="products">
 
 
-                  <% _.each(first.conn_arr,function(prod){ %>
-                                <div class="product flag-media"><div class="flag-thumb"> <a href="<%= prod.permalink %>"><%= prod.thumb %> <div><h3><%= prod.title %> </h3> </div> </a></div><div class="flag-body"><%= prod.content %></div> </div>
+                  <% _.each(first.prodotti,function(prod,key){ %>
+                                <div class="product flag-media <%= key % 2 == 0?'odd':'even' %>"><a href="<%= prod.permalink %>"><div><h3><%= prod.title %> </h3> </div> </a><div class="flag-thumb"><a href="<%= prod.permalink %>"> <%= prod.thumbnail %></a> </div><div class="flag-body"><%= prod.content %><div class="more"><a href="<%= prod['permalink'] %>" title="">Vai alla scheda prodotto</a> </div></div> </div>
                   <% } )%>
                   </div>
               </div>
 
-</main>
+
 
 
  </script>
-  <script id="aree-terapeutiche" type="text/template" >
+  <script id="area-skin-care" type="text/template" >
 
- <div class="background-container"><img  class="attachment-post-thumbnail wp-post-image" src="<%= first.feat %>" alt=""><div class="big-claim"><%= first.claim %></div> </div>
- <main class="main">
+ <div class="background-container">
+ <img  class="attachment-post-thumbnail wp-post-image" src="<%= first['fields']['immagine_full_width']['url'] %>" alt="">
+ <%= first.fields.claim_ %>
+ </div>
+
+
+ <div class="content">
         <div class="down-nav">
 <div class="line">
           <span class="prev"><a href="<%= prev.permalink %>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
@@ -83,22 +71,22 @@
           <div class="inline-block prevenzione" >
             <h3>La soluzione Biogena</h3><div class="flag-media">
 
-                 <div class="flag-body"><p><%= first.prevenzione %></p></div></div>
+                 <div class="flag-body"><p><%= first.fields.prevenzione %></p></div></div>
           </div><div class="inline-block lineas" >
 
-          <a href="<%= first.right_obj_plink %> " title="">
+          <a href="<%= first.linea.permalink %> " title="">
 
-          <%= first.right_obj_thumb %>
+          <%= first.linea.thumbnail %>
           </a>
           </div>
           <hr>
           <div class="slideshow correlati">
-          <h4>  Scopri la linea <%= first.right_obj_title %>  </h4>
+          <h4>  Scopri la linea <%= first.linea.title %>  </h4>
 
                 <div class=" slider-patologie active three" >
                     <div class="swiper-wrapper">
-                  <% _.each(first.conn_arr,function(prod){ %>
-                                <div class="swiper-slide"><a href="<%= prod.permalink %>"><%= prod.thumb %> <div><h3><%= prod.title %> </h3> </div> </a></div>
+                  <% _.each(first.prodotti,function(prod){ %>
+                                <div class="swiper-slide"><a href="<%= prod.permalink %>"><%= prod.thumbnail %> <div><h3><%= prod.title %> </h3> </div> </a></div>
                   <% } )%>
                     </div>
 <div class="navigation"></div>

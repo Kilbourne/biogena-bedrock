@@ -1,0 +1,35 @@
+/*  DOWNNAV */
+.down-nav {
+    margin: 1em 0px;
+    text-align: center;
+
+    .line {
+
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 1.5rem;
+      color: rgb(42, 121, 178);
+      .title {
+        display: inline-block;
+          margin: 0px 3rem;
+        vertical-align: middle;
+        @include media-query(palm){
+            margin: 0px 2%;
+            width: 80%;
+            white-space: normal;
+        }
+      }
+      .prev,.next{
+
+        vertical-align: -7px;
+        position: relative;
+        @include  media-query(palm){ display: inline-block; }
+        a{
+          left: 0px;
+          top: 50%;
+          transform: translateY(-50%);
+
+        }
+      }
+    }
+}

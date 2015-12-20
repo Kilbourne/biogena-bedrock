@@ -3,6 +3,7 @@
 use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
 
+require '\lib\kint-master\Kint.class.php';
 ?>
 
 <!doctype html>
@@ -21,12 +22,6 @@ use Roots\Sage\Wrapper;
     ?>
 
       <div class="content row">
-        <?php
-          if (Setup\display_full_slider()) :
-          get_template_part('templates/full-background');
-          endif;
-        ?>
-
         <main class="main">
           <?php include Wrapper\template_path(); ?>
         </main><!-- /.main -->
