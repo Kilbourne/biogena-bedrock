@@ -1,5 +1,5 @@
 .single-area-skin-care,
-.archive-area-skin-care,
+.post-type-archive-area-skin-care,
 .single-linee,.post-type-archive-linee{
       .flag-media {
       padding:  1em 2%;
@@ -20,7 +20,7 @@
 /* AREE TERAPEUTICHE */
 
 .single-area-skin-care,
-.archive-area-skin-care {
+.post-type-archive-area-skin-care {
     .content {
         position: relative;
         img {
@@ -127,12 +127,7 @@ background:transparent linear-gradient(to bottom, #7FDBFF 0%, #528CA3 100%) repe
         width: 100%;
     }
   }
-  .content-single-wrapper {
-    vertical-align: top;
-    header{
-      margin-bottom: 1rem;
-    }
-    h1,
+      h1,
     h5 {
     text-align: center;
     margin: 0px;
@@ -153,6 +148,12 @@ background:transparent linear-gradient(to bottom, #7FDBFF 0%, #528CA3 100%) repe
         padding: 0.25rem 0;
         color:#fff;
     }
+  .content-single-wrapper {
+    vertical-align: top;
+    header{
+      margin-bottom: 1rem;
+    }
+
     p {
         font-size: 1rem;
         padding: 0rem 2rem 1rem;
