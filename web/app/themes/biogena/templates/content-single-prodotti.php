@@ -12,7 +12,11 @@ while (have_posts()):
   <article <?php post_class(); ?>>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
-      <div class="like">
+      <div class="under-photo">          <?php $field = get_field('formato');
+          if ($field !== '') { ?>
+            <span class="formato"><?php echo $field; ?></span>
+          <?php } ?>
+<span class="like">
         <iframe
           src="//www.facebook.com/plugins/like.php?href=http://css-tricks.com&amp;width=130&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false"
           scrolling="no"
@@ -20,20 +24,18 @@ while (have_posts()):
           style="border:none; overflow:hidden; width:108px; height:22px;"
           allowTransparency="true">
         </iframe>
-      </div>
+      </span>
+          </div>
+
     </div><div class="content-single-wrapper u-1/2-lap-and-up inline-block">
       <header>
         <h1 class="entry-title">
           <?php the_title(); ?>
-          <?php $field = get_field('formato');
-          if ($field !== '') { ?>
-            <span class="formato"><?php echo $field; ?></span>
-          <?php } ?>
         </h1>
       </header>
       <div class="entry-content">
         <?php the_content(); ?>
-        <div class="ean"><?php echo 'EAN: ' . get_field('ean'); ?></div>
+
       </div>
       <?php  $field = get_field('proprietà');
       if ($field !== '') { ?>
@@ -103,6 +105,7 @@ while (have_posts()):
         </div>
         <?php
     } ?>
+    <div class="product-last-line"><span class="ean"><?php $field = get_field('ean');if($field !=='') {echo '<span> EAN: </span>' . $field;}else{ $field = get_field('paraf');if($field !=='') {echo '<span> PARAF: </span>' . $field;} } ?></span><span><?php $field = get_field('faq');if($field !=='') {echo '<a href="" title=""><span> FAQ PRODOTTO </span></a>'; } ?></span></div>
     </div>
                <div class="slideshow correlati">
             <div class="slider-title">  <h3>  Trattamenti coadiuvanti complementari </h3></div>

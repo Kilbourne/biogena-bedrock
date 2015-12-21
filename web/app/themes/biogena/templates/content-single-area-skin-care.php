@@ -41,6 +41,22 @@ $default_attr = array(
           <?= $first['linea']['thumbnail']; ?>
           </a>
           </div>
+                                   <?php $attivi=$first['linea']['fields']['attivi_di_linea']; if(count($attivi)>0){ ?>
+               <div class="attivi-wrapper">
+               <h3>Attivi di Linea </h3>
+               <ul class="attivi">
+
+                 <?php foreach ($attivi as $key => $attivo):
+                 $image=$attivo['immagine_attivo'];
+                 ?>
+                   <li class="attivo inline-block"><div class="attivo-img-container"> <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /></div><div class="attivo-desc-body">
+                     <h3><?= $attivo['attivo'] ?></h3>
+                     <div class="attivo desc"><?= $attivo['descrizione_attivo'] ?></div>
+                   </div> </li>
+                 <?php endforeach ?>
+               </ul>
+               </div>
+               <?php } ?>
           <hr>
           <div class="slideshow correlati">
               <h4>  Scopri la linea <?= $first['linea']['title']; ?></h4>

@@ -5,18 +5,10 @@
  </div>
  <div class="content">
 
-               <div class="desc">
-               <div class="desc-text">   <%= first['content'] %></div>
-               <% attivi=first['fields']['attivi_di_linea']; if(attivi){ %>
-               <ul class="attivi">
-                  <h3>Attivi di Linea: </h3>
-                 <% _.each(attivi ,function(attivo,i){ %>
-                   <li class="attivo"><%= attivo['attivo'] %></li>
-                 <% }) %>
-               </ul>
-               <% } %>
-               </div>
-                  <hr>
+
+                              <div class="desc">
+               <div class="desc-text">     <%= first['content'] %></div>
+                                 <hr >
         <div class="down-nav">
 <div class="line">
           <span class="prev"><a href="<%= prev.permalink %>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
@@ -26,7 +18,24 @@
             <span class="title" ><%= first.title %></span><span class="next"><a href="<%= next.permalink %>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
               <path fill="none" d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"></path>
             </svg></a></span></div></div>
-            <hr>
+            <hr >
+               <% attivi=first['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
+               <div class="attivi-wrapper">
+               <h3>Attivi di Linea </h3>
+               <ul class="attivi">
+
+                 <% _.each(attivi ,function(attivo,i){
+                 image=attivo['immagine_attivo'];
+                 count=attivi.length;
+                 if(attivi.length>4){count=4;}
+                 %>
+                   <li class="attivo inline-block <%= 'w'+count %>"><img src="<%= image['url'] %>" alt="<%= image ['alt'] %>" /><%= attivo['attivo'] %></li>
+                  <% }) %>
+               </ul>
+               </div>
+               <% } %>
+               </div>
+
             <div class="content-wrapper">
                 <h3>Trattamento coadiuvante per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
                 <div class="products">
@@ -79,6 +88,22 @@
           <%= first.linea.thumbnail %>
           </a>
           </div>
+                                             <% attivi=first['linea']['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
+               <div class="attivi-wrapper">
+               <h3>Attivi di Linea </h3>
+               <ul class="attivi">
+
+                 <% _.each(attivi ,function(attivo,i){
+                 image=attivo['immagine_attivo'];
+                 %>
+                   <li class="attivo inline-block"><div class="attivo-img-container"> <img src="<%= image['url'] %>" alt="<%= image ['alt'] %>" /></div><div class="attivo-desc-body">
+                     <h3><%= attivo['attivo'] %></h3>
+                     <div class="attivo desc"><%= attivo['descrizione_attivo'] %></div>
+                   </div> </li>
+                  <% }) %>
+               </ul>
+               </div>
+                <% } %>
           <hr>
           <div class="slideshow correlati">
           <h4>  Scopri la linea <%= first.linea.title %>  </h4>

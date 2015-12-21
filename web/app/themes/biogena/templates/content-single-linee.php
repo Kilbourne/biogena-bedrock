@@ -11,18 +11,8 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
  <div class="content">
 
                <div class="desc">
-               <div class="desc-text">   <?php $content=strip_tags($first['content']); if($content=='' || 'BIOGENA: I TRATTAMENTI COADIUVANTI'){$content='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';}echo $content; ?></div>
-               <?php $attivi=$first['fields']['attivi_di_linea']; if(count($attivi)>0){ ?>
-               <ul class="attivi">
-                  <h3>Attivi di Linea: </h3>
-                 <?php foreach ($attivi as $key => $attivo): ?>
-                   <li class="attivo"><?= $attivo['attivo'] ?></li>
-                 <?php endforeach ?>
-               </ul>
-               <?php } ?>
-               </div>
-
-                  <hr>
+               <div class="desc-text">   <?php $content=$first['content']; echo $content; ?></div>
+                <hr >
     <div class="down-nav">
       <div class="line">
         <span class="prev"><a href="<?= $prev['permalink']; ?>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
@@ -32,7 +22,24 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
             <span class="title" ><?= $first['title']; ?></span><span class="next"><a href="<?= $next['permalink']; ?>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
               <path fill="none" d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"></path>
             </svg></a></span></div></div>
-            <hr>
+            <hr >
+               <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
+               <div class="attivi-wrapper">
+               <h3>Attivi di Linea </h3>
+               <ul class="attivi">
+
+                 <?php foreach ($attivi as $key => $attivo):
+                 $image=$attivo['immagine_attivo'];
+                 if($count>4){$count=4;}
+                 ?>
+                   <li class="attivo inline-block <?= 'w'.$count ?>"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /><?= $attivo['attivo'] ?></li>
+                 <?php endforeach ?>
+               </ul>
+               </div>
+               <?php } ?>
+               </div>
+
+
             <div class="content-wrapper">
                 <h3>Trattamento coadiuvante per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
                 <div class="products">

@@ -14,6 +14,11 @@
     .title{ font-size: 2.75rem;display:inline-block;width:100%;}
     .little{ font-size:1rem;display:inline;}
     }
+    .big-claim.big-claim-right {
+    left: 58%;
+    padding-right: 3%;
+    padding-left: 0;
+}
 
 .background-slider {
   position: relative;
@@ -60,12 +65,14 @@
 }
 .single-linee,.post-type-archive-linee{
   .background-container{
-    margin: 0px 0px 1.5rem;
+    margin: 3rem 0px;
     &>img{ width:45%;}
     .big-claim{
       width: 55%;
       top:0;
       left: 45%;
+      padding: 0 3%;
+      text-align: center;
     }
   }
 }
@@ -163,6 +170,12 @@ max-width: 100%;
      a img {
             max-width: 250px;
         }
+        .swiper-slide a {
+           &>div {
+            top:100%;
+            bottom:auto;
+           }
+        }
 }
 .single .slideshow.correlati {
     margin-top: 1.5rem;
@@ -199,7 +212,7 @@ width: 2%;
 
 .navigation{
   text-align: center;
-  margin: 1.5rem auto 0.5rem;
+  margin: 4.5rem auto 0.5rem;
   .swiper-pagination-bullet{
     height:14px;
     width:14px;
