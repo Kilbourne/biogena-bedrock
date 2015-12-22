@@ -47,12 +47,12 @@
                 }
 
                 $('body').on('click', 'a[href*="/area-skin-care/"],a[href*="/linee/"]', linkCallback);
+                $('body').on('click', '.readmore1', readmoreCallback);
 
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
 
               if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions);
-              //$('.content-wrapper>.flag-media>.flag-body').readmore();
             }
         },
         'single_prodotti': {
@@ -156,9 +156,18 @@
         document.location.reload()
       }
     };
+    function readmoreCallback(e){
+      var text= $(e.currentTarget).text();
+      if(text==='Leggi Tutto'){$(e.currentTarget).text('Chiudi');}else{$(e.currentTarget).text('Leggi Tutto');}
+      $(e.currentTarget).parent().toggleClass('collapsed');
+    }
     function linkCallback(e) {
         e.preventDefault();
+        if(e.currentTarget.href.indexOf('osmin-linea-pediatrica') > -1){
+          window.location=e.currentTarget.href;
+        }else{
         kindAjax(e.currentTarget.href,true);
+        }
     }
 
     function kindAjax(URL,pop) {

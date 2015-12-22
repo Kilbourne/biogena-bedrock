@@ -1,12 +1,12 @@
 <?php
-
+if(get_the_title() !=='Osmin'){
 
 $title=is_single()?get_the_title():0;
 $by_index=is_single()?false:true;
 $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;
 ?>
 <div class="background-container">
-<?= the_post_thumbnail( ).$first['area-skin-care']['fields']['claim_'] ; ?>
+<?= the_post_thumbnail( ); ?> <?php if(isset($first['area-skin-care'])){ echo $first['area-skin-care']['fields']['claim_'] ;} ?>
  </div>
  <div class="content">
 
@@ -32,7 +32,7 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
                  $image=$attivo['immagine_attivo'];
                  if($count>4){$count=4;}
                  ?>
-                   <li class="attivo inline-block <?= 'w'.$count ?>"><img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /><?= $attivo['attivo'] ?></li>
+                   <li class="attivo inline-block <?= 'w'.$count ?>"><img src="<?php echo $image['url']; ?>"  alt="<?php echo $image['alt']; ?>" /><?= $attivo['attivo'] ?></li>
                  <?php endforeach ?>
                </ul>
                </div>
@@ -41,7 +41,7 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
 
 
             <div class="content-wrapper">
-                <h3>Trattamento coadiuvante per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
+                <?php if(isset($first['area-skin-care'])){ ?><h3>Trattamento coadiuvante per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3><?php } ?>
                 <div class="products">
 
 
@@ -51,3 +51,60 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
                   </div>
               </div>
  </div>
+<?php }else{
+ $first=biogenaData::data('linee',get_the_title());
+ $default_attr = array(
+  'class' => "wp-post-image"
+);
+?>
+<div class="osmin background-container">
+<?= wp_get_attachment_image($first['fields']['immagine_full_width']['id'],'full',false,$default_attr).$first['fields']['claim_'] ; ?>
+
+ </div>
+ <div class="osmin content">
+
+            <div class="content-wrapper">
+                <div class="flag-media">
+
+                 <div class="flag-body collapsed"><?= $first['content'];?><span class="readmore1">Leggi Tutto</span></div>
+                </div>
+
+          <hr>
+          <div class="inline-block prevenzione" >
+            <h3>La soluzione Biogena</h3><div class="flag-media">
+                 <div class="flag-body"><p><?= $first['fields']['prevenzione'];?></p></div></div>
+          </div><div class="inline-block lineas" >
+
+        <a href="<?= $first['permalink']; ?> " title="">
+
+          <?= $first['thumbnail']; ?>
+          </a>
+          </div>
+            <hr >
+               <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
+               <div class="attivi-wrapper">
+               <h3>Attivi di Linea </h3>
+               <ul class="attivi">
+
+                 <?php foreach ($attivi as $key => $attivo):
+                 $image=$attivo['immagine_attivo'];
+                 if($count>4){$count=4;}
+                 ?>
+                   <li class="attivo inline-block <?= 'w'.$count ?>"><img src="<?php echo $image['url']; ?>"  alt="<?php echo $image['alt']; ?>" /><?= $attivo['attivo'] ?></li>
+                 <?php endforeach ?>
+               </ul>
+               </div>
+               <?php } ?>
+       <div class="content-wrapper">
+
+                <div class="products">
+
+
+                  <?php foreach($first['prodotti'] as $key=> $prod){ ?>
+                                <div class="product flag-media <?php echo $key % 2 == 0?'odd':'even'; ?>"><a href="<?= $prod['permalink']; ?>"> <div><h3 class='product-title'><?= $prod['title']; ?> </h3> </div> </a><div class="flag-thumb"> <a href="<?= $prod['permalink']; ?>"><?= $prod['thumbnail']; ?>  </a></div><div class="flag-body"><?= $prod['content']; ?><div class="more"><a href="<?= $prod['permalink']; ?>" title="">Vai alla scheda prodotto</a> </div> </div> </div>
+                  <?php } ?>
+                  </div>
+              </div>
+              </div>
+ </div>
+<?php } ?>

@@ -37,6 +37,17 @@
     .swiper-slide.Slide2{
       .down{ margin-left: 3rem;}
     }
+    .swiper-slide.Slide3{
+      .big-claim {
+        font-size: 2.2rem;
+        padding-left: 1%;
+        top: 25%;
+        .down{
+          margin-left: 2.5rem;
+        }
+      }
+
+    }
   @media (max-width:49.999em) {
   .big-claim,.news-box{
     position:static;
@@ -76,6 +87,19 @@
     }
   }
 }
+
+   .osmin.background-container{
+    margin: 0;
+    &>img{ width:auto;}
+    .big-claim{
+      left: 0px;
+      top: 46%;
+      width: 40%;
+      text-align: left;
+      padding:0 2%;
+    }
+  }
+
 .slider-patologie {
     overflow: hidden;
 }

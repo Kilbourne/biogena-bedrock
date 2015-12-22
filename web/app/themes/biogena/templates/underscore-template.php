@@ -1,7 +1,7 @@
  <script id="linee" type="text/template" >
 <div class="background-container">
 <%= first['thumbnail'] %>
-<%= first['area-skin-care']['fields']['claim_'] %>
+<% if(first['area-skin-care']){ %><%= first['area-skin-care']['fields']['claim_'] %><% } %>
  </div>
  <div class="content">
 
@@ -29,7 +29,7 @@
                  count=attivi.length;
                  if(attivi.length>4){count=4;}
                  %>
-                   <li class="attivo inline-block <%= 'w'+count %>"><img src="<%= image['url'] %>" alt="<%= image ['alt'] %>" /><%= attivo['attivo'] %></li>
+                   <li class="attivo inline-block <%= 'w'+count %>"><img src="<%= image['url'] %>"  alt="<%= image ['alt'] %>" /><%= attivo['attivo'] %></li>
                   <% }) %>
                </ul>
                </div>
@@ -37,7 +37,7 @@
                </div>
 
             <div class="content-wrapper">
-                <h3>Trattamento coadiuvante per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
+                <% if(first['area-skin-care']){ %> <h3>Trattamento coadiuvante per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3> <% } %>
                 <div class="products">
 
 
@@ -54,7 +54,7 @@
   <script id="area-skin-care" type="text/template" >
 
  <div class="background-container">
- <img  class="attachment-post-thumbnail wp-post-image" src="<%= first['fields']['immagine_full_width']['url'] %>" alt="">
+ <img  class="attachment-post-thumbnail wp-post-image" src="<%= first['fields']['immagine_full_width']['url'] %>"   alt="">
  <%= first.fields.claim_ %>
  </div>
 
@@ -73,7 +73,7 @@
             <div class="content-wrapper">
                 <div class="flag-media">
 
-                 <div class="flag-body"><%= first.content %></div>
+                 <div class="flag-body collapsed"><%= first.content %><span class="readmore1">Leggi Tutto</span></div>
                 </div>
 
           <hr>
@@ -96,7 +96,7 @@
                  <% _.each(attivi ,function(attivo,i){
                  image=attivo['immagine_attivo'];
                  %>
-                   <li class="attivo inline-block"><div class="attivo-img-container"> <img src="<%= image['url'] %>" alt="<%= image ['alt'] %>" /></div><div class="attivo-desc-body">
+                   <li class="attivo inline-block"><div class="attivo-img-container"> <img src="<%= image['url'] %>" style="width:<%= image['width']+'px' %> height:<%= image['height']+'px' %>" alt="<%= image ['alt'] %>" /></div><div class="attivo-desc-body">
                      <h3><%= attivo['attivo'] %></h3>
                      <div class="attivo desc"><%= attivo['descrizione_attivo'] %></div>
                    </div> </li>

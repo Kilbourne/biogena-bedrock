@@ -11,9 +11,8 @@
   flex-wrap: wrap;
   .attivo{
     >img{
-      max-height: 300px;
-      width: auto;
-      max-width: none;
+      width: 100%;
+      max-width: 250px;
       display: block;
       margin: 0px auto;
     }
@@ -32,19 +31,18 @@
 
 .single-area-skin-care,
 .post-type-archive-area-skin-care{
-  .attivi-wrapper{margin-top: 1.5rem;}
+  .attivi-wrapper{margin-top: 1.5rem;    padding: 0 2% 0 6.1%;}
   .attivo{
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    flex-basis: 100%;
-    margin: 1.5rem 0.5rem 1.5rem 0;
-    >img{
-      max-height: auto;
-      width: auto;
-      max-width: 100%;
+    flex-basis: 50%;
+    margin: 0 0px 1.5rem;
+    padding: 0 1%;
+
+    .attivo-img-container{
       display: inline-block;
-      margin-right: 1rem;
-      margin-left: 0;
+      margin-right: 0.5rem;
+      >img{max-width:none !important;}
     }
     .attivo-desc-body{
       display: inline-block;

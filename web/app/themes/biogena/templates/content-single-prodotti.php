@@ -13,7 +13,7 @@ while (have_posts()):
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
       <div class="under-photo">          <?php $field = get_field('formato');
-          if ($field !== '') { ?>
+          if (isset($field) && $field && $field !== '') { ?>
             <span class="formato"><?php echo $field; ?></span>
           <?php } ?>
 <span class="like">
@@ -38,7 +38,7 @@ while (have_posts()):
 
       </div>
       <?php  $field = get_field('proprietà');
-      if ($field !== '') { ?>
+      if (isset($field) && $field && $field !== '') { ?>
         <div class="accordion">
           <div class="dt"><a href="#proprieta" aria-expanded="false" aria-controls="proprieta" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right  "> <h5>Proprietà</h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="proprieta ">
@@ -47,7 +47,7 @@ while (have_posts()):
         </div>
       <?php } ?>
       <?php $field = get_field('composizione');
-    if ($field !== '') { ?>
+    if (isset($field) && $field && $field !== '') { ?>
         <div class="accordion">
           <div class="dt"><a href="#composizione" aria-expanded="false" aria-controls="composizione" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5>Composizione</h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="composizione ">
@@ -63,7 +63,7 @@ while (have_posts()):
     } ?>
         <?php
     $field = get_field('uso');
-    if ($field !== '') { ?>
+    if (isset($field) && $field && $field !== '') { ?>
         <div class="  accordion">
           <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5>Uso</h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="uso">
@@ -79,7 +79,7 @@ while (have_posts()):
     } ?>
         <?php
     $field = get_field('precauzioni');
-    if ($field !== '') { ?>
+    if (isset($field) && $field && $field !== '') { ?>
         <div class="accordion">
           <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5>Precauzioni</h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
@@ -93,7 +93,7 @@ while (have_posts()):
     } ?>
         <?php
     $field = get_field('evidenze_cliniche');
-    if ($field !== '') { ?>
+    if (isset($field) && $field && $field !== '') { ?>
         <div class="accordion">
           <div class="dt"><a href="#evidenze_cliniche" aria-expanded="false" aria-controls="evidenze_cliniche" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5>Evidenze Cliniche</h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="evidenze_cliniche">
@@ -105,7 +105,7 @@ while (have_posts()):
         </div>
         <?php
     } ?>
-    <div class="product-last-line"><span class="ean"><?php $field = get_field('ean');if($field !=='') {echo '<span> EAN: </span>' . $field;}else{ $field = get_field('paraf');if($field !=='') {echo '<span> PARAF: </span>' . $field;} } ?></span><span><?php $field = get_field('faq');if($field !=='') {echo '<a href="" title=""><span> FAQ PRODOTTO </span></a>'; } ?></span></div>
+    <div class="product-last-line"><?php $field = get_field('faq');if(isset($field) && $field && $field !=='') {echo '<span class="faq-single" ><a href="" title=""><span> FAQ Prodotto </span></a> </span>'; } ?><span class="ean"><?php $field = get_field('ean');if(isset($field) && $field && $field !=='') {echo '<span> EAN: </span>' . $field;}else{ $field = get_field('paraf');if(isset($field) && $field && $field !=='') {echo '<span> PARAF: </span>' . $field;} } ?></span></div>
     </div>
                <div class="slideshow correlati">
             <div class="slider-title">  <h3>  Trattamenti coadiuvanti complementari </h3></div>

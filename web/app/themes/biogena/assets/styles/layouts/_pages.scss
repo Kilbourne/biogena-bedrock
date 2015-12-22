@@ -7,7 +7,7 @@
     .flag-body {
         display: inline-block;
                     margin: 0px;
-            padding: 0px 2% 1%;
+
             font-size:0.9rem;
                  p{
               text-align: justify;
@@ -28,8 +28,20 @@
     .flag-media {
         .flag-body {
             width:100%;
-
+            padding: 0px 7% 1%;
+             >.readmore1{
+    padding: 2% 0px;
+    font-weight: 700;
+    display: inline;
+    color:#24569B;
+    cursor:pointer;
+}
           }
+        .flag-body.collapsed{
+          >p{ display:none;}
+          >p:first-child{ margin-bottom:0;display:inline;}
+
+        }
     }
     .prevenzione {
     vertical-align: top;
@@ -92,7 +104,7 @@ img {
     .flag-media{
       border-bottom: 1px solid #318EC8;
       position:relative;
-      &.odd{ background: transparent linear-gradient(to bottom, #F8F8F8 0px, #EDE6E6 47%, #C2C2C2 100%) repeat scroll 0% 0%;}
+      &.odd{ background: transparent linear-gradient(to bottom, #F8F8F8 0px, #EDE6E6 47%, #F5F5F5 100%) repeat scroll 0px 0px;}
       &.even{ background:#fff;}
       .product-title{color:#24569B;text-align: center;margin-bottom: 0;}
       img{
@@ -102,6 +114,7 @@ img {
       .flag-thumb{ width:auto;margin-right: 0;vertical-align: middle;display: inline-block;}
       .flag-body{
         width:calc(100% - 150px );
+        padding: 0px 2% 1%;
         p{
           display: inline;
           margin:0;
@@ -115,6 +128,58 @@ img {
       }
     }
   }
+}
+.single-linee.osmin-linea-pediatrica{
+ .content-wrapper{
+  padding:0;
+  >.flag-media{
+
+    .flag-body{
+                  width:100%;
+            padding: 0px 7% 1%;
+    }
+  }
+     .prevenzione {
+    vertical-align: top;
+    margin-right: 1.5rem;
+    padding: 0px 3px;
+    width:100%;
+    @include media-query(lap-and-up){
+      width:calc(50% - 0.75rem);
+    };
+    h3 {
+        background-color: #24569B ;
+        color: rgb(255, 255, 255);
+        padding: 2%;
+        font-size: 1.4rem;
+        margin: 0px 7% 1%;
+    }
+    .flag-media{
+        padding: 0px 6% 1em;
+        border-bottom: 0;
+        .flag-body{
+          width:auto;
+        }
+    }
+  }
+
+  .lineas{
+     @include media-query(lap-and-up){
+    margin-top: 2.9rem;
+  }
+  padding: 0px 2%;
+    width:100%;
+  @include media-query(lap-and-up){
+  width:calc(50% - 0.75rem);
+  };
+img {
+    margin: 0 auto;
+    display: block;
+    height: auto;
+    max-width:100%;
+}
+  }
+ }
 }
 /*  SINGLE PRODOTTI */
 .single-prodotti{
@@ -182,10 +247,17 @@ img {
       margin-right: 1rem;
       font-size: 1rem;
       font-weight: 700;
-      color:#246EBC;
+      color:#24569B;
     }
   }
-.ean{ font-size: 0.75rem;}
+  .product-last-line{overflow:hidden;}
+ .faq-single>a {
+  color: #24569B;
+font-weight: 700;
+  text-decoration: none;
+font-size: 0.9rem;
+}
+.ean{ font-size: 0.75rem;float: right;}
 .nav-bread{
   margin: 0.5rem 0px;
   .go-back{
@@ -194,7 +266,7 @@ font-size: 0.85rem;
 padding-left: 0.75rem;
     &>a{
       text-decoration: none;
-      color: rgb(77, 116, 171);
+      color: #24569B;
     }
 }
 }

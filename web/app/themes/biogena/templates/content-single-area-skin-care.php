@@ -27,7 +27,7 @@ $default_attr = array(
             <div class="content-wrapper">
                 <div class="flag-media">
 
-                 <div class="flag-body"><?= $first['content'];?></div>
+                 <div class="flag-body collapsed"><?= $first['content'];?><span class="readmore1">Leggi Tutto</span></div>
                 </div>
 
           <hr>
@@ -49,7 +49,7 @@ $default_attr = array(
                  <?php foreach ($attivi as $key => $attivo):
                  $image=$attivo['immagine_attivo'];
                  ?>
-                   <li class="attivo inline-block"><div class="attivo-img-container"> <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" /></div><div class="attivo-desc-body">
+                   <li class="attivo inline-block"><div class="attivo-img-container"> <img src="<?php echo $image['url']; ?>" style="width:<?= $image['width'].'px'; ?>; height:<?= $image['height'].'px'; ?>" alt="<?php echo $image['alt']; ?>" /></div><div class="attivo-desc-body">
                      <h3><?= $attivo['attivo'] ?></h3>
                      <div class="attivo desc"><?= $attivo['descrizione_attivo'] ?></div>
                    </div> </li>
