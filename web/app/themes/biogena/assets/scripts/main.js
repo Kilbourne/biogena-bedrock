@@ -178,15 +178,24 @@
             postData = checkPostType[0];
             postType = checkPostType[1];
             index = checkIndex();
-            template();
+                        var keys  = Object.keys(postData)
+            var circleRpl = _.template($('#'+postType).text()),
+                data={
+                    first:postData[keys[index]],
+                    next:postData[keys[(index+1)<keys.length?index+1:0]] ,
+                    prev:postData[keys[(index-1)>-1?(index-1):keys.length-1]]
+                },
+                aaa = circleRpl(data);
+            $('.page-wrapper>.content>.main').html(aaa);
             var body=$('body');
             body.removeClass(bodyClasses.join(' '));
             body.addClass('single-'+postType);
             if(postType==='linee')body.addClass('no-full-slider');
+            document.title = postData[keys[index]]['title']+" | Biogena";
             if(!!pop){
               history.pushState(
                 { href:URL},
-                "", URL
+                document.title, URL
               );
             }
             if (fullSlider instanceof Swiper) fullSlider.destroy(true, true);
@@ -209,9 +218,24 @@
                 submenu.addClass('active');
             }
             if ($('.background-slider .wp-post-image,.background-container .wp-post-image').length) {
-              BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
-              BackgroundCheck.refresh();
-            }
+            try {
+                var success = true;
+              try {
+                BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
+              } catch(e) {
+                success = false;
+                BackgroundCheck.init({
+                        targets: '.nav-primary',
+                        images: '.background-slider .wp-post-image,.background-container .wp-post-image'
+                });
+              }
+              if(success) {
+                BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
+              }
+
+            }catch(e){}
+            BackgroundCheck.refresh();
+          }
             if (downSlider instanceof Swiper) downSlider.destroy(true, true);
             downSlider=null;
             if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', {                    autoplay: 2000,
@@ -235,17 +259,7 @@
             return index !== -1 ? index : 0;
         }
 
-        function template() {
-            var keys  = Object.keys(postData)
-            var circleRpl = _.template($('#'+postType).text()),
-                data={
-                    first:postData[keys[index]],
-                    next:postData[keys[(index+1)<keys.length?index+1:0]] ,
-                    prev:postData[keys[(index-1)>-1?(index-1):keys.length-1]]
-                },
-                aaa = circleRpl(data);
-            $('.page-wrapper>.content>.main').html(aaa);
-        }
+
     }
     (function(window) {
 

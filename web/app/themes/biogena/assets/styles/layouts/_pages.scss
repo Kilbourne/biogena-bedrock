@@ -273,5 +273,20 @@ padding-left: 0.75rem;
 
 }
 
+.page-header{
+text-align: center
+}
+// AZIENDA
+.azienda{
+  h1,h2,h3{color:#24569B}
+  main>.video{
+    margin-top:3rem;
+  }
+  .content-wrapper-azienda{
+    padding:0 4%;
+    .page-header{
+      margin: 3rem 0;
 
-
+    }
+  }
+}
