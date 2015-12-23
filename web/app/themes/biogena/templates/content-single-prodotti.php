@@ -4,7 +4,7 @@ while (have_posts()):
     the_post();
 
     $linea = biogenaData::data(get_post_type($post), get_the_title());
-  //  echo d($linea);
+    echo d($linea);
 ?>
   <div class="nav-bread">
       <div class="go-back"><a href="<?php echo $linea['linea']['permalink'] ?>" title=""> &lt;&lt; Torna alla linea <?php echo $linea['linea']['title'] ?></a></div>
@@ -105,7 +105,7 @@ while (have_posts()):
         </div>
         <?php
     } ?>
-    <div class="product-last-line"><?php $field = get_field('faq');if(isset($field) && $field && $field !=='') {echo '<span class="faq-single" ><a href="" title=""><span> FAQ Prodotto </span></a> </span>'; } ?><span class="ean"><?php $field = get_field('ean');if(isset($field) && $field && $field !=='') {echo '<span> EAN: </span>' . $field;}else{ $field = get_field('paraf');if(isset($field) && $field && $field !=='') {echo '<span> PARAF: </span>' . $field;} } ?></span></div>
+    <div class="product-last-line"><?php $field = get_field('faq');if(isset($field) && $field && $field !=='') {echo '<span class="faq-single" ><a href="" title=""><span> FAQ Prodotto </span></a> </span>'; } ?><span class="ean"><?php $field = get_field('ean');if(isset($field) && $field && $field !=='') {echo '<span> Non trovi il prodotto in farmacia? Questo è il codice a barre: EAN - </span>' . $field;}else{ $field = get_field('paraf');if(isset($field) && $field && $field !=='') {echo '<span>Non trovi il prodotto in farmacia? Questo è il codice a barre: PARAF - </span>' . $field;} } ?></span></div>
     </div>
                <div class="slideshow correlati">
             <div class="slider-title">  <h3>  Trattamenti coadiuvanti complementari </h3></div>

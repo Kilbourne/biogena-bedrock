@@ -13,7 +13,7 @@
 (function($) {
     var downSlider, oldPostType,fullSlider,
     downSliderOptions={
-                    autoplay: 2000,
+                    autoplay: 4000,
                     slidesPerView: 'auto',
                     autoplayDisableOnInteraction: true,
                     pagination:'.slideshow .navigation',
@@ -36,7 +36,7 @@
                     });
                     if ($('.background-slider .wp-post-image').length) {
                         fullSlider = new Swiper('.background-slider', {
-                            autoplay: 3500,
+                            autoplay: 4000,
                             slidesPerView: 1,
                             autoplayDisableOnInteraction: true,
                             onSlideChangeEnd: function() {
@@ -48,7 +48,10 @@
 
                 $('body').on('click', 'a[href*="/area-skin-care/"],a[href*="/linee/"]', linkCallback);
                 $('body').on('click', '.readmore1', readmoreCallback);
-
+                $('body.single-linee,body.post-type-archive-linee').on('click', '.attivo', readmoreAttiviCallback);
+                $('.ajax-popup-link').magnificPopup({
+                  type: 'ajax'
+                });
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
 
@@ -161,6 +164,9 @@
       if(text==='Leggi Tutto'){$(e.currentTarget).text('Chiudi');}else{$(e.currentTarget).text('Leggi Tutto');}
       $(e.currentTarget).parent().toggleClass('collapsed');
     }
+    function readmoreAttiviCallback (e){
+      $(e.currentTarget).find('.attivo-desc').toggle();
+    }
     function linkCallback(e) {
         e.preventDefault();
         if(e.currentTarget.href.indexOf('osmin-linea-pediatrica') > -1){
@@ -238,7 +244,7 @@
           }
             if (downSlider instanceof Swiper) downSlider.destroy(true, true);
             downSlider=null;
-            if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', {                    autoplay: 2000,
+            if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', {                    autoplay: 4000,
                     slidesPerView: 'auto',
                     autoplayDisableOnInteraction: true,
                     pagination:'.slideshow .navigation',

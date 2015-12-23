@@ -29,7 +29,7 @@
                  count=attivi.length;
                  if(attivi.length>4){count=4;}
                  %>
-                   <li class="attivo inline-block <%= 'w'+count %>"><img src="<%= image['url'] %>"  alt="<%= image ['alt'] %>" /><%= attivo['attivo'] %></li>
+                   <li class="attivo inline-block <%= 'w'+count %>"><img src="<%= image['url'] %>"  alt="<%= image ['alt'] %>" /><%= attivo['attivo']+"<div class='attivo-desc'>"+attivo['descrizione_attivo']+"</div>" %></li>
                   <% }) %>
                </ul>
                </div>
@@ -91,15 +91,15 @@
                                              <% attivi=first['linea']['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
                <div class="attivi-wrapper">
                <h3>Attivi di Linea </h3>
-               <ul class="attivi">
+               <ul class="attivi <%= 'total'+attivi.length %>">
 
                  <% _.each(attivi ,function(attivo,i){
                  image=attivo['immagine_attivo'];
                  %>
-                   <li class="attivo inline-block"><div class="attivo-img-container"> <img src="<%= image['url'] %>" style="width:<%= image['width']+'px' %> height:<%= image['height']+'px' %>" alt="<%= image ['alt'] %>" /></div><div class="attivo-desc-body">
-                     <h3><%= attivo['attivo'] %></h3>
+                   <li class="attivo inline-block"><h3><%= attivo['attivo'] %></h3><div class="attivo-wrapper "><div class="attivo-img-container"> <img src="<%= image['url'] %>" style="width:<%= image['width']+'px' %> height:<%= image['height']+'px' %>" alt="<%= image ['alt'] %>" /></div><div class="attivo-desc-body">
+
                      <div class="attivo desc"><%= attivo['descrizione_attivo'] %></div>
-                   </div> </li>
+                   </div></div> </li>
                   <% }) %>
                </ul>
                </div>

@@ -8,7 +8,7 @@
         display: inline-block;
                     margin: 0px;
 
-            font-size:0.9rem;
+            font-size:1rem;
                  p{
               text-align: justify;
               padding:0;
@@ -19,6 +19,9 @@
 
 .single-area-skin-care,
 .post-type-archive-area-skin-care {
+    .girasole{
+    margin: 2.5rem auto 0 !important;
+}
     .content {
         position: relative;
         img {
@@ -92,14 +95,14 @@ img {
     margin-top: 1rem;
     a{ text-decoration: none;}
     &>h3{
-      background-color: #24569B;
-      color: #FFF;
-      font-size: 1.4rem;
-      text-align: center;
-      padding: 0.5rem;
-      font-size: 1.15rem;
-      margin: 0px auto;
-      a{ text-decoration: none;color:#fff;}
+background-color: rgb(255, 255, 255);
+color: #2A79B2;
+text-align: center;
+padding: 0.5rem;
+border-bottom: 1px solid #2A79B2;
+margin: 0px auto 1rem;
+      a{ text-decoration: none;
+color: rgb(42, 121, 178);}
     }
     .flag-media{
       border-bottom: 1px solid #318EC8;
@@ -108,12 +111,12 @@ img {
       &.even{ background:#fff;}
       .product-title{color:#24569B;text-align: center;margin-bottom: 0;}
       img{
-        width:150px;
+        width:250px;
         height: auto;
       }
       .flag-thumb{ width:auto;margin-right: 0;vertical-align: middle;display: inline-block;}
       .flag-body{
-        width:calc(100% - 150px );
+        width:calc(100% - 250px );
         padding: 0px 2% 1%;
         p{
           display: inline;
@@ -129,6 +132,12 @@ img {
     }
   }
 }
+.specialita-medicinali.single-linee{
+  .more{
+    font-size:0.75rem;
+  }
+}
+
 .single-linee.osmin-linea-pediatrica{
  .content-wrapper{
   padding:0;
@@ -288,5 +297,19 @@ text-align: center
       margin: 3rem 0;
 
     }
+  }
+}
+
+.mfp-container{
+  left:5%;
+  width:90%;
+  @include media-query(lap-and-up){
+        width: 66%;
+        left: 17.5%;
+  };
+
+  .mfp-content{
+    background-color:#fff;
+    padding: 3rem 5%;
   }
 }

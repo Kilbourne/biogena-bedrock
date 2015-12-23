@@ -23,6 +23,9 @@
       font-weight: 700;
       padding-top:0.5rem;
     }
+    >.attivo-desc{
+      display:none;
+    }
   }
   .attivo:last-child{
     margin-right: 0;
@@ -31,30 +34,87 @@
 
 .single-area-skin-care,
 .post-type-archive-area-skin-care{
-  .attivi-wrapper{margin-top: 1.5rem;    padding: 0 2% 0 6.1%;}
+  .attivi-wrapper{margin-top: 1.5rem;    padding: 0px 2% 0px 3.7%;
+>h3{
+  background-color: #24569B;
+color: #FFF;
+font-size: 1.4rem;
+display: inline-block;
+padding: 1% 5%;
+margin: 0px 0px 1.5rem;
+}
+  }
+  .attivi{margin-top: 1.5rem;}
   .attivo{
-    display: inline-flex;
-    align-items: center;
+
     flex-basis: 50%;
     margin: 0 0px 1.5rem;
     padding: 0 1%;
-
+          >h3{
+        color: #24569B;
+        font-size: 1.25rem;
+        text-align: center;
+      }
+    .attivo-wrapper{
+          display: inline-flex;
+    align-items: center;
+    }
     .attivo-img-container{
       display: inline-block;
       margin-right: 0.5rem;
-      >img{max-width:none !important;}
+      >img{
+        max-width: 250px !important;
+        height: auto !important;
+      }
     }
     .attivo-desc-body{
       display: inline-block;
       padding: 2%;
-      >h3{
-        color: #24569B;
-      }
+
     }
   }
 }
+  .attivi.total1{
+    justify-content: space-around;
+  .attivo{
+margin: 0;
+padding: 0;
+align-items: center;
+flex-basis: 100%;
+display:inline-block;
+.attivo-wrapper{ display:block;}
+    .attivo-img-container{
+      display: block;
+      margin-right: 0rem;
+      >img{max-width:none ;
+        margin: 0px auto;
+        display: block;
+      }
+    }
+    .attivo-desc-body{
+      padding: 2%;
+flex-basis: 100%;
+display: block;
+      >h3{
+        color: #24569B;
+      }
+      >.attivo.desc{
+        >div{
+          width: 33.333%;
+          display: inline-block;
+          padding-right: 2%;
+          vertical-align: top;
+        }
+      }
+    }
+  }
+  }
+
 
 .single-linee,.post-type-archive-linee{
+  .attivo{
+    cursor:pointer;
+  }
   .attivo.w1{flex-basis: 100%;}
   .attivo.w2{flex-basis: 50%;}
   .attivo.w3{flex-basis: 33.333%;}

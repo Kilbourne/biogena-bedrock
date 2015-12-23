@@ -244,3 +244,26 @@ width: 2%;
     background:#24569B;
   }
 }
+
+.no-slider{
+  .swiper-wrapper{
+    display: inline-block;
+    height:auto;
+    width:auto;
+    .swiper-slide{
+      display: block;
+      margin: 0px auto;
+      width:auto;
+      >a{
+        >div{
+          top: 100%;
+          position:static;
+          width:auto;
+          >h3{
+
+          }
+        }
+      }
+    }
+  }
+}

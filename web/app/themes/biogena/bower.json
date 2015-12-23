@@ -49,7 +49,8 @@
     "font-awesome": "~4.5.0",
     "FitText.js": "~1.2.0",
     "js-url": "~2.0.2",
-    "enquire": "~2.1.2"
+    "enquire": "~2.1.2",
+    "magnific-popup": "~1.0.0"
   },
   "overrides": {
     "background-check": {

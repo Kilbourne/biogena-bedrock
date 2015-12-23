@@ -41,32 +41,43 @@ $default_attr = array(
           <?= $first['linea']['thumbnail']; ?>
           </a>
           </div>
-                                   <?php $attivi=$first['linea']['fields']['attivi_di_linea']; if(count($attivi)>0){ ?>
+                                   <?php $attivi=$first['linea']['fields']['attivi_di_linea']; if(count($attivi)>0){
+
+                                    ?>
                <div class="attivi-wrapper">
                <h3>Attivi di Linea </h3>
-               <ul class="attivi">
+
+               <ul class="attivi <?= 'total'.count($attivi);?>">
 
                  <?php foreach ($attivi as $key => $attivo):
                  $image=$attivo['immagine_attivo'];
                  ?>
-                   <li class="attivo inline-block"><div class="attivo-img-container"> <img src="<?php echo $image['url']; ?>" style="width:<?= $image['width'].'px'; ?>; height:<?= $image['height'].'px'; ?>" alt="<?php echo $image['alt']; ?>" /></div><div class="attivo-desc-body">
-                     <h3><?= $attivo['attivo'] ?></h3>
+                   <li class=" inline-block attivo"><h3><?= $attivo['attivo'] ?></h3>
+                    <div class="attivo-wrapper ">                   <div class="attivo-img-container"> <img src="<?php echo $image['url']; ?>" style="width:<?= $image['width'].'px'; ?>; height:<?= $image['height'].'px'; ?>" alt="<?php echo $image['alt']; ?>" /></div><div class="attivo-desc-body">
+
                      <div class="attivo desc"><?= $attivo['descrizione_attivo'] ?></div>
-                   </div> </li>
+                   </div></div>
+ </li>
                  <?php endforeach ?>
                </ul>
                </div>
+
+
                <?php } ?>
           <hr>
           <div class="slideshow correlati">
               <h4>  Scopri la linea <?= $first['linea']['title']; ?></h4>
+              <?php if(count($first['prodotti'])>2){ ?>
                 <div class=" slider-patologie active three" >
+              <?php }else {echo '<div class=" no-slider active three" >';} ?>
                     <div class="swiper-wrapper">
                   <?php foreach($first['prodotti'] as $key=> $prod){ ?>
                                 <div class="swiper-slide"><a href="<?= $prod['permalink']; ?>"><?= $prod['thumbnail']; ?> <div><h3><?= $prod['title']; ?> </h3> </div> </a></div>
                   <?php } ?>
                     </div>
-                    <div class="navigation"></div>
+              <?php if(count($first['prodotti'])>2){ ?>
+                                    <div class="navigation"></div>
+              <?php } ?>
                 </div>
           </div>
               </div>
