@@ -26,9 +26,6 @@
         @include  media-query(palm){ display: inline-block; }
         a{
           left: 0px;
-          top: 50%;
-          transform: translateY(-50%);
-
         }
       }
     }

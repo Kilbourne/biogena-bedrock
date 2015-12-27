@@ -46,8 +46,10 @@ margin: 0px 0px 1.5rem;
   }
   .attivi{margin-top: 1.5rem;}
   .attivo{
-
+    flex-basis: 100%;
+      @media (min-width:50em) {
     flex-basis: 50%;
+    }
     margin: 0 0px 1.5rem;
     padding: 0 1%;
           >h3{
@@ -58,13 +60,25 @@ margin: 0px 0px 1.5rem;
     .attivo-wrapper{
           display: inline-flex;
     align-items: center;
+       @media (max-width:30em) {
+    flex-wrap: wrap;
+justify-content: center;
+    }
     }
     .attivo-img-container{
       display: inline-block;
       margin-right: 0.5rem;
+      flex-shrink: 1;
+      align-self: flex-start;
+      @media (max-width:30em) {
+      margin-bottom: 1rem;
+      flex-basis:auto;
+    }
       >img{
         max-width: 250px !important;
         height: auto !important;
+        width:100% !important;
+        min-width: 157px;
       }
     }
     .attivo-desc-body{

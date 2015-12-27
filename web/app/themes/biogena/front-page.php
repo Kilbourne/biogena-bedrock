@@ -58,7 +58,7 @@
       </div>
     </div>
     -->
-    <div class="slider slider-patologie active four" >
+    <div class="slider slider-patologie slider-patologie-home active four" >
       <div class="swiper-wrapper">
     <?php
       $args = array(

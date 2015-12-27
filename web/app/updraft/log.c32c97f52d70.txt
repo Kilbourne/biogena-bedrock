@@ -182,3 +182,7 @@
 0002.115 (0) The backup apparently succeeded and is now complete
 0002.118 (0) No email will/can be sent - the user has not configured an email address.
 0002.121 (0) Il backup apparentemente è riuscito ed ora è completo
+0000.000 (1) Opened log file at time: Thu, 24 Dec 2015 11:16:30 +0000 on http://localhost/biogena/wp
+0000.004 (1) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.11.18 WP: 4.3.1 PHP: 5.5.8 (Windows NT LUCA-DESK 6.1 build 7601 (Windows 7 Ultimate Edition Service Pack 1) i586) MySQL: 5.6.15 Server: Apache/2.4.7 (Win32) OpenSSL/1.0.1e PHP/5.5.8 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 24.8M | 25M) multisite: N mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.007 (1) Free space on disk containing Updraft's temporary directory: 47227.6 Mb
+0000.010 (1) This backup task is either complete or began over 2 days ago: ending (1450955790.339, )

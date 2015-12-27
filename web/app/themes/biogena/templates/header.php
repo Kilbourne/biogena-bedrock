@@ -11,7 +11,7 @@
               wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']);
           ?>
             <div class="responsive-menu-wrapper" >
-              <?php echo do_shortcode( '[responsive-menu]' );  ?>
+              <?php echo do_shortcode( ' [responsive-menu menu="Mobile Menu"]' );  ?>
             </div>
 
           <?php

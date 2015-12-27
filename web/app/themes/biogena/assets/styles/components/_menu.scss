@@ -151,6 +151,8 @@
         background-color: rgb(255, 255, 255);
         margin-top: -63%;
         padding: 65% 16% 10%;
+        min-width: 280px;
+min-height: 271px;
         /*
         padding: 42% 18% 13%;
         */
@@ -227,7 +229,14 @@ vertical-align: middle;
       background-color:#fff ;
       color: #24569B	;
     }
+    .sub-menu .menu-item{
+      &.active>a{
+      background-color: #24569B;
+      color:   #fff;
+      }
+    }
   }
+
 }
 .responsive-menu-wrapper {
     position: fixed;
@@ -266,7 +275,18 @@ vertical-align: middle;
   #responsive-menu #responsive-menu-title {
     padding: 16px 0px 16px 5%;
   }
-
+  #responsive-menu .menu-area-baby{
+    .sub-menu{
+      margin:0;
+      .menu-image-title-below{
+        padding-left: 5%;
+      }
+    }
+  }
+  #responsive-menu .responsive-menu li a{
+    white-space: normal;
+    height:auto;
+  }
 }
 #wpadminbar {
   position:fixed!important;

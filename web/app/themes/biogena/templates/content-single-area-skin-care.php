@@ -67,15 +67,15 @@ $default_attr = array(
           <hr>
           <div class="slideshow correlati">
               <h4>  Scopri la linea <?= $first['linea']['title']; ?></h4>
-              <?php if(count($first['prodotti'])>2){ ?>
-                <div class=" slider-patologie active three" >
-              <?php }else {echo '<div class=" no-slider active three" >';} ?>
+              <?php if(count($first['prodotti'])>1){ ?>
+                <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?>" >
+              <?php }else {echo '<div class=" no-slider active" >';} ?>
                     <div class="swiper-wrapper">
                   <?php foreach($first['prodotti'] as $key=> $prod){ ?>
                                 <div class="swiper-slide"><a href="<?= $prod['permalink']; ?>"><?= $prod['thumbnail']; ?> <div><h3><?= $prod['title']; ?> </h3> </div> </a></div>
                   <?php } ?>
                     </div>
-              <?php if(count($first['prodotti'])>2){ ?>
+              <?php if(count($first['prodotti'])>1){ ?>
                                     <div class="navigation"></div>
               <?php } ?>
                 </div>

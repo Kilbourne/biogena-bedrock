@@ -11,16 +11,24 @@
  * ======================================================================== */
 
 (function($) {
-    var downSlider, oldPostType,fullSlider,
-    downSliderOptions={
-                    autoplay: 4000,
+    var downSlider, oldPostType,fullSlider,linkCallbackBusy=false,
+    downSliderOptions=function(){
+      return{
+                      autoplay: 5000,
+                      slidesPerView: 'auto',
+                      autoplayDisableOnInteraction: true,
+                      pagination:'.slideshow .navigation',
+                      paginationClickable:true,
+                      resizeReInit: true
+      };
+  },
+    downSliderHomeOptions=function(){
+      return{
                     slidesPerView: 'auto',
-                    autoplayDisableOnInteraction: true,
-                    pagination:'.slideshow .navigation',
-                    loop:true,
-                    paginationClickable:true
-                  ,nextButton: '.swiper-button-next',
-                  prevButton: '.swiper-button-prev'
+                  nextButton: '.swiper-button-next',
+                  prevButton: '.swiper-button-prev',
+                      resizeReInit: true
+                  };
     },
     bodyClasses=['home','post-type-archive-linee','azienda','single-linee','single-area-skin-care','post-type-archive-area-skin-care','no-full-slider'];
     // Use this variable to set up the common and page specific functions. If you
@@ -36,9 +44,10 @@
                     });
                     if ($('.background-slider .wp-post-image').length) {
                         fullSlider = new Swiper('.background-slider', {
-                            autoplay: 4000,
+                            autoplay: 7000,
                             slidesPerView: 1,
                             autoplayDisableOnInteraction: true,
+                            loop:true,
                             onSlideChangeEnd: function() {
                                 BackgroundCheck.refresh();
                             }
@@ -48,15 +57,33 @@
 
                 $('body').on('click', 'a[href*="/area-skin-care/"],a[href*="/linee/"]', linkCallback);
                 $('body').on('click', '.readmore1', readmoreCallback);
+                $('body').on('mouseenter mouseleave', '.swiper-container-horizontal', stopAutoplayOnHover);
+                //$('.big-claim').fitText(1.4);
                 $('body.single-linee,body.post-type-archive-linee').on('click', '.attivo', readmoreAttiviCallback);
                 $('.ajax-popup-link').magnificPopup({
-                  type: 'ajax'
+                  type: 'ajax',
+                  tLoading: '<div class="cube1"></div><div class="cube2"></div>'
+                });
+                $('.inline-popup-link').magnificPopup({
+                  type:'inline'
                 });
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
-
-              if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', downSliderOptions);
+              if(document.location.toString().indexOf('osmin-linea-pediatrica') > -1 ){
+                $('li.menu-prodotti,.menu-linea-osmin').removeClass('active');
+              }
+              if($('.slider-patologie-home').length){downSlider = new Swiper('.slider-patologie', downSliderHomeOptions());}
+              else if($('.slider-patologie').length){downSlider = new Swiper('.slider-patologie', downSliderOptions());}
             }
+        },
+        'post_type_archive':{
+          init: function(){
+            var menusActive=$('.menu-item.active');
+            menusActive.each(function(index, el) {
+              var subItems=$(el).find('.sub-menu .menu-item');
+              if(subItems.length)subItems.first().addClass('active');
+            });
+          }
         },
         'single_prodotti': {
             init: function() {
@@ -159,24 +186,46 @@
         document.location.reload()
       }
     };
+    function stopAutoplayOnHover(e){
+      var ct=$(e.currentTarget);
+      if(e.handleObj.origType==='mouseenter'){
+          if(ct.hasClass('background-slider')){
+              fullSlider.stopAutoplay();
+          }
+          else if(ct.hasClass('slider-patologie') && !ct.hasClass('slider-patologie-home') ){
+              downSlider.stopAutoplay();
+          }
+      }
+      else if(e.type==='mouseleave'){
+          if(ct.hasClass('background-slider')){
+              fullSlider.startAutoplay();
+          }
+          else if(ct.hasClass('slider-patologie') && !ct.hasClass('slider-patologie-home') ){
+              downSlider.startAutoplay();
+          }
+      }
+
+    }
     function readmoreCallback(e){
       var text= $(e.currentTarget).text();
       if(text==='Leggi Tutto'){$(e.currentTarget).text('Chiudi');}else{$(e.currentTarget).text('Leggi Tutto');}
-      $(e.currentTarget).parent().toggleClass('collapsed');
+      $(e.currentTarget).siblings('p').slideToggle();
     }
     function readmoreAttiviCallback (e){
-      $(e.currentTarget).find('.attivo-desc').toggle();
+      $(e.currentTarget).find('.attivo-desc').slideToggle();
     }
     function linkCallback(e) {
         e.preventDefault();
         if(e.currentTarget.href.indexOf('osmin-linea-pediatrica') > -1){
           window.location=e.currentTarget.href;
         }else{
+        if(linkCallbackBusy)return;
         kindAjax(e.currentTarget.href,true);
         }
     }
 
     function kindAjax(URL,pop) {
+              linkCallbackBusy=true;
         var index, checkPostType,postData,postType,menu, submenu,submenus,
             last = url(-1, URL),
             penultimate = url(-2, URL);
@@ -192,64 +241,74 @@
                     prev:postData[keys[(index-1)>-1?(index-1):keys.length-1]]
                 },
                 aaa = circleRpl(data);
-            $('.page-wrapper>.content>.main').html(aaa);
-            var body=$('body');
-            body.removeClass(bodyClasses.join(' '));
-            body.addClass('single-'+postType);
-            if(postType==='linee')body.addClass('no-full-slider');
-            document.title = postData[keys[index]]['title']+" | Biogena";
-            if(!!pop){
-              history.pushState(
-                { href:URL},
-                document.title, URL
-              );
-            }
-            if (fullSlider instanceof Swiper) fullSlider.destroy(true, true);
-            fullSlider=null;
-            if(postType!==oldPostType){
-              oldPostType=postType;
-              if(postType==='linee'){
+            $('.page-wrapper>.content>.main').removeClass('newtemp').addClass('oldtemp');
+            $('.page-wrapper>.content').append('<main class="main newtemp" style="display:none;">'+aaa+'</main>');
+            $('.page-wrapper>.content>.newtemp').imagesLoaded( function() {
+                $('.page-wrapper>.content>.oldtemp').fadeOut('400', function() {
+                  $(this).remove();
+                  $('.page-wrapper>.content>.newtemp').fadeIn();
+                  var body=$('body');
+                  body.removeClass(bodyClasses.join(' '));
+                  body.addClass('single-'+postType);
+                  $('body.single-linee,body.post-type-archive-linee').on('click', '.attivo', readmoreAttiviCallback);
+                  if(postType==='linee')body.addClass('no-full-slider');
+                  document.title = postData[keys[index]]['title']+" | Biogena";
+                  if(!!pop){
+                    history.pushState(
+                      { href:URL},
+                      document.title, URL
+                    );
+                  }
+                  if (fullSlider instanceof Swiper) fullSlider.destroy(true, true);
+                  fullSlider=null;
+                  if(postType!==oldPostType){
+                    oldPostType=postType;
+                    if(postType==='linee'){
 
-              }
-            }
-            menu = $('.' + postType);
-            if (menu.length !== menu.add('.active').length) {
-                $('#menu-menu-1>.menu-item,#menu-mobile-menu.menu-item').removeClass('active');
-                menu.addClass('active');
-            }
-            submenus = menu.find('.sub-menu li');
-            submenu = submenus.slice(index , index + 1);
-            if (submenu.length !== submenu.add('.active').length) {
-                $('.sub-menu .menu-item').removeClass('active');
-                submenu.addClass('active');
-            }
-            if ($('.background-slider .wp-post-image,.background-container .wp-post-image').length) {
-            try {
-                var success = true;
-              try {
-                BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
-              } catch(e) {
-                success = false;
-                BackgroundCheck.init({
-                        targets: '.nav-primary',
-                        images: '.background-slider .wp-post-image,.background-container .wp-post-image'
+                    }
+                  }
+                  menu = $('.' + postType);
+                  if (menu.length !== menu.add('.active').length) {
+                      $('#menu-menu-1>.menu-item,#menu-mobile-menu>.menu-item').removeClass('active');
+                      menu.addClass('active');
+                  }
+                  $('.sub-menu .menu-item').removeClass('active');
+                  menu.each(function(i, menu) {
+                    var menu=$(menu);
+                                      submenus = menu.find('.sub-menu li');
+                  submenu = submenus.slice(index , index + 1);
+                  if (submenu.length !== submenu.add('.active').length) {
+
+                      submenu.addClass('active');
+                  }
+                  });
+
+                  if ($('.background-slider .wp-post-image,.background-container .wp-post-image').length) {
+                    try {
+                        var success = true;
+                      try {
+                        BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
+                      } catch(e) {
+                        success = false;
+                        BackgroundCheck.init({
+                                targets: '.nav-primary',
+                                images: '.background-slider .wp-post-image,.background-container .wp-post-image'
+                        });
+                      }
+                      if(success) {
+                        BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
+                      }
+
+                    }catch(e){}
+                    BackgroundCheck.refresh();
+                  }
+                  if (downSlider instanceof Swiper) downSlider.destroy(true, true);
+                  downSlider=null;
+                  if($('.slider-patologie').length){downSlider = new Swiper('.slider-patologie', downSliderOptions());}
+                    linkCallbackBusy=false;
                 });
-              }
-              if(success) {
-                BackgroundCheck.set('images', '.background-slider .wp-post-image,.background-container .wp-post-image');
-              }
+            });
 
-            }catch(e){}
-            BackgroundCheck.refresh();
-          }
-            if (downSlider instanceof Swiper) downSlider.destroy(true, true);
-            downSlider=null;
-            if($('.slider-patologie').length)downSlider = new Swiper('.slider-patologie', {                    autoplay: 4000,
-                    slidesPerView: 'auto',
-                    autoplayDisableOnInteraction: true,
-                    pagination:'.slideshow .navigation',
-                    loop:true,
-                    paginationClickable:true});
 
 
         function findPostType() {
@@ -267,6 +326,7 @@
 
 
     }
+
     (function(window) {
 
         'use strict';

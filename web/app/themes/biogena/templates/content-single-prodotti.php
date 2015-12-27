@@ -3,9 +3,7 @@
 while (have_posts()):
     the_post();
 
-    $linea = biogenaData::data(get_post_type($post), get_the_title());
-    echo d($linea);
-?>
+    $linea = biogenaData::data(get_post_type($post), get_the_title());?>
   <div class="nav-bread">
       <div class="go-back"><a href="<?php echo $linea['linea']['permalink'] ?>" title=""> &lt;&lt; Torna alla linea <?php echo $linea['linea']['title'] ?></a></div>
   </div>
@@ -105,30 +103,41 @@ while (have_posts()):
         </div>
         <?php
     } ?>
-    <div class="product-last-line"><?php $field = get_field('faq');if(isset($field) && $field && $field !=='') {echo '<span class="faq-single" ><a href="" title=""><span> FAQ Prodotto </span></a> </span>'; } ?><span class="ean"><?php $field = get_field('ean');if(isset($field) && $field && $field !=='') {echo '<span> Non trovi il prodotto in farmacia? Questo è il codice a barre: EAN - </span>' . $field;}else{ $field = get_field('paraf');if(isset($field) && $field && $field !=='') {echo '<span>Non trovi il prodotto in farmacia? Questo è il codice a barre: PARAF - </span>' . $field;} } ?></span></div>
+    <div class="product-last-line"><?php $field = get_field('faq');if(isset($field) && $field && $field !=='') {echo '<span class="faq-single" ><a href="#product-faq" title="FAQ Prodotto" class="inline-popup-link"><span> FAQ Prodotto </span></a> </span>'; } ?><span class="ean"><?php $field = get_field('ean');if(isset($field) && $field && $field !=='') {echo '<span> Non trovi il prodotto in farmacia? Questo è il codice a barre: EAN - </span>' . $field;}else{ $field = get_field('paraf');if(isset($field) && $field && $field !=='') {echo '<span>Non trovi il prodotto in farmacia? Questo è il codice a barre: PARAF - </span>' . $field;} } ?></span></div>
     </div>
+    <?php $field = get_field('faq');if(isset($field) && $field && $field !=='') { ?>
+    <div id="product-faq" class="white-popup mfp-hide">
+ <?= $field; ?>
+</div>
+<?php } ?>
+    <?php
+    $connected2 = $linea['prodotti'];
+    if (count($connected2) > 0) { ?>
                <div class="slideshow correlati">
             <div class="slider-title">  <h3>  Trattamenti coadiuvanti complementari </h3></div>
-                <div class=" slider-patologie active three" >
+              <?php if(count($connected2)>1){ ?>
+                <div class=" slider-patologie active <?= count($connected2)===2?'two':'three' ?>" >
+              <?php }else {echo '<div class=" no-slider " >';} ?>
                     <div class="swiper-wrapper">
 <?php
-    $connected2 = $linea['prodotti'];
-    if (count($connected2) > 0) {
+
 
         foreach ($connected2 as $key2 => $prodotto) {
 ?>
                             <div class="swiper-slide"><a href="<?php echo $prodotto['permalink']; ?>"><?php echo $prodotto['thumbnail']; ?><div><h3><?php echo $prodotto['title']; ?> </h3> </div> </a></div>
                          <?php
         }
-    } ?>
+     ?>
 
 
                     </div>
-                    <div class="navigation"></div>
+                        <?php if(count($connected2)>1){ ?>
+                                    <div class="navigation"></div>
+              <?php } ?>
                 </div>
           </div>
 
-
+   <?php } ?>
   </article>
 <?php
 endwhile; ?>

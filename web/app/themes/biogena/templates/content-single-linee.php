@@ -112,7 +112,6 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
 <?php }elseif($title ==='Specialità Medicinali'){
 
 $arrayC=biogenaData::data(get_post_type(),$title,true,false); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;
-echo d($arrayC);
 ?>
 <div class="background-container">
 <?= the_post_thumbnail( ); ?> <?php echo $first['fields']['claim_'] ; ?>
