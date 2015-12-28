@@ -50,7 +50,8 @@
     "wpackagist-plugin/updraftplus": "1.11.18",
     "wpackagist-plugin/transients-manager": "1.7.1",
     "wpackagist-plugin/ninja-forms": "2.9.33",
-    "kilbourne/biogena-data": "2.2.7"
+    "kilbourne/biogena-data": "2.2.8",
+    "wpackagist-plugin/members": "1.1.0"
   },
   "require-dev": {
     "wpackagist-plugin/p3-profiler": "1.5.3.9",

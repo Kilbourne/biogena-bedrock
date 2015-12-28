@@ -36,8 +36,10 @@
         <h5><?php
         the_title(); ?></h5>
         <div class="content"><?php
-        the_content('Leggi Tutto'); ?><a href="<?php
-        the_permalink(); ?>" title="">Altre News</a></div>
+        the_content('Leggi Tutto'); ?><a href="
+<?php get_post_type_archive_link( 'post' ); ?>
+
+" title="" >Altre News</a></div>
       </div>
     </div>
     <?php

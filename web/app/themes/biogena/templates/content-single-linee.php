@@ -3,9 +3,11 @@ $title=get_the_title();
 
 if($title !=='Osmin' && $title !=='Specialità Medicinali'){
 
-$title=is_single()?get_the_title():0;
+$title=is_single()?html_entity_decode(get_the_title()):0;
 $by_index=is_single()?false:true;
+echo d($title);
 $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;
+
 ?>
 <div class="background-container">
 <?= the_post_thumbnail( ); ?> <?php if(isset($first['area-skin-care'])){ echo $first['area-skin-care']['fields']['claim_'] ;} ?>

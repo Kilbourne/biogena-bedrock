@@ -62,7 +62,25 @@
                 $('body.single-linee,body.post-type-archive-linee').on('click', '.attivo', readmoreAttiviCallback);
                 $('.ajax-popup-link').magnificPopup({
                   type: 'ajax',
-                  tLoading: '<div class="cube1"></div><div class="cube2"></div>'
+                  tLoading: '<div class="cube1"></div><div class="cube2"></div>',
+                  closeOnContentClick:false,
+                  closeOnBgClick:false,
+                  callbacks:{
+                  ajaxContentAdded: function(data) {
+
+                      var otherLinks=$('.mfp-content .ajax-popup-link-r')
+                      if(otherLinks.length){
+                        revursivePopup(otherLinks);
+                      }
+
+                  },
+                  beforeOpen: function() {
+
+                          $('.mfp-bg,.mfp-wrap ').remove();
+
+
+  }
+                  }
                 });
                 $('.inline-popup-link').magnificPopup({
                   type:'inline'
@@ -186,6 +204,30 @@
         document.location.reload()
       }
     };
+    function revursivePopup(els){
+        els.magnificPopup({
+                  type: 'ajax',
+                  tLoading: '<div class="cube1"></div><div class="cube2"></div>',
+                  closeOnContentClick:false,
+                  closeOnBgClick:false,
+                  callbacks:{
+                  ajaxContentAdded: function(data) {
+
+                      var otherLinks=$('.mfp-content .ajax-popup-link-r')
+                      if(otherLinks.length){
+                        revursivePopup(otherLinks);
+                      }
+
+                  },
+                  beforeOpen: function() {
+                  otherLinks.click(function(){
+                          $('.mfp-bg,.mfp-wrap ').remove();
+                        })
+
+  }
+                  }
+                });
+    }
     function stopAutoplayOnHover(e){
       var ct=$(e.currentTarget);
       if(e.handleObj.origType==='mouseenter'){

@@ -134,3 +134,46 @@ if ($post_types) :
 
 endif;
 }
+
+function materiali_riservati_func( $atts ){
+  $cont='';
+   $cont.="<h1> Materiali riservati</h1>
+  <div>";
+
+    $args = array(
+        'posts_per_page'   => -1,
+        'orderby'          => 'title',
+        'order'            => 'ASC',
+        'post_type'        => 'area_riservata',
+      );
+      $posts_array = get_posts( $args );
+      foreach ($posts_array as $key => $value) {
+        $cont.="<div class='reserved'><h3>
+          ".$value->post_title."
+          </h3><ul>
+          ";
+          $allegati=get_field('allegati',$value->ID);
+          foreach ($allegati as $key2 => $value2) {
+           $cont.='<li><h4><a href="'.$value2['file']['url'].'" title="'.$value2['file']['title'].'">'.$value2['label'].'</a></h4>
+            </li>';
+          }
+          $cont.="
+
+          </ul>
+        </div>   " ;
+      }
+
+
+$cont.="</div>";
+  return $cont;
+}
+add_shortcode( 'materiali_riservati', 'materiali_riservati_func' );
+function luca_read_more_link($link, $text) {
+ return str_replace(
+        'more-link',
+        'more-link ajax-popup-link',
+        $link
+    );
+}
+add_filter( 'the_content_more_link', __NAMESPACE__ . '\\luca_read_more_link',10,2 );
+

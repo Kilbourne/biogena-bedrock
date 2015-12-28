@@ -1,4 +1,8 @@
-
+<?php
+/*
+Template Name: Archives
+*/
+ ?>
 
 
 

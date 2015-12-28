@@ -42,7 +42,7 @@
           }
         .flag-body.collapsed{
           >p{ display:none;}
-          >p:first-child{ margin-bottom:0;display:inline;}
+          >p:first-child{ margin-bottom:0;display:inline !important;}
 
         }
     }

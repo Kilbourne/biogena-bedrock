@@ -2,6 +2,7 @@
   "dependencies": {
     "main.js": {
       "files": [
+        "scripts/jquery.mask.js",
         "scripts/main.js"
       ],
       "main": true
@@ -17,6 +18,6 @@
     }
   },
   "config": {
-    
+
   }
 }
