@@ -167,7 +167,7 @@ function materiali_riservati_func( $atts ){
 $cont.="</div>";
   return $cont;
 }
-add_shortcode( 'materiali_riservati', 'materiali_riservati_func' );
+add_shortcode( 'materiali_riservati', __NAMESPACE__ . '\\materiali_riservati_func' );
 function luca_read_more_link($link, $text) {
  return str_replace(
         'more-link',

@@ -105,7 +105,8 @@ function assets() {
   wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, false);
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_localize_script( 'sage/js', 'collegamenti', array("area-skin-care"=>biogenaData::data('area-skin-care'),"linee"=>biogenaData::data('linee'),"prodotti"=>biogenaData::data('prodotti') ));
-
+gravity_form_enqueue_scripts(1, false);
+gravity_form_enqueue_scripts(2, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
 
