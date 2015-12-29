@@ -27,7 +27,7 @@ $default_attr = array(
             <div class="content-wrapper">
                 <div class="flag-media">
 
-                 <div class="flag-body collapsed"><?= $first['content'];?><span class="readmore1">Leggi Tutto</span></div>
+                 <div class="flag-body collapsed"><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore1">Leggi Tutto</span><?php } ?> </div>
                 </div>
 
           <hr>
@@ -41,32 +41,24 @@ $default_attr = array(
           <?= $first['linea']['thumbnail']; ?>
           </a>
           </div>
-                                   <?php $attivi=$first['linea']['fields']['attivi_di_linea']; if(count($attivi)>0){
 
-                                    ?>
+                              <?php $attivi=$first['linea']['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
                <div class="attivi-wrapper">
-               <h3>Attivi di Linea </h3>
-
-               <ul class="attivi <?= 'total'.count($attivi);?>">
+               <h3>Gli Attivi di Linea </h3>
+               <ul class="attivi">
 
                  <?php foreach ($attivi as $key => $attivo):
                  $image=$attivo['immagine_attivo'];
+                 if($count>4){$count=4;}
                  ?>
-                   <li class=" inline-block attivo"><h3><?= $attivo['attivo'] ?></h3>
-                    <div class="attivo-wrapper ">                   <div class="attivo-img-container"> <img src="<?php echo $image['url']; ?>" style="width:<?= $image['width'].'px'; ?>; height:<?= $image['height'].'px'; ?>" alt="<?php echo $image['alt']; ?>" /></div><div class="attivo-desc-body">
-
-                     <div class="attivo desc"><?= $attivo['descrizione_attivo'] ?></div>
-                   </div></div>
- </li>
+                   <li class="attivo inline-block <?= 'w'.$count ?>"><img src="<?php echo $image['url']; ?>"  alt="<?php echo $image['alt']; ?>" /><?= $attivo['attivo']."<div class='attivo-desc'>".$attivo['descrizione_attivo']."</div>" ?></li>
                  <?php endforeach ?>
                </ul>
                </div>
-
-
                <?php } ?>
           <hr>
           <div class="slideshow correlati">
-              <h4>  Scopri la linea <?= $first['linea']['title']; ?></h4>
+              <h4>  Scopri <?= $first['linea']['title']; ?></h4>
               <?php if(count($first['prodotti'])>1){ ?>
                 <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?>" >
               <?php }else {echo '<div class=" no-slider active" >';} ?>

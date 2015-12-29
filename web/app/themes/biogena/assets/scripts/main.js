@@ -30,7 +30,7 @@
                       resizeReInit: true
                   };
     },
-    bodyClasses=['home','post-type-archive-linee','azienda','single-linee','single-area-skin-care','post-type-archive-area-skin-care','no-full-slider'];
+    bodyClasses=['home','post-type-archive-linee','azienda','single-linee','single-area-skin-care','post-type-archive-area-skin-care','no-full-slider','page','search','error404'];
     // Use this variable to set up the common and page specific functions. If you
     // rename this variable, you will also need to rename the namespace below.
     var Sage = {
@@ -59,12 +59,11 @@
                 $('body').on('click', '.readmore1', readmoreCallback);
                 $('body').on('mouseenter mouseleave', '.swiper-container-horizontal', stopAutoplayOnHover);
                 //$('.big-claim').fitText(1.4);
-                $('body.single-linee,body.post-type-archive-linee').on('click', '.attivo', readmoreAttiviCallback);
+                $('body').on('click', '.attivo', readmoreAttiviCallback);
                 $('.ajax-popup-link').magnificPopup({
                   type: 'ajax',
                   tLoading: '<div class="cube1"></div><div class="cube2"></div>',
                   closeOnContentClick:false,
-                  closeOnBgClick:false,
                   callbacks:{
                   ajaxContentAdded: function(data) {
 
@@ -92,6 +91,28 @@
               }
               if($('.slider-patologie-home').length){downSlider = new Swiper('.slider-patologie', downSliderHomeOptions());}
               else if($('.slider-patologie').length){downSlider = new Swiper('.slider-patologie', downSliderOptions());}
+
+               $('body').on('submit','form#loginform', function(e){
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: ajax_login_object.ajaxurl,
+            data: {
+                'action': 'ajax_login', //calls wp_ajax_nopriv_ajaxlogin
+                'username': $('form#loginform #user_login').val(),
+                'password': $('form#loginform #user_pass').val(),
+                'security': $('#security').val() },
+            success: function(data){
+
+                if (data.loggedin == true){
+                    $.magnificPopup.instance.updateItemHTML();
+                }
+            }
+        });
+        e.preventDefault();
+    });
+
             }
         },
         'post_type_archive':{
@@ -209,7 +230,6 @@
                   type: 'ajax',
                   tLoading: '<div class="cube1"></div><div class="cube2"></div>',
                   closeOnContentClick:false,
-                  closeOnBgClick:false,
                   callbacks:{
                   ajaxContentAdded: function(data) {
 
@@ -292,7 +312,7 @@
                   var body=$('body');
                   body.removeClass(bodyClasses.join(' '));
                   body.addClass('single-'+postType);
-                  $('body.single-linee,body.post-type-archive-linee').on('click', '.attivo', readmoreAttiviCallback);
+
                   if(postType==='linee')body.addClass('no-full-slider');
                   document.title = postData[keys[index]]['title']+" | Biogena";
                   if(!!pop){

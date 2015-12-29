@@ -7,10 +7,7 @@
       <?php the_content(); ?>
     </div>
 
-    <?php previous_post_link(); ?>    <?php next_post_link(); ?>
-    <footer>
-      <?php wp_link_pages(['before' => '<nav class="page-nav"><p>' . __('Pages:', 'sage'), 'after' => '</p></nav>']); ?>
-    </footer>
+
 
   </article>
 <?php endwhile; ?>

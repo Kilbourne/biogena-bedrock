@@ -5,7 +5,7 @@ if($title !=='Osmin' && $title !=='Specialità Medicinali'){
 
 $title=is_single()?html_entity_decode(get_the_title()):0;
 $by_index=is_single()?false:true;
-echo d($title);
+
 $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;
 
 ?>
@@ -29,7 +29,7 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
             <hr >
                <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
                <div class="attivi-wrapper">
-               <h3>Attivi di Linea </h3>
+               <h3>Gli Attivi di Linea </h3>
                <ul class="attivi">
 
                  <?php foreach ($attivi as $key => $attivo):
@@ -45,7 +45,7 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
 
 
             <div class="content-wrapper">
-                <?php if(isset($first['area-skin-care'])){ ?><h3>Trattamento coadiuvante per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3><?php } ?>
+                <?php if(isset($first['area-skin-care'])){ ?><h3>Trattamenti coadiuvanti per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3><?php } ?>
                 <div class="products">
 
 
@@ -70,7 +70,7 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
             <div class="content-wrapper">
                 <div class="flag-media">
 
-                 <div class="flag-body collapsed"><?= $first['content'];?><span class="readmore1">Leggi Tutto</span></div>
+                 <div class="flag-body collapsed"><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore1">Leggi Tutto</span><?php } ?></div>
                 </div>
 
           <hr>
@@ -87,7 +87,7 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
             <hr >
                <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
                <div class="attivi-wrapper">
-               <h3>Attivi di Linea </h3>
+               <h3>Gli Attivi di Linea </h3>
                <ul class="attivi">
 
                  <?php foreach ($attivi as $key => $attivo):
@@ -115,8 +115,8 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,$by_index); $first=$arrayC
 
 $arrayC=biogenaData::data(get_post_type(),$title,true,false); $first=$arrayC->first;$next=$arrayC->next;$prev=$arrayC->prev;
 ?>
-<div class="background-container">
-<?= the_post_thumbnail( ); ?> <?php echo $first['fields']['claim_'] ; ?>
+<div class="background-container specialita">
+<?php echo $first['fields']['claim_'] ; ?><?= the_post_thumbnail( ); ?>
  </div>
  <div class="content">
 
@@ -135,7 +135,7 @@ $arrayC=biogenaData::data(get_post_type(),$title,true,false); $first=$arrayC->fi
             <hr >
                <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
                <div class="attivi-wrapper">
-               <h3>Attivi di Linea </h3>
+               <h3>Gli Attivi di Linea </h3>
                <ul class="attivi">
 
                  <?php foreach ($attivi as $key => $attivo):

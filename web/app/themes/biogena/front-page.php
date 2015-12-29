@@ -37,7 +37,7 @@
         the_title(); ?></h5>
         <div class="content"><?php
         the_content('Leggi Tutto'); ?><a href="
-<?php get_post_type_archive_link( 'post' ); ?>
+<?php $page_obj = get_page_by_title( 'Articoli') ; echo get_page_link($page_obj -> ID) ; ?>
 
 " title="" >Altre News</a></div>
       </div>

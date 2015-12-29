@@ -1,6 +1,6 @@
 <?php while (have_posts()) : the_post();
 
-echo "<div class='video'>".do_shortcode('[video src="http://192.168.1.18/biogena/app/uploads/2015/12/Filmato-Breve-Amb-12.m4v" autoplay="on" preload="auto" ] ' )."</div>";
+
 
 ?>
 <div class="content-wrapper-azienda" >

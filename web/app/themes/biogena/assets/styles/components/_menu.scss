@@ -70,7 +70,7 @@
                 text-align: left;
                 a {
                     width: 160px; // !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    color: #5E9CC3;
+                    color: #24569B;
                     padding: 1% 2%;
                     white-space: pre;
                     display: inline;
@@ -147,10 +147,10 @@
 
     .s-circle {
         border-radius: 50%;
-        color: rgb(23, 102, 169);
+        color: #24569B;
         background-color: rgb(255, 255, 255);
         margin-top: -63%;
-        padding: 65% 16% 10%;
+        padding: 65% 16% 6%;
         min-width: 280px;
 min-height: 271px;
         /*
@@ -164,6 +164,9 @@ min-height: 271px;
         }
         span {
             display: block;
+        }
+        .tricolore{
+          >img{ width:111px;}
         }
     }
 }
@@ -209,7 +212,7 @@ vertical-align: middle;
   }
   &>.nav{
    a,.menu-item.other{
-    color: #006EB6;
+    color: #24569B;
     }
     .menu-item.other .it{
     border-right: 1px solid #5E9CC3;
@@ -241,7 +244,7 @@ vertical-align: middle;
 .responsive-menu-wrapper {
     position: fixed;
     width: 100%;
-    background-color: #1766a9;
+    background-color: #24569B;
     text-align: center;
     top: 0px;
     padding-top: 10px;

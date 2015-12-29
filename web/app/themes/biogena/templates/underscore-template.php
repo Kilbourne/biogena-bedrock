@@ -22,7 +22,7 @@
             <hr >
                <% attivi=first['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
                <div class="attivi-wrapper">
-               <h3>Attivi di Linea </h3>
+               <h3>Gli Attivi di Linea </h3>
                <ul class="attivi">
 
                  <% _.each(attivi ,function(attivo,i){
@@ -38,7 +38,7 @@
                </div>
 
             <div class="content-wrapper">
-                <% if(first['area-skin-care']){ %> <h3>Trattamento coadiuvante per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3> <% } %>
+                <% if(first['area-skin-care']){ %> <h3>Trattamenti coadiuvanti per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3> <% } %>
                 <div class="products">
 
 
@@ -49,9 +49,9 @@
               </div>
 
 <% }else{ %>
-  <div class="background-container">
-<%= first['thumbnail'] %>
-<% if(first['fields']['claim_']){ %><%= first['fields']['claim_'] %><% } %>
+  <div class="background-container specialita">
+<% if(first['fields']['claim_']){ %><%= first['fields']['claim_'] %><% } %><%= first['thumbnail'] %>
+
  </div>
  <div class="content">
 
@@ -70,7 +70,7 @@
             <hr >
               <% attivi=first['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
                <div class="attivi-wrapper">
-               <h3>Attivi di Linea </h3>
+               <h3>Gli Attivi di Linea </h3>
                <ul class="attivi">
 
                  <% _.each(attivi ,function(attivo,i){
@@ -123,7 +123,7 @@
             <div class="content-wrapper">
                 <div class="flag-media">
 
-                 <div class="flag-body collapsed"><%= first.content %><span class="readmore1">Leggi Tutto</span></div>
+                 <div class="flag-body collapsed"><%= first.content %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore1">Leggi Tutto</span><% } %></div>
                 </div>
 
           <hr>
@@ -138,25 +138,25 @@
           <%= first.linea.thumbnail %>
           </a>
           </div>
-                                             <% attivi=first['linea']['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
+                         <% attivi=first['linea']['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
                <div class="attivi-wrapper">
-               <h3>Attivi di Linea </h3>
-               <ul class="attivi <%= 'total'+attivi.length %>">
+               <h3>Gli Attivi di Linea </h3>
+               <ul class="attivi">
 
                  <% _.each(attivi ,function(attivo,i){
                  image=attivo['immagine_attivo'];
+                 count=attivi.length;
+                 if(attivi.length>4){count=4;}
                  %>
-                   <li class="attivo inline-block"><h3><%= attivo['attivo'] %></h3><div class="attivo-wrapper "><div class="attivo-img-container"> <img src="<%= image['url'] %>" style="width:<%= image['width']+'px;' %> height:<%= image['height']+'px;' %>" alt="<%= image ['alt'] %>" /></div><div class="attivo-desc-body">
-
-                     <div class="attivo desc"><%= attivo['descrizione_attivo'] %></div>
-                   </div></div> </li>
+                   <li class="attivo inline-block <%= 'w'+count %>"><img src="<%= image['url'] %>"  alt="<%= image ['alt'] %>" /><%= attivo['attivo']+"<div class='attivo-desc'>"+attivo['descrizione_attivo']+"</div>" %></li>
                   <% }) %>
                </ul>
                </div>
-                <% } %>
+               <% } %>
+
           <hr>
           <div class="slideshow correlati">
-          <h4>  Scopri la linea <%= first.linea.title %>  </h4>
+          <h4>  Scopri <%= first.linea.title %>  </h4>
               <% if(first['prodotti'].length>1){ %>
                 <div class=" slider-patologie active <%= first['prodotti'].length===2?'two':'three' %>" >
 <% }else { %> <%= '<div class=" no-slider " >' %><% } %>

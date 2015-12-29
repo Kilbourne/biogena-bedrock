@@ -568,3 +568,355 @@
 0337.041 (0) The time we have been running (337) is approaching the resumption interval (363) - increasing resumption interval to 368
 0337.621 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 36600 files added (on-disk size: 61711.9 Kb)
 0338.517 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 36700 files added (on-disk size: 61711.9 Kb)
+0339.394 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 36800 files added (on-disk size: 61711.9 Kb)
+0339.780 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 2.0 seconds have passed since the last write (0.5 Mb, 300 (36842) files added so far); re-opening (prior size: 61711.9 Kb)
+0341.022 (0) The time we have been running (341) is approaching the resumption interval (368) - increasing resumption interval to 372
+0341.553 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 36900 files added (on-disk size: 62032.4 Kb)
+0342.469 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37000 files added (on-disk size: 62032.4 Kb)
+0343.230 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37100 files added (on-disk size: 62032.4 Kb)
+0343.784 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 2.0 seconds have passed since the last write (0.6 Mb, 332 (37174) files added so far); re-opening (prior size: 62032.4 Kb)
+0344.869 (0) The time we have been running (344.9) is approaching the resumption interval (372) - increasing resumption interval to 375
+0345.150 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37200 files added (on-disk size: 62032.4 Kb)
+0346.032 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37300 files added (on-disk size: 62032.4 Kb)
+0346.997 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37400 files added (on-disk size: 62032.4 Kb)
+0347.783 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 2.0 seconds have passed since the last write (0.8 Mb, 310 (37484) files added so far); re-opening (prior size: 62032.4 Kb)
+0348.949 (0) The time we have been running (348.9) is approaching the resumption interval (375) - increasing resumption interval to 379
+0349.158 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37500 files added (on-disk size: 62213.1 Kb)
+0350.062 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37600 files added (on-disk size: 62213.1 Kb)
+0350.956 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37700 files added (on-disk size: 62213.1 Kb)
+0351.784 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 2.0 seconds have passed since the last write (1.4 Mb, 314 (37798) files added so far); re-opening (prior size: 62213.1 Kb)
+0353.029 (0) The time we have been running (353) is approaching the resumption interval (379) - increasing resumption interval to 384
+0353.114 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp: 37800 files added (on-disk size: 62665.9 Kb)
+0354.276 (0) The time we have been running (354.3) is approaching the resumption interval (384) - increasing resumption interval to 385
+0354.514 (0) Created themes zip (0) - 62711.5 Kb in 336.9 s (186.1 Kb/s) (SHA1 checksum: cf80e737acb3d38318039801cd02bcbc044eb760)
+0354.519 (0) Deleting old temporary file: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp.a08408
+0354.529 (0) Deleting old temporary file: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp.b08408
+0354.539 (0) Deleting old temporary file: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp.c08408
+0354.550 (0) Deleting old temporary file: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp.d08408
+0354.561 (0) Deleting old temporary file: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip.tmp.e08408
+0354.588 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone
+0354.593 (0) Looking for candidates to back up in: C:\xampp\htdocs\biogena/web/app/uploads
+0354.597 (0) finding files: .gitkeep: adding to list (1)
+0354.601 (0) finding files: 2011: adding to list (2)
+0354.605 (0) finding files: 2012: adding to list (3)
+0354.609 (0) finding files: 2013: adding to list (4)
+0354.613 (0) finding files: 2014: adding to list (5)
+0354.617 (0) finding files: 2015: adding to list (6)
+0354.620 (0) finding files: formidable: adding to list (7)
+0354.624 (0) finding files: gravity_forms: adding to list (8)
+0354.627 (0) finding files: ninja-forms: adding to list (9)
+0354.631 (0) finding files: profiles: adding to list (10)
+0354.635 (0) finding files: wp-sync-db: adding to list (11)
+0354.639 (0) Beginning creation of dump of uploads (split every: 500 Mb)
+0355.200 (0) Total entities for the zip file: 28 directories, 1203 files (0 skipped as non-modified), 85.8 Mb
+0355.249 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 100 files added (on-disk size: 0 Kb)
+0355.306 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 200 files added (on-disk size: 0 Kb)
+0355.375 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 300 files added (on-disk size: 0 Kb)
+0355.444 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 400 files added (on-disk size: 0 Kb)
+0355.511 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 500 files added (on-disk size: 0 Kb)
+0355.517 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (19 Mb, 1203 files batched, 501 (501) added so far); re-opening (prior size: 0 Kb)
+0357.076 (0) The time we have been running (357.1) is approaching the resumption interval (385) - increasing resumption interval to 388
+0357.134 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 600 files added (on-disk size: 18292.6 Kb)
+0357.195 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 700 files added (on-disk size: 18292.6 Kb)
+0357.252 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 800 files added (on-disk size: 18292.6 Kb)
+0357.307 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 900 files added (on-disk size: 18292.6 Kb)
+0357.367 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 1000 files added (on-disk size: 18292.6 Kb)
+0357.372 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 500 files added on this batch (20.8 Mb, 1203 files batched, 501 (1002) added so far); re-opening (prior size: 18292.6 Kb)
+0358.958 (0) The time we have been running (358.9) is approaching the resumption interval (388) - increasing resumption interval to 389
+0359.021 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 1100 files added (on-disk size: 38556.8 Kb)
+0359.040 (0) Adding batch to zip file (UpdraftPlus_ZipArchive): over 25 Mb added on this batch (25.1 Mb, 1203 files batched, 125 (1127) added so far); re-opening (prior size: 38556.8 Kb)
+0360.386 (0) The time we have been running (360.4) is approaching the resumption interval (389) - increasing resumption interval to 391
+0360.392 (0) A useful amount of data was added after this amount of zip processing: 1.6 s (normalised: 1.6 s, rate: 15926.2 Kb/s)
+0360.399 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.6149470806122, normalised_time=1.6074138610876, max_time=-1, data points known=0, old_max_bytes=26214400, new_max_bytes=97850593)
+0360.447 (0) Zip: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip.tmp: 1200 files added (on-disk size: 63316.2 Kb)
+0361.667 (0) The time we have been running (361.6) is approaching the resumption interval (391) - increasing resumption interval to 392
+0361.914 (0) Created uploads zip (0) - 81487.7 Kb in 7.3 s (11213.7 Kb/s) (SHA1 checksum: 1387765b8168e18634f652569399086e5ff389b8)
+0361.924 (0) Beginning backup of other directories found in the content directory (index: 0)
+0361.928 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql
+0361.931 (0) Looking for candidates to back up in: C:\xampp\htdocs\biogena/web/app
+0361.934 (0) finding files: languages: adding to list (1)
+0361.937 (0) finding files: mu-plugins: adding to list (2)
+0361.941 (0) finding files: plugins: skipping: this is the plugins directory
+0361.944 (0) finding files: themes: skipping: this is the themes directory
+0361.947 (0) finding files: updraft: skipping: this is the updraft directory
+0361.950 (0) finding files: upgrade: skipping: excluded by options
+0361.954 (0) finding files: uploads: skipping: this is the uploads directory
+0361.982 (0) Total entities for the zip file: 22 directories, 45 files (0 skipped as non-modified), 1.4 Mb
+0362.183 (0) The time we have been running (362.2) is approaching the resumption interval (392) - increasing resumption interval to 393
+0362.200 (0) Created others zip (0) - 434.8 Kb in 0.2 s (1818 Kb/s) (SHA1 checksum: da030bb1f5e73e37c6b28188a9a2c356f155f41b)
+0362.224 (0) Saving backup status to database (elements: 8)
+0362.230 (0) Beginning creation of database dump (WordPress DB)
+0362.258 (0) Table wp_options: Total expected rows (approximate): 202
+0362.342 (0) Table wp_options: Total rows added: 206 in 0.08 seconds
+0362.348 (0) Table wp_options: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_options.table.gz - 281.3 Kb)
+0362.360 (0) Table wp_users: Total expected rows (approximate): 2
+0362.366 (0) Table wp_users: Total rows added: 2 in 0.00 seconds
+0362.371 (0) Table wp_users: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_users.table.gz - 0.6 Kb)
+0362.384 (0) Table wp_usermeta: Total expected rows (approximate): 42
+0362.391 (0) Table wp_usermeta: Total rows added: 42 in 0.00 seconds
+0362.395 (0) Table wp_usermeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_usermeta.table.gz - 1.9 Kb)
+0362.414 (0) Table wp_blog_versions: Total expected rows (approximate): 0
+0362.421 (0) Table wp_blog_versions: Total rows added: 0 in 0.00 seconds
+0362.425 (0) Table wp_blog_versions: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_blog_versions.table.gz - 0.3 Kb)
+0362.437 (0) Table wp_blogs: Total expected rows (approximate): 2
+0362.443 (0) Table wp_blogs: Total rows added: 2 in 0.00 seconds
+0362.447 (0) Table wp_blogs: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_blogs.table.gz - 0.5 Kb)
+0362.460 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0362.465 (0) Table wp_commentmeta: Total rows added: 0 in 0.00 seconds
+0362.469 (0) Table wp_commentmeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_commentmeta.table.gz - 0.4 Kb)
+0362.482 (0) Table wp_comments: Total expected rows (approximate): 0
+0362.494 (0) Table wp_comments: Total rows added: 0 in 0.00 seconds
+0362.504 (0) Table wp_comments: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_comments.table.gz - 0.5 Kb)
+0362.540 (0) Table wp_links: Total expected rows (approximate): 0
+0362.553 (0) Table wp_links: Total rows added: 0 in 0.00 seconds
+0362.557 (0) Table wp_links: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_links.table.gz - 0.4 Kb)
+0362.577 (0) Table wp_p2p: Total expected rows (approximate): 63
+0362.585 (0) Table wp_p2p: Total rows added: 63 in 0.01 seconds
+0362.590 (0) Table wp_p2p: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_p2p.table.gz - 0.8 Kb)
+0362.601 (0) Table wp_p2pmeta: Total expected rows (approximate): 0
+0362.607 (0) Table wp_p2pmeta: Total rows added: 0 in 0.00 seconds
+0362.612 (0) Table wp_p2pmeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_p2pmeta.table.gz - 0.4 Kb)
+0362.623 (0) Table wp_postmeta: Total expected rows (approximate): 6968
+0362.942 (0) Table wp_postmeta: Total rows added: 7219 in 0.32 seconds
+0362.947 (0) Table wp_postmeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_postmeta.table.gz - 136 Kb)
+0362.983 (0) Table wp_posts: Total expected rows (approximate): 839
+0363.256 (0) Table wp_posts: Total rows added: 976 in 0.26 seconds
+0363.261 (0) Table wp_posts: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_posts.table.gz - 144.7 Kb)
+0363.280 (0) The time we have been running (363.3) is approaching the resumption interval (393) - increasing resumption interval to 394
+0363.291 (0) Table wp_registration_log: Total expected rows (approximate): 1
+0363.297 (0) Table wp_registration_log: Total rows added: 1 in 0.00 seconds
+0363.302 (0) Table wp_registration_log: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_registration_log.table.gz - 0.4 Kb)
+0363.314 (0) Table wp_signups: Total expected rows (approximate): 2
+0363.321 (0) Table wp_signups: Total rows added: 2 in 0.00 seconds
+0363.325 (0) Table wp_signups: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_signups.table.gz - 0.7 Kb)
+0363.338 (0) Table wp_site: Total expected rows (approximate): 1
+0363.345 (0) Table wp_site: Total rows added: 1 in 0.00 seconds
+0363.349 (0) Table wp_site: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_site.table.gz - 0.4 Kb)
+0363.360 (0) Table wp_sitemeta: Total expected rows (approximate): 45
+0363.369 (0) Table wp_sitemeta: Total rows added: 45 in 0.01 seconds
+0363.376 (0) Table wp_sitemeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_sitemeta.table.gz - 9.3 Kb)
+0363.391 (0) Table wp_term_relationships: Total expected rows (approximate): 55
+0363.399 (0) Table wp_term_relationships: Total rows added: 55 in 0.00 seconds
+0363.404 (0) Table wp_term_relationships: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_term_relationships.table.gz - 0.5 Kb)
+0363.422 (0) Table wp_term_taxonomy: Total expected rows (approximate): 3
+0363.431 (0) Table wp_term_taxonomy: Total rows added: 3 in 0.00 seconds
+0363.436 (0) Table wp_term_taxonomy: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_term_taxonomy.table.gz - 0.4 Kb)
+0363.451 (0) Table wp_terms: Total expected rows (approximate): 3
+0363.457 (0) Table wp_terms: Total rows added: 3 in 0.00 seconds
+0363.461 (0) Table wp_terms: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_terms.table.gz - 0.4 Kb)
+0363.479 (0) Table wp_2_commentmeta: Total expected rows (approximate): 0
+0363.484 (0) Table wp_2_commentmeta: Total rows added: 0 in 0.00 seconds
+0363.488 (0) Table wp_2_commentmeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_commentmeta.table.gz - 0.4 Kb)
+0363.500 (0) Table wp_2_comments: Total expected rows (approximate): 1
+0363.509 (0) Table wp_2_comments: Total rows added: 1 in 0.00 seconds
+0363.528 (0) Table wp_2_comments: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_comments.table.gz - 0.7 Kb)
+0363.542 (0) Table wp_2_links: Total expected rows (approximate): 0
+0363.548 (0) Table wp_2_links: Total rows added: 0 in 0.00 seconds
+0363.553 (0) Table wp_2_links: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_links.table.gz - 0.4 Kb)
+0363.567 (0) Table wp_2_options: Total expected rows (approximate): 127
+0363.598 (0) Table wp_2_options: Total rows added: 127 in 0.03 seconds
+0363.603 (0) Table wp_2_options: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_options.table.gz - 90.4 Kb)
+0363.626 (0) Table wp_2_p2p: Total expected rows (approximate): 0
+0363.633 (0) Table wp_2_p2p: Total rows added: 0 in 0.00 seconds
+0363.642 (0) Table wp_2_p2p: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_p2p.table.gz - 0.3 Kb)
+0363.652 (0) PHP event: code E_WARNING: rename(C:\xampp\htdocs\biogena/web/app/updraft/backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_p2p.table.tmp.gz,C:\xampp\htdocs\biogena/web/app/updraft/backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_p2p.table.gz):  (line 1322, C:\xampp\htdocs\biogena\web\app\plugins\updraftplus\backup.php)
+0363.679 (0) Table wp_2_p2pmeta: Total expected rows (approximate): 0
+0363.685 (0) Table wp_2_p2pmeta: Total rows added: 0 in 0.00 seconds
+0363.689 (0) Table wp_2_p2pmeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_p2pmeta.table.gz - 0.4 Kb)
+0363.702 (0) Table wp_2_postmeta: Total expected rows (approximate): 1
+0363.708 (0) Table wp_2_postmeta: Total rows added: 1 in 0.00 seconds
+0363.711 (0) Table wp_2_postmeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_postmeta.table.gz - 0.4 Kb)
+0363.723 (0) Table wp_2_posts: Total expected rows (approximate): 3
+0363.730 (0) Table wp_2_posts: Total rows added: 3 in 0.00 seconds
+0363.740 (0) Table wp_2_posts: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_posts.table.gz - 1.4 Kb)
+0363.755 (0) Table wp_2_term_relationships: Total expected rows (approximate): 1
+0363.762 (0) Table wp_2_term_relationships: Total rows added: 1 in 0.00 seconds
+0363.766 (0) Table wp_2_term_relationships: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_term_relationships.table.gz - 0.4 Kb)
+0363.779 (0) Table wp_2_term_taxonomy: Total expected rows (approximate): 1
+0363.787 (0) Table wp_2_term_taxonomy: Total rows added: 1 in 0.00 seconds
+0363.791 (0) Table wp_2_term_taxonomy: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_term_taxonomy.table.gz - 0.4 Kb)
+0363.804 (0) Table wp_2_terms: Total expected rows (approximate): 1
+0363.810 (0) Table wp_2_terms: Total rows added: 1 in 0.00 seconds
+0363.815 (0) Table wp_2_terms: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_terms.table.gz - 0.4 Kb)
+0363.828 (0) Table wp_frm_fields: Total expected rows (approximate): 7
+0363.836 (0) Table wp_frm_fields: Total rows added: 7 in 0.00 seconds
+0363.840 (0) Table wp_frm_fields: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_fields.table.gz - 0.8 Kb)
+0363.844 (0) PHP event: code E_WARNING: rename(C:\xampp\htdocs\biogena/web/app/updraft/backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_fields.table.tmp.gz,C:\xampp\htdocs\biogena/web/app/updraft/backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_fields.table.gz):  (line 1322, C:\xampp\htdocs\biogena\web\app\plugins\updraftplus\backup.php)
+0363.867 (0) Table wp_frm_forms: Total expected rows (approximate): 2
+0363.876 (0) Table wp_frm_forms: Total rows added: 2 in 0.00 seconds
+0363.880 (0) Table wp_frm_forms: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_forms.table.gz - 1.1 Kb)
+0363.894 (0) Table wp_frm_item_metas: Total expected rows (approximate): 0
+0363.902 (0) Table wp_frm_item_metas: Total rows added: 0 in 0.00 seconds
+0363.907 (0) Table wp_frm_item_metas: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_item_metas.table.gz - 0.3 Kb)
+0363.937 (0) Table wp_frm_items: Total expected rows (approximate): 0
+0363.945 (0) Table wp_frm_items: Total rows added: 0 in 0.00 seconds
+0363.948 (0) Table wp_frm_items: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_items.table.gz - 0.4 Kb)
+0363.967 (0) Table wp_nf_objectmeta: Total expected rows (approximate): 104
+0363.978 (0) Table wp_nf_objectmeta: Total rows added: 104 in 0.01 seconds
+0363.983 (0) Table wp_nf_objectmeta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_nf_objectmeta.table.gz - 1.4 Kb)
+0363.995 (0) Table wp_nf_objects: Total expected rows (approximate): 6
+0364.002 (0) Table wp_nf_objects: Total rows added: 6 in 0.00 seconds
+0364.006 (0) Table wp_nf_objects: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_nf_objects.table.gz - 0.3 Kb)
+0364.020 (0) The time we have been running (364) is approaching the resumption interval (394) - increasing resumption interval to 395
+0364.044 (0) Table wp_nf_relationships: Total expected rows (approximate): 4
+0364.057 (0) Table wp_nf_relationships: Total rows added: 4 in 0.00 seconds
+0364.061 (0) Table wp_nf_relationships: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_nf_relationships.table.gz - 0.4 Kb)
+0364.073 (0) Table wp_ninja_forms_fav_fields: Total expected rows (approximate): 17
+0364.081 (0) Table wp_ninja_forms_fav_fields: Total rows added: 17 in 0.01 seconds
+0364.086 (0) Table wp_ninja_forms_fav_fields: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_ninja_forms_fav_fields.table.gz - 2.6 Kb)
+0364.105 (0) Table wp_ninja_forms_fields: Total expected rows (approximate): 13
+0364.112 (0) Table wp_ninja_forms_fields: Total rows added: 13 in 0.00 seconds
+0364.116 (0) Table wp_ninja_forms_fields: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_ninja_forms_fields.table.gz - 2 Kb)
+0364.127 (0) Table wp_ninja_forms_uploads: Total expected rows (approximate): 5
+0364.141 (0) Table wp_ninja_forms_uploads: Total rows added: 5 in 0.00 seconds
+0364.146 (0) Table wp_ninja_forms_uploads: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_ninja_forms_uploads.table.gz - 0.7 Kb)
+0364.158 (0) Table wp_rg_form: Total expected rows (approximate): 2
+0364.165 (0) Table wp_rg_form: Total rows added: 2 in 0.00 seconds
+0364.169 (0) Table wp_rg_form: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_form.table.gz - 0.4 Kb)
+0364.187 (0) Table wp_rg_form_meta: Total expected rows (approximate): 2
+0364.194 (0) Table wp_rg_form_meta: Total rows added: 2 in 0.00 seconds
+0364.204 (0) Table wp_rg_form_meta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_form_meta.table.gz - 2.5 Kb)
+0364.227 (0) Table wp_rg_form_view: Total expected rows (approximate): 2
+0364.234 (0) Table wp_rg_form_view: Total rows added: 2 in 0.00 seconds
+0364.238 (0) Table wp_rg_form_view: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_form_view.table.gz - 0.4 Kb)
+0364.251 (0) Table wp_rg_incomplete_submissions: Total expected rows (approximate): 0
+0364.257 (0) Table wp_rg_incomplete_submissions: Total rows added: 0 in 0.00 seconds
+0364.260 (0) Table wp_rg_incomplete_submissions: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_incomplete_submissions.table.gz - 0.4 Kb)
+0364.273 (0) Table wp_rg_lead: Total expected rows (approximate): 2
+0364.280 (0) Table wp_rg_lead: Total rows added: 2 in 0.00 seconds
+0364.284 (0) Table wp_rg_lead: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead.table.gz - 0.8 Kb)
+0364.298 (0) Table wp_rg_lead_detail: Total expected rows (approximate): 24
+0364.306 (0) Table wp_rg_lead_detail: Total rows added: 24 in 0.00 seconds
+0364.310 (0) Table wp_rg_lead_detail: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead_detail.table.gz - 0.7 Kb)
+0364.331 (0) Table wp_rg_lead_detail_long: Total expected rows (approximate): 0
+0364.345 (0) Table wp_rg_lead_detail_long: Total rows added: 0 in 0.01 seconds
+0364.364 (0) Table wp_rg_lead_detail_long: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead_detail_long.table.gz - 0.3 Kb)
+0364.377 (0) Table wp_rg_lead_meta: Total expected rows (approximate): 4
+0364.384 (0) Table wp_rg_lead_meta: Total rows added: 4 in 0.00 seconds
+0364.388 (0) Table wp_rg_lead_meta: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead_meta.table.gz - 0.5 Kb)
+0364.402 (0) Table wp_rg_lead_notes: Total expected rows (approximate): 0
+0364.410 (0) Table wp_rg_lead_notes: Total rows added: 0 in 0.00 seconds
+0364.415 (0) Table wp_rg_lead_notes: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead_notes.table.gz - 0.4 Kb)
+0364.427 (0) Table wp_rg_userregistration: Total expected rows (approximate): 1
+0364.434 (0) Table wp_rg_userregistration: Total rows added: 1 in 0.00 seconds
+0364.443 (0) Table wp_rg_userregistration: finishing file (backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_userregistration.table.gz - 0.6 Kb)
+0364.464 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_options.table.gz (1/50): adding to final database dump
+0364.536 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_users.table.gz (2/50): adding to final database dump
+0364.554 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_usermeta.table.gz (3/50): adding to final database dump
+0364.578 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_blog_versions.table.gz (4/50): adding to final database dump
+0364.582 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_blogs.table.gz (5/50): adding to final database dump
+0364.585 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_commentmeta.table.gz (6/50): adding to final database dump
+0364.588 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_comments.table.gz (7/50): adding to final database dump
+0364.591 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_links.table.gz (8/50): adding to final database dump
+0364.595 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_p2p.table.gz (9/50): adding to final database dump
+0364.598 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_p2pmeta.table.gz (10/50): adding to final database dump
+0364.602 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_postmeta.table.gz (11/50): adding to final database dump
+0364.672 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_posts.table.gz (12/50): adding to final database dump
+0364.716 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_registration_log.table.gz (13/50): adding to final database dump
+0364.725 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_signups.table.gz (14/50): adding to final database dump
+0364.728 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_site.table.gz (15/50): adding to final database dump
+0364.732 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_sitemeta.table.gz (16/50): adding to final database dump
+0364.736 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_term_relationships.table.gz (17/50): adding to final database dump
+0364.740 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_term_taxonomy.table.gz (18/50): adding to final database dump
+0364.743 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_terms.table.gz (19/50): adding to final database dump
+0364.746 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_commentmeta.table.gz (20/50): adding to final database dump
+0364.749 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_comments.table.gz (21/50): adding to final database dump
+0364.753 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_links.table.gz (22/50): adding to final database dump
+0364.756 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_options.table.gz (23/50): adding to final database dump
+0364.778 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_p2p.table.gz (24/50): adding to final database dump
+0364.781 (0) PHP event: code E_WARNING: gzopen(C:\xampp\htdocs\biogena/web/app/updraft/backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_p2p.table.gz): failed to open stream: No such file or directory (line 1381, C:\xampp\htdocs\biogena\web\app\plugins\updraftplus\backup.php)
+0364.786 (0) Error: Failed to open database file for reading: backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_p2p.table.gz
+0364.796 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_p2pmeta.table.gz (25/50): adding to final database dump
+0364.799 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_postmeta.table.gz (26/50): adding to final database dump
+0364.802 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_posts.table.gz (27/50): adding to final database dump
+0364.806 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_term_relationships.table.gz (28/50): adding to final database dump
+0364.810 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_term_taxonomy.table.gz (29/50): adding to final database dump
+0364.814 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_2_terms.table.gz (30/50): adding to final database dump
+0364.816 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_fields.table.gz (31/50): adding to final database dump
+0364.819 (0) PHP event: code E_WARNING: gzopen(C:\xampp\htdocs\biogena/web/app/updraft/backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_fields.table.gz): failed to open stream: No such file or directory (line 1381, C:\xampp\htdocs\biogena\web\app\plugins\updraftplus\backup.php)
+0364.824 (0) Error: Failed to open database file for reading: backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_fields.table.gz
+0364.828 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_forms.table.gz (32/50): adding to final database dump
+0364.833 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_item_metas.table.gz (33/50): adding to final database dump
+0364.860 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_frm_items.table.gz (34/50): adding to final database dump
+0364.883 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_nf_objectmeta.table.gz (35/50): adding to final database dump
+0364.916 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_nf_objects.table.gz (36/50): adding to final database dump
+0364.927 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_nf_relationships.table.gz (37/50): adding to final database dump
+0364.959 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_ninja_forms_fav_fields.table.gz (38/50): adding to final database dump
+0364.970 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_ninja_forms_fields.table.gz (39/50): adding to final database dump
+0364.974 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_ninja_forms_uploads.table.gz (40/50): adding to final database dump
+0364.984 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_form.table.gz (41/50): adding to final database dump
+0364.987 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_form_meta.table.gz (42/50): adding to final database dump
+0364.991 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_form_view.table.gz (43/50): adding to final database dump
+0364.995 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_incomplete_submissions.table.gz (44/50): adding to final database dump
+0364.998 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead.table.gz (45/50): adding to final database dump
+0365.002 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead_detail.table.gz (46/50): adding to final database dump
+0365.006 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead_detail_long.table.gz (47/50): adding to final database dump
+0365.010 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead_meta.table.gz (48/50): adding to final database dump
+0365.014 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_lead_notes.table.gz (49/50): adding to final database dump
+0365.018 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db-table-wp_rg_userregistration.table.gz (50/50): adding to final database dump
+0365.022 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-db.gz: finished writing out complete database file (656 Kb)
+0365.035 (0) Saving backup history
+0365.040 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0365.043 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0365.048 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0365.051 (0) backup_2015-12-28-1756_Biogena_b334d29bb17f-others.zip: others: This file has not yet been successfully uploaded: will queue
+0365.058 (0) Requesting upload of the files that have not yet been successfully uploaded (4)
+0365.139 (0) Cloud backup selection (1/1): none (last)
+0365.142 (0) No remote despatch: user chose no remote backup service
+0365.147 (0) Recording as successfully uploaded: backup_2015-12-28-1756_Biogena_b334d29bb17f-plugins.zip (f57720f49b4f316b90e5ca6c9189f5b3)
+0365.162 (0) Recording as successfully uploaded: backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip (43d7186e01ad0611a4d5211ea8c4173e)
+0365.175 (0) Recording as successfully uploaded: backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip (6498d0c1813d05c407da710a3a9be70e)
+0365.188 (0) Recording as successfully uploaded: backup_2015-12-28-1756_Biogena_b334d29bb17f-others.zip (e6fc8d56e8b45852dc6789443d77574e)
+0365.201 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+0365.205 (0) Number of backup sets in history: 3
+0365.208 (0) Examining backup set with datestamp: 1451322066 (Dec 28 2015 17:01:06)
+0365.211 (0) 1451322066: this backup set remains non-empty (0/1); will retain in history
+0365.214 (0) Examining backup set with datestamp: 1451321810 (Dec 28 2015 16:56:50)
+0365.217 (0) 1451321810: this backup set remains non-empty (1/0); will retain in history
+0365.220 (0) Examining backup set with datestamp: 1450804516 (Dec 22 2015 17:15:16)
+0365.224 (0) 1450804516: this backup set remains non-empty (0/1); will retain in history
+0365.227 (0) Retain: saving new backup history (sets now: 3) and finishing retain operation
+0365.238 (0) Resume backup (b334d29bb17f, 0): finish run
+0365.249 (0) Decremented the semaphore (fd) by 1
+0365.261 (0) Semaphore (fd) unlocked
+0365.264 (0) There were errors in the uploads, so the 'resume' event is remaining scheduled
+0365.271 (0) No email will/can be sent - the user has not configured an email address.
+0365.274 (0) Il backup non è ultimato; è stata rischedulata una ripresa.
+58803.814 (2) Opened log file at time: Tue, 29 Dec 2015 09:16:54 +0000 on http://192.168.1.18/biogena/wp
+58803.818 (2) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.11.18 WP: 4.3.1 PHP: 5.6.3 (Windows NT PC-MARCO-Q 6.3 build 9200 (Windows 8.1 Business Edition) i586) MySQL: 5.6.21 Server: Apache/2.4.10 (Win32) OpenSSL/1.0.1i PHP/5.6.3 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 27.7M | 29.3M) multisite: N mcrypt: Y LANG:  ZipArchive::addFile: Y
+58803.822 (2) Free space on disk containing Updraft's temporary directory: 211023.1 Mb
+58803.828 (2) Backup run: resumption=2, nonce=b334d29bb17f, begun at=1451321810 (58804s ago), job type=backup
+58803.836 (2) Scheduling a resumption (3) after 395 seconds (1451381009) in case this run gets aborted
+58803.848 (2) Checking if we have a zip executable available
+58803.852 (2) Creation of backups of directories: already finished
+58803.856 (2) Saving backup status to database (elements: 8)
+58803.865 (2) Database dump (WordPress DB): Creation was completed already
+58803.869 (2) Saving backup history
+58803.885 (2) backup_2015-12-28-1756_Biogena_b334d29bb17f-plugins.zip: plugins: This file has already been successfully uploaded
+58803.889 (2) backup_2015-12-28-1756_Biogena_b334d29bb17f-themes.zip: themes: This file has already been successfully uploaded
+58803.892 (2) backup_2015-12-28-1756_Biogena_b334d29bb17f-uploads.zip: uploads: This file has already been successfully uploaded
+58803.896 (2) backup_2015-12-28-1756_Biogena_b334d29bb17f-others.zip: others: This file has already been successfully uploaded
+58803.899 (2) backup_2015-12-28-1756_Biogena_b334d29bb17f-db.gz: db: This file has not yet been successfully uploaded: will queue
+58803.907 (2) Requesting upload of the files that have not yet been successfully uploaded (1)
+58803.914 (2) Cloud backup selection (1/1): none (last)
+58803.918 (2) No remote despatch: user chose no remote backup service
+58803.924 (2) Recording as successfully uploaded: backup_2015-12-28-1756_Biogena_b334d29bb17f-db.gz (72b6b9f1b355844653e834b766e2f356)
+58803.943 (2) Retain: beginning examination of existing backup sets; user setting: retain_files=2, retain_db=2
+58803.947 (2) Number of backup sets in history: 3
+58803.951 (2) Examining backup set with datestamp: 1451322066 (Dec 28 2015 17:01:06)
+58803.955 (2) 1451322066: this backup set remains non-empty (0/1); will retain in history
+58803.959 (2) Examining backup set with datestamp: 1451321810 (Dec 28 2015 16:56:50)
+58803.963 (2) 1451321810: this backup set remains non-empty (1/1); will retain in history
+58803.966 (2) Examining backup set with datestamp: 1450804516 (Dec 22 2015 17:15:16)
+58803.970 (2) 1450804516: db: this set includes a database (backup_2015-12-22-1815_Biogena_5f81b70b3568-db.gz); db count is now 3
+58803.973 (2) 1450804516: db: over retain limit (2); will delete this database
+58803.977 (2) Delete file: backup_2015-12-22-1815_Biogena_5f81b70b3568-db.gz, service=none
+58803.980 (2) Deleting local copy (backup_2015-12-22-1815_Biogena_5f81b70b3568-db.gz)
+58803.987 (2) 1450804516: this backup set is now empty; will remove from history
+58803.990 (2) 1450804516: deleting log file (log.5f81b70b3568.txt)
+58803.995 (2) Retain: saving new backup history (sets now: 2) and finishing retain operation
+58804.006 (2) Resume backup (b334d29bb17f, 2): finish run
+58804.012 (2) There were no errors in the uploads, so the 'resume' event (3) is being unscheduled
+58804.027 (2) The backup apparently succeeded and is now complete
+58804.031 (2) No email will/can be sent - the user has not configured an email address.
+58804.033 (2) Il backup apparentemente è riuscito ed ora è completo

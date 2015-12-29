@@ -16,7 +16,7 @@ function body_class($classes) {
       $classes[] = basename(get_permalink());
     }
   }
-  if (!is_home() && 'area-skin-care' != get_post_type() && 'osmin-linea-pediatrica' !== basename(get_permalink()) ){
+  if (!is_home() && 'area-skin-care' != get_post_type() && 'osmin-linea-pediatrica' !== basename(get_permalink()) || is_search() ){
     $classes[] = 'no-full-slider';
   }
   // Add class if sidebar is active
@@ -44,12 +44,12 @@ add_filter('wp_nav_menu_items', __NAMESPACE__ . '\\add_biogena_logo_menu', 10, 2
 function add_biogena_logo_menu( $items, $args ){
     if( $args->theme_location == 'primary_navigation' ) // only for primary menu
     {
-        $new_item       = array( '<li class="menu-logo menu-item menu-item-type-post_type menu-item-object-page"><a href="'.get_home_url().'"><div class="circle-container"><div class="s-circle"><img src="' . get_template_directory_uri() . '/assets/images/logo.svg" alt=""><h3>LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span></h3></div></div></a></li>' );
-        $items          = preg_replace( '/<\/li>\s<li/', '</li>,<li',  $items );
+        $new_item       = array( '<li class="menu-logo menu-item menu-item-type-post_type menu-item-object-page"><a href="'.get_home_url().'"><div class="circle-container"><div class="s-circle"><img src="' . get_template_directory_uri() . '/dist/images/logo.svg" alt=""><h3>LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span></h3><div class="tricolore"><img src="' . get_template_directory_uri() . '/dist/images/Tricolore.jpg" alt=""></div></div></div></a></li>' );
+        $items          = preg_replace( '/<\/li>\s<li/', '</li>-BIOGENADELIMITER-<li',  $items );
 
-        $array_items    = explode( ',', $items );
+        $array_items    = explode( '-BIOGENADELIMITER-', $items );
         array_splice( $array_items, 2, 0, $new_item ); // splice in at position 3
-        $items          = implode( ',', $array_items );
+        $items          = implode( '', $array_items );
             $search = '<div id="sb-search" class="search menu-item sb-search inline-block">';
     $search .= '<form method="get" id="searchform" action="'.home_url().'">';
     $search .= '<input type="text" class="field sb-search-input" name="s" id="s" />';

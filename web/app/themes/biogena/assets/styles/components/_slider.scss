@@ -88,6 +88,20 @@
       text-align: center;
     }
   }
+  .background-container.specialita{
+  >img{
+    display: block;
+      margin: 0 auto;
+  }
+  >.big-claim{
+    width: 100%;
+    position: static;
+
+  }
+   >.little{
+      text-align:center;
+      }
+  }
 }
 
    .osmin.background-container{

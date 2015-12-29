@@ -96,13 +96,13 @@ img {
     a{ text-decoration: none;}
     &>h3{
 background-color: rgb(255, 255, 255);
-color: #2A79B2;
+color: #24569B;
 text-align: center;
 padding: 0.5rem;
 border-bottom: 1px solid #2A79B2;
 margin: 0px auto 1rem;
       a{ text-decoration: none;
-color: rgb(42, 121, 178);}
+color: #24569B;}
     }
     .flag-media{
       border-bottom: 1px solid #318EC8;
@@ -128,7 +128,19 @@ color: rgb(42, 121, 178);}
           bottom: 10%;
           a{ color:#000;}
         }
+                     >.readmore1{
+    padding: 2% 0px;
+    font-weight: 700;
+    display: inline;
+    color:#24569B;
+    cursor:pointer;
+}
       }
+         .flag-body.collapsed{
+          >p{ display:none;}
+          >p:first-child{ margin-bottom:0;display:inline !important;}
+
+        }
     }
   }
 }
@@ -291,14 +303,85 @@ text-align: center
 // AZIENDA
 .azienda{
   h1,h2,h3{color:#24569B}
+  h2{font-size: 1.7rem;}
   main>.video{
     margin-top:3rem;
   }
   .content-wrapper-azienda{
-    padding:0 4%;
+    padding:0 2%;
     .page-header{
       margin: 3rem 0;
 
+    }
+    .content-main{
+          display: inline-block;
+    width: 73.6%;
+    vertical-align: top;
+    margin-right: 4%;
+    }
+    .content-side{
+      display: inline-block;
+    width: 22%;
+    vertical-align: top;
+    >h3{
+          color: #fff;
+    background-color: #24569B;
+    padding: 2% 2%;
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.25;
+    }
+    li{
+      font-size:0.8rem;
+    }
+    .list-wrapper{
+      border: 2px solid #24569B;
+    padding: 5% 0 0;
+    >ol{    margin-left: 1.75rem;
+      h6{
+            margin: 0 0 0.5rem;
+    color: #24569B;
+      }
+    }
+    }
+    }
+    .wp-video{
+      margin-bottom:1.5rem;
+    }
+  }
+}
+body.search{
+
+  article{
+    padding: 0 2%;
+    h2{font-size:1rem;margin-bottom:1rem;}
+  }
+
+}
+body.search,body.error404,body.articoli{
+    h1{color:#24569B;}
+    .alert-warning{
+        font-size: 1rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #24569B;
+  }
+  .search-form{
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #24569B;
+  }
+}
+
+body.articoli{
+  .content>.main{
+    li{
+          list-style: none;
+    padding: 0 2%;
+    margin: 0.5rem 0;
+    >a{
+          text-decoration: none;
+    }
     }
   }
 }
@@ -325,9 +408,17 @@ transform: translateY(-50%);
 background:transparent;
   z-index: 1999;
 }
-
+.mfp-content>.content{
+  >.main{
+    h1,h3,h4{color:#24569B;}
+    h4{margin:1.5rem 0;}
+    >article>.entry-content{
+      p{margin-bottom:0.5rem;}
+    }
+  }
+}
 .cube1, .cube2 {
-  background-color: #4D74AB;
+  background-color: #24569B;
   width: 15px;
   height: 15px;
   position: absolute;
