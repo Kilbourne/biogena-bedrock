@@ -63,12 +63,15 @@
     }
     .flag-media{
         padding: 0px 6% 1em;
+        .flag-body{
+          padding: 5% 7% 1%;
+        }
     }
   }
 
   .lineas{
      @include media-query(lap-and-up){
-    margin-top: 2.9rem;
+    //margin-top: 2.9rem;
   }
   padding: 0px 2%;
     width:100%;
