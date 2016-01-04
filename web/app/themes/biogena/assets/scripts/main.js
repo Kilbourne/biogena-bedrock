@@ -194,6 +194,8 @@
 
                 if (data.loggedin == true){
                     $.magnificPopup.instance.updateItemHTML();
+                }else{
+                  $('#loginform').append('<p style="color:red;" >'+data.message+'</p>');
                 }
             }
         });

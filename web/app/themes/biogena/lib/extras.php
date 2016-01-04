@@ -154,7 +154,7 @@ function materiali_riservati_func( $atts ){
           ";
           $allegati=get_field('allegati',$value->ID);
           foreach ($allegati as $key2 => $value2) {
-           $cont.='<li><h4><a href="'.$value2['file']['url'].'" title="'.$value2['file']['title'].'">'.$value2['label'].'</a></h4>
+           $cont.='<li><a href="'.$value2['file']['url'].'" title="'.$value2['file']['title'].'">'.$value2['label'].'</a>
             </li>';
           }
           $cont.="
@@ -192,7 +192,7 @@ function ajax_login(){
 
     $user_signon = wp_signon( $info, false );
     if ( is_wp_error($user_signon) ){
-        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+        echo json_encode(array('loggedin'=>false, 'message'=>__('Nome Utente o Password errata')));
     } else {
         echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
     }
