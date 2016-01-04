@@ -3,11 +3,12 @@
 while (have_posts()):
     the_post();
 
-    $linea = biogenaData::data(get_post_type($post), get_the_title());?>
+    $linea = biogenaData::data(get_post_type($post), get_the_title());
+        $connected2 = $linea['prodotti'];?>
   <div class="nav-bread">
       <div class="go-back"><a href="<?php echo $linea['linea']['permalink'] ?>" title=""> &lt;&lt; Torna alla linea <?php echo $linea['linea']['title'] ?></a></div>
   </div>
-  <article <?php post_class(); ?>>
+  <article <?php $noproducts=count($connected2) > 0?'':'no-products';post_class($noproducts); ?>>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
       <div class="under-photo">          <?php $field = get_field('formato');
@@ -111,7 +112,7 @@ while (have_posts()):
 </div>
 <?php } ?>
     <?php
-    $connected2 = $linea['prodotti'];
+
     if (count($connected2) > 0) { ?>
                <div class="slideshow correlati">
             <div class="slider-title">  <h3>  Trattamenti coadiuvanti complementari </h3></div>

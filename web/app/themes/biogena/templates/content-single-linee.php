@@ -55,7 +55,7 @@ if($no_asc){
             </div>
           <?php } ?>
     </div>
-    <div class="content-wrapper">
+    <div class="content-wrapper <?php if(count($first['prodotti'])===0){ echo 'single-product-wrapper';} ?>">
       <?php if( !$no_or_single ){ ?>
           <h3>Trattamenti coadiuvanti per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
       <?php } ?>

@@ -110,41 +110,8 @@
               if($('.slider-patologie-home').length){downSlider = new Swiper('.slider-patologie', downSliderHomeOptions());}
               else if($('.slider-patologie').length){downSlider = new Swiper('.slider-patologie', downSliderOptions());}
 
+              if($('body.single-prodotti,body.single-linee .single-product-wrapper,body.post-type-archive-linee .single-product-wrapper').length){
 
-               $('body').on('submit','form#loginform', function(e){
-
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: ajax_login_object.ajaxurl,
-            data: {
-                'action': 'ajax_login', //calls wp_ajax_nopriv_ajaxlogin
-                'username': $('form#loginform #user_login').val(),
-                'password': $('form#loginform #user_pass').val(),
-                'security': $('#security').val() },
-            success: function(data){
-
-                if (data.loggedin == true){
-                    $.magnificPopup.instance.updateItemHTML();
-                }
-            }
-        });
-        e.preventDefault();
-    });
-
-            }
-        },
-        'post_type_archive':{
-          init: function(){
-            var menusActive=$('.menu-item.active');
-            menusActive.each(function(index, el) {
-              var subItems=$(el).find('.sub-menu .menu-item');
-              if(subItems.length)subItems.first().addClass('active');
-            });
-          }
-        },
-        'single_prodotti': {
-            init: function() {
                     (function() {
                         var d = document,
                             accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
@@ -210,8 +177,41 @@
                             accordionToggles[i].addEventListener('click', switchAccordion, false);
                         }
                     })();
+              }
+
+               $('body').on('submit','form#loginform', function(e){
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: ajax_login_object.ajaxurl,
+            data: {
+                'action': 'ajax_login', //calls wp_ajax_nopriv_ajaxlogin
+                'username': $('form#loginform #user_login').val(),
+                'password': $('form#loginform #user_pass').val(),
+                'security': $('#security').val() },
+            success: function(data){
+
+                if (data.loggedin == true){
+                    $.magnificPopup.instance.updateItemHTML();
+                }
             }
+        });
+        e.preventDefault();
+    });
+
+            }
+        },
+        'post_type_archive':{
+          init: function(){
+            var menusActive=$('.menu-item.active');
+            menusActive.each(function(index, el) {
+              var subItems=$(el).find('.sub-menu .menu-item');
+              if(subItems.length)subItems.first().addClass('active');
+            });
+          }
         }
+
     }
     var UTIL = {
         fire: function(func, funcname, args) {

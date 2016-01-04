@@ -218,7 +218,6 @@ function linea_single_product_ajax() {
   global $post;
   $post = get_page_by_title( $title, 'OBJECT', 'prodotti' );
   query_posts( array('p'=>$post->ID,'post_type'=>'prodotti'));
-  echo 'TITLE:'.$title;
   ob_start();
   include_once(locate_template('templates/content-single-prodotti.php'));
   $output = ob_get_contents();

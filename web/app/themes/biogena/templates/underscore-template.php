@@ -51,7 +51,7 @@
                <% } %>
                </div>
 
-            <div class="content-wrapper">
+            <div class="content-wrapper <% if(first['prodotti'].length===0){ %> <%= 'single-product-wrapper' %> <% } %>">
                 <% if(!no_or_single){ %>
                   <h3>Trattamenti coadiuvanti per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
                 <% } %>
