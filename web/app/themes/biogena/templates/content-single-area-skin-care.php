@@ -8,8 +8,32 @@ $default_attr = array(
   'class' => "wp-post-image"
 );
 ?>
+<?php
+$image_id=get_post_thumbnail_id();
+$image_meta = wp_get_attachment_metadata( $image_id );
+$image = wp_get_attachment_image_src( $image_id,'full');
+if ( $image ) {
+    $image_src = $image[0];
+    $size_array = array(
+        absint( $image[1] ),
+        absint( $image[2] )
+    );
+}
+$srcset_value = wp_calculate_image_srcset( $size_array, $image_src, $image_meta );
+$sizes_value = wp_get_attachment_image_sizes($image_id, 'full' );
+$srcset = $srcset_value ? ' srcset="' . esc_attr( $srcset_value ) . '"' : '';
+$sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
+
+
+?>
 <div class="background-container">
-<?= wp_get_attachment_image($first['fields']['immagine_full_width']['id'],'full',false,$default_attr).$first['fields']['claim_'] ; ?>
+
+<picture>
+  <source media="(max-width: 49.999em)" <?php echo $srcset; ?> <?php echo $sizes; ?> >
+  <?= wp_get_attachment_image($first['fields']['immagine_full_width']['id'],'full',false,$default_attr) ;?>
+</picture>
+
+<?= $first['fields']['claim_'] ; ?>
 
  </div>
  <div class="content">

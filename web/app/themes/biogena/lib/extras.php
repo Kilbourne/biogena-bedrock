@@ -177,3 +177,54 @@ function luca_read_more_link($link, $text) {
 }
 add_filter( 'the_content_more_link', __NAMESPACE__ . '\\luca_read_more_link',10,2 );
 
+add_action( 'wp_ajax_nopriv_ajax_login',  __NAMESPACE__ . '\\ajax_login' );
+
+function ajax_login(){
+
+    // First check the nonce, if it fails the function will break
+    check_ajax_referer( 'ajax-login-nonce', 'security' );
+
+    // Nonce is checked, get the POST data and sign user on
+    $info = array();
+    $info['user_login'] = $_POST['username'];
+    $info['user_password'] = $_POST['password'];
+    $info['remember'] = true;
+
+    $user_signon = wp_signon( $info, false );
+    if ( is_wp_error($user_signon) ){
+        echo json_encode(array('loggedin'=>false, 'message'=>__('Wrong username or password.')));
+    } else {
+        echo json_encode(array('loggedin'=>true, 'message'=>__('Login successful, redirecting...')));
+    }
+
+    die();
+}
+add_action( 'save_post_area-skin-care', __NAMESPACE__ . '\\delete_transient_on_update' );
+add_action( 'save_post_linee', __NAMESPACE__ . '\\delete_transient_on_update' );
+add_action( 'save_post_prodotti',__NAMESPACE__ . '\\delete_transient_on_update' );
+function delete_transient_on_update($post_id) {
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if ( wp_is_post_revision( $post_id ) ) return;
+    $type=get_post_type( $post_id );
+
+    delete_transient( 'biogena_data_linee');
+    delete_transient( 'biogena_data_area-skin-care');
+    delete_transient( 'biogena_data_prodotti');
+    delete_transient( 'biogena_data_area-baby');
+}
+
+function linea_single_product_ajax() {
+  $title= $_POST['title'];
+  global $post;
+  $post = get_page_by_title( $title, 'OBJECT', 'prodotti' );
+  query_posts( array('p'=>$post->ID,'post_type'=>'prodotti'));
+  echo 'TITLE:'.$title;
+  ob_start();
+  include_once(locate_template('templates/content-single-prodotti.php'));
+  $output = ob_get_contents();
+  ob_end_clean();
+  echo $output;
+  wp_die();
+}
+add_action( 'wp_ajax_get_template_single', __NAMESPACE__ . '\\linea_single_product_ajax' );
+add_action( 'wp_ajax_nopriv_get_template_single', __NAMESPACE__ . '\\linea_single_product_ajax' );

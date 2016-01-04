@@ -91,7 +91,16 @@ false
 
   return apply_filters('sage/display_sidebar', $display);
 }
+function display_page_title() {
+  static $display;
 
+  isset($display) || $display = in_array(true, [
+    // The sidebar will NOT be displayed if ANY of the following return true.
+    // @link https://codex.wordpress.org/Conditional_Tags
+    get_the_title()!=='Azienda'
+  ]);
+  return $display;
+}
 /**
  * Theme assets
  */
@@ -104,17 +113,17 @@ function assets() {
   wp_deregister_script('jquery' );
   wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, false);
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
-  wp_localize_script( 'sage/js', 'collegamenti', array("area-skin-care"=>biogenaData::data('area-skin-care'),"linee"=>biogenaData::data('linee'),"prodotti"=>biogenaData::data('prodotti') ));
+  wp_localize_script( 'sage/js', 'collegamenti', array("linee"=>biogenaData::data('linee'),"area-skin-care"=>biogenaData::data('area-skin-care'),"prodotti"=>biogenaData::data('prodotti') ));
 gravity_form_enqueue_scripts(1, false);
 gravity_form_enqueue_scripts(2, true);
 // Execute the action only if the user isn't logged in
 if (!is_user_logged_in()) {
-      wp_localize_script( 'sage/js', 'ajax_login_object', array( 
+      wp_localize_script( 'sage/js', 'ajax_login_object', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'redirecturl' => "http://" . $_SERVER['HTTP_HOST']  . $_SERVER['REQUEST_URI'],
         'loadingmessage' => __('Sending user info, please wait...')
     ));
-    
+
 }
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

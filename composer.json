@@ -48,8 +48,7 @@
     "wpackagist-plugin/custom-post-type-ui": "1.1.2",
     "wpackagist-plugin/responsive-menu": "2.8.5",
     "wpackagist-plugin/updraftplus": "1.11.18",
-    "wpackagist-plugin/transients-manager": "1.7.1",
-    "wpackagist-plugin/ninja-forms": "2.9.33",
+    "wpackagist-plugin/transients-manager": "1.7.1",    
     "kilbourne/biogena-data": "2.2.8",
     "wpackagist-plugin/members": "1.1.0"
   },

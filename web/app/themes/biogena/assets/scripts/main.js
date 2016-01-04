@@ -12,6 +12,14 @@
 
 (function($) {
     var downSlider, oldPostType,fullSlider,linkCallbackBusy=false,
+    breakpoints= {
+    "palm":          "screen and (max-width: 49.9375em)",
+    "lap":           "screen and (min-width: 50em) and (max-width: 63.9375em)",
+    "lap-and-up":    "screen and (min-width: 50em)",
+    "portable":      "screen and (max-width: 63.9375em)",
+    "desk":          "screen and (min-width: 64em)",
+    "retina":        "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
+    },
     downSliderOptions=function(){
       return{
                       autoplay: 5000,
@@ -38,10 +46,11 @@
         'common': {
             init: function() {
                 if ($('.background-slider .wp-post-image,.background-container .wp-post-image').length) {
+                    setTimeout(function(){
                     BackgroundCheck.init({
                         targets: '.nav-primary',
-                        images: '.background-slider .wp-post-image,.background-container .wp-post-image'
-                    });
+                        images: '.background-slider .wp-post-image,.background-container .wp-post-image',
+                    })},2000);
                     if ($('.background-slider .wp-post-image').length) {
                         fullSlider = new Swiper('.background-slider', {
                             autoplay: 7000,
@@ -58,7 +67,16 @@
                 $('body').on('click', 'a[href*="/area-skin-care/"],a[href*="/linee/"]', linkCallback);
                 $('body').on('click', '.readmore1', readmoreCallback);
                 $('body').on('mouseenter mouseleave', '.swiper-container-horizontal', stopAutoplayOnHover);
-                //$('.big-claim').fitText(1.4);
+
+                enquire.register(breakpoints['lap-and-up'],{
+                  match:function(){
+                    $('.big-claim').fitText(2);
+                  },
+                  unmatch:function(){
+                    $(window).off('resize.fittext orientationchange.fittext');
+                  }
+                });
+
                 $('body').on('click', '.attivo', readmoreAttiviCallback);
                 $('.ajax-popup-link').magnificPopup({
                   type: 'ajax',
@@ -91,6 +109,7 @@
               }
               if($('.slider-patologie-home').length){downSlider = new Swiper('.slider-patologie', downSliderHomeOptions());}
               else if($('.slider-patologie').length){downSlider = new Swiper('.slider-patologie', downSliderOptions());}
+
 
                $('body').on('submit','form#loginform', function(e){
 
@@ -162,6 +181,13 @@
                             e.preventDefault();
                             var thisAnswer = e.currentTarget.parentNode.nextElementSibling;
                             var thisQuestion = e.currentTarget;
+                            var opens=$(accordionToggles).filter('.is-expanded')
+                            if(opens.length && opens[0] !== thisQuestion){
+                              opens[0].classList.remove('is-expanded');
+                              var openAnswer=opens[0].parentNode.nextElementSibling;
+                              openAnswer.remove('is-expanded');
+                              openAnswer.classList.toggle('animateIn');
+                            }
                             if (thisAnswer.classList.contains('is-collapsed')) {
                                 setAccordionAria(thisQuestion, thisAnswer, 'true');
                             } else {
@@ -364,9 +390,16 @@
                     }catch(e){}
                     BackgroundCheck.refresh();
                   }
+                  $('.big-claim').fitText(2);
+
                   if (downSlider instanceof Swiper) downSlider.destroy(true, true);
                   downSlider=null;
                   if($('.slider-patologie').length){downSlider = new Swiper('.slider-patologie', downSliderOptions());}
+                  if($('body.single-linee .single-linea').length){
+                   $.post( ajaxurl, { action: "get_template_single",title:$('.down-nav .line .title').text() }, function( data ) {
+                      $('body.single-linee .single-linea').html(data);
+                    })
+              }
                     linkCallbackBusy=false;
                 });
             });

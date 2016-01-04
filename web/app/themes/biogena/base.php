@@ -48,10 +48,12 @@ if(get_post_type()==='post'&& is_single()){ ?>
     <?php
       do_action('get_footer');
       get_template_part('templates/footer');
-      wp_footer();
+
     ?>
     </div><!-- /.wrap -->
-    <?php get_template_part('templates/underscore-template'); ?>
+    <?php get_template_part('templates/underscore-template');
+ wp_footer();
+    ?>
   </body>
 </html>
 <?php } ?>

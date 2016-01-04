@@ -1,13 +1,13 @@
  .big-claim {
     color: #24569B  ;
-    font-size: 1.9rem;
+    font-size: 1.8rem;
     display: inline-block;
     line-height: 1.5;
     padding-left: 3%;
     position: absolute;
     left: 0;
     top: 33%;
-    width:40%; //fitText
+    width:50%; //fitText
     white-space: nowrap;
     font-weight: 900;
     text-align: left;
@@ -15,7 +15,7 @@
     .little{ font-size:1rem;display:inline;}
     }
     .big-claim.big-claim-right {
-    left: 58%;
+    left: 50%;
     padding-right: 3%;
     padding-left: 0;
 }
@@ -51,14 +51,14 @@
 
 }
   @media (max-width:49.999em) {
-  .big-claim,.news-box{
+
+  .background-slider .big-claim, .big-claim{
     position:static;
-  }
-  .big-claim{
     width: 100%;
-    color: black;
+    color: #24569B;
     line-height: 1.5;
     padding: 0 3%;
+    font-size:1.22rem !important;
     .up,.down{
       white-space:normal;
       margin:0;
@@ -149,15 +149,16 @@
 }
 
 .slider-patologie .swiper-slide a div {
-    background-color: #24569B ;
     width: 100%;
     text-align: center;
-    padding: 3% 2%;
+    background-color: transparent;
+    padding: 3.5% 2%;
+    border: 1px solid rgb(36, 86, 155);
 }
 
 .slider-patologie .swiper-slide a h3 {
     margin: 0;
-    color: #fff;
+    color: rgb(36, 86, 155);
     font-size:1.25rem;
 }
 
@@ -193,13 +194,11 @@ text-decoration: none;
     &>div {
         position: absolute;
         bottom: 0px;
-        background-color: #24569B   ;
         width: 100%;
         text-align: center;
-        padding: 2%;
         h3 {
             margin: 0px;
-            color: #FFF;
+            color: rgb(36, 86, 155);
         }
     }
   }
@@ -288,6 +287,15 @@ min-width: 14.25px;
           }
         }
       }
+    }
+  }
+}
+.slider-patologie-home{
+  .swiper-slide a > div{
+    background-color: #24569B;
+    padding: 2%;
+    h3{
+     color:#fff
     }
   }
 }

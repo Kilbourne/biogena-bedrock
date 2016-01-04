@@ -3,6 +3,7 @@
 RewriteEngine On
 
 
-RewriteCond %{REQUEST_URI} !/biogena/web/
-RewriteRule (.*) /biogena/web/$1 [L]
-RewriteRule ^([_0-9a-zA-Z-]+/)?wp-admin$ $1wp-admin/ [R=301,L]
+
+RewriteCond "%{REQUEST_URI}" !"^/biogena/web/"
+RewriteRule (.*) /biogena/web/$1
+
