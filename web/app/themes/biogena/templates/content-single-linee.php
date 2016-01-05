@@ -62,13 +62,19 @@ if($no_asc){
       <div class="products">
         <?php foreach($first['prodotti'] as $key=> $prod){ ?>
             <div class="product flag-media <?php echo $key % 2 == 0?'odd':'even'; ?>">
-            <?php if(!$riservato){ ?>
+
+                <div>
+
+                <h3 class='product-title'>
+                     <?php if(!$riservato){ ?>
               <a href="<?= $prod['permalink']; ?>">
             <?php } ?>
-                <div><h3 class='product-title'><?= $prod['title']; ?> </h3> </div>
-            <?php if(!$riservato){ ?>
+                <?= $prod['title']; ?>
+                <?php if(!$riservato){ ?>
               </a>
             <?php } ?>
+                </h3> </div>
+
               <div class="flag-thumb">
               <?php if(!$riservato){ ?>
                 <a href="<?= $prod['permalink']; ?>">

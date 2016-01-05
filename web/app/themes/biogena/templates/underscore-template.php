@@ -58,13 +58,17 @@
                 <div class="products">
                   <% _.each(first.prodotti,function(prod,key){ %>
                     <div class="product flag-media <%= key % 2 == 0?'odd':'even' %>">
-                    <% if(!riservato){ %>
+
+                        <div><h3 class='product-title' >
+                         <% if(!riservato){ %>
                       <a href="<%= prod.permalink %>">
                     <% } %>
-                        <div><h3 class='product-title' ><%= prod.title %> </h3> </div>
+                    <%= prod.title %>
                     <% if(!riservato){ %>
                       </a>
                     <% } %>
+                     </h3> </div>
+
                       <div class="flag-thumb">
                         <% if(!riservato){ %>
                           <a href="<%= prod.permalink %>">

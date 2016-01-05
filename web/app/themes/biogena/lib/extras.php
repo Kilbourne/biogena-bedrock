@@ -154,7 +154,7 @@ function materiali_riservati_func( $atts ){
           ";
           $allegati=get_field('allegati',$value->ID);
           foreach ($allegati as $key2 => $value2) {
-           $cont.='<li><a href="'.$value2['file']['url'].'" title="'.$value2['file']['title'].'">'.$value2['label'].'</a>
+           $cont.='<li><a target="_blank" href="'.$value2['file']['url'].'" title="'.$value2['file']['title'].'">'.$value2['label'].'</a>
             </li>';
           }
           $cont.="

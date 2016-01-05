@@ -79,7 +79,13 @@
   .background-container{
     margin: 3rem 0px;
     padding: 0 2%;
-    &>img{ width:45%;}
+    &>img{
+      padding:1.5rem;
+      @include media-query(lap-and-up){
+        width:45%;
+        padding:0;
+      }
+    }
     .big-claim{
       width: 55%;
       top:0;
@@ -106,7 +112,8 @@
 
    .osmin.background-container{
     margin: 0;
-    &>img{ width:auto;}
+    padding:0;
+    &>img{ width:100%;padding:0;}
     .big-claim{
       left: 15px;
       top: 46%;
@@ -254,10 +261,9 @@ margin: 0;
 width: 2%;
 min-width: 14.25px;
 }
-
-.navigation{
+.swiper-container-horizontal{
+  &>.navigation,&>.swiper-pagination{
   text-align: center;
-  margin: 4.5rem auto 0.5rem;
   .swiper-pagination-bullet{
     height:14px;
     width:14px;
@@ -265,6 +271,16 @@ min-width: 14.25px;
     background:#24569B;
   }
 }
+
+
+&>.navigation{
+  margin: 4.5rem auto 0.5rem;
+}
+&>.swiper-pagination{
+  bottom: -3%;
+}
+}
+
 
 .no-slider{
   text-align: center;
@@ -290,12 +306,28 @@ min-width: 14.25px;
     }
   }
 }
-.slider-patologie-home{
-  .swiper-slide a > div{
+.slider-patologie-home.slider-patologie{
+  .swiper-slide {
+    >a{width: 93.9%;}
+    >a >img{width: 100%;}
+    >a > div{
     background-color: #24569B;
     padding: 2%;
     h3{
      color:#fff
     }
+    }
+    @media(min-width:607.5px){width:50%;}
+    @media(min-width:911.22px){width:33%;}
+    @media(min-width:1215px){width:25%;}
+
+
+
+  }
+}
+.slideshow.correlati .slider-patologie.three{
+  .swiper-slide{
+      @media(min-width:607.5px){width:50%;}
+      @media(min-width:911.22px){width:33%;}
   }
 }
