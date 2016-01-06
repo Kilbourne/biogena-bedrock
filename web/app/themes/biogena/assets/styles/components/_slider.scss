@@ -7,19 +7,50 @@
     position: absolute;
     left: 0;
     top: 33%;
-    width:50%; //fitText
     white-space: nowrap;
     font-weight: 900;
     text-align: left;
+    width: 51.75%;
+    width: 51.75vw;
+    word-spacing: -2px;
     .title{ font-size: 2.75rem;display:inline-block;width:100%;}
-    .little{ font-size:1rem;display:inline;}
+    .little{
+white-space: normal;
+margin-top: 2%;
+width: 100%;
+word-spacing: -2px;
+line-height: 1.2;
+font-size: 0.6em;
+}
     }
     .big-claim.big-claim-right {
-    left: 50%;
-    padding-right: 3%;
-    padding-left: 0;
+left: 54%;
+padding-right: 3%;
+padding-left: 0px;
+width: 46%;
+.title {
+    white-space: normal;
+    line-height: 1.2;
 }
-
+}
+    .girasole{
+    margin: -3% auto 0 !important;
+}
+.single-linee,.post-type-archive-linee{
+   .girasole{
+    margin: -6% auto 0 !important;
+}
+.miele>img{
+margin: 2% auto 0px !important;
+width: 17% !important;
+min-width: 60px;
+}
+.solar>.little{padding-right: 0 !important;}
+  .big-claim.savel{
+    white-space: normal;
+    .little{@include media-query(lap-and-up){line-height: 0;}}
+  }
+}
 .background-slider {
   position: relative;
   img {
@@ -37,6 +68,9 @@
     .swiper-slide.Slide2{
       .down{ margin-left: 3rem;}
     }
+    .swiper-slide.Slide1{
+      .down{ margin-left: 2.5rem;}
+    }
     .swiper-slide.Slide3{
       .big-claim {
         font-size: 2.2rem;
@@ -50,23 +84,7 @@
     }
 
 }
-  @media (max-width:49.999em) {
 
-  .background-slider .big-claim, .big-claim{
-    position:static;
-    width: 100%;
-    color: #24569B;
-    line-height: 1.5;
-    padding: 0 3%;
-    font-size:1.22rem !important;
-    .up,.down{
-      white-space:normal;
-      margin:0;
-      display:inline;
-    }
-    .down{ margin-left: 0 !important;}
-  }
- }
 
 .background-container{
   position:relative;
@@ -123,6 +141,28 @@
       font-size: 1.75rem;
     }
   }
+ @media (max-width:49.999em) {
+
+  .post-type-archive-linee .background-container .big-claim, .single-linee .background-container .big-claim,.background-slider .big-claim, .big-claim,.big-claim.big-claim-right,.osmin.background-container .big-claim{
+    position:static;
+    width: 100%;
+    color: #24569B;
+    line-height: 1.5;
+    padding: 0 3%;
+    font-size:1.22rem !important;
+    text-align: center;
+    white-space: normal;
+    padding: 2%;
+    .title{ font-size: 2.6rem;}
+    .up,.down{
+      white-space:normal;
+      margin:0;
+      display:inline;
+    }
+    .down{ margin-left: 0 !important;}
+  }
+  .solar>.little{padding-right: 0 !important;}
+ }
 
 .slider-patologie {
     overflow: hidden;

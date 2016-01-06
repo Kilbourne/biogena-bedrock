@@ -19,9 +19,7 @@
 
 .single-area-skin-care,
 .post-type-archive-area-skin-care {
-    .girasole{
-    margin: 2.5rem auto 0 !important;
-}
+
     .content {
         position: relative;
         img {
@@ -100,6 +98,90 @@ img {
       }
     }
     .lineas{width: 100%;}
+  }
+}
+
+.fotoprotezione-wrapper{
+  padding: 0px 3%;
+  margin: 2rem auto 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
+  .fotop{
+    width:100%;
+    >h3 {
+      margin: 0px;
+      padding: 1rem 1%;
+      font-size: 1rem;
+      background-color:#fff;
+    }
+    .fotop-content {
+      color: #FFF;
+      padding: 1rem 2%;
+      font-size: 0.9rem;
+    }
+  }
+  .fotop-firstrow,.fotop3{
+    flex-basis:100%;
+  }
+  .fotop-firstrow{
+    position: relative;
+    width: 100%;
+  }
+  @include media-query(lap-and-up){
+  .fotop1,.fotop2{
+    width: 50%;
+    display: inline-block;
+  }
+  .fotop1{ position: absolute; }
+  .fotop2{ position: relative; }
+}
+  .fotop2 .fotop-content > p, .fotop3 .fotop-content > p {
+    margin-bottom: 0.75rem;
+    padding: 0px 0.5rem;
+  }
+  .fotop1{
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    background: #F26B34 none repeat scroll 0% 0%;
+    >h3{
+    color: #F26B34;
+    border: 2px solid #F26B34;
+    }
+    .fotop-content{
+      >p{
+      text-align: justify;
+      }
+    }
+  }
+  .fotop2{
+    left: 50%;
+    background: rgb(255, 153, 0) none repeat scroll 0% 0%;
+    >h3{
+    color: rgb(255, 153, 0);
+    border: 2px solid rgb(255, 153, 0);
+    }
+  }
+  .fotop3{
+    background: #fff none repeat scroll 0% 0%;
+    border: 2px solid #245BDE;
+    >h3{
+      color: #fff;
+      background: #245BDE none repeat scroll 0% 0%;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .fotop-content{
+      color:#245BDE;
+      padding: 1rem 10%;
+      font-size: 1rem;
+      >p{
+      text-align: justify;
+      }
+    }
+
   }
 }
 
@@ -362,7 +444,8 @@ img {
         padding: 0rem 2rem 1rem;
         margin-bottom: 0px;
     }
-    p.rifermenti{
+
+    p.rif-bib{
       font-size:0.775rem
     }
   }
@@ -603,7 +686,19 @@ a[href$='.pdf']:before{
   -webkit-animation-delay: -0.9s;
   animation-delay: -0.9s;
 }
+.acnep{   width: 100%;
+    @media(min-width:50em){width: 50%;}
+float:left;
+  }
+.acneimg{
 
+ width: 100%;
+    @media(min-width:50em){width: 75%;}
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    vertical-align: middle;
+}
 @-webkit-keyframes sk-cubemove {
   25% { -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5) }
   50% { -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg) }

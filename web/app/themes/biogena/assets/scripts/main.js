@@ -424,7 +424,7 @@ var ask=document.querySelectorAll('.post-type-archive-area-skin-care,.single-are
             pageW.children('.main').removeClass('newtemp').addClass('oldtemp');
             pageW.append('<main class="main newtemp" style="display:none;">'+aaa+'</main>');
             var newTemplate=pageW.children('.newtemp');
-             newTemplate.imagesLoaded( function() {
+             newTemplate.children('.background-container').imagesLoaded( function() {
                 pageW.children('.oldtemp').fadeOut('400', function() {
 
                    newTemplate.fadeIn();
@@ -484,7 +484,11 @@ var ask=document.querySelectorAll('.post-type-archive-area-skin-care,.single-are
                     }catch(e){}
                     BackgroundCheck.refresh();
                   }
+                  if (window.matchMedia(breakpoints['lap-and-up']).matches) {
                   $('.big-claim').fitText(2);
+                  }else{
+                    $(window).off('resize.fittext orientationchange.fittext');
+                  }
                   responsiveMediaElement();
                   if (window.matchMedia("(max-width: 874.95px)").matches) {
    var attivi=$('.attivi');

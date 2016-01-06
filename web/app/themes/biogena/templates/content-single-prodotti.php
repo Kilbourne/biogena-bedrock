@@ -99,6 +99,9 @@ while (have_posts()):
             <p>
             <?php
         echo $field; ?>
+        <?php
+    $field = get_field('bibliografia');
+    if (isset($field) && $field && $field !== '') { echo '<p class="rif-bib">'.$field.'</p>';}?>
           </p>
           </div>
         </div>
