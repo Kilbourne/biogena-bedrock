@@ -181,8 +181,10 @@
                             var opens=$(accordionToggles).filter('.is-expanded')
                             if(opens.length && opens[0] !== thisQuestion){
                               opens[0].classList.remove('is-expanded');
+                              opens[0].classList.remove('is-collapsed');
                               var openAnswer=opens[0].parentNode.nextElementSibling;
-                              openAnswer.remove('is-expanded');
+                              openAnswer.classList.toggle('is-expanded');
+                              openAnswer.classList.toggle('is-collapsed');
                               openAnswer.classList.toggle('animateIn');
                             }
                             if (thisAnswer.classList.contains('is-collapsed')) {
