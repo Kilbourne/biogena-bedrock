@@ -46,11 +46,17 @@
 
         }
     }
+    .content-row{
+      position:relative;
+      display: flex;
+align-items: center;
+    }
     .prevenzione {
     vertical-align: top;
     margin-right: 1.5rem;
     padding: 0px 3px;
     width:100%;
+    align-self:flex-start;
     @include media-query(lap-and-up){
       width:calc(50% - 0.75rem);
     };
@@ -83,7 +89,17 @@ img {
     display: block;
     height: auto;
     max-width:100%;
+    margin-top: 1rem;
 }
+  }
+  .content-row.horizont{
+    display:block;
+    .prevenzione{width: 100%;
+      .flag-media .flag-body{
+        padding: 1% 7%;
+      }
+    }
+    .lineas{width: 100%;}
   }
 }
 

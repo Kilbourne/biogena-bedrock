@@ -27,7 +27,11 @@
                       autoplayDisableOnInteraction: true,
                       pagination:'.slideshow .navigation',
                       paginationClickable:true,
-                      resizeReInit: true
+                      resizeReInit: true,
+                      preloadImages:false,
+                      lazyLoading:true,
+                      lazyLoadingInPrevNext:true,
+                      lazyLoadingOnTransitionStart:true
       };
   },
     downSliderHomeOptions=function(){
@@ -35,7 +39,11 @@
                     slidesPerView: 'auto',
                   nextButton: '.swiper-button-next',
                   prevButton: '.swiper-button-prev',
-                      resizeReInit: true
+                      resizeReInit: true,
+                                            preloadImages:false,
+                      lazyLoading:true,
+                      lazyLoadingInPrevNext:true,
+                      lazyLoadingOnTransitionStart:true
                   };
     },
     attiviSliderOptions=function(){
@@ -49,7 +57,10 @@
                       onSlideChangeEnd:function(swiper){
 
                        $('.attivo-desc:visible').hide('400');
-                      }
+                      },                      preloadImages:false,
+                      lazyLoading:true,
+                      lazyLoadingInPrevNext:true,
+                      lazyLoadingOnTransitionStart:true
 }
   },
     bodyClasses=['home','post-type-archive-linee','azienda','single-linee','single-area-skin-care','post-type-archive-area-skin-care','no-full-slider','page','search','error404'];
@@ -59,6 +70,7 @@
         // All pages
         'common': {
             init: function() {
+              FastClick.attach(document.body);
                 if ($('.background-slider .wp-post-image,.background-container .wp-post-image').length) {
                     setTimeout(function(){
                     BackgroundCheck.init({
@@ -73,7 +85,11 @@
                             loop:true,
                             onSlideChangeEnd: function() {
                                 BackgroundCheck.refresh();
-                            }
+                            },
+                                                  preloadImages:false,
+                      lazyLoading:true,
+                      lazyLoadingInPrevNext:true,
+                      lazyLoadingOnTransitionStart:true
                         });
                     }
                 }
@@ -194,6 +210,8 @@
               }
 
 attiviMobileSlider();
+$(window).resize(_.debounce(responsiveMediaElement, 500));
+responsiveMediaElement();
 
                $('body').on('submit','form#loginform', function(e){
 
@@ -227,6 +245,20 @@ attiviMobileSlider();
               var subItems=$(el).find('.sub-menu .menu-item');
               if(subItems.length)subItems.first().addClass('active');
             });
+          }
+        },
+        'azienda':{
+          init:function(){
+            $(window).scroll(function(e){
+              var wy=window.scrollY,
+              wh=$(window).height(),
+              video=$('video'),
+              eo=video.offset().top,
+              ea=video.height();
+              if(wy<eo && (wy+wh)>(eo+(ea/2))){
+                window.mejs.players.mep_0.play();
+              }
+            })
           }
         }
 
@@ -287,6 +319,21 @@ attiviMobileSlider();
                   }
                 });
     }
+     function responsiveMediaElement(){
+var ask=document.querySelectorAll('.post-type-archive-area-skin-care,.single-area-skin-care')
+  if(ask.length){
+    var subs=$(ask).find('.prevenzione,.lineas');
+    var heights = subs.map(function ()
+    {
+        return $(this).height();
+    }).get();
+    var maxHeight = Math.max.apply(null, heights);
+    var minHeight = Math.min.apply(null, heights);
+    if(maxHeight/minHeight>1.8){
+      subs[0].parentElement.classList.add('horizont');
+    }
+  }
+}
     function popstateCallback(event) {
       if (!!event.state) {
           kindAjax(event.state.href,false);
@@ -438,7 +485,7 @@ attiviMobileSlider();
                     BackgroundCheck.refresh();
                   }
                   $('.big-claim').fitText(2);
-
+                  responsiveMediaElement();
                   if (window.matchMedia("(max-width: 874.95px)").matches) {
    var attivi=$('.attivi');
                     if(attivi.length){

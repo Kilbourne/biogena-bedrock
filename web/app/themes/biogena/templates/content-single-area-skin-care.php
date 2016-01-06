@@ -55,6 +55,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
                 </div>
 
           <hr>
+          <div class="content-row">
           <div class="inline-block prevenzione" >
             <h3>La soluzione Biogena</h3><div class="flag-media">
                  <div class="flag-body"><p><?= $first['fields']['prevenzione'];?></p></div></div>
@@ -65,7 +66,15 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
           <?= $first['linea']['thumbnail']; ?>
           </a>
           </div>
-
+</div>
+<?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
+?>
+<div class="fotoprotezione-wrapper">
+    <div class="fotop1"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="fotop-content"> <?php echo $fotoprotezione; ?> </div></div>
+    <div class="fotop2"><h3>Lo sapevi che…</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> </div></div>
+    <div class="fotop3"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?> </div></div>
+</div>
+  <?php } ?>
                               <?php $attivi=$first['linea']['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
                <div class="attivi-wrapper">
                <h3>Gli Attivi di Linea </h3>
