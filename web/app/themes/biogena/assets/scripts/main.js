@@ -11,7 +11,7 @@
  * ======================================================================== */
 
 (function($) {
-    var downSlider, oldPostType,fullSlider,swiperAttivi,linkCallbackBusy=false,
+    var downSlider, oldPostType,fullSlider,swiperAttivi,linkCallbackBusy=false,safariBug=false,
     breakpoints= {
     "palm":          "screen and (max-width: 49.9375em)",
     "lap":           "screen and (min-width: 50em) and (max-width: 63.9375em)",
@@ -132,6 +132,7 @@
                 $('.inline-popup-link').magnificPopup({
                   type:'inline'
                 });
+
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
               if(document.location.toString().indexOf('osmin-linea-pediatrica') > -1 ){
@@ -252,7 +253,7 @@ responsiveMediaElement();
         'azienda':{
           init:function(){
             $(window).scroll(function(e){
-              var wy=window.scrollY,
+              var wy=window.scrollY||window.pageYOffset,
               wh=$(window).height(),
               video=$('video'),
               eo=video.offset().top,
@@ -339,7 +340,7 @@ var ask=document.querySelectorAll('.post-type-archive-area-skin-care,.single-are
     function popstateCallback(event) {
       if (!!event.state) {
           kindAjax(event.state.href,false);
-      }else{
+      }else if(safariBug){
 
         document.location.reload()
       }
@@ -443,6 +444,7 @@ var ask=document.querySelectorAll('.post-type-archive-area-skin-care,.single-are
                       document.title, URL
                     );
                   }
+                  if(!safariBug){safariBug=true;}
                   if (fullSlider instanceof Swiper) fullSlider.destroy(true, true);
                   fullSlider=null;
                   if(postType!==oldPostType){

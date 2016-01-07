@@ -69,7 +69,7 @@
   );
   $posts_array = get_posts( $args );
    foreach ( $posts_array as $key=>$patologia ){ ?>
-      <div  class="swiper-slide" ><a href="<?php echo get_permalink($patologia->ID); ?>" title=""><?php echo get_the_post_thumbnail($patologia->ID); ?> <div>
+      <div  class="swiper-slide" ><a href="<?php echo get_permalink($patologia->ID); ?>" title=""><?php echo get_the_post_thumbnail($patologia->ID,'medium'); ?> <div>
 
        <h3><?php echo get_the_title($patologia->ID); ?> </h3></div></a>
 
