@@ -9,7 +9,7 @@ gulp.task('images', function() {
     .pipe($.imagemin(config.imagemin))
     .pipe(gulp.dest(config.dist))
     .pipe(browserSync.stream());
-}); 
+});
 
 gulp.task('watch-images', function() {
   gulp.watch([config.src + '/**/*'], ['images']);

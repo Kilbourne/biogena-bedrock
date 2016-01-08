@@ -63,7 +63,8 @@
     "wpackagist-plugin/debug-bar-console": "0.3",
     "wpackagist-plugin/query-monitor": "2.8.1",
     "wpackagist-plugin/debug-bar": "0.8.2",
-    "wpackagist-plugin/plugins-garbage-collector": "0.10.1"
+    "wpackagist-plugin/plugins-garbage-collector": "0.10.1",
+    "wpackagist-plugin/wp-sweep": "1.0.6"
   },
   "extra": {
     "installer-paths": {

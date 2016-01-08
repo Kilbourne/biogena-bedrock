@@ -47,52 +47,22 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
             </svg></a></span></div></div>
             <hr>
             <div class="content-wrapper">
-                <div class="flag-media">
-
-                 <div class="flag-body collapsed"><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore1">Leggi Tutto</span><?php } ?> </div>
-                </div>
-
-          <hr>
-          <div class="content-row">
-          <div class="inline-block prevenzione" >
-            <h3>La soluzione Biogena</h3><div class="flag-media">
-                 <div class="flag-body"><p><?= $first['fields']['prevenzione'];?></p></div></div>
-          </div><div class="inline-block lineas" >
-
-        <a href="<?= $first['linea']['permalink']; ?> " title="">
-
-          <?= $first['linea']['thumbnail']; ?>
-          </a>
-          </div>
-</div>
-<?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
-?>
-
-<div class="fotoprotezione-wrapper">
-<div class="fotop-firstrow">
-    <div class="fotop1 fotop"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="fotop-content"> <?php echo $fotoprotezione; ?> </div></div><div class="fotop2 fotop"><h3>Lo sapevi che…</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> </div></div></div>
-    <div class="fotop3 fotop"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?> </div></div>
-</div>
-  <?php } ?>
-                              <?php $attivi=$first['linea']['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
-               <div class="attivi-wrapper">
-               <h3>Gli Attivi di Linea </h3>
-               <ul class="attivi">
-
-                 <?php foreach ($attivi as $key => $attivo):
-                 $image=$attivo['immagine_attivo'];
-                 if($count>4){$count=4;}
-                 ?>
-                   <li class="attivo inline-block <?= 'w'.$count ?>"><img src="<?php echo $image['url']; ?>"  alt="<?php echo $image['alt']; ?>" /><?= $attivo['attivo']."<div class='attivo-desc'>".$attivo['descrizione_attivo']."</div>" ?></li>
-                 <?php endforeach ?>
-               </ul>
-               </div>
-               <?php } ?>
-          <hr>
-          <div class="slideshow correlati">
+              <div class="box1 boxx">
+                <h3>Parliamo di...</h3>
+                <div class="flag-body collapsed"><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box1">Leggi Tutto</span><?php } ?> </div>
+              </div><div class="box2 boxx">
+                <h3>La soluzione Biogena</h3>
+                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box2">Leggi Tutto</span></div>
+              </div><div class="box3 boxx">
+                <h3>FAQ</h3>
+              </div>
+              </div>
+              <div class="slideshow correlati">
+              <hr>
               <h4>  Scopri <?= $first['linea']['title']; ?></h4>
+              <hr>
               <?php if(count($first['prodotti'])>1){ ?>
-                <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?>" >
+                <div class=" slider-patologie2 active <?= count($first['prodotti'])===2?'two':'three' ?>" >
               <?php }else {echo '<div class=" no-slider active" >';} ?>
                     <div class="swiper-wrapper">
                   <?php foreach($first['prodotti'] as $key=> $prod){ ?>
@@ -100,9 +70,9 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
                   <?php } ?>
                     </div>
               <?php if(count($first['prodotti'])>1){ ?>
-                                    <div class="navigation"></div>
+                                         <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
               <?php } ?>
                 </div>
           </div>
-              </div>
  </div>

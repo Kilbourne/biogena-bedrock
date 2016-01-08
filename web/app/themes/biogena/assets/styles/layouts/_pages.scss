@@ -99,6 +99,90 @@ img {
     }
     .lineas{width: 100%;}
   }
+  .content-wrapper{
+    width: 100%;
+    &>div{
+display: inline-block;
+height: 0px;
+padding-bottom: calc(33.333% - 1rem) !important;
+vertical-align: text-bottom;
+width: 33.333%;
+      &>h3{
+        color: rgb(36, 86, 155);
+      }
+    }
+    .boxx{
+
+      background-repeat: no-repeat;
+              text-align: left;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        padding: 1rem 2%;
+        .readmore-box2,.readmore-box1{
+          margin: 1rem 0px;
+          padding: 2%;
+          background: #24569B;
+          display: block;
+          width: 24%;
+          color: #fff;
+        }
+    }
+    .box1{
+      background-image: url('../images/box-parliamo.png');
+      .readmore-box1{
+        margin: 1rem 0px 0.5rem;
+        width: 37.5%;
+        padding: 2%;
+        font-size: 0.9rem;
+      }
+      .flag-body{
+        padding-right: 36%;
+      }
+               .flag-body.collapsed{
+          >p{ display:none;}
+          >p:first-child{ margin-bottom:0;display:inline !important;}
+
+        }
+    }
+    .box2{
+      background-image: url('../images/box-soluzione.jpg');
+    }
+    .boxx{
+      transition: all .5s ease-out;
+      &.full{
+        width:100%;
+        background-position: right center;
+        .flag-body{padding-right:17%;}
+        .readmore-box1{width:12.5%;}
+      }
+      &.nowidth{
+        width:0;
+        padding:0;
+      }
+    }
+
+    .slideshow.correlati{
+      overflow:hidden;
+      padding: 1rem 0px;
+      text-align: center;
+      margin-top: 0;
+      >h3{
+        margin-bottom: 1rem;
+      }
+      .swiper-slide{
+        >div{
+          margin: 1rem 0px;
+        }
+        img{max-width: 220px;}
+      }
+      .swiper-button-prev {
+        left: 2% !important;
+      }
+      .swiper-button-next {
+        right: 2% !important;
+      }
+    }
+  }
 }
 
 .fotoprotezione-wrapper{

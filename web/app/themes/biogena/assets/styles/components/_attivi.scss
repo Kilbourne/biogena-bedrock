@@ -1,5 +1,7 @@
 .attivi-wrapper{
-  padding-top:1rem;
+  padding: 2rem 2% 0;
+  display: block;
+  margin: 0px auto;
   >h3{
     text-align: center;
     color: rgb(36, 86, 155);
@@ -28,8 +30,7 @@
     }
     >.attivo-desc{
       display:none;
-      text-align: justify;
-      padding: 0px 3%;
+      padding: 0px 7%;
     }
   }
   .attivo:last-child{
@@ -177,7 +178,9 @@ display: block;
 }
 .single-area-skin-care,
 .post-type-archive-area-skin-care{
-  .attivi-wrapper>h3{
+  .attivi-wrapper{
+    padding:1rem 0 0;
+    >h3{
         background-color: #24569B;
     color: #fff;
 margin: 0px 4vw 1.5rem;
@@ -190,6 +193,7 @@ padding: 10px;
   text-align: left;
 }
   }
+}
   .attivi{
      //   padding: 0 2%;
    .attivo.w1{
@@ -219,4 +223,22 @@ display: inline-block;
       }}
     }
     }
+}
+.single-linee,.post-type-archive-linee{
+  .attivi-wrapper{
+    max-width: 910px;
+    overflow: hidden;
+    .attivi{
+      margin-bottom:0;
+    }
+    .swiper-button-prev,.swiper-button-next{
+      top: 168px;
+    }
+    .swiper-button-prev {
+    left: 0.5% !important;
+    }
+    .swiper-button-next {
+    right: 0.5% !important;
+    }
+  }
 }

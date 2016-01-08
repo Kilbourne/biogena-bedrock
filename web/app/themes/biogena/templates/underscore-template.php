@@ -4,26 +4,21 @@
   singolo=!!first['fields']['prodotto_singolo'] && first['fields']['prodotto_singolo']===true,
   no_or_single=( !!first['fields']['no_area_skin_care'] && first['fields']['no_area_skin_care']===true )   || (!!first['fields']['riservato'] && first['fields']['riservato']===true),
   riservato=!!first['fields']['riservato'] && first['fields']['riservato']===true;
-    if(special_field){
+
   %>
       <div class="background-container specialita">
-      <% var claim=no_asc?first['fields']['claim_']:singolo?first['area-skin-care']['fields']['claim_']:''; %>
+      <% var claim=no_asc?first['fields']['claim_']:first['area-skin-care']['fields']['claim_']; %>
         <%= claim %>
         <%= first['thumbnail'] %>
 
       </div>
-<% }else{ %>
-      <div class="background-container">
-        <%= first['thumbnail'] %>
-        <%= first['area-skin-care']['fields']['claim_'] %>
-     </div>
-<% } %>
+
  <div class="content">
 
 
                               <div class="desc">
-               <div class="desc-text">     <%= first['content'] %></div>
-                                 <hr >
+
+
         <div class="down-nav">
 <div class="line">
           <span class="prev"><a href="<%= prev.permalink %>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
@@ -31,7 +26,7 @@
             </svg></a></span><span class="title" ><%= first.title %></span><span class="next"><a href="<%= next.permalink %>" title=""><svg class="svg-icon" viewBox="0 0 20 20">
               <path fill="none" d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"></path>
             </svg></a></span></div></div>
-            <hr >
+
                <% attivi=first['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
                <div class="attivi-wrapper">
                <h3>Gli Attivi di Linea </h3>
@@ -40,7 +35,7 @@
                  <% _.each(attivi ,function(attivo,i){
                  image=attivo['immagine_attivo'];
                  count=attivi.length;
-                 if(attivi.length>4){count=4;}
+                 if(attivi.length>3){count=3  ;}
                  %>
                    <li class="attivo inline-block <%= 'w'+count %>"><img src="<%= image['url'] %>"  alt="<%= image ['alt'] %>" /><%= attivo['attivo']+"<div class='attivo-desc'>"+attivo['descrizione_attivo']+"</div>" %></li>
                   <% }) %>
@@ -116,54 +111,23 @@
             </svg></a></span></div></div>
             <hr>
             <div class="content-wrapper">
-                <div class="flag-media">
-
-                 <div class="flag-body collapsed"><%= first.content %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore1">Leggi Tutto</span><% } %></div>
-                </div>
-
-          <hr>
-          <div class="content-row">
-          <div class="inline-block prevenzione" >
-            <h3>La soluzione Biogena</h3><div class="flag-media">
-
-                 <div class="flag-body"><p><%= first.fields.prevenzione %></p></div></div>
-          </div><div class="inline-block lineas" >
-
-          <a href="<%= first.linea.permalink %> " title="">
-
-          <%= first.linea.thumbnail %>
-          </a>
-          </div>
-          </div>
-          <% fotoprotezione=first['fields']['fotoprotezione_1'];fotoprotezione2=first['fields']['fotoprotezione_2'];fotoprotezione3=first['fields']['fotoprotezione_3'];if(fotoprotezione){
-%>
-<div class="fotoprotezione-wrapper">
-<div class="fotop-firstrow">
-<div class="fotop1 fotop"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="fotop-content"> <%= fotoprotezione %> </div></div><div class="fotop2 fotop"><h3>Lo sapevi che…</h3><div class="fotop-content"> <%= fotoprotezione2 %> </div></div></div>
-    <div class="fotop3 fotop"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <%= fotoprotezione3 %> </div></div>
-</div>
-  <% } %>
-                         <% attivi=first['linea']['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
-               <div class="attivi-wrapper">
-               <h3>Gli Attivi di Linea </h3>
-               <ul class="attivi">
-
-                 <% _.each(attivi ,function(attivo,i){
-                 image=attivo['immagine_attivo'];
-                 count=attivi.length;
-                 if(attivi.length>4){count=4;}
-                 %>
-                   <li class="attivo inline-block <%= 'w'+count %>"><img src="<%= image['url'] %>"  alt="<%= image ['alt'] %>" /><%= attivo['attivo']+"<div class='attivo-desc'>"+attivo['descrizione_attivo']+"</div>" %></li>
-                  <% }) %>
-               </ul>
-               </div>
-               <% } %>
-
-          <hr>
-          <div class="slideshow correlati">
+          <div class="box1 boxx">
+                <h3>Parliamo di...</h3>
+                <div class="flag-body collapsed"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box1">Leggi Tutto</span><% } %> </div>
+              </div><div class="box2 boxx">
+                <h3>La soluzione Biogena</h3>
+                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box2">Leggi Tutto</span></div>
+              </div><div class="box3 boxx">
+                <h3>FAQ</h3>
+                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box2">Leggi Tutto</span></div>
+              </div>
+              </div>
+              <div class="slideshow correlati">
+              <hr>
           <h4>  Scopri <%= first.linea.title %>  </h4>
+<hr>
               <% if(first['prodotti'].length>1){ %>
-                <div class=" slider-patologie active <%= first['prodotti'].length===2?'two':'three' %>" >
+                <div class=" slider-patologie2 active <%= first['prodotti'].length===2?'two':'three' %>" >
 <% }else { %> <%= '<div class=" no-slider " >' %><% } %>
                     <div class="swiper-wrapper">
                   <% _.each(first.prodotti,function(prod){ %>
@@ -171,12 +135,12 @@
                   <% } )%>
                     </div>
               <% if(first['prodotti'].length>1){ %>
-                                    <div class="navigation"></div>
+                                  <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
               <% } %>
 
                 </div>
           </div>
-              </div>
 
 </main>
 
