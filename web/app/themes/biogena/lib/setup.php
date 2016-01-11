@@ -30,7 +30,7 @@ function setup() {
     'primary_navigation' => __('Primary Navigation', 'sage'),
     'mobile_navigation' => __('Mobile Navigation', 'sage')
   ]);
-
+add_filter( 'wp_get_attachment_url', 'set_url_scheme' );
   // Enable post thumbnails
   // http://codex.wordpress.org/Post_Thumbnails
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size

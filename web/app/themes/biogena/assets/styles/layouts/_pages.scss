@@ -104,24 +104,29 @@ img {
   .content-wrapper{
     width: 100%;
     position: relative;
+    @include media-query(lap-and-up){
     height: 33.333vw;
     max-height: calc(1276px / 3);
+    }
 
     .boxx{
       display: inline-block;
-      width: 33.333%;
+      width:100%;
+      @include media-query(lap-and-up){width: 33.333%;}
+      background-color:#F7F6F6;
       height: 100%;
       font-size: 0.9rem;
       line-height: 1.5;
       text-align: left;
       vertical-align: text-bottom;
+      overflow:hidden;
       //transition: all 1.6s linear 1.6s;
       .boxx-wrapper{
         padding: 1rem 3%;
         height: 100%;
         background-repeat: no-repeat;
         background-size: auto 100%;
-
+        background-color:#F7F6F6;
         >h3{
         color: rgb(36, 86, 155);
         }
@@ -134,6 +139,7 @@ img {
         display: block;
         width: 89px;
         color: #fff;
+        text-align: center;
       }
 
 
@@ -146,11 +152,31 @@ img {
         text-align: left;
         max-height: 0px;
         overflow:hidden;
+        margin:0;
         //transition: all 1.6s linear ;
+        //transition: max-height 1.6s linear;
         }
         >p:first-child{
           margin-bottom:0;
           max-height: 1000px;
+        }
+         &.full3{
+          >p{
+            max-height: 300px;
+            margin:auto;
+          }
+        }
+           &.full-3{
+          >p{
+
+            transition: max-height 1.6s linear 1.6s;
+          }
+        }
+        &.full4{
+          >p{
+
+            transition: max-height 0.8s linear !important;
+          }
         }
       }
       &:nth-child(1){
@@ -187,11 +213,17 @@ img {
         right:0;
         transition: all 1.6s linear ;
         }
-        .flag-body{
-          >p{
-            max-height: 1000px;
-            transition: max-height 1.6s linear 1.6s;
-          }
+
+      }
+      &.full5{
+        width:100%;
+      }
+      &.full7{
+        .boxx-wrapper{
+        text-indent: -9999px;
+        }
+        .readmore-box{
+          display:none;
         }
       }
       &.nowidth{
@@ -201,6 +233,7 @@ img {
           position:absolute;
           padding:0;
           overflow:hidden;
+
         }
         &:nth-child(1){
           .boxx-wrapper{
@@ -217,6 +250,13 @@ img {
             left: 66.666%;
           }
         }
+        &:nth-child(2){
+          .boxx-wrapper.last{
+            transition: all 0.8s linear;
+            right: 66.666%;
+            left: 33.333%;
+          }
+        }
         &:nth-child(3){
           .boxx-wrapper{
             transition: all 0.8s linear 0.79s;
@@ -224,21 +264,24 @@ img {
             right:0;
           }
         }
+
         &:nth-child(1),&:nth-child(3){
           .boxx-wrapper.side{
             transition-delay: 0s;
           }
         }
       }
-
+          &.full6{
+        transition: all 1.6s linear ;
+      }
     }
     .box1{
       .boxx-wrapper{
-      background-image: url('../images/box-parliamo.png');
+      background-image: url('../images/doctor-1.jpg');
       background-position: right center;
       }
       .flag-body{
-        >p{  padding-right: 51%;}
+        >p{  padding-right: 17%; @include media-query(lap-and-up){padding-right: 51%;}}
       }
       &.full .flag-body{
         >p{  padding-right: 0;
@@ -249,14 +292,27 @@ img {
 
     .box2{
       .boxx-wrapper{
-      background-image: url('../images/box-soluzione.jpg');
+      background-image: url('../images/ampolle-2.jpg');
+       background-position: right center;
+      }
+    }
+    .box3{
+      .boxx-wrapper{
+      background-image: url('../images/question-3.jpg');
+      background-position: right center;
+      }
+            .faq-text{ padding-right: 17%;
+        @include media-query(lap-and-up){padding-right: 35%;}
+      }
+      &.full .faq-text{
+          padding-right: 0;
       }
     }
     &.full2{
       height:auto;
       max-height: none;
       .boxx.full{
-        width:100%;
+
         .boxx-wrapper{
           position:static;
         }
@@ -351,6 +407,7 @@ img {
 
 .single-linee,.post-type-archive-linee{
   .desc{
+    text-align: center;
     .desc-text{
       padding: 0px 5%;margin-bottom: 1.5rem;
       >p{text-align: justify;}

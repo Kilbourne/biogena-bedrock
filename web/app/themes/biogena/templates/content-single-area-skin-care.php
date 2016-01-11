@@ -52,11 +52,20 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
                                 <div class="flag-body collapsed"><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box">Leggi Tutto</span><?php } ?> </div></div>
               </div><div class="box2 boxx">
                 <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
-                                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box">Leggi Tutto</span></div></div>
+
+                                 <div class="flag-body">
+                                <div class="soluzione-text">Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.</div>
+                                 <p></p><p><?= $first['fields']['prevenzione'];?></p>
+                                  <span class="readmore-box">Leggi Tutto</span>
+                                 </div>
+                                </div>
+
               </div><div class="box3 boxx">
-                <div  class="boxx-wrapper"><h3>FAQ</h3></div>
+                <div  class="boxx-wrapper"><h3>FAQ</h3> <div class="faq-text">Consulta le nostre FAQ per avere risposta alle tue domande più frequenti <span class="readmore-box">Leggi Tutto</span></div> </div>
               </div>
-                        <?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
+
+              </div>
+                                      <?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
 ?>
 
 <div class="fotoprotezione-wrapper">
@@ -65,7 +74,6 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
     <div class="fotop3 fotop"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?> </div></div>
 </div>
   <?php } ?>
-              </div>
           <hr>
           <div class="slideshow correlati">
               <h4>  Scopri <?= $first['linea']['title']; ?></h4>

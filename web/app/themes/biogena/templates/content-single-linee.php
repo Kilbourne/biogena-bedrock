@@ -10,20 +10,36 @@ if($title !=='Osmin'){
   $singolo=isset($first['fields']['prodotto_singolo']) && $first['fields']['prodotto_singolo']===TRUE;
   $no_or_single=( isset($first['fields']['no_area_skin_care']) && $first['fields']['no_area_skin_care']===TRUE )   || (isset($first['fields']['riservato']) && $first['fields']['riservato']===TRUE);
   $riservato=isset($first['fields']['riservato']) && $first['fields']['riservato']===TRUE;
+  $double=isset($first['fields']['double']) && $first['fields']['double']===TRUE;
 ?>
 
 <?php
-  echo '<div class="background-container specialita">';
+$default_attr = array(
+  'class' => "wp-post-image"
+);
 if($no_asc){
   $claim=$first['fields']['claim_'];
 }else{
   $claim=$first['area-skin-care']['fields']['claim_'];
 }
-
-  echo $claim;
+if(!$double){
+  echo '<div class="background-container specialita">';
+echo $claim;
   the_post_thumbnail( );
   echo ' </div>';
- ?>
+
+}else{ ?>
+   <div class="background-container specialita double">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <?= $claim.the_post_thumbnail( );   ?>
+      </div>
+      <div class="swiper-slide">
+      <?=  $first['fields']['double_claim']. wp_get_attachment_image($first['fields']['immagine_full_width']['id'],'full',false,$default_attr) ; ?>
+      </div>
+    </div>
+    </div>
+<?php } ?>
 <div class="content">
     <div class="desc">
 
@@ -55,7 +71,9 @@ if($no_asc){
           <h3>Trattamenti coadiuvanti per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
       <?php } ?>
       <div class="products">
+      <?php if(count($first['prodotti'])>3){ echo '<div class="swiper-wrapper">';} ?>
         <?php foreach($first['prodotti'] as $key=> $prod){ ?>
+        <?php if(count($first['prodotti'])>3 && ($key===0 || ($key) % 3 === 0 )){ echo '<div class="swiper-slide">';} ?>
             <div class="product flag-media <?php echo $key % 2 == 0?'odd':'even'; ?>">
 
                 <div>
@@ -90,7 +108,9 @@ if($no_asc){
                 </div>
               </div>
             </div>
+             <?php if(count($first['prodotti'])>3 && (  ($key+1) % 3 === 0 || $key===(count($first['prodotti'])-1))){ echo '</div>';} ?>
          <?php } ?>
+         <?php if(count($first['prodotti'])>3){ echo '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div>';} ?>
         <?php if(count($first['prodotti'])===0){
           $title=get_the_title();
           global $post;

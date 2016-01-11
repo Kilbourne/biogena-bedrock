@@ -69,7 +69,18 @@
   );
   $posts_array = get_posts( $args );
    foreach ( $posts_array as $key=>$patologia ){ ?>
-      <div  class="swiper-slide" ><a href="<?php echo get_permalink($patologia->ID); ?>" title=""><?php echo get_the_post_thumbnail($patologia->ID,'medium'); ?> <div>
+      <div  class="swiper-slide" ><a href="<?php echo get_permalink($patologia->ID); ?>" title="">
+      <?php 
+        $thumb=get_post_thumbnail_id($patologia->ID);
+        $img_src_f=wp_get_attachment_image_src($thumb,'full' )[0];
+        
+        $img_src_m=wp_get_attachment_image_src( $thumb,'medium')[0];        
+        $img_src_s=wp_get_attachment_image_src( $thumb,'thumbnail')[0];
+        
+      ?>
+        <img src="<?= $img_src_f ?>" srcset="<?= $img_src_f  ?> 800w,  <?= $img_src_m ?> 300w, <?= $img_src_s ?> 150w" sizes="(min-width:1215px ) 22.0665vw, (min-width:912px ) 29.422vw, (min-width:608px ) 44.133vw, 94vw" alt="">
+      <?php //echo get_the_post_thumbnail($patologia->ID,'medium'); ?>
+         <div>
 
        <h3><?php echo get_the_title($patologia->ID); ?> </h3></div></a>
 

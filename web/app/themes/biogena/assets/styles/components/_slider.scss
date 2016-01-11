@@ -113,7 +113,12 @@ min-width: 60px;
       font-size:1.8rem
     }
   }
-  .background-container.specialita{
+  .background-container.specialita,.background-container.specialita>.swiper-wrapper>.swiper-slide{
+    @include media-query(palm){
+      display: flex;
+flex-wrap: wrap;
+width: 100%;
+    }
   >img{
     display: block;
       margin: 0 auto;
@@ -124,10 +129,11 @@ min-width: 60px;
     position: absolute;
     display:block;
     margin:0 auto;
+    @include media-query(palm){ order:2;}
 
    >.little{
       text-align:center;
-      display:none !important;
+      @include media-query(lap-and-up){display:none !important;}
       }
        }
   }
@@ -148,7 +154,7 @@ min-width: 60px;
   }
  @media (max-width:49.999em) {
 
-  .post-type-archive-linee .background-container .big-claim, .single-linee .background-container .big-claim,.background-slider .big-claim, .big-claim,.big-claim.big-claim-right,.osmin.background-container .big-claim{
+.post-type-archive-linee .background-container.specialita .big-claim,  .single-linee .background-container.specialita .big-claim, .post-type-archive-linee .background-container .big-claim, .single-linee .background-container .big-claim,.background-slider .big-claim, .big-claim,.big-claim.big-claim-right,.osmin.background-container .big-claim{
     position:static;
     width: 100%;
     color: #24569B;
@@ -206,7 +212,8 @@ min-width: 60px;
     text-align: center;
     background-color: transparent;
     padding: 3.5% 2%;
-    border: 1px solid rgb(36, 86, 155);
+    border-bottom: 1px solid rgb(36, 86, 155);
+    white-space: nowrap;
   }
 }
 
@@ -342,7 +349,16 @@ min-width: 14.25px;
 }
 }
 
-
+.products{
+  overflow:hidden;
+  position:relative;
+  .swiper-button-prev ,.swiper-button-next{
+    top: 29px;
+    height: 24px;
+  }
+  .swiper-button-prev{ left: 10px !important;}
+  .swiper-button-next{ right: 10px !important;}
+}
 .no-slider{
   text-align: center;
   .swiper-wrapper{

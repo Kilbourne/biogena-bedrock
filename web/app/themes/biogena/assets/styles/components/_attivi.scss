@@ -1,7 +1,7 @@
 .attivi-wrapper{
-  padding: 2rem 2% 0;
-  display: block;
-  margin: 0px auto;
+  padding: 2rem 0 0;
+  display: inline-block;
+  margin: 0px 2%;
   >h3{
     text-align: center;
     color: rgb(36, 86, 155);
@@ -227,6 +227,7 @@ display: inline-block;
 .single-linee,.post-type-archive-linee{
   .attivi-wrapper{
     max-width: 910px;
+    width:100%;
     overflow: hidden;
     .attivi{
       margin-bottom:0;
@@ -235,10 +236,10 @@ display: inline-block;
       top: 168px;
     }
     .swiper-button-prev {
-    left: 0.5% !important;
+    left: 3% !important;
     }
     .swiper-button-next {
-    right: 0.5% !important;
+    right: 3% !important;
     }
   }
 }

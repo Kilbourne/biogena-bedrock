@@ -4,14 +4,28 @@
   singolo=!!first['fields']['prodotto_singolo'] && first['fields']['prodotto_singolo']===true,
   no_or_single=( !!first['fields']['no_area_skin_care'] && first['fields']['no_area_skin_care']===true )   || (!!first['fields']['riservato'] && first['fields']['riservato']===true),
   riservato=!!first['fields']['riservato'] && first['fields']['riservato']===true;
-
+  double=!!first['fields']['double'] && first['fields']['double']===true;
   %>
-      <div class="background-container specialita">
-      <% var claim=no_asc?first['fields']['claim_']:first['area-skin-care']['fields']['claim_']; %>
-        <%= claim %>
-        <%= first['thumbnail'] %>
 
+<% var claim=no_asc?first['fields']['claim_']:first['area-skin-care']['fields']['claim_']; %>
+<% if(!double) { %>
+        <div class="background-container specialita">
+          <%= claim %>
+          <%= first['thumbnail'] %>
       </div>
+<% } else { %>
+       <div class="background-container specialita double">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+                    <%= claim %>
+                    <%= first['thumbnail'] %>
+          </div>
+          <div class="swiper-slide">
+            <%=  first['fields']['double_claim'] %> <img  class="attachment-post-thumbnail wp-post-image" src="<%= first['fields']['second_thumb']['url'] %>"   alt="">
+                  </div>
+    </div>
+    </div>
+<% } %>
 
  <div class="content">
 
@@ -49,7 +63,9 @@
                   <h3>Trattamenti coadiuvanti per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
                 <% } %>
                 <div class="products">
+                <% if(first.prodotti.length>3){ %> <%= '<div class="swiper-wrapper">' %>  <% } %>
                   <% _.each(first.prodotti,function(prod,key){ %>
+                  <% if(first.prodotti.length >3 && (key===0 || key % 3 === 0 )){ %> <%= '<div class="swiper-slide">' %> <% } %>
                     <div class="product flag-media <%= key % 2 == 0?'odd':'even' %>">
 
                         <div><h3 class='product-title' >
@@ -81,8 +97,9 @@
                         </div>
                       </div>
                     </div>
+                    <% if(first.prodotti.length >3 && ((key+1) % 3 === 0 || key===(first.prodotti.length-1))){ %> <%= '</div>' %> <% } %>
                   <% } )%>
-
+                  <% if(first.prodotti.length>3){ %> <%= '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div>' %>  <% } %>
         <% if(first['prodotti'].length===0){ %>
  <div class="single-linea"> </div>
 <%        } %>
@@ -116,9 +133,15 @@
                                 <div class="flag-body collapsed"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box">Leggi Tutto</span><% } %> </div></div>
               </div><div class="box2 boxx">
                 <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
-                                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box">Leggi Tutto</span></div></div>
+                                                 <div class="flag-body">
+                                <div class="soluzione-text">Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.</div>
+                                 <p></p><p><%= first['fields']['prevenzione'] %></p>
+                                  <span class="readmore-box">Leggi Tutto</span>
+                                 </div>
+                                </div>
               </div><div class="box3 boxx">
-                <div  class="boxx-wrapper"><h3>FAQ</h3></div>
+               <div  class="boxx-wrapper"><h3>FAQ</h3> <div class="faq-text">Consulta le nostre FAQ per avere risposta alle tue domande più frequenti <span class="readmore-box">Leggi Tutto</span></div> </div>
+              </div>
               </div>
                   <% fotoprotezione=first['fields']['fotoprotezione_1'];fotoprotezione2=first['fields']['fotoprotezione_2'];fotoprotezione3=first['fields']['fotoprotezione_3'];if(fotoprotezione){
 %>
@@ -128,13 +151,13 @@
     <div class="fotop3 fotop"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <%= fotoprotezione3 %> </div></div>
 </div>
   <% } %>
-            </div>
+
             <hr>
               <div class="slideshow correlati">
 
           <h4>  Scopri <%= first.linea.title %>  </h4>
               <% if(first['prodotti'].length>1){ %>
-                <div class=" slider-patologie2 active <%= first['prodotti'].length===2?'two':'three' %>" >
+                <div class=" slider-patologie active <%= first['prodotti'].length===2?'two':'three' %>" >
 <% }else { %> <%= '<div class=" no-slider " >' %><% } %>
                     <div class="swiper-wrapper">
                   <% _.each(first.prodotti,function(prod){ %>
