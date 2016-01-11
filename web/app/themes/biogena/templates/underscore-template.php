@@ -111,21 +111,28 @@
             </svg></a></span></div></div>
             <hr>
             <div class="content-wrapper">
-          <div class="box1 boxx">
-                <h3>Parliamo di...</h3>
-                <div class="flag-body collapsed"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box1">Leggi Tutto</span><% } %> </div>
+               <div class="box1 boxx">
+                <div class="boxx-wrapper"><h3>Parliamo di...</h3>
+                                <div class="flag-body collapsed"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box1">Leggi Tutto</span><% } %> </div></div>
               </div><div class="box2 boxx">
-                <h3>La soluzione Biogena</h3>
-                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box2">Leggi Tutto</span></div>
+                <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
+                                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box">Leggi Tutto</span></div></div>
               </div><div class="box3 boxx">
-                <h3>FAQ</h3>
-                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box2">Leggi Tutto</span></div>
+                <div  class="boxx-wrapper"><h3>FAQ</h3></div>
               </div>
-              </div>
+                  <% fotoprotezione=first['fields']['fotoprotezione_1'];fotoprotezione2=first['fields']['fotoprotezione_2'];fotoprotezione3=first['fields']['fotoprotezione_3'];if(fotoprotezione){
+%>
+<div class="fotoprotezione-wrapper">
+<div class="fotop-firstrow">
+<div class="fotop1 fotop"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="fotop-content"> <%= fotoprotezione %> </div></div><div class="fotop2 fotop"><h3>Lo sapevi che…</h3><div class="fotop-content"> <%= fotoprotezione2 %> </div></div></div>
+    <div class="fotop3 fotop"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <%= fotoprotezione3 %> </div></div>
+</div>
+  <% } %>
+            </div>
+            <hr>
               <div class="slideshow correlati">
-              <hr>
+
           <h4>  Scopri <%= first.linea.title %>  </h4>
-<hr>
               <% if(first['prodotti'].length>1){ %>
                 <div class=" slider-patologie2 active <%= first['prodotti'].length===2?'two':'three' %>" >
 <% }else { %> <%= '<div class=" no-slider " >' %><% } %>

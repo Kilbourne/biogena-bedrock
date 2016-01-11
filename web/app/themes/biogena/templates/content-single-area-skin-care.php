@@ -48,21 +48,29 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
             <hr>
             <div class="content-wrapper">
               <div class="box1 boxx">
-                <h3>Parliamo di...</h3>
-                <div class="flag-body collapsed"><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box1">Leggi Tutto</span><?php } ?> </div>
+                <div class="boxx-wrapper"><h3>Parliamo di...</h3>
+                                <div class="flag-body collapsed"><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box">Leggi Tutto</span><?php } ?> </div></div>
               </div><div class="box2 boxx">
-                <h3>La soluzione Biogena</h3>
-                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box2">Leggi Tutto</span></div>
+                <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
+                                <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box">Leggi Tutto</span></div></div>
               </div><div class="box3 boxx">
-                <h3>FAQ</h3>
+                <div  class="boxx-wrapper"><h3>FAQ</h3></div>
               </div>
+                        <?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
+?>
+
+<div class="fotoprotezione-wrapper">
+<div class="fotop-firstrow">
+    <div class="fotop1 fotop"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="fotop-content"> <?php echo $fotoprotezione; ?> </div></div><div class="fotop2 fotop"><h3>Lo sapevi che…</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> </div></div></div>
+    <div class="fotop3 fotop"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?> </div></div>
+</div>
+  <?php } ?>
               </div>
-              <div class="slideshow correlati">
-              <hr>
+          <hr>
+          <div class="slideshow correlati">
               <h4>  Scopri <?= $first['linea']['title']; ?></h4>
-              <hr>
               <?php if(count($first['prodotti'])>1){ ?>
-                <div class=" slider-patologie2 active <?= count($first['prodotti'])===2?'two':'three' ?>" >
+                <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?>" >
               <?php }else {echo '<div class=" no-slider active" >';} ?>
                     <div class="swiper-wrapper">
                   <?php foreach($first['prodotti'] as $key=> $prod){ ?>
@@ -70,9 +78,10 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
                   <?php } ?>
                     </div>
               <?php if(count($first['prodotti'])>1){ ?>
-                                         <div class="swiper-button-prev"></div>
+                                                                  <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
               <?php } ?>
                 </div>
           </div>
+
  </div>

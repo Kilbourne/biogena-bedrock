@@ -120,7 +120,7 @@
                 });
 
                 $('body').on('click', '.attivo', readmoreAttiviCallback);
-                $('body').on('click', '.boxx .readmore-box1 , .boxx .readmore-box2',boxReadMore);
+                $('body').on('click', '.boxx .readmore-box',boxReadMore);
                 $('.ajax-popup-link').magnificPopup({
                   type: 'ajax',
                   tLoading: '<div class="cube1"></div><div class="cube2"></div>',
@@ -228,31 +228,26 @@
                 var attivi=$('.attivi');
                     if(attivi.length){
                   if (window.matchMedia("(max-width: 874.95px)").matches) {
-
+                      if(attivo.length >= 1){
                       $('.attivi-wrapper').append('<div class="swiper-button swiper-button-prev"></div><div class="swiper-button swiper-button-next"></div>').append(function(){
                       attivi.addClass('swiper-wrapper');
                       $('.attivo').addClass('swiper-slide');
 
                       swiperAttivi= new Swiper('.attivi-wrapper', attiviSliderOptions());
                       });
+                      }
 
 } else {
                       var attivo=attivi.find('.attivo');
-                      if(attivo.length <= 3){
-                        if (swiperAttivi instanceof Swiper) swiperAttivi.destroy(true, true);
-                          swiperAttivi=null;
-                          if($('.attivi-wrapper .swiper-button').length)$('.attivi-wrapper .swiper-button').remove();
-                        attivi.removeClass('swiper-wrapper');
-                        $('.attivo').removeClass('swiper-slide');
-                      }else{
-                        if (swiperAttivi instanceof Swiper){}else{
+                      if(attivo.length >= 3){
+
                         $('.attivi-wrapper').append('<div class="swiper-button swiper-button-prev"></div><div class="swiper-button swiper-button-next"></div>').append(function(){
                           attivi.addClass('swiper-wrapper');
                           $('.attivo').addClass('swiper-slide');
                           swiperAttivi= new Swiper('.attivi-wrapper', attiviSliderOptions());
                         });
                         }
-                      }}}
+                      }}
 attiviMobileSlider();
 $(window).resize(_.debounce(responsiveMediaElement, 500));
 responsiveMediaElement();
@@ -424,12 +419,25 @@ var ask=document.querySelectorAll('.post-type-archive-area-skin-care,.single-are
     function boxReadMore(e){
       var clickB=e.currentTarget,
       textBody=clickB.parentNode,
-      clickBox=textBody.parentNode,
+      clickBox=textBody.parentNode.parentNode,
       $clickBox=$(clickBox),
-      otherBox=$('.boxx').not($clickBox);
-      clickBox.classList.add('full');
-      textBody.classList.remove('collapsed');
-      otherBox.addClass('nowidth');
+      allBox=$('.boxx'),
+      otherBox=allBox.not($clickBox);
+      if(!$clickBox.hasClass('full')){
+        if(allBox.index($clickBox)===1){otherBox.children().addClass('side');}
+        $clickBox.addClass('full nobg').delay(1600).queue(function(){$(this).parent().addClass('full2');$(this).dequeue();});
+        textBody.classList.remove('collapsed');
+        otherBox.addClass('nowidth');
+      }else{
+        otherBox.removeClass('nowidth');
+        $clickBox.removeClass('full').delay(1599).queue(function(){
+          $(this).parent().removeClass('full2');
+          $(this).removeClass('nobg');
+          $(this).dequeue();
+        });
+        textBody.classList.add('collapsed');
+
+      }
     }
 
 
@@ -559,33 +567,35 @@ var ask=document.querySelectorAll('.post-type-archive-area-skin-care,.single-are
                     $(window).off('resize.fittext orientationchange.fittext');
                   }
                   responsiveMediaElement();
+
                   var attivi=$('.attivi');
                     if(attivi.length){
                   if (window.matchMedia("(max-width: 874.95px)").matches) {
-
+                      if (swiperAttivi instanceof Swiper) swiperAttivi.destroy(true, true);
+                      swiperAttivi=null;
+                      if(attivi.length>1){
                       $('.attivi-wrapper').append('<div class="swiper-button swiper-button-prev"></div><div class="swiper-button swiper-button-next"></div>').append(function(){
                       attivi.addClass('swiper-wrapper');
                       $('.attivo').addClass('swiper-slide');
 
                       swiperAttivi= new Swiper('.attivi-wrapper', attiviSliderOptions());
-                      });
+                      });}
 
 } else {
                       var attivo=attivi.find('.attivo');
-                      if(attivo.length <= 3){
-                        if (swiperAttivi instanceof Swiper) swiperAttivi.destroy(true, true);
+                                              if (swiperAttivi instanceof Swiper) swiperAttivi.destroy(true, true);
                           swiperAttivi=null;
-                          if($('.attivi-wrapper .swiper-button').length)$('.attivi-wrapper .swiper-button').remove();
+                                                    if($('.attivi-wrapper .swiper-button').length)$('.attivi-wrapper .swiper-button').remove();
                         attivi.removeClass('swiper-wrapper');
                         $('.attivo').removeClass('swiper-slide');
-                      }else{
-                        if (swiperAttivi instanceof Swiper){}else{
+                      if(attivo.length >= 3){
+
                         $('.attivi-wrapper').append('<div class="swiper-button swiper-button-prev"></div><div class="swiper-button swiper-button-next"></div>').append(function(){
                           attivi.addClass('swiper-wrapper');
                           $('.attivo').addClass('swiper-slide');
                           swiperAttivi= new Swiper('.attivi-wrapper', attiviSliderOptions());
                         });
-                        }
+
                       }}}
 
                   if (downSlider instanceof Swiper) downSlider.destroy(true, true);

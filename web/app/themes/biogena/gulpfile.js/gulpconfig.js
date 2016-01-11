@@ -1,5 +1,5 @@
 var   argv             = require('minimist')(process.argv.slice(2))
-	, devUrl		   = require('./devUrl')
+	, devUrl		   = ''
 	, manifestSrc      = './assets/manifest.json'
 	, enabled = {
 		  // Enable static asset revisioning when `--production`
@@ -67,14 +67,14 @@ module.exports = {
 		  configFiles: ['bower.json', 'assets/manifest.json']
 	}
 	, manifest  : {
-		  dist        : dist 
+		  dist        : dist
 		, revManifest : dist + 'assets.json'
-		, browsersync : {match: '**/*.{js,css}'} 
+		, browsersync : {match: '**/*.{js,css}'}
 		, rev         : { base: dist,merge: true }
 		, manifest     : manifest
 	}
 	, scripts   : {
-		  src          :  source + 'scripts' 
+		  src          :  source + 'scripts'
 		, uglify       :  {
 						      compress: {
 						        'drop_debugger': enabled.stripJSDebug
