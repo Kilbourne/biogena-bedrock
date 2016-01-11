@@ -113,7 +113,7 @@
             <div class="content-wrapper">
                <div class="box1 boxx">
                 <div class="boxx-wrapper"><h3>Parliamo di...</h3>
-                                <div class="flag-body collapsed"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box1">Leggi Tutto</span><% } %> </div></div>
+                                <div class="flag-body collapsed"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box">Leggi Tutto</span><% } %> </div></div>
               </div><div class="box2 boxx">
                 <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
                                 <div class="soluzione-text">Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.<span class="readmore-box">Leggi Tutto</span></div></div>
