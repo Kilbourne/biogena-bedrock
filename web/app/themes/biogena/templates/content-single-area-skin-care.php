@@ -49,22 +49,27 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
             <div class="content-wrapper">
               <div class="box1 boxx">
                 <div class="boxx-wrapper"><h3>Parliamo di...</h3>
-                                <div class="flag-body collapsed"><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box">Leggi Tutto</span><?php } ?> </div></div>
+                                <div class="flag-body "><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box">Leggi Tutto</span><?php } ?> </div></div>
               </div><div class="box2 boxx">
                 <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
 
                                  <div class="flag-body">
-                                <div class="soluzione-text">Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.</div>
-                                 <p></p><p><?= $first['fields']['prevenzione'];?></p>
+                                   <p class="soluzione-text" >Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.</p>
+                                   <p><?= $first['fields']['prevenzione'];?></p>
                                   <span class="readmore-box">Leggi Tutto</span>
                                  </div>
                                 </div>
 
               </div><div class="box3 boxx">
-                <div  class="boxx-wrapper"><h3>FAQ</h3> <div class="faq-text">Consulta le nostre FAQ per avere risposta alle tue domande più frequenti <span class="readmore-box">Leggi Tutto</span></div> </div>
+                <div  class="boxx-wrapper">
+                  <h3>FAQ</h3>
+                  <div class="flag-body">
+                    <p class="faq-text">Consulta le nostre FAQ per avere risposta alle tue domande più frequenti </p>
+                    <span class="readmore-box">Leggi Tutto</span>
+                  </div>
+                </div>
               </div>
-
-              </div>
+            </div>
                                       <?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
 ?>
 

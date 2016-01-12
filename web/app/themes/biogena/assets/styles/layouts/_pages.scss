@@ -100,66 +100,217 @@ img {
     .lineas{width: 100%;}
   }
 
-
-  .content-wrapper{
-    width: 100%;
-    position: relative;
-    @include media-query(lap-and-up){
+.content-wrapper{
+  width: 100%;
+  position: relative;
+  @include media-query(lap-and-up){
     height: 33.333vw;
     max-height: calc(1276px / 3);
+  }
+
+  .boxx{
+    display: inline-block;
+    width:100%;
+    @include media-query(lap-and-up){
+      width: 33.333%;
     }
 
-    .boxx{
-      display: inline-block;
-      width:100%;
-      @include media-query(lap-and-up){width: 33.333%;}
-      background-color:#F7F6F6;
+    background-color:#F7F6F6;
+    height: 100%;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+    vertical-align: text-bottom;
+    overflow:hidden;
+
+    .boxx-wrapper{
+      padding: 1rem 0.75rem;
       height: 100%;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: auto 100%;
+      background-color:#F7F6F6;
+      >h3{
+        color: rgb(36, 86, 155);
+      }
+    }
+
+    &:nth-child(1){
+      .boxx-wrapper{
+        left: 0;
+        right: 66.666%;
+      }
+    }
+    &:nth-child(2){
+      .boxx-wrapper{
+        left: 33.333%;
+        right: 33.333%;
+      }
+    }
+    &:nth-child(3){
+      .boxx-wrapper{
+        left: 66.666%;
+        right:0;
+      }
+    }
+
+    .readmore-box{
+      margin: 1rem 0px;
+      padding: 7.5px;
+      background: #24569B;
+      display: block;
+      width: 89px;
+      color: #fff;
+      text-align: center;
+      cursor:pointer;
+    }
+
+
+    .flag-body{
+      font-size: 0.9rem;
+      line-height: 1.5;
+      >p{
       font-size: 0.9rem;
       line-height: 1.5;
       text-align: left;
-      vertical-align: text-bottom;
+      max-height: 0px;
       overflow:hidden;
-      //transition: all 1.6s linear 1.6s;
-      .boxx-wrapper{
-        padding: 1rem 3%;
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: auto 100%;
-        background-color:#F7F6F6;
-        >h3{
-        color: rgb(36, 86, 155);
-        }
+      margin:0;
+      //transition: all 1.6s linear ;
+      //transition: max-height 1.6s linear;
       }
-
-      .readmore-box{
-        margin: 1rem 0px;
-        padding: 7.5px;
-        background: #24569B;
-        display: block;
-        width: 89px;
-        color: #fff;
-        text-align: center;
+      >p:first-child{
+        margin-bottom:0;
+        max-height: 300px;
       }
+    }
+  }
+  .box1{
+    .boxx-wrapper{
+      background-image: url('../images/doctor-1.jpg');
+    }
+    .flag-body{
+        >p{  padding-right: 17%; @include media-query(lap-and-up){padding-right: 51%;}}
+    }
+  }
+  .box2{
+    .boxx-wrapper{
+      background-image: url('../images/ampolle-2.jpg');
+    }
+  }
+  .box3{
+    .boxx-wrapper{
+      background-image: url('../images/question-3.jpg');
+    }
+    .flag-body{
+        >p{ padding-right: 17%; @include media-query(lap-and-up){padding-right: 35%;}}
+    }
+  }
+}
 
+.content-wrapper{
 
-      .flag-body{
-        font-size: 0.9rem;
-        line-height: 1.5;
-        >p{
-        font-size: 0.9rem;
-        line-height: 1.5;
-        text-align: left;
-        max-height: 0px;
-        overflow:hidden;
-        margin:0;
-        //transition: all 1.6s linear ;
-        //transition: max-height 1.6s linear;
+  &.auto-height{
+    height:auto;
+    max-height: none;
+  }
+
+  .boxx{
+    &.full-width{
+      width:100%
+    }
+    //&.no-width{
+      //width:0;
+    //}
+    .boxx-wrapper{
+      &.transparent{opacity:0;transition: opacity 0.8s linear;}
+        &.fadeIn{opacity:1;transition: opacity 0.8s linear;}
+      &.nobg{ background-size: auto 0%; }
+      &.absolute{position:absolute;}
+      &.full{
+
+        left:0;
+        right:0;
+
+      }
+      //&.full-width{width:100%;}
+      //&.no-width{
+        //position:absolute;
+        //padding:0;
+        //overflow:hidden;
+      //}
+      //&.no-text{
+        //text-indent: -9999px;
+        //.readmore-box{
+          //display:none;
+        //}
+      //}
+      //&.static{position:static;}
+      //&.delay{ transition: all 1.6s linear 1.6s; }
+      &.now{ transition: all 0.8s linear; }
+    }
+    //.readmore-box{}
+    .flag-body{
+        &.transparent{opacity:0;transition: opacity 0.8s linear;}
+        &.fadeIn{opacity:1;transition: opacity 0.8s linear;}
+      >p{
+        &.maxHeight{
+          max-height: 300px;
+          margin:auto;
         }
-        >p:first-child{
-          margin-bottom:0;
-          max-height: 1000px;
+        &.padding-now{
+          padding-right: 0.75rem;
         }
+
+        //&.delay{ transition: max-height 1.6s linear 1.6s; }
+        //&.now{ transition: max-height 0.8s linear; }
+      }
+    }
+  /*
+  &:nth-child(1){
+    .boxx-wrapper.no-width{
+      transition: all 0.8s linear 0.79s;
+      left: 0;
+      right: 100%;
+    }
+  }
+
+  &:nth-child(2){
+    .boxx-wrapper.no-width{
+      transition: all 0.8s linear;
+      right: 33.333%;
+      left: 66.666%;
+    }
+  }
+  &:nth-child(2){
+    .boxx-wrapper.last{
+      transition: all 0.8s linear;
+      right: 66.666%;
+      left: 33.333%;
+    }
+  }
+  &:nth-child(3){
+    .boxx-wrapper.no-width{
+      transition: all 0.8s linear 0.79s;
+      left: 100%;
+      right:0;
+    }
+  }
+
+  &:nth-child(1),&:nth-child(3){
+    .boxx-wrapper.side{
+      transition-delay: 0s;
+    }
+  }
+  &.now{ transition: all 1.6s linear ; }
+  &.box1{
+     .flag-body.full>p{  padding-right: 17%;}
+  }
+  */
+  }
+}
+}
+  /*
          &.full3{
           >p{
             max-height: 300px;
@@ -179,40 +330,15 @@ img {
           }
         }
       }
-      &:nth-child(1){
-        .boxx-wrapper{
-          left: 0;
-          right: 66.666%;
-        }
-      }
-      &:nth-child(2){
-        .boxx-wrapper{
-          left: 33.333%;
-          right: 33.333%;
-        }
-      }
-      &:nth-child(3){
-        .boxx-wrapper{
-          left: 66.666%;
-          right:0;
-        }
-      }
+
       &.nobg{
         .boxx-wrapper{
           background-size: 0 0;
         }
       }
+
       &.full{
         transition: none;
-        .boxx-wrapper{
-        //animation-fill-mode:forwards;
-        // animation: boxAnimation 2.4s linear;
-
-        position:absolute;
-        left:0;
-        right:0;
-        transition: all 1.6s linear ;
-        }
 
       }
       &.full5{
@@ -221,68 +347,27 @@ img {
       &.full7{
         .boxx-wrapper{
         text-indent: -9999px;
-        }
-        .readmore-box{
-          display:none;
+          .readmore-box{
+            display:none;
+          }
         }
       }
       &.nowidth{
         transition: width 0.1s linear 1.6s;
         width:0;
-         .boxx-wrapper{
-          position:absolute;
-          padding:0;
-          overflow:hidden;
 
-        }
-        &:nth-child(1){
-          .boxx-wrapper{
-            transition: all 0.8s linear 0.79s;
-            left: 0;
-            right: 100%;
-          }
-        }
-
-        &:nth-child(2){
-          .boxx-wrapper{
-            transition: all 0.8s linear;
-            right: 33.333%;
-            left: 66.666%;
-          }
-        }
-        &:nth-child(2){
-          .boxx-wrapper.last{
-            transition: all 0.8s linear;
-            right: 66.666%;
-            left: 33.333%;
-          }
-        }
-        &:nth-child(3){
-          .boxx-wrapper{
-            transition: all 0.8s linear 0.79s;
-            left: 100%;
-            right:0;
-          }
-        }
-
-        &:nth-child(1),&:nth-child(3){
-          .boxx-wrapper.side{
-            transition-delay: 0s;
-          }
-        }
       }
           &.full6{
         transition: all 1.6s linear ;
       }
     }
+
+
     .box1{
-      .boxx-wrapper{
-      background-image: url('../images/doctor-1.jpg');
-      background-position: right center;
-      }
       .flag-body{
         >p{  padding-right: 17%; @include media-query(lap-and-up){padding-right: 51%;}}
       }
+
       &.full .flag-body{
         >p{  padding-right: 0;
 
@@ -320,7 +405,7 @@ img {
     }
   }
 }
-
+*/
 .fotoprotezione-wrapper{
   padding: 0px 3%;
   margin: 2rem auto 1rem;

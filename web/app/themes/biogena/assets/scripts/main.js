@@ -449,58 +449,75 @@
     }
 
     function boxReadMore(e) {
-        var clickB = e.currentTarget,
-            $clickB=$(clickB),
-            textBody = clickB.parentNode,
-            clickBox = textBody.parentNode.parentNode,
-            $clickBox = $(clickBox),
-            allBox = $('.boxx'),
-            otherBox = allBox.not($clickBox);
-        if (!$clickBox.hasClass('full')) {
-            if (allBox.index($clickBox) === 1) {
-                otherBox.children().addClass('side');
-            }
-            if (allBox.index($clickBox) === 2) {
-                otherBox.children().addClass('last');
-            }
-            $clickBox.addClass('full nobg').delay(1600).queue(function() {
-                $(this).parent().addClass('full2');
-                $(this).addClass('full5');
+              var clickB = $(e.currentTarget),
+            textBody = clickB.parent(),
+            wrapper = textBody.parent(),
+            parag=textBody.children('p'),
+            clickBox=wrapper.parent(),
+            contentWrapper=clickBox.parent(),
+            allBox = contentWrapper.children('.boxx'),
+            otherBox = allBox.not(clickBox);
+      if (window.matchMedia("(max-width: 49.999em)").matches) {
+          if (!clickBox.hasClass('js-open')) {
+            wrapper.addClass('transparent').delay(800).queue(function() {
+               wrapper.addClass('nobg');
+              parag.addClass('maxHeight padding-now');
+              clickB.text('Chiudi');
+              wrapper.toggleClass('transparent fadeIn');
+              clickBox.addClass('js-open');
+              $(this).dequeue();
+            });
+          }else{
+            wrapper.addClass('transparent').delay(800).queue(function() {
+              parag.removeClass('maxHeight padding-now');
+                  wrapper.removeClass('nobg');
+              clickB.text('Leggi Tutto');
+              wrapper.toggleClass('transparent fadeIn');
+              clickBox.removeClass('js-open');
+              $(this).dequeue();
+              });
+          }
+
+      }else{
+
+        if (!clickBox.hasClass('js-open')) {
+            textBody.addClass('transparent').delay(800).queue(function() {
+                wrapper.addClass('full nobg');
+                parag.addClass('maxHeight padding-now');
+                $(this).dequeue();
+            }).delay(800).queue(function() {
+                clickB.text('Chiudi');
+                textBody.toggleClass('transparent fadeIn');
+                contentWrapper.addClass('auto-height');
+                clickBox.addClass('full-width js-open');
+                otherBox.hide();
+                wrapper.removeClass('absolute  ');
+
                 $(this).dequeue();
             });
-            $(textBody).addClass('full3 full-3').delay(1600).queue(function() {
-                $clickB.text('Chiudi');
+            wrapper.addClass('now absolute  ');
+        }else {
+          textBody.toggleClass('transparent fadeIn').delay(800).queue(function() {
+                wrapper.addClass('absolute  ');
+                otherBox.show();
+                clickBox.removeClass('full-width');
+                contentWrapper.removeClass('auto-height');
+                wrapper.removeClass('full nobg');
+                parag.removeClass('maxHeight padding-now');
+                $(this).dequeue();
+          }).delay(800).queue(function() {
+                wrapper.toggleClass('absolute ');
+                clickB.text('Leggi Tutto');
+                textBody.toggleClass('transparent fadeIn');
+                $(this).dequeue();
+            }).delay(700).queue(function() {
+                wrapper.removeClass('absolute now');
+                textBody.removeClass('fadeIn');
+                clickBox.removeClass('js-open');
                 $(this).dequeue();
             });
-            textBody.classList.remove('collapsed');
-            otherBox.addClass('full7 nowidth');
-
-        } else {
-            $(textBody).toggleClass('full4 full-3 collapsed').removeClass('full3').delay(799).queue(function() {
-
-
-                $clickBox.parent().removeClass('full2');
-                $clickBox.removeClass('full5');
-                allBox.toggleClass(' full6');
-                otherBox.removeClass('nowidth');
-                $clickBox.removeClass('full');
-
-                $(this).dequeue();
-            }).delay(1599).queue(function() {
-              otherBox.removeClass('full7');
-                $(textBody).removeClass('full4');
-                $clickB.text('Leggi Tutto');
-                otherBox.children().removeClass('side');
-                 otherBox.children().removeClass('last');
-                allBox.toggleClass(' full6');
-                $clickBox.removeClass('nobg');
-                $(this).dequeue();
-
-            });
-
-
-
         }
+}
     }
 
 

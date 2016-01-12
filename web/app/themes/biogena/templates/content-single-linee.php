@@ -35,7 +35,7 @@ echo $claim;
         <?= $claim.the_post_thumbnail( );   ?>
       </div>
       <div class="swiper-slide">
-      <?=  $first['fields']['double_claim']. wp_get_attachment_image($first['fields']['immagine_full_width']['id'],'full',false,$default_attr) ; ?>
+      <?=  $first['fields']['double_claim']. wp_get_attachment_image($first['fields']['second_thumb']['id'],'full',false,$default_attr) ; ?>
       </div>
     </div>
     </div>
