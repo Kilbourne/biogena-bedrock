@@ -12,6 +12,7 @@
         justify-content: space-around;
         align-items: flex-start;
         margin-bottom:0;
+        @include media-query(lap-and-up) { justify-content: center; }
         &>.menu-item {
           display: none;
           position: relative;
@@ -22,6 +23,8 @@
           }
           @include media-query(lap-and-up) {
             display: inline-block;
+            width: 118px;
+            margin: 2rem auto 0px;
           }
           >a {
             padding: 2px 0.5rem 0px;
@@ -135,12 +138,13 @@
 }
 
 */
-.menu-logo{
+.nav-primary > .nav > .menu-logo{
     /*
     display: inline-block !important;
     vertical-align: middle;
     position: static !important;
      */
+    @include media-query(lap-and-up) { width:auto;}
     .circle-container {
        display:inline-block;
        padding: 0px 0px 0.5rem;

@@ -7,7 +7,13 @@
   double=!!first['fields']['double'] && first['fields']['double']===true;
   %>
 
-<% var claim=no_asc?first['fields']['claim_']:first['area-skin-care']['fields']['claim_']; %>
+<% var regex = /<br\s*[\/]?>/gi;var claim=no_asc?first['fields']['claim_'].replace(regex,''):first['area-skin-care']['fields']['claim_'].replace(regex,'');
+
+var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_claim'].replace(regex,'') : '';
+
+
+
+ %>
 <% if(!double) { %>
         <div class="background-container specialita">
           <%= claim %>
@@ -21,7 +27,7 @@
                     <%= first['thumbnail'] %>
           </div>
           <div class="swiper-slide">
-            <%=  first['fields']['double_claim'] %> <img  class="attachment-post-thumbnail wp-post-image" src="<%= first['fields']['second_thumb']['url'] %>"   alt="">
+            <%=  double_claim  %> <img  class="attachment-post-thumbnail wp-post-image" src="<%= first['fields']['second_thumb']['url'] %>"   alt="">
                   </div>
     </div>
     </div>
@@ -90,7 +96,7 @@
                         <%= prod.content %>
                         <div class="more">
                         <% if(riservato){ %>
-                          <a href="http://localhost/biogena/area-riservata/" class="ajax-popup-link" title="">Accedi alla nostra area riservata.</a>
+                          <a href="http://<%= document.domain %>/biogena/area-riservata/" class="ajax-popup-link" title="">Accedi alla nostra area riservata.</a>
                         <% }else{ %>
                           <a href="<%= prod['permalink'] %>" title="">Vai alla scheda prodotto</a>
                         <% } %>
@@ -151,13 +157,10 @@
               </div>
                   <% fotoprotezione=first['fields']['fotoprotezione_1'];fotoprotezione2=first['fields']['fotoprotezione_2'];fotoprotezione3=first['fields']['fotoprotezione_3'];if(fotoprotezione){
 %>
-<div class="fotoprotezione-wrapper">
-<div class="fotop-firstrow">
-<div class="fotop1 fotop"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="fotop-content"> <%= fotoprotezione %> </div></div><div class="fotop2 fotop"><h3>Lo sapevi che…</h3><div class="fotop-content"> <%= fotoprotezione2 %> </div></div></div>
-    <div class="fotop3 fotop"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <%= fotoprotezione3 %> </div></div>
+<div class="fotoprotezione-wrapper content-wrapper">
+<div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3>Lo sapevi che…</h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box">Leggi Tutto</span> </div> </div></div>
 </div>
   <% } %>
-
             <hr>
               <div class="slideshow correlati">
 
@@ -167,7 +170,7 @@
 <% }else { %> <%= '<div class=" no-slider " >' %><% } %>
                     <div class="swiper-wrapper">
                   <% _.each(first.prodotti,function(prod){ %>
-                                <div class="swiper-slide"><a href="<%= prod.permalink %>"><%= prod.thumbnail %> <div><h3><%= prod.title %> </h3> </div> </a></div>
+                                <div class="swiper-slide"><a href="<%= first['prodotti'].length>1?prod.permalink:first.linea.permalink %>"><%= prod.thumbnail %> <div><h3><%= prod.title %> </h3> </div> </a></div>
                   <% } )%>
                     </div>
               <% if(first['prodotti'].length>1){ %>

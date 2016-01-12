@@ -22,20 +22,28 @@ if($no_asc){
 }else{
   $claim=$first['area-skin-care']['fields']['claim_'];
 }
+$claim=str_replace ('<br></br>','',$claim);
+$claim=str_replace ('<br>','',$claim);
+$claim=str_replace ('<br/>','',$claim);
 if(!$double){
   echo '<div class="background-container specialita">';
 echo $claim;
   the_post_thumbnail( );
   echo ' </div>';
 
-}else{ ?>
+}else{
+$double_claim=$first['fields']['double_claim'];
+$double_claim=str_replace ('<br></br>','',$double_claim);
+$double_claim=str_replace ('<br>','',$double_claim);
+$double_claim=str_replace ('<br/>','',$double_claim);
+  ?>
    <div class="background-container specialita double">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <?= $claim.the_post_thumbnail( );   ?>
       </div>
       <div class="swiper-slide">
-      <?=  $first['fields']['double_claim']. wp_get_attachment_image($first['fields']['second_thumb']['id'],'full',false,$default_attr) ; ?>
+      <?=  $double_claim. wp_get_attachment_image($first['fields']['second_thumb']['id'],'full',false,$default_attr) ; ?>
       </div>
     </div>
     </div>

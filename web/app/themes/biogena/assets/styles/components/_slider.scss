@@ -175,6 +175,18 @@ width: 100%;
   .solar>.little{padding-right: 0 !important;}
  }
 
+.post-type-archive-linee .background-container.specialita .big-claim,  .single-linee .background-container.specialita .big-claim{
+  .title{ font-size:1.75rem !important;display:block !important;}
+  width: 80% !important;
+  left: 0% !important;
+  padding:0 !important;
+  margin:0 10% !important;
+  img{display:none !important;}
+  >div{margin-left:0 !important;}
+  .little{font-size:0.6em !important;}
+}
+
+
 .slider-patologie {
     overflow: hidden;
 }

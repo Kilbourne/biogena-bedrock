@@ -73,10 +73,9 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
                                       <?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
 ?>
 
-<div class="fotoprotezione-wrapper">
-<div class="fotop-firstrow">
-    <div class="fotop1 fotop"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="fotop-content"> <?php echo $fotoprotezione; ?> </div></div><div class="fotop2 fotop"><h3>Lo sapevi che…</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> </div></div></div>
-    <div class="fotop3 fotop"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content"> <?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?> </div></div>
+<div class="fotoprotezione-wrapper content-wrapper">
+
+    <div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class=" flag-body fotop-content"><?php echo $fotoprotezione; ?><span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3>Lo sapevi che…</h3><div class="flag-body fotop-content"><?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content flag-body"><?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?><span class="readmore-box">Leggi Tutto</span> </div></div></div>
 </div>
   <?php } ?>
           <hr>
@@ -87,7 +86,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
               <?php }else {echo '<div class=" no-slider active" >';} ?>
                     <div class="swiper-wrapper">
                   <?php foreach($first['prodotti'] as $key=> $prod){ ?>
-                                <div class="swiper-slide"><a href="<?= $prod['permalink']; ?>"><?= $prod['thumbnail']; ?> <div><h3><?= $prod['title']; ?> </h3> </div> </a></div>
+                                <div class="swiper-slide"><a href="<?= count($first['prodotti'])>1?$prod['permalink']:$first['linea']['permalink']; ?>"><?= $prod['thumbnail']; ?> <div><h3><?= $prod['title']; ?> </h3> </div> </a></div>
                   <?php } ?>
                     </div>
               <?php if(count($first['prodotti'])>1){ ?>

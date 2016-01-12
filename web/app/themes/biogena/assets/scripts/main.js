@@ -130,12 +130,25 @@
 
                 enquire.register(breakpoints['lap-and-up'], {
                     match: function() {
-                        $('.big-claim').fitText(2);
+                        if($('.post-type-archive-linee .background-container.specialita .big-claim,  .single-linee .background-container.specialita .big-claim').length){
+                           $('.big-claim').fitText(4);
+                        }else{
+                          $('.big-claim').fitText(2);
+                        }
                     },
                     unmatch: function() {
                         $(window).off('resize.fittext orientationchange.fittext');
                     }
                 });
+                if (window.matchMedia(breakpoints['lap-and-up']).matches) {
+                        if($('.post-type-archive-linee .background-container.specialita .big-claim,  .single-linee .background-container.specialita .big-claim').length){
+                           $('.big-claim').fitText(4);
+                        }else{
+                          $('.big-claim').fitText(2);
+                        }
+                } else {
+                    $(window).off('resize.fittext orientationchange.fittext');
+                }
 
                 $('body').on('click', '.attivo', readmoreAttiviCallback);
                 $('body').on('click', '.boxx .readmore-box', boxReadMore);
@@ -461,21 +474,29 @@
           if (!clickBox.hasClass('js-open')) {
             wrapper.addClass('transparent').delay(800).queue(function() {
                wrapper.addClass('nobg');
-              parag.addClass('maxHeight padding-now');
+              parag.addClass('maxHeight padding-now now');
               clickB.text('Chiudi');
               wrapper.toggleClass('transparent fadeIn');
-              clickBox.addClass('js-open');
+
               $(this).dequeue();
             });
+            clickBox.addClass('js-open');
           }else{
-            wrapper.addClass('transparent').delay(800).queue(function() {
-              parag.removeClass('maxHeight padding-now');
-                  wrapper.removeClass('nobg');
+            wrapper.toggleClass('transparent fadeIn').delay(800).queue(function() {
+
+
               clickB.text('Leggi Tutto');
               wrapper.toggleClass('transparent fadeIn');
+              wrapper.removeClass('nobg');
+              parag.removeClass('padding-now');
+              $(this).dequeue();
+              }).delay(800).queue(function() {
+              parag.removeClass('now');
+              wrapper.removeClass(' fadeIn');
               clickBox.removeClass('js-open');
               $(this).dequeue();
               });
+              parag.removeClass('maxHeight');
           }
 
       }else{
@@ -665,10 +686,39 @@
                     BackgroundCheck.refresh();
                 }
                 if (window.matchMedia(breakpoints['lap-and-up']).matches) {
-                    $('.big-claim').fitText(2);
+                        if($('.post-type-archive-linee .background-container.specialita .big-claim,  .single-linee .background-container.specialita .big-claim').length){
+                           $('.big-claim').fitText(4);
+                        }else{
+                          $('.big-claim').fitText(2);
+                        }
                 } else {
                     $(window).off('resize.fittext orientationchange.fittext');
                 }
+                               $('.ajax-popup-link').magnificPopup({
+                    type: 'ajax',
+                    tLoading: '<div class="cube1"></div><div class="cube2"></div>',
+                    closeOnContentClick: false,
+                    callbacks: {
+                        ajaxContentAdded: function(data) {
+
+                            var otherLinks = $('.mfp-content .ajax-popup-link-r');
+                            if (otherLinks.length) {
+                                revursivePopup(otherLinks);
+                            }
+
+                        },
+                        beforeOpen: function() {
+
+                            $('.mfp-bg,.mfp-wrap ').remove();
+
+
+                        }
+                    }
+                });
+                $('.inline-popup-link').magnificPopup({
+                    type: 'inline'
+                });
+
                 responsiveMediaElement();
 
                 var attivi = $('.attivi'),
@@ -718,12 +768,83 @@ attiviSliderOptions());                             });
                     downSlider = new Swiper('.slider-patologie', downSliderOptions());
                 }
                 if ($('body.single-linee .single-linea').length) {
-                    $.post(ajaxurl, {
+                    var ajaxUrl=!window.ajaxurl?ajax_login_object.ajaxurl:window.ajaxurl;
+                    $.post(ajaxUrl , {
                         action: "get_template_single",
                         title: $('.down-nav .line .title').text()
                     }, function(data) {
                         $('body.single-linee .single-linea').html(data);
                     });
+                }
+                                if ($('body.single-linee .single-product-wrapper,body.post-type-archive-linee .single-product-wrapper').length) {
+
+                    (function() {
+                        var d = document,
+                            accordionToggles = d.querySelectorAll('.js-accordionTrigger'),
+                            setAria,
+                            setAccordionAria,
+                            switchAccordion,
+                            touchSupported = ('ontouchstart' in window),
+                            pointerSupported = ('pointerdown' in window);
+
+                        skipClickDelay = function(e) {
+                            e.preventDefault();
+                            e.currentTarget.click();
+                        };
+
+                        setAriaAttr = function(el, ariaType, newProperty) {
+                            el.setAttribute(ariaType, newProperty);
+                        };
+                        setAccordionAria = function(el1, el2, expanded) {
+                            switch (expanded) {
+                                case "true":
+                                    setAriaAttr(el1, 'aria-expanded', 'true');
+                                    setAriaAttr(el2, 'aria-hidden', 'false');
+                                    break;
+                                case "false":
+                                    setAriaAttr(el1, 'aria-expanded', 'false');
+                                    setAriaAttr(el2, 'aria-hidden', 'true');
+                                    break;
+                                default:
+                                    break;
+                            }
+                        };
+                        //function
+                        switchAccordion = function(e) {
+                            e.preventDefault();
+                            var thisAnswer = e.currentTarget.parentNode.nextElementSibling;
+                            var thisQuestion = e.currentTarget;
+                            var opens = $(accordionToggles).filter('.is-expanded');
+                            if (opens.length && opens[0] !== thisQuestion) {
+                                opens[0].classList.remove('is-expanded');
+                                opens[0].classList.remove('is-collapsed');
+                                var openAnswer = opens[0].parentNode.nextElementSibling;
+                                openAnswer.classList.toggle('is-expanded');
+                                openAnswer.classList.toggle('is-collapsed');
+                                openAnswer.classList.toggle('animateIn');
+                            }
+                            if (thisAnswer.classList.contains('is-collapsed')) {
+                                setAccordionAria(thisQuestion, thisAnswer, 'true');
+                            } else {
+                                setAccordionAria(thisQuestion, thisAnswer, 'false');
+                            }
+                            thisQuestion.classList.toggle('is-collapsed');
+                            thisQuestion.classList.toggle('is-expanded');
+                            thisAnswer.classList.toggle('is-collapsed');
+                            thisAnswer.classList.toggle('is-expanded');
+
+                            thisAnswer.classList.toggle('animateIn');
+                        };
+                        for (var i = 0, len = accordionToggles.length; i < len; i++) {
+                            if (touchSupported) {
+                                accordionToggles[i].addEventListener('touchstart', skipClickDelay, false);
+                            }
+                            if (pointerSupported) {
+                                accordionToggles[i].addEventListener('pointerdown', skipClickDelay, false);
+                            }
+                            accordionToggles[i].addEventListener('click', switchAccordion, false);
+                        }
+                    })();
                 }
                 linkCallbackBusy = false;
             });
