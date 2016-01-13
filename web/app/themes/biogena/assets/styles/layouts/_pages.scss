@@ -6,6 +6,7 @@
         padding: 1em 2%;
     }
     .flag-body {
+
         display: inline-block;
         margin: 0px;
         font-size: 1rem;
@@ -71,6 +72,7 @@
                 cursor: pointer;
             }
             .flag-body {
+                width:100%;
                 font-size: 0.9rem;
                 line-height: 1.5;
                 >p {
@@ -249,7 +251,7 @@
 /* AREE TERAPEUTICHE */
 
 .single-area-skin-care,
-.post-type-archive-area-skin-care {
+.post-type-archive-area-skin-care,.osmin-linea-pediatrica {
     .content {
         position: relative;
         img {
@@ -261,6 +263,10 @@
             height: 33.333vw;
             max-height: calc(1276px / 3);
         }
+    }
+    .content-wrapper.osmin{
+      max-width: none;
+      margin:0;
     }
     .flag-media {
         .flag-body {
@@ -733,6 +739,11 @@ body.post-type-archive-linee {
 
 .single-linee.osmin-linea-pediatrica {
     .content-wrapper {
+      &.content-wrapper.strecth{
+        height:auto;
+        max-height: none;
+        margin-top: 0;
+      }
         padding: 0;
         >.flag-media {
             .flag-body {

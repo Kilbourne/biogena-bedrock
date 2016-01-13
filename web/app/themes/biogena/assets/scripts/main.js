@@ -91,7 +91,7 @@
                 lazyLoadingOnTransitionStart: true
             };
         },
-        bodyClasses = ['home', 'post-type-archive-linee', 'azienda', 'single-linee', 'single-area-skin-care', 'post-type-archive-area-skin-care', 'no-full-slider', 'page', 'search', 'error404'];
+        bodyClasses = ['home', 'post-type-archive-linee', 'azienda', 'single-linee', 'single-area-skin-care', 'post-type-archive-area-skin-care', 'no-full-slider', 'page', 'search', 'error404','osmin-linea-pediatrica'];
     // Use this variable to set up the common and page specific functions. If you
     // rename this variable, you will also need to rename the namespace below.
     var Sage = {

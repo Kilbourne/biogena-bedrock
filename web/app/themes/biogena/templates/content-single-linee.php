@@ -74,11 +74,12 @@ $double_claim=str_replace ('<br/>','',$double_claim);
             </div>
           <?php } ?>
     </div>
-    <div class="content-wrapper <?php if(count($first['prodotti'])===0){ echo 'single-product-wrapper';} ?>">
+    <div class="content-wrapper <?php if(count($first['prodotti'])<2){ echo 'single-product-wrapper';} ?>">
       <?php if( !$no_or_single ){ ?>
           <h3>Trattamenti coadiuvanti per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
       <?php } ?>
       <div class="products">
+      <?php if(count($first['prodotti'])>1){ ?>
       <?php if(count($first['prodotti'])>3){ echo '<div class="swiper-wrapper">';} ?>
         <?php foreach($first['prodotti'] as $key=> $prod){ ?>
         <?php if(count($first['prodotti'])>3 && ($key===0 || ($key) % 3 === 0 )){ echo '<div class="swiper-slide">';} ?>
@@ -117,10 +118,10 @@ $double_claim=str_replace ('<br/>','',$double_claim);
               </div>
             </div>
              <?php if(count($first['prodotti'])>3 && (  ($key+1) % 3 === 0 || $key===(count($first['prodotti'])-1))){ echo '</div>';} ?>
-         <?php } ?>
+         <?php }} ?>
          <?php if(count($first['prodotti'])>3){ echo '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div>';} ?>
-        <?php if(count($first['prodotti'])===0){
-          $title=get_the_title();
+        <?php if(count($first['prodotti'])<2){
+          $title=isset($first['prodotti'][0])?$first['prodotti'][0]['title']:get_the_title();
           global $post;
           $post = get_page_by_title( $title, 'OBJECT', 'prodotti' );
           query_posts( array('p'=>$post->ID,'post_type'=>'prodotti'));
