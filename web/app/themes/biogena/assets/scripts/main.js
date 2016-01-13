@@ -11,7 +11,7 @@
  * ======================================================================== */
 
 (function($) {
-    var downSlider, oldPostType, fullSlider, swiperAttivi,swiperProd, linkCallbackBusy = false,
+    var downSlider, oldPostType, fullSlider, swiperAttivi,swiperProd, linkCallbackBusy = false,prodottoSingle,titles,boxreadinaction=false,
         safariBug = false,
         breakpoints = {
             "palm": "screen and (max-width: 49.9375em)",
@@ -315,20 +315,18 @@
                 if($('.products .swiper-wrapper').length){
                   swiperProd = new Swiper('.products',lineeSliderOpt());
                 }
-            }
-        },
-        'post_type_archive': {
-            init: function() {
-                var menusActive = $('.menu-item.active');
-                menusActive.each(function(index, el) {
-                    var subItems = $(el).find('.sub-menu .menu-item');
-                    if (subItems.length) subItems.first().addClass('active');
-                });
-            }
-        },
-        'azienda': {
-            init: function() {
+                if($('body.post_type_archive').length){
+                  var menusActive = $('.menu-item.active');
+                  menusActive.each(function(index, el) {
+                      var subItems = $(el).find('.sub-menu .menu-item');
+                      if (subItems.length) subItems.first().addClass('active');
+                  });
+                }
+
+
+
                 $(window).scroll(function(e) {
+                  if($('body.azienda').length){
                     var wy = window.scrollY || window.pageYOffset,
                         wh = $(window).height(),
                         video = $('video'),
@@ -337,6 +335,7 @@
                     if (wy < eo && (wy + wh) > (eo + (ea / 2))) {
                         window.mejs.players.mep_0.play();
                     }
+                  }
                 });
             }
         }
@@ -462,10 +461,13 @@
     }
 
     function boxReadMore(e) {
+      if(!boxreadinaction){
+        boxreadinaction=true;
+
               var clickB = $(e.currentTarget),
             textBody = clickB.parent(),
             wrapper = textBody.parent(),
-            parag=textBody.children('p'),
+            parag=textBody.children('p,.list-wrapper'),
             clickBox=wrapper.parent(),
             contentWrapper=clickBox.parent(),
             allBox = contentWrapper.children('.boxx'),
@@ -504,6 +506,7 @@
         if (!clickBox.hasClass('js-open')) {
             textBody.addClass('transparent').delay(800).queue(function() {
                 wrapper.addClass('full nobg');
+                wrapper.addClass('open-pad');
                 parag.addClass('maxHeight padding-now');
                 $(this).dequeue();
             }).delay(800).queue(function() {
@@ -512,6 +515,7 @@
                 contentWrapper.addClass('auto-height');
                 clickBox.addClass('full-width js-open');
                 otherBox.hide();
+
                 wrapper.removeClass('absolute  ');
 
                 $(this).dequeue();
@@ -530,6 +534,7 @@
                 wrapper.toggleClass('absolute ');
                 clickB.text('Leggi Tutto');
                 textBody.toggleClass('transparent fadeIn');
+                wrapper.removeClass('open-pad')
                 $(this).dequeue();
             }).delay(700).queue(function() {
                 wrapper.removeClass('absolute now');
@@ -539,7 +544,7 @@
             });
         }
 }
-    }
+    } boxreadinaction=false;}
 
 
     function stopAutoplayOnHover(e) {
@@ -601,6 +606,8 @@
                 prev: postData[keys[(index - 1) > -1 ? (index - 1) : keys.length - 1]]
             },
             aaa = circleRpl(data);
+        prodottoSingle=data.first.prodotti.length===1?data.first.prodotti[0]['title']:'';
+        titles=data.first.title;
         var pageW = $('.page-wrapper>.content');
         pageW.children('.main').removeClass('newtemp').addClass('oldtemp');
         pageW.append('<main class="main newtemp" style="display:none;">' + aaa + '</main>');
@@ -768,10 +775,13 @@ attiviSliderOptions());                             });
                     downSlider = new Swiper('.slider-patologie', downSliderOptions());
                 }
                 if ($('body.single-linee .single-linea').length) {
+                    titles=titles.replace(' ','%20');
+                    prodottoSingle=prodottoSingle.replace(' ','%20');
                     var ajaxUrl=!window.ajaxurl?ajax_login_object.ajaxurl:window.ajaxurl;
                     $.post(ajaxUrl , {
                         action: "get_template_single",
-                        title: $('.down-nav .line .title').text()
+                        title: titles,
+                        prodottoSingle: prodottoSingle
                     }, function(data) {
                         $('body.single-linee .single-linea').html(data);
                     });

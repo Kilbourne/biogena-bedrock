@@ -1,7 +1,7 @@
 .single-area-skin-care,
 .post-type-archive-area-skin-care,
 .single-linee,
-.post-type-archive-linee {
+.post-type-archive-linee,.azienda {
     .flag-media {
         padding: 1em 2%;
     }
@@ -32,6 +32,7 @@
             text-align: left;
             vertical-align: top;
             overflow:hidden;
+
             .boxx-wrapper {
                 padding: 1rem 0.75rem;
                 height: 100%;
@@ -42,6 +43,7 @@
                 >h3 {
                     color: rgb(36, 86, 155);
                 }
+
             }
             &:nth-child(1) {
                 .boxx-wrapper {
@@ -110,13 +112,15 @@
             }
         }
         .box3 {
-              background-image: url('../images/ask-pattern.jpg');
-              background-size: cover;
-              background-image: url("../images/ask-pattern.jpg");
-              background-repeat: no-repeat;
+
             .boxx-wrapper {
-                background-image: url('../images/woman-ask.png');
-                background-color:transparent;
+                background-image: url('../images/woman-ask.png'),url('../images/ask-pattern.jpg');
+                background-repeat: no-repeat;
+                background-position: right center,0% 0%;
+                background-size: auto 100%,100% auto;
+                @include media-query(lap-and-up){background-size: auto 100%,auto 100%;}
+                background-color: #F7F6F6;
+
             }
             .flag-body {
                 >p {
@@ -158,7 +162,9 @@
                 &.full {
                     left: 0;
                     right: 0;
+
                 }
+                &.open-pad{padding:1rem 3%;}
                 //&.full-width{width:100%;}
                 //&.no-width{
                 //position:absolute;
@@ -174,7 +180,13 @@
                 //&.static{position:static;}
                 //&.delay{ transition: all 1.6s linear 1.6s; }
                 &.now {
-                    transition: all 0.8s linear;
+                    transition: opacity 0.8s linear, left 0.8s linear,right 0.8s linear,background-size 0.8s linear;
+                }
+            }
+
+            .box3{
+                &.nobg {
+                    background-size: auto 0%;
                 }
             }
             //.readmore-box{}
@@ -244,6 +256,12 @@
   }
   */
         }
+                    .box1{
+              .flag-body>p{
+                &:nth-child(1).maxHeight{padding-right: 0;}
+                &:nth-child(1).maxHeight,&:nth-child(2).maxHeight{display:inline;}
+              }
+            }
     }
 }
 
@@ -251,7 +269,7 @@
 /* AREE TERAPEUTICHE */
 
 .single-area-skin-care,
-.post-type-archive-area-skin-care,.osmin-linea-pediatrica {
+.post-type-archive-area-skin-care,.osmin-linea-pediatrica,.azienda {
     .content {
         position: relative;
         img {
@@ -547,6 +565,7 @@
 .post-type-archive-linee {
     .desc {
         text-align: center;
+        &.no-pad{margin-bottom:0;}
         .desc-text {
             padding: 0px 5%;
             margin-bottom: 1.5rem;
@@ -564,6 +583,7 @@
         max-width: 910px;
         padding: 0px 2%;
         margin: 1.5rem auto 0px;
+        &.no-pad{margin: 0 auto ;}
         a {
             text-decoration: none;
         }
@@ -802,6 +822,10 @@ body.post-type-archive-linee {
 .single-prodotti {
     article {
         padding: 0;
+        header{
+          &.palm{ @include media-query(lap-and-up){display:none;}}
+          &.desktop{ @include media-query(palm){display:none;}}
+        }
         &.no-products {
             margin-bottom: 1.5rem;
         }
@@ -907,8 +931,38 @@ body.post-type-archive-linee {
     main>.video {
         margin-top: 3rem;
     }
+    .boxx{
+
+      .boxx-wrapper:hover{background-color: rgba(153, 174, 206, 0.3);transition:background-color 1s linear;}
+        .boxx-wrapper {
+                &.absolute:hover {
+                    background-color: #F7F6F6;
+
+                }
+      }
+     .flag-body>.list-wrapper {
+                    font-size: 0.9rem;
+                    line-height: 1.5;
+                    text-align: left;
+                    max-height: 0px;
+                    overflow: hidden;
+                    //margin: 0;
+                    //transition: all 1.6s linear ;
+                    //transition: max-height 1.6s linear;
+                       &.maxHeight {
+                        max-height: 3000px;
+                        //margin: auto;
+                    }
+                    &.padding-now {
+                        padding-right: 0.75rem;
+                    }
+                    &.now {
+                        transition: max-height 0.8s linear;
+                    }
+                }
+      }
     .content-wrapper-azienda {
-        padding: 2%;
+        //padding: 2%;
         h1,
         h2,
         h3 {
@@ -924,10 +978,16 @@ body.post-type-archive-linee {
             display: inline-block;
             width: 100%;
             @media(min-width: 1009px) {
-                width: 72.5%;
-                margin-right: 3.5%;
+                //width: 72.5%;
+                //margin-right: 3.5%;
             }
             vertical-align: top;
+        }
+        .content-wrapper{
+          font-size:0;
+          height: auto;
+          max-height: none;
+          background-color: #F7F6F6;
         }
         .content-side {
             display: inline-block;
@@ -948,21 +1008,24 @@ body.post-type-archive-linee {
             li {
                 font-size: 0.8rem;
             }
-            .list-wrapper {
-                border: 2px solid #24569B;
+
+        }
+        .list-wrapper {
+                margin-top: 0.75rem;
+
                 >ol {
-                    padding: 2% 2% 0px 1.5rem;
-                    margin-left: 0;
+
+                    margin-left: 2rem;
+                    li{ margin-bottom:1rem;}
                     h6 {
                         line-height: 1.2;
                         margin: 0 0 0.5rem;
                         color: #24569B;
                     }
                 }
-            }
         }
         .wp-video {
-            margin-bottom: 1.5rem;
+            //margin-bottom: 1.5rem;
         }
     }
 }

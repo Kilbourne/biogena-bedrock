@@ -36,7 +36,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
  <div class="content">
 
 
-                              <div class="desc">
+                              <div class="desc <% attivi=first['fields']['attivi_di_linea']; if(attivi.length===0){ %> <%= 'no-pad' %> <% } %>">
 
 
         <div class="down-nav">
@@ -47,7 +47,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
               <path fill="none" d="M11.611,10.049l-4.76-4.873c-0.303-0.31-0.297-0.804,0.012-1.105c0.309-0.304,0.803-0.293,1.105,0.012l5.306,5.433c0.304,0.31,0.296,0.805-0.012,1.105L7.83,15.928c-0.152,0.148-0.35,0.223-0.547,0.223c-0.203,0-0.406-0.08-0.559-0.236c-0.303-0.309-0.295-0.803,0.012-1.104L11.611,10.049z"></path>
             </svg></a></span></div></div>
 
-               <% attivi=first['fields']['attivi_di_linea']; if(attivi && attivi instanceof Array&&attivi.length ){ %>
+               <%  if(attivi && attivi instanceof Array&&attivi.length ){ %>
                <div class="attivi-wrapper">
                <h3>Gli Attivi di Linea </h3>
                <ul class="attivi">
@@ -64,11 +64,12 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
                <% } %>
                </div>
 
-            <div class="content-wrapper <% if(first['prodotti'].length===0){ %> <%= 'single-product-wrapper' %> <% } %>">
+            <div class="content-wrapper <% if(first['prodotti'].length<2){ %> <%= 'single-product-wrapper' %> <% } %> <% if(attivi.length===0){ %> <%= 'no-pad' %> <% } %>">
                 <% if(!no_or_single){ %>
                   <h3>Trattamenti coadiuvanti per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
                 <% } %>
                 <div class="products">
+                <% if(first.prodotti.length>1){ %>
                 <% if(first.prodotti.length>3){ %> <%= '<div class="swiper-wrapper">' %>  <% } %>
                   <% _.each(first.prodotti,function(prod,key){ %>
                   <% if(first.prodotti.length >3 && (key===0 || key % 3 === 0 )){ %> <%= '<div class="swiper-slide">' %> <% } %>
@@ -104,9 +105,9 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
                       </div>
                     </div>
                     <% if(first.prodotti.length >3 && ((key+1) % 3 === 0 || key===(first.prodotti.length-1))){ %> <%= '</div>' %> <% } %>
-                  <% } )%>
+                  <% } )} %>
                   <% if(first.prodotti.length>3){ %> <%= '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div>' %>  <% } %>
-        <% if(first['prodotti'].length===0){ %>
+        <% if(first['prodotti'].length<2){ %>
  <div class="single-linea"> </div>
 <%        } %>
       </div>
@@ -157,6 +158,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
               </div>
                   <% fotoprotezione=first['fields']['fotoprotezione_1'];fotoprotezione2=first['fields']['fotoprotezione_2'];fotoprotezione3=first['fields']['fotoprotezione_3'];if(fotoprotezione){
 %>
+<hr>
 <div class="fotoprotezione-wrapper content-wrapper">
 <div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3>Lo sapevi che…</h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box">Leggi Tutto</span> </div> </div></div>
 </div>

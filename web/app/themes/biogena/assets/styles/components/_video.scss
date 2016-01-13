@@ -1,7 +1,9 @@
 
 .wp-video, video.wp-video-shortcode, .mejs-container, .mejs-overlay.load {
   width: 100% !important;
-  height: 100% !important;
+   //height: 56.25vw !important;
+     //       max-height: calc(1276px / 1.777);
+    height:56.25%;
 }
 .wp-video, video.wp-video-shortcode {
   max-width: 100% !important;

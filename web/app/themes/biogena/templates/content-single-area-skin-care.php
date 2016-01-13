@@ -72,7 +72,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
             </div>
                                       <?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
 ?>
-
+<hr>
 <div class="fotoprotezione-wrapper content-wrapper">
 
     <div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class=" flag-body fotop-content"><?php echo $fotoprotezione; ?><span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3>Lo sapevi che…</h3><div class="flag-body fotop-content"><?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content flag-body"><?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?><span class="readmore-box">Leggi Tutto</span> </div></div></div>

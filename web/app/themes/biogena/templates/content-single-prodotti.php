@@ -9,6 +9,11 @@ while (have_posts()):
       <div class="go-back"><a href="<?php echo $linea['linea']['permalink'] ?>" title=""> &lt;&lt; Torna alla linea <?php echo $linea['linea']['title'] ?></a></div>
   </div>
   <article <?php $noproducts=count($connected2) > 0?'':'no-products';post_class($noproducts); ?>>
+        <header class="palm">
+        <h1 class="entry-title ">
+          <?php the_title(); ?>
+        </h1>
+      </header>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
       <div class="under-photo">          <?php $field = get_field('formato');
@@ -27,8 +32,8 @@ while (have_posts()):
           </div>
 
     </div><div class="content-single-wrapper u-1/2-lap-and-up inline-block">
-      <header>
-        <h1 class="entry-title">
+      <header class="desktop">
+        <h1 class="entry-title ">
           <?php the_title(); ?>
         </h1>
       </header>

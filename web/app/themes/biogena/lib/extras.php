@@ -214,9 +214,10 @@ function delete_transient_on_update($post_id) {
 }
 
 function linea_single_product_ajax() {
-  $title= $_POST['title'];
+  $title=isset($_POST['prodottoSingle']) && $_POST['prodottoSingle'] !==''?$_POST['prodottoSingle']:$_POST['title'];
+
   global $post;
-  $post = get_page_by_title( $title, 'OBJECT', 'prodotti' );
+  $post = get_page_by_title( urldecode($title), 'OBJECT', 'prodotti' );
   query_posts( array('p'=>$post->ID,'post_type'=>'prodotti'));
   ob_start();
   include_once(locate_template('templates/content-single-prodotti.php'));
