@@ -27,18 +27,19 @@
             margin: 2rem auto 0px;
             flex-grow:1;
           }
-          >a {
-            padding: 2px 0.5rem 0px;
-            >span{
-                padding-bottom: 44px;// !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                white-space:nowrap;
-            }
-          }
           a {
             color: #fff;
             text-decoration: none;
             display: block;
             font-size: 14px;// !!!!!!!
+          }
+          >a {
+            padding: 2px 0.5rem 0px;
+            display:inline-block;
+            >span{
+                padding-bottom: 44px;// !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                white-space:nowrap;
+            }
           }
           &.other{
               position: absolute !important;
