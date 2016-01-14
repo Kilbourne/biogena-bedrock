@@ -62,7 +62,7 @@ $double_claim=str_replace ('<br/>','',$double_claim);
 
           <?php $count=count($attivi); if($count>0){ ?>
             <div class="attivi-wrapper">
-               <h3>Gli Attivi di Linea </h3>
+               <h3><?php _e("Gli Attivi di Linea","sage");?> </h3>
                <ul class="attivi">
                  <?php foreach ($attivi as $key => $attivo):
                  $image=$attivo['immagine_attivo'];
@@ -76,7 +76,7 @@ $double_claim=str_replace ('<br/>','',$double_claim);
     </div>
     <div class="content-wrapper <?php if(count($first['prodotti'])<2){ echo 'single-product-wrapper';} if(count($attivi)===0){ echo 'no-pad';}?>">
       <?php if( !$no_or_single ){ ?>
-          <h3>Trattamenti coadiuvanti per <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
+          <h3><?php _e("Trattamenti coadiuvanti per","sage");?> <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
       <?php } ?>
       <div class="products">
       <?php if(count($first['prodotti'])>1){ ?>
@@ -110,9 +110,9 @@ $double_claim=str_replace ('<br/>','',$double_claim);
                 <div class="more">
                 <?php if($riservato){
                   $page_obj = get_page_by_title( 'Area Riservata') ;
-                  echo '<a href="'.get_page_link($page_obj -> ID).'" class="ajax-popup-link" >Accedi alla nostra area riservata.</a>';
+                  echo '<a href="'.get_page_link($page_obj -> ID).'" class="ajax-popup-link" >'.__("Accedi alla nostra area riservata.","sage").'</a>';
                 } else{?>
-                  <a href="<?= $prod['permalink']; ?>"  title="">Vai alla scheda prodotto</a>
+                  <a href="<?= $prod['permalink']; ?>"  title=""><?php _e("Vai alla scheda prodotto","sage");?></a>
                 <?php } ?>
                 </div>
               </div>

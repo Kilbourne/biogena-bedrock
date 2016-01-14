@@ -24,6 +24,8 @@ msgid ""
 "You are using an <strong>outdated</strong> browser. Please <a href=\"http://"
 "browsehappy.com/\">upgrade your browser</a> to improve your experience."
 msgstr ""
+"Stai usando un browser <strong>obsoleto</strong>. Consigliamo di <a href=\"http://"
+"browsehappy.com/\">aggiornare il tuo browser</a> per migliorare la tua esperienza."
 
 #: front-page.php:34
 msgid "News"
@@ -49,7 +51,7 @@ msgstr ""
 
 #: index.php:5
 msgid "Sorry, no results were found."
-msgstr ""
+msgstr "Nessun risultato è stato trovato."
 
 #: lib/extras.php:35
 msgid "Continued"
@@ -61,7 +63,7 @@ msgstr ""
 
 #: lib/extras.php:130
 msgid "Add to Menu"
-msgstr ""
+msgstr "Aggiungi al Menu"
 
 #: lib/extras.php:140
 msgid "Materiali riservati"
@@ -73,27 +75,27 @@ msgstr ""
 
 #: lib/extras.php:197
 msgid "Login successful, redirecting..."
-msgstr ""
+msgstr "Login avvenuto,redirect in corso..."
 
 #: lib/setup.php:30
 msgid "Primary Navigation"
-msgstr ""
+msgstr "Navigazione Primaria"
 
 #: lib/setup.php:31
 msgid "Mobile Navigation"
-msgstr ""
+msgstr "Navigazione Mobile"
 
 #: lib/setup.php:61
 msgid "Primary"
-msgstr ""
+msgstr "Primario"
 
 #: lib/setup.php:70
 msgid "Footer"
-msgstr ""
+msgstr "Footer"
 
 #: lib/setup.php:124
 msgid "Sending user info, please wait..."
-msgstr ""
+msgstr "Invio in corso delle informazioni utente..."
 
 #: lib/titles.php:13
 msgid "Ultimi post"
@@ -125,7 +127,7 @@ msgstr ""
 #: templates/content-osmin.php:24
 #: templates/content-single-area-skin-care.php:57
 msgid ""
-"Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati "
+"Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati "
 "standard di qualità, sicurezza ed efficacia e di innovazione scientifica."
 msgstr ""
 
@@ -150,7 +152,7 @@ msgstr ""
 
 #: templates/content-page.php:2
 msgid "Pages:"
-msgstr ""
+msgstr "Pagine:"
 
 #: templates/content-single-area-skin-care.php:78
 msgid "Ma che cosa sono le radiazioni UVA e UVB?"
@@ -250,4 +252,4 @@ msgstr ""
 
 #: templates/footer.php:6
 msgid "Lavora con noi"
-msgstr ""
+msgstr "Careers"

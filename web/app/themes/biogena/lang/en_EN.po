@@ -2,18 +2,26 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Language: en\n"
+"X-Generator: Poedit 1.8.1\n"
 
 #: 404.php:4
 msgid "La pagina che stai provando a raggiungere non esiste."
-msgstr ""
+msgstr "Sorry, but the page you were trying to view does not exist."
 
 #: ajax.php:14
 msgid "Ritorna al login."
-msgstr ""
+msgstr "Back to Login"
 
 #: area_riservata.php:14
 msgid "Registrati"
-msgstr ""
+msgstr "Register"
 
 #: area_riservata.php:17
 msgid "Logout"
@@ -29,18 +37,17 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: front-page.php:39 templates/content-osmin.php:19
-#: templates/content-osmin.php:26 templates/content-osmin.php:35
-#: templates/content-single-area-skin-care.php:52
+#: front-page.php:39 templates/content-osmin.php:19 templates/content-osmin.php:26
+#: templates/content-osmin.php:35 templates/content-single-area-skin-care.php:52
 #: templates/content-single-area-skin-care.php:59
 #: templates/content-single-area-skin-care.php:68
 #: templates/content-single-area-skin-care.php:78
 msgid "Leggi Tutto"
-msgstr ""
+msgstr "Read More"
 
 #: front-page.php:42
 msgid "Altre News"
-msgstr ""
+msgstr "All News"
 
 #: functions.php:23
 #, php-format
@@ -57,7 +64,7 @@ msgstr ""
 
 #: lib/extras.php:47
 msgid "LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span>"
-msgstr ""
+msgstr "ITALIAN RESEARCH<span>FOR HEALTHY CARE</span>"
 
 #: lib/extras.php:130
 msgid "Add to Menu"
@@ -65,11 +72,11 @@ msgstr ""
 
 #: lib/extras.php:140
 msgid "Materiali riservati"
-msgstr ""
+msgstr "Reserved File"
 
 #: lib/extras.php:195
 msgid "Nome Utente o Password errata"
-msgstr ""
+msgstr "Wrong username or password"
 
 #: lib/extras.php:197
 msgid "Login successful, redirecting..."
@@ -97,56 +104,54 @@ msgstr ""
 
 #: lib/titles.php:13
 msgid "Ultimi post"
-msgstr ""
+msgstr "Last post"
 
 #: lib/titles.php:18
 #, php-format
 msgid "Risultati di ricerca per %s"
-msgstr ""
+msgstr "Search results for %s"
 
 #: lib/titles.php:20
 msgid "Collegamento non trovato"
-msgstr ""
+msgstr "Not Found"
 
 #: search.php:5
 msgid "Nessun risultato trovato."
-msgstr ""
+msgstr "Your search returned no results"
 
-#: templates/content-osmin.php:18
-#: templates/content-single-area-skin-care.php:51
+#: templates/content-osmin.php:18 templates/content-single-area-skin-care.php:51
 msgid "Parliamo di..."
-msgstr ""
+msgstr "Talking About..."
 
-#: templates/content-osmin.php:21
-#: templates/content-single-area-skin-care.php:54
+#: templates/content-osmin.php:21 templates/content-single-area-skin-care.php:54
 msgid "La soluzione Biogena"
-msgstr ""
+msgstr "Biogena solution"
 
-#: templates/content-osmin.php:24
-#: templates/content-single-area-skin-care.php:57
+#: templates/content-osmin.php:24 templates/content-single-area-skin-care.php:57
 msgid ""
-"Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati "
+"Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati "
 "standard di qualità, sicurezza ed efficacia e di innovazione scientifica."
 msgstr ""
+"We provide our customers highest standards products and solutionsin terms of "
+"quality, safety, efficacy and scientific innovation"
 
-#: templates/content-osmin.php:32
-#: templates/content-single-area-skin-care.php:65 templates/footer.php:6
+#: templates/content-osmin.php:32 templates/content-single-area-skin-care.php:65
+#: templates/footer.php:6
 msgid "FAQ"
 msgstr ""
 
-#: templates/content-osmin.php:34
-#: templates/content-single-area-skin-care.php:67
-msgid ""
-"Consulta le nostre FAQ per avere risposta alle tue domande più frequenti"
+#: templates/content-osmin.php:34 templates/content-single-area-skin-care.php:67
+msgid "Consulta le nostre FAQ per avere risposta alle tue domande più frequenti"
 msgstr ""
+"Please consult this FAQs section to receive an answer to your frequently questions"
 
 #: templates/content-osmin.php:46
 msgid "Interamente esente da:"
-msgstr ""
+msgstr "Entirely free from:"
 
 #: templates/content-osmin.php:93 templates/content-single-linee.php:115
 msgid "Vai alla scheda prodotto"
-msgstr ""
+msgstr "Go to Product Details"
 
 #: templates/content-page.php:2
 msgid "Pages:"
@@ -154,71 +159,71 @@ msgstr ""
 
 #: templates/content-single-area-skin-care.php:78
 msgid "Ma che cosa sono le radiazioni UVA e UVB?"
-msgstr ""
+msgstr "What are UVA and UVB rays"
 
 #: templates/content-single-area-skin-care.php:78
 msgid "Lo sapevi che…"
-msgstr ""
+msgstr "Did you Know?"
 
 #: templates/content-single-area-skin-care.php:78
 msgid "Guida al corretto “uso” del sole"
-msgstr ""
+msgstr "The guide to correct “use” of Sun"
 
 #: templates/content-single-area-skin-care.php:83
 msgid "Scopri"
-msgstr ""
+msgstr "Discover"
 
 #: templates/content-single-linee.php:65
 msgid "Gli Attivi di Linea"
-msgstr ""
+msgstr "Line Actives"
 
 #: templates/content-single-linee.php:79
 msgid "Trattamenti coadiuvanti per"
-msgstr ""
+msgstr "Coadjuvant Treatments for"
 
 #: templates/content-single-linee.php:113
 msgid "Accedi alla nostra area riservata."
-msgstr ""
+msgstr "Access to Reserved Area"
 
 #: templates/content-single-prodotti.php:9
 msgid "Torna alla linea"
-msgstr ""
+msgstr "Back to the Line"
 
 #: templates/content-single-prodotti.php:47
 msgid "Proprietà"
-msgstr ""
+msgstr "Properties"
 
 #: templates/content-single-prodotti.php:56
 msgid "Composizione"
-msgstr ""
+msgstr "Composition"
 
 #: templates/content-single-prodotti.php:72
 msgid "Uso"
-msgstr ""
+msgstr "Directions for use"
 
 #: templates/content-single-prodotti.php:88
 msgid "Precauzioni"
-msgstr ""
+msgstr "Precautions"
 
 #: templates/content-single-prodotti.php:102
 msgid "Evidenze Cliniche"
-msgstr ""
+msgstr "Clinical Trial"
 
 #: templates/content-single-prodotti.php:115
 msgid "FAQ Prodotto"
-msgstr ""
+msgstr "Product FAQ"
 
 #: templates/content-single-prodotti.php:115
 msgid "Non trovi il prodotto in farmacia? Questo è il codice a barre: EAN"
-msgstr ""
+msgstr "Can't find the product in pharmacy? Try with barcode:"
 
 #: templates/content-single-prodotti.php:115
 msgid "Non trovi il prodotto in farmacia? Questo è il codice a barre: PARAF"
-msgstr ""
+msgstr "Can't find the product in pharmacy? Try with barcode:"
 
 #: templates/content-single-prodotti.php:126
 msgid "Trattamenti coadiuvanti complementari"
-msgstr ""
+msgstr "Coadjuvant Complementary Treatments"
 
 #: templates/entry-meta.php:2
 msgid "By"
@@ -230,11 +235,11 @@ msgstr ""
 
 #: templates/footer.php:5
 msgid "Condizioni d'uso"
-msgstr ""
+msgstr "Terms of Use"
 
 #: templates/footer.php:5
 msgid "Politica di privacy"
-msgstr ""
+msgstr "Privacy Policy"
 
 #: templates/footer.php:5
 msgid "Cookies"
@@ -242,12 +247,12 @@ msgstr ""
 
 #: templates/footer.php:6
 msgid "Contatti"
-msgstr ""
+msgstr "Contacts"
 
 #: templates/footer.php:6
 msgid "Area Riservata"
-msgstr ""
+msgstr "Reserved Area"
 
 #: templates/footer.php:6
 msgid "Lavora con noi"
-msgstr ""
+msgstr "Careers"

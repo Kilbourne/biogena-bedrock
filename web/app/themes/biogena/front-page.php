@@ -31,15 +31,15 @@
     if ($posts):
         setup_postdata($posts[0]) ?>
      <div class="news-box">
-      <h3>News</h3>
+      <h3><?php _e("News","sage"); ?></h3>
       <div class="news">
         <h5><?php
         the_title(); ?></h5>
         <div class="content"><?php
-        the_content('Leggi Tutto'); ?><a href="
+        the_content(__('Leggi Tutto','sage')); ?><a href="
 <?php $page_obj = get_page_by_title( 'Articoli') ; echo get_page_link($page_obj -> ID) ; ?>
 
-" title="" >Altre News</a></div>
+" title="" ><?php _e("Altre News","sage"); ?></a></div>
       </div>
     </div>
     <?php
@@ -70,13 +70,13 @@
   $posts_array = get_posts( $args );
    foreach ( $posts_array as $key=>$patologia ){ ?>
       <div  class="swiper-slide" ><a href="<?php echo get_permalink($patologia->ID); ?>" title="">
-      <?php 
+      <?php
         $thumb=get_post_thumbnail_id($patologia->ID);
         $img_src_f=wp_get_attachment_image_src($thumb,'full' )[0];
-        
-        $img_src_m=wp_get_attachment_image_src( $thumb,'medium')[0];        
+
+        $img_src_m=wp_get_attachment_image_src( $thumb,'medium')[0];
         $img_src_s=wp_get_attachment_image_src( $thumb,'thumbnail')[0];
-        
+
       ?>
         <img src="<?= $img_src_f ?>" srcset="<?= $img_src_f  ?> 800w,  <?= $img_src_m ?> 300w, <?= $img_src_s ?> 150w" sizes="(min-width:1215px ) 22.0665vw, (min-width:912px ) 29.422vw, (min-width:608px ) 44.133vw, 94vw" alt="">
       <?php //echo get_the_post_thumbnail($patologia->ID,'medium'); ?>

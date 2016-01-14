@@ -11,7 +11,7 @@
   		$backlink='<a style="text-decoration:none;color:#24569B;font-weight:700;" href="';$page_obj = get_page_by_title( 'Area Riservata') ;
 
   		$backlink.=get_page_link($page_obj -> ID) ;
-  		$backlink.='" class="ajax-popup-link-r">Ritorna al login.</a>';
+  		$backlink.='" class="ajax-popup-link-r">'.__("Ritorna al login.","sage").'</a>';
   		echo  $backlink;
   	}
   ?>

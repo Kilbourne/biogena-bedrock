@@ -48,24 +48,24 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
             <hr>
             <div class="content-wrapper">
               <div class="box1 boxx">
-                <div class="boxx-wrapper"><h3>Parliamo di...</h3>
-                                <div class="flag-body "><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box">Leggi Tutto</span><?php } ?> </div></div>
+                <div class="boxx-wrapper"><h3><?php _e("Parliamo di...","sage");?></h3>
+                                <div class="flag-body "><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span><?php } ?> </div></div>
               </div><div class="box2 boxx">
-                <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
+                <div  class="boxx-wrapper"><h3><?php _e("La soluzione Biogena","sage");?></h3>
 
                                  <div class="flag-body">
-                                   <p class="soluzione-text" >Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.</p>
+                                   <p class="soluzione-text" ><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage");?></p>
                                    <p><?= $first['fields']['prevenzione'];?></p>
-                                  <span class="readmore-box">Leggi Tutto</span>
+                                  <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
                                  </div>
                                 </div>
 
               </div><div class="box3 boxx">
                 <div  class="boxx-wrapper">
-                  <h3>FAQ</h3>
+                  <h3><?php _e("FAQ","sage");?></h3>
                   <div class="flag-body">
-                    <p class="faq-text">Consulta le nostre FAQ per avere risposta alle tue domande più frequenti </p>
-                    <span class="readmore-box">Leggi Tutto</span>
+                    <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage");?> </p>
+                    <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
                   </div>
                 </div>
               </div>
@@ -75,12 +75,12 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
 <hr>
 <div class="fotoprotezione-wrapper content-wrapper">
 
-    <div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class=" flag-body fotop-content"><?php echo $fotoprotezione; ?><span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3>Lo sapevi che…</h3><div class="flag-body fotop-content"><?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content flag-body"><?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?><span class="readmore-box">Leggi Tutto</span> </div></div></div>
+    <div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Ma che cosa sono le radiazioni UVA e UVB?","sage");?></h3><div class=" flag-body fotop-content"><?php echo $fotoprotezione; ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage");?></h3><div class="flag-body fotop-content"><?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage");?></h3><div class="fotop-content flag-body"><?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span> </div></div></div>
 </div>
   <?php } ?>
           <hr>
           <div class="slideshow correlati">
-              <h4>  Scopri <?= $first['linea']['title']; ?></h4>
+              <h4>  <?php _e("Scopri","sage");?> <?= $first['linea']['title']; ?></h4>
               <?php if(count($first['prodotti'])>1){ ?>
                 <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?>" >
               <?php }else {echo '<div class=" no-slider active" >';} ?>

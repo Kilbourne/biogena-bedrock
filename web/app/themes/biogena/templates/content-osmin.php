@@ -15,24 +15,24 @@
 
             <div class="content-wrapper osmin">
               <div class="box1 boxx">
-                <div class="boxx-wrapper"><h3>Parliamo di...</h3>
-                                <div class="flag-body "><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box">Leggi Tutto</span><?php } ?> </div></div>
+                <div class="boxx-wrapper"><h3><?php _e("Parliamo di...","sage");?></h3>
+                                <div class="flag-body "><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><?php } ?> </div></div>
               </div><div class="box2 boxx">
-                <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
+                <div  class="boxx-wrapper"><h3><?php _e("La soluzione Biogena","sage");?></h3>
 
                                  <div class="flag-body">
-                                   <p class="soluzione-text" >Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.</p>
+                                   <p class="soluzione-text" ><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage");?></p>
                                    <p><?= $first['fields']['prevenzione'];?></p>
-                                  <span class="readmore-box">Leggi Tutto</span>
+                                  <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                                  </div>
                                 </div>
 
               </div><div class="box3 boxx">
                 <div  class="boxx-wrapper">
-                  <h3>FAQ</h3>
+                  <h3><?php _e("FAQ","sage"); ?></h3>
                   <div class="flag-body">
-                    <p class="faq-text">Consulta le nostre FAQ per avere risposta alle tue domande più frequenti </p>
-                    <span class="readmore-box">Leggi Tutto</span>
+                    <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?> </p>
+                    <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
                   </div>
                 </div>
               </div>
@@ -43,7 +43,7 @@
 
                <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
                <div class="attivi-wrapper">
-               <h3>Interamente esente da:</h3>
+               <h3><?php _e("Interamente esente da:","sage");?></h3>
                <ul class="attivi">
 
                  <?php foreach ($attivi as $key => $attivo):
@@ -88,9 +88,9 @@
                 <div class="more">
                 <?php if($riservato){
                   $page_obj = get_page_by_title( 'Area Riservata') ;
-                  echo '<a href="'.get_page_link($page_obj -> ID).'" class="ajax-popup-link" >Accedi alla nostra area riservata.</a>';
+                  echo '<a href="'.get_page_link($page_obj -> ID).'" class="ajax-popup-link" ><?php _e("Accedi alla nostra area riservata.","sage");?></a>';
                 } else{?>
-                  <a href="<?= $prod['permalink']; ?>"  title="">Vai alla scheda prodotto</a>
+                  <a href="<?= $prod['permalink']; ?>"  title=""><?php _e("Vai alla scheda prodotto","sage");?></a>
                 <?php } ?>
                 </div>
               </div>

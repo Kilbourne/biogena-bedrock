@@ -1,7 +1,7 @@
 <header class="banner">
 
 
-    <!-- <a class="brand" href="<?= esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a> -->
+
 
     <div class="header-content-wrapper">
       <nav class="nav-primary">

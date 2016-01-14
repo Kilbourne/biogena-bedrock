@@ -3,7 +3,6 @@
 use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
 
-require '\lib\kint-master\Kint.class.php';
 
 if(get_post_type()==='post'&& is_single()){ ?>
       <div class="content row">
