@@ -784,8 +784,7 @@ attiviSliderOptions());                             });
                         prodottoSingle: prodottoSingle
                     }, function(data) {
                         $('body.single-linee .single-linea').html(data);
-                    });
-                }
+
                                 if ($('body.single-linee .single-product-wrapper,body.post-type-archive-linee .single-product-wrapper').length) {
 
                     (function() {
@@ -855,6 +854,8 @@ attiviSliderOptions());                             });
                             accordionToggles[i].addEventListener('click', switchAccordion, false);
                         }
                     })();
+                }
+                       });
                 }
                 linkCallbackBusy = false;
             });

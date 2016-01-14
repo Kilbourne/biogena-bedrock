@@ -42,10 +42,11 @@
           }
           &.other{
               position: absolute !important;
-              right: 5%;
+              right: 4%;
               top: 3px;
               padding: 0;
               color: rgb(255, 255, 255);
+              white-space: nowrap;
           }
           &.menu-logo:hover> a {
               background-color: inherit;
