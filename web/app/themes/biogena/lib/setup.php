@@ -114,6 +114,7 @@ function assets() {
   wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, false);
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_localize_script( 'sage/js', 'collegamenti', array("linee"=>biogenaData::data('linee'),"area-skin-care"=>biogenaData::data('area-skin-care'),"prodotti"=>biogenaData::data('prodotti') ));
+  wp_localize_script( 'sage/js', 'wp_locale',get_locale());
 gravity_form_enqueue_scripts(1, false);
 gravity_form_enqueue_scripts(2, true);
 // Execute the action only if the user isn't logged in

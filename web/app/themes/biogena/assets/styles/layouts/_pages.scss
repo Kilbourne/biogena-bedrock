@@ -931,8 +931,10 @@ body.post-type-archive-linee {
     main>.video {
         margin-top: 3rem;
     }
+    .content-wrapper{
     .boxx{
-
+      height:auto;
+      flex:1;
       .boxx-wrapper:hover{background-color: rgba(153, 174, 206, 0.3);transition:background-color 1s linear;}
         .boxx-wrapper {
                 &.absolute:hover {
@@ -960,7 +962,7 @@ body.post-type-archive-linee {
                         transition: max-height 0.8s linear;
                     }
                 }
-      }
+      }}
     .content-wrapper-azienda {
         //padding: 2%;
         h1,
@@ -988,6 +990,7 @@ body.post-type-archive-linee {
           height: auto;
           max-height: none;
           background-color: #F7F6F6;
+          @include media-query(lap-and-up){display:flex;}
         }
         .content-side {
             display: inline-block;

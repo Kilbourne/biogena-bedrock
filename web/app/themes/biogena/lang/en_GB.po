@@ -256,3 +256,7 @@ msgstr "Reserved Area"
 #: templates/footer.php:6
 msgid "Lavora con noi"
 msgstr "Careers"
+
+#: templates/underscore-template.php:100
+msgid "Accedi alla nostra area riservata"
+msgstr "Enter in out reserved area."

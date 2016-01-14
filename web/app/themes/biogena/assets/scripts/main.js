@@ -13,6 +13,16 @@
 (function($) {
     var downSlider, oldPostType, fullSlider, swiperAttivi,swiperProd, linkCallbackBusy = false,prodottoSingle,titles,boxreadinaction=false,
         safariBug = false,
+        lang={
+          "it_IT":{
+            'Leggi Tutto':'Leggi Tutto',
+            'Chiudi':'Chiudi'
+          },
+          "en_GB":{
+            'Leggi Tutto':"Read More",
+            'Chiudi':"Close"
+          }
+        }
         breakpoints = {
             "palm": "screen and (max-width: 49.9375em)",
             "lap": "screen and (min-width: 50em) and (max-width: 63.9375em)",
@@ -477,7 +487,7 @@
             wrapper.addClass('transparent').delay(800).queue(function() {
                wrapper.addClass('nobg');
               parag.addClass('maxHeight padding-now now');
-              clickB.text('Chiudi');
+              clickB.text(lang[window.wp_locale]['Chiudi']);
               wrapper.toggleClass('transparent fadeIn');
 
               $(this).dequeue();
@@ -487,7 +497,7 @@
             wrapper.toggleClass('transparent fadeIn').delay(800).queue(function() {
 
 
-              clickB.text('Leggi Tutto');
+              clickB.text(lang[window.wp_locale]['Leggi Tutto']);
               wrapper.toggleClass('transparent fadeIn');
               wrapper.removeClass('nobg');
               parag.removeClass('padding-now');
@@ -510,7 +520,7 @@
                 parag.addClass('maxHeight padding-now');
                 $(this).dequeue();
             }).delay(800).queue(function() {
-                clickB.text('Chiudi');
+                clickB.text(lang[window.wp_locale]['Chiudi']);
                 textBody.toggleClass('transparent fadeIn');
                 contentWrapper.addClass('auto-height');
                 clickBox.addClass('full-width js-open');
@@ -532,7 +542,7 @@
                 $(this).dequeue();
           }).delay(800).queue(function() {
                 wrapper.toggleClass('absolute ');
-                clickB.text('Leggi Tutto');
+                clickB.text(lang[window.wp_locale]['Leggi Tutto']);
                 textBody.toggleClass('transparent fadeIn');
                 wrapper.removeClass('open-pad')
                 $(this).dequeue();
@@ -567,10 +577,10 @@
 
     function readmoreCallback(e) {
         var text = $(e.currentTarget).text();
-        if (text === 'Leggi Tutto') {
-            $(e.currentTarget).text('Chiudi');
+        if (text === lang[window.wp_locale]['Leggi Tutto']) {
+            $(e.currentTarget).text(lang[window.wp_locale]['Chiudi']);
         } else {
-            $(e.currentTarget).text('Leggi Tutto');
+            $(e.currentTarget).text(lang[window.wp_locale]['Leggi Tutto']);
         }
         $(e.currentTarget).siblings('p').slideToggle();
     }

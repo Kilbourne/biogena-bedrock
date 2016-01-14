@@ -49,7 +49,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
 
                <%  if(attivi && attivi instanceof Array&&attivi.length ){ %>
                <div class="attivi-wrapper">
-               <h3>Gli Attivi di Linea </h3>
+               <h3><?php _e("Gli Attivi di Linea","sage"); ?> </h3>
                <ul class="attivi">
 
                  <% _.each(attivi ,function(attivo,i){
@@ -66,7 +66,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
 
             <div class="content-wrapper <% if(first['prodotti'].length<2){ %> <%= 'single-product-wrapper' %> <% } %> <% if(attivi.length===0){ %> <%= 'no-pad' %> <% } %>">
                 <% if(!no_or_single){ %>
-                  <h3>Trattamenti coadiuvanti per <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
+                  <h3><?php _e("Trattamenti coadiuvanti per","sage"); ?> <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
                 <% } %>
                 <div class="products">
                 <% if(first.prodotti.length>1){ %>
@@ -97,9 +97,9 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
                         <%= prod.content %>
                         <div class="more">
                         <% if(riservato){ %>
-                          <a href="http://<%= document.domain %>/biogena/area-riservata/" class="ajax-popup-link" title="">Accedi alla nostra area riservata.</a>
+                          <a href="http://<%= document.domain %>/biogena/area-riservata/" class="ajax-popup-link" title=""><?php _e("Accedi alla nostra area riservata","sage"); ?>.</a>
                         <% }else{ %>
-                          <a href="<%= prod['permalink'] %>" title="">Vai alla scheda prodotto</a>
+                          <a href="<%= prod['permalink'] %>" title=""><?php _e("Vai alla scheda prodotto","sage"); ?></a>
                         <% } %>
                         </div>
                       </div>
@@ -136,22 +136,22 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
             <hr>
             <div class="content-wrapper">
                <div class="box1 boxx">
-                <div class="boxx-wrapper"><h3>Parliamo di...</h3>
-                                <div class="flag-body"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box">Leggi Tutto</span><% } %> </div></div>
+                <div class="boxx-wrapper"><h3><?php _e("Parliamo di...","sage"); ?></h3>
+                                <div class="flag-body"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><% } %> </div></div>
               </div><div class="box2 boxx">
-                <div  class="boxx-wrapper"><h3>La soluzione Biogena</h3>
+                <div  class="boxx-wrapper"><h3><?php _e("La soluzione Biogena","sage"); ?></h3>
                                                  <div class="flag-body">
-                                <p class="soluzione-text">Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.</p>
+                                <p class="soluzione-text"><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage"); ?></p>
                                  <p><%= first['fields']['prevenzione'] %></p>
-                                  <span class="readmore-box">Leggi Tutto</span>
+                                  <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                                  </div>
                                 </div>
               </div><div class="box3 boxx">
                          <div  class="boxx-wrapper">
                   <h3>FAQ</h3>
                   <div class="flag-body">
-                    <p class="faq-text">Consulta le nostre FAQ per avere risposta alle tue domande più frequenti </p>
-                    <span class="readmore-box">Leggi Tutto</span>
+                    <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?> </p>
+                    <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                   </div>
                 </div>
               </div>
@@ -160,13 +160,13 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
 %>
 <hr>
 <div class="fotoprotezione-wrapper content-wrapper">
-<div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3>Ma che cosa sono le radiazioni UVA e UVB?</h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3>Lo sapevi che…</h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box">Leggi Tutto</span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3>Guida al corretto “uso” del sole</h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box">Leggi Tutto</span> </div> </div></div>
+<div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Ma che cosa sono le radiazioni UVA e UVB?","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage"); ?></h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span> </div> </div></div>
 </div>
   <% } %>
             <hr>
               <div class="slideshow correlati">
 
-          <h4>  Scopri <%= first.linea.title %>  </h4>
+          <h4>  <?php _e("Scopri","sage"); ?> <%= first.linea.title %>  </h4>
               <% if(first['prodotti'].length>1){ %>
                 <div class=" slider-patologie active <%= first['prodotti'].length===2?'two':'three' %>" >
 <% }else { %> <%= '<div class=" no-slider " >' %><% } %>
