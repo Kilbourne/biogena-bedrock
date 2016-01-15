@@ -119,7 +119,7 @@ $double_claim=str_replace ('<br/>','',$double_claim);
             </div>
              <?php if(count($first['prodotti'])>3 && (  ($key+1) % 3 === 0 || $key===(count($first['prodotti'])-1))){ echo '</div>';} ?>
          <?php }} ?>
-         <?php if(count($first['prodotti'])>3){ echo '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div>';} ?>
+         <?php if(count($first['prodotti'])>3){ echo '</div><div class="arrows-wrapper"><div class="swiper-button-prev"></div><p>'.__("Altri Prodotti","sage").'</p> <div class="swiper-button-next"></div></div><hr>';} ?>
         <?php if(count($first['prodotti'])<2){
           $title=isset($first['prodotti'][0])?$first['prodotti'][0]['title']:get_the_title();
           global $post;

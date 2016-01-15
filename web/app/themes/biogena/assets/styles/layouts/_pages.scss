@@ -942,6 +942,19 @@ body.post-type-archive-linee {
 
                 }
       }
+                  &:nth-child(1) {
+                .boxx-wrapper {
+                    left: 0;
+                    right: 50%;
+                }
+            }
+            &:nth-child(2) {
+                .boxx-wrapper {
+                    left: 50%;
+                    right: 0;
+                }
+            }
+
      .flag-body>.list-wrapper {
                     font-size: 0.9rem;
                     line-height: 1.5;
@@ -1040,6 +1053,11 @@ body.search {
             font-size: 1rem;
             margin-bottom: 1rem;
         }
+    }
+    a{ text-decoration:none;}
+    main nav{
+      margin-bottom: 1.5rem;
+      padding: 0px 2%;
     }
 }
 

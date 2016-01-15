@@ -106,7 +106,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
                     </div>
                     <% if(first.prodotti.length >3 && ((key+1) % 3 === 0 || key===(first.prodotti.length-1))){ %> <%= '</div>' %> <% } %>
                   <% } )} %>
-                  <% if(first.prodotti.length>3){ %> <%= '</div><div class="swiper-button-prev"></div><div class="swiper-button-next"></div>' %>  <% } %>
+                  <% if(first.prodotti.length>3){ %> <%= '</div><div class="arrows-wrapper"><div class="swiper-button-prev"></div><p>'.__("Altri Prodotti","sage").'</p> <div class="swiper-button-next"></div></div><hr>' %>  <% } %>
         <% if(first['prodotti'].length<2){ %>
  <div class="single-linea"> </div>
 <%        } %>

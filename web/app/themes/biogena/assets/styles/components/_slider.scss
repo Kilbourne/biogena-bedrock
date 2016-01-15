@@ -126,7 +126,6 @@ width: 100%;
   >.big-claim{
     width: 75%;
     left:12.5%;
-    position: absolute;
     display:block;
     margin:0 auto;
     @include media-query(palm){ order:2;}
@@ -179,11 +178,12 @@ width: 100%;
   .title{ font-size:1.75rem !important;display:block !important;}
   width: 80% !important;
   left: 0% !important;
-  padding:0 !important;
+  padding:0 0 20px !important;
   margin:0 10% !important;
   img{display:none !important;}
   >div{margin-left:0 !important;}
   .little{font-size:0.6em !important;}
+  .girasole{margin:0 !important;}
 }
 
 
@@ -364,12 +364,24 @@ min-width: 14.25px;
 .products{
   overflow:hidden;
   position:relative;
-  .swiper-button-prev ,.swiper-button-next{
-    top: 29px;
-    height: 24px;
+  .arrows-wrapper{
+    position: relative;
+    height: 48px;
+    text-align: center;
+    >p{
+      margin: 0px;
+      padding-top: 8px;
+      font-size: 1.2rem;
+      color: rgb(36, 86, 155);
+    }
   }
-  .swiper-button-prev{ left: 10px !important;}
-  .swiper-button-next{ right: 10px !important;}
+  .swiper-button-prev ,.swiper-button-next{
+    height: 24px;
+    display: inline-block;
+    top: 24px;
+  }
+  .swiper-button-prev{ left: calc(4% - 10px) !important;}
+  .swiper-button-next{ right: 10px !important;left: calc(96% - 10px);}
 }
 .no-slider{
   text-align: center;

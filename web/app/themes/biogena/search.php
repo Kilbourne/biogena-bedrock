@@ -12,7 +12,7 @@
 <?php endwhile; ?>
 
 <?php the_posts_navigation(  array(
-  'prev_text'           => 'Risultati precedenti',
-  'next_text'          => 'Risultati successivi',
-  'screen_reader_text' =>'Navigazione'
+  'prev_text'           => __('Risultati precedenti','sage'),
+  'next_text'          => __('Risultati successivi','sage'),
+  'screen_reader_text' =>' '
 )); ?>

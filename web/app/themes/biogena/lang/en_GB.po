@@ -119,6 +119,14 @@ msgstr "Not Found"
 msgid "Nessun risultato trovato."
 msgstr "Your search returned no results"
 
+#: search.php:15
+msgid "Risultati precedenti"
+msgstr "Older posts"
+
+#: search.php:16
+msgid "Risultati successivi"
+msgstr "Newer posts"
+
 #: templates/content-osmin.php:18 templates/content-single-area-skin-care.php:51
 msgid "Parliamo di..."
 msgstr "Talking About..."

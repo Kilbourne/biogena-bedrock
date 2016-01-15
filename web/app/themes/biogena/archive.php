@@ -13,8 +13,8 @@ Template Name: Archives
 
 get_template_part('templates/page', 'header');
  $args = array(
-  'type'            => 'alpha',
-  'order'           => 'ASC'
+  'type'            => 'postbypost',
+  'order'           => 'DESC'
 );
 wp_get_archives( $args );
 

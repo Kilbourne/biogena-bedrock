@@ -22,7 +22,7 @@
             'Leggi Tutto':"Read More",
             'Chiudi':"Close"
           }
-        }
+        },
         breakpoints = {
             "palm": "screen and (max-width: 49.9375em)",
             "lap": "screen and (min-width: 50em) and (max-width: 63.9375em)",
@@ -162,7 +162,7 @@
 
                 $('body').on('click', '.attivo', readmoreAttiviCallback);
                 $('body').on('click', '.boxx .readmore-box', boxReadMore);
-                $('.ajax-popup-link').magnificPopup({
+                $('.ajax-popup-link,.page-template-archive .main > li > a').magnificPopup({
                     type: 'ajax',
                     tLoading: '<div class="cube1"></div><div class="cube2"></div>',
                     closeOnContentClick: false,
@@ -313,7 +313,7 @@
                         },
                         success: function(data) {
 
-                            if (data.loggedin == true) {
+                            if (data.loggedin === true) {
                                 $.magnificPopup.instance.updateItemHTML();
                             } else {
                                 $('#loginform').append('<p style="color:red;" >' + data.message + '</p>');
@@ -487,7 +487,7 @@
             wrapper.addClass('transparent').delay(800).queue(function() {
                wrapper.addClass('nobg');
               parag.addClass('maxHeight padding-now now');
-              clickB.text(lang[window.wp_locale]['Chiudi']);
+              clickB.text(lang[window.wp_locale].Chiudi);
               wrapper.toggleClass('transparent fadeIn');
 
               $(this).dequeue();
@@ -520,7 +520,7 @@
                 parag.addClass('maxHeight padding-now');
                 $(this).dequeue();
             }).delay(800).queue(function() {
-                clickB.text(lang[window.wp_locale]['Chiudi']);
+                clickB.text(lang[window.wp_locale].Chiudi);
                 textBody.toggleClass('transparent fadeIn');
                 contentWrapper.addClass('auto-height');
                 clickBox.addClass('full-width js-open');
@@ -544,7 +544,7 @@
                 wrapper.toggleClass('absolute ');
                 clickB.text(lang[window.wp_locale]['Leggi Tutto']);
                 textBody.toggleClass('transparent fadeIn');
-                wrapper.removeClass('open-pad')
+                wrapper.removeClass('open-pad');
                 $(this).dequeue();
             }).delay(700).queue(function() {
                 wrapper.removeClass('absolute now');
@@ -578,7 +578,7 @@
     function readmoreCallback(e) {
         var text = $(e.currentTarget).text();
         if (text === lang[window.wp_locale]['Leggi Tutto']) {
-            $(e.currentTarget).text(lang[window.wp_locale]['Chiudi']);
+            $(e.currentTarget).text(lang[window.wp_locale].Chiudi);
         } else {
             $(e.currentTarget).text(lang[window.wp_locale]['Leggi Tutto']);
         }
@@ -616,7 +616,7 @@
                 prev: postData[keys[(index - 1) > -1 ? (index - 1) : keys.length - 1]]
             },
             aaa = circleRpl(data);
-        prodottoSingle=data.first.prodotti.length===1?data.first.prodotti[0]['title']:'';
+        prodottoSingle=data.first.prodotti.length===1?data.first.prodotti[0].title:'';
         titles=data.first.title;
         var pageW = $('.page-wrapper>.content');
         pageW.children('.main').removeClass('newtemp').addClass('oldtemp');
@@ -674,8 +674,7 @@
                 }
                 $('.sub-menu .menu-item').removeClass('active');
                 menu.each(function(i, menu) {
-                    var menu = $(menu);
-                    submenus = menu.find('.sub-menu li');
+                    submenus = $(menu).find('.sub-menu li');
                     submenu = submenus.slice(index, index + 1);
                     if (submenu.length !== submenu.add('.active').length) {
 
