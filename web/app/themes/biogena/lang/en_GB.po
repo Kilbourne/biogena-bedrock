@@ -183,7 +183,7 @@ msgstr "Coadjuvant Treatments for"
 
 #: templates/content-single-linee.php:113
 msgid "Accedi alla nostra area riservata."
-msgstr "Access to Reserved Area"
+msgstr "Access to Reserved Area."
 
 #: templates/content-single-prodotti.php:9
 msgid "Torna alla linea"
@@ -259,4 +259,4 @@ msgstr "Careers"
 
 #: templates/underscore-template.php:100
 msgid "Accedi alla nostra area riservata"
-msgstr "Enter in out reserved area."
+msgstr "Access to Reserved Area"

@@ -190,7 +190,7 @@
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
                 if (document.location.toString().indexOf('osmin-linea-pediatrica') > -1) {
-                    $('li.menu-prodotti,.menu-linea-osmin').removeClass('active');
+                    $('li.menu-prodotti,li.menu-products,.menu-linea-osmin,.menu-osmin-line').removeClass('active');
                 }
                 if ($('.slider-patologie-home').length) {
                     downSlider = new Swiper('.slider-patologie', downSliderHomeOptions());

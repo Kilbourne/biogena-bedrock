@@ -54,7 +54,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
                 <div  class="boxx-wrapper"><h3><?php _e("La soluzione Biogena","sage");?></h3>
 
                                  <div class="flag-body">
-                                   <p class="soluzione-text" ><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage");?></p>
+                                   <p class="soluzione-text" ><?php _e("Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage");?></p>
                                    <p><?= $first['fields']['prevenzione'];?></p>
                                   <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
                                  </div>

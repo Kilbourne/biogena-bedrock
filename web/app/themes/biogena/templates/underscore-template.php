@@ -97,7 +97,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
                         <%= prod.content %>
                         <div class="more">
                         <% if(riservato){ %>
-                          <a href="http://<%= document.domain %>/biogena/area-riservata/" class="ajax-popup-link" title=""><?php _e("Accedi alla nostra area riservata","sage"); ?>.</a>
+                          <a href="<?= get_page_link(634);?>" class="ajax-popup-link" title=""><?php _e("Accedi alla nostra area riservata","sage"); ?>.</a>
                         <% }else{ %>
                           <a href="<%= prod['permalink'] %>" title=""><?php _e("Vai alla scheda prodotto","sage"); ?></a>
                         <% } %>
@@ -141,7 +141,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
               </div><div class="box2 boxx">
                 <div  class="boxx-wrapper"><h3><?php _e("La soluzione Biogena","sage"); ?></h3>
                                                  <div class="flag-body">
-                                <p class="soluzione-text"><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage"); ?></p>
+                                <p class="soluzione-text"><?php _e("Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage"); ?></p>
                                  <p><%= first['fields']['prevenzione'] %></p>
                                   <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                                  </div>

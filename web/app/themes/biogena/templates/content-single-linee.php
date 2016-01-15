@@ -109,8 +109,8 @@ $double_claim=str_replace ('<br/>','',$double_claim);
                 <?= $prod['content']; ?>
                 <div class="more">
                 <?php if($riservato){
-                  $page_obj = get_page_by_title( 'Area Riservata') ;
-                  echo '<a href="'.get_page_link($page_obj -> ID).'" class="ajax-popup-link" >'.__("Accedi alla nostra area riservata.","sage").'</a>';
+
+                  echo '<a href="'.get_page_link(634).'" class="ajax-popup-link" >'.__("Accedi alla nostra area riservata.","sage").'</a>';
                 } else{?>
                   <a href="<?= $prod['permalink']; ?>"  title=""><?php _e("Vai alla scheda prodotto","sage");?></a>
                 <?php } ?>

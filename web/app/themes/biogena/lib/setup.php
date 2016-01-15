@@ -97,7 +97,7 @@ function display_page_title() {
   isset($display) || $display = in_array(true, [
     // The sidebar will NOT be displayed if ANY of the following return true.
     // @link https://codex.wordpress.org/Conditional_Tags
-    get_the_title()!=='Azienda'
+    get_the_ID()!==7
   ]);
   return $display;
 }

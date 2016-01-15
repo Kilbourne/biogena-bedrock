@@ -37,7 +37,7 @@
         the_title(); ?></h5>
         <div class="content"><?php
         the_content(__('Leggi Tutto','sage')); ?><a href="
-<?php $page_obj = get_page_by_title( 'Articoli') ; echo get_page_link($page_obj -> ID) ; ?>
+<?php  echo get_page_link(1181) ; ?>
 
 " title="" ><?php _e("Altre News","sage"); ?></a></div>
       </div>
