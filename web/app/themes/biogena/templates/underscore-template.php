@@ -106,9 +106,9 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
                     </div>
                     <% if(first.prodotti.length >3 && ((key+1) % 3 === 0 || key===(first.prodotti.length-1))){ %> <%= '</div>' %> <% } %>
                   <% } )} %>
-                  <% if(first.prodotti.length>3){ %> <%= '</div><div class="arrows-wrapper"><div class="swiper-button-prev"></div><p>'.__("Altri Prodotti","sage").'</p> <div class="swiper-button-next"></div></div><hr>' %>  <% } %>
+                  <% if(first.prodotti.length>3){ %> <%= '</div><div class="arrows-wrapper"><div class="swiper-button-prev"></div><p>' %> <?php _e("Altri Prodotti","sage"); ?> <%= '</p> <div class="swiper-button-next"></div></div><hr>' %>  <% } %>
         <% if(first['prodotti'].length<2){ %>
- <div class="single-linea"> </div>
+ <div class="single-linea"><div class="cube1"></div><div class="cube2"></div> </div>
 <%        } %>
       </div>
               </div>
@@ -136,23 +136,27 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
             <hr>
             <div class="content-wrapper">
                <div class="box1 boxx">
-                <div class="boxx-wrapper"><h3><?php _e("Parliamo di...","sage"); ?></h3>
-                                <div class="flag-body"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><% } %> </div></div>
+                <div class="boxx-wrapper left"><h3><?php _e("Parliamo di...","sage"); ?></h3>
+                                <div class="flag-body"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><% } %> </div>
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/doctor-1.jpg" alt="">
+                                </div>
               </div><div class="box2 boxx">
-                <div  class="boxx-wrapper"><h3><?php _e("La soluzione Biogena","sage"); ?></h3>
+                <div  class="boxx-wrapper left"><h3><?php _e("La soluzione Biogena","sage"); ?></h3>
                                                  <div class="flag-body">
                                 <p class="soluzione-text"><?php _e("Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage"); ?></p>
                                  <p><%= first['fields']['prevenzione'] %></p>
                                   <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                                  </div>
+                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/lab-2.jpg" alt="">
                                 </div>
               </div><div class="box3 boxx">
-                         <div  class="boxx-wrapper">
+                         <div  class="boxx-wrapper left">
                   <h3>FAQ</h3>
                   <div class="flag-body">
                     <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?> </p>
                     <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                   </div>
+                  <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/woman-ask.png" alt="">
                 </div>
               </div>
               </div>
@@ -178,6 +182,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
               <% if(first['prodotti'].length>1){ %>
                                   <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
               <% } %>
 
                 </div>

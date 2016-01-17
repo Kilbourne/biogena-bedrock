@@ -180,9 +180,19 @@ min-height: 271px;
 }
 
 .nav-primary > .nav >.menu-logo,.nav-primary > .nav >.menu-item.other{ margin-top:0;}
-.menu-linea-osmin .menu-image{
-  width:100% !important;
-  height:auto !important;
+.nav-primary > .nav .menu-area-baby{
+    .sub-menu{
+      width: 100%;
+    padding: 5%;
+.menu-linea-osmin>a{
+  padding:0;
+  >span{display: block;}
+}
+  .menu-image{
+    width:100% !important;
+    height:auto !important;
+  }
+  }
 }
 
 
@@ -313,6 +323,13 @@ vertical-align: middle;
       margin:0;
       .menu-image-title-below{
         padding-left: 5%;
+        text-align:left;
+        >img{
+          width: 33%;
+height: auto;
+margin: 0px 0px 0.5rem;
+padding: 0px;
+        }
       }
     }
   }

@@ -25,7 +25,7 @@
             @include media-query(lap-and-up) {
                 width: 33.333%;
             }
-            background-color:#F7F6F6;
+
             height: 100%;
             font-size: 0.9rem;
             line-height: 1.5;
@@ -39,7 +39,7 @@
                 background-repeat: no-repeat;
                 background-position: right center;
                 background-size: auto 100%;
-                background-color: #F7F6F6;
+                //@include media-query(lap-and-up){background-color:#F7F6F6;}
                 >h3 {
                     color: rgb(36, 86, 155);
                 }
@@ -92,10 +92,38 @@
                     max-height: 300px;
                 }
             }
+
+        &.box1,&.box2,&.box3{
+          .boxx-wrapper{
+            position: relative;
+            z-index: 3;
+            background-color:#F7F6F6;
+           &.left{left:0;}
+
+          >img{
+              position: absolute;
+              top: 0px;
+              z-index: -1;
+              left: auto;
+              max-height: 100%;
+              right:0;
+              @include media-query(lap-and-up){ left:0;
+              background-color: #F7F6F6;}
+                              &.transparent {
+                    opacity: 0;
+                    transition: opacity 0.8s linear;
+                }
+                &.fadeIn {
+                    opacity: 1;
+                    transition: opacity 0.8s linear;
+                }
+            }
+             }
+        }
         }
         .box1 {
             .boxx-wrapper {
-                background-image: url('../images/doctor-1.jpg');
+             //   background-image: url('../images/doctor-1.jpg');
             }
             .flag-body {
                 >p {
@@ -108,18 +136,28 @@
         }
         .box2 {
             .boxx-wrapper {
-                background-image: url('../images/lab-2.jpg');
+               // background-image: url('../images/lab-2.jpg');
             }
         }
         .box3 {
 
             .boxx-wrapper {
-                background-image: url('../images/woman-ask.png'),url('../images/ask-pattern.jpg');
+              @include media-query(palm){
+                 background-repeat: no-repeat;
+                background-position: 0% 0%;
+                background-size: 100% auto;
+                background-image: url('../images/ask-pattern.jpg');
+              }
+              >img{
+                background-color: transparent;
                 background-repeat: no-repeat;
-                background-position: right center,0% 0%;
-                background-size: auto 100%,100% auto;
-                @include media-query(lap-and-up){background-size: auto 100%,auto 100%;}
+                background-position: 0% 0%;
+                background-size: 100% auto;
+                @include media-query(lap-and-up){background-size: auto 100%;
+                background-image: url('../images/ask-pattern.jpg');
                 background-color: #F7F6F6;
+                }
+                }
 
             }
             .flag-body {
@@ -131,6 +169,7 @@
                 }
             }
         }
+
     }
     .content-wrapper {
         &.auto-height {
@@ -139,11 +178,17 @@
         }
         .boxx {
             &.full-width {
-                width: 100%
+                width: 100%;
+
+
             }
-            //&.no-width{
-            //width:0;
-            //}
+            &.now{
+              transition: width 0.8s linear;
+            }
+            &.no-width{
+            width:0;
+
+            }
             .boxx-wrapper {
                 &.transparent {
                     opacity: 0;
@@ -162,7 +207,8 @@
                 &.full {
                     left: 0;
                     right: 0;
-
+                    background-color: #F7F6F6;
+                    z-index: 11;
                 }
                 &.open-pad{padding:1rem 3%;}
                 //&.full-width{width:100%;}
@@ -180,7 +226,7 @@
                 //&.static{position:static;}
                 //&.delay{ transition: all 1.6s linear 1.6s; }
                 &.now {
-                    transition: opacity 0.8s linear, left 0.8s linear,right 0.8s linear,background-size 0.8s linear;
+                    transition: opacity 0.8s linear,padding 0.8s linear, left 0.8s linear,right 0.8s linear,background-size 0.8s linear;
                 }
             }
 
@@ -467,8 +513,9 @@
   }
 }
 */
-
+.single-area-skin-care,.post-type-archive-area-skin-care{
 .fotoprotezione-wrapper {
+  display:flex;
     &.content-wrapper{
       height: auto;
       background-color:#F7F6F6;
@@ -478,9 +525,13 @@
     //display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
-    align-items: flex-start;
+    //align-items: flex-start;
     .fotop {
+      height:auto;
         width: 100%;
+            @include media-query(lap-and-up) {
+      width:33.333%;
+    }
         .boxx-wrapper>h3 {
             margin: 0px 0 0.5rem;
             //padding: 1rem 1%;
@@ -495,21 +546,13 @@
     }
     .fotop-firstrow,
     .fotop3 {
-        flex-basis: 100%;
+        //flex-basis: 100%;
     }
     .fotop-firstrow {
         position: relative;
         width: 100%;
     }
-    @include media-query(lap-and-up) {
-        .fotop1,
-        .fotop2 {
-            width: 50%;
-            display: inline-block;
-        }
-        //.fotop1{ position: absolute; }
-        //.fotop2{ position: relative; }
-    }
+
     .fotop2 .fotop-content > p,
     .fotop3 .fotop-content > p {
         //margin-bottom: 0.75rem;
@@ -560,7 +603,7 @@
         }
     }
 }
-
+}
 .single-linee,
 .post-type-archive-linee {
     .desc {
@@ -897,6 +940,7 @@ body.post-type-archive-linee {
     }
     .product-last-line {
         overflow: hidden;
+        @include media-query('palm'){padding-right: 2%;}
     }
     .faq-single>a {
         color: #24569B;

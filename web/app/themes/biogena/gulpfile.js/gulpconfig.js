@@ -1,5 +1,5 @@
 var   argv             = require('minimist')(process.argv.slice(2))
-	, devUrl		   = ''
+	, devUrl		   = require('./devUrl')
 	, manifestSrc      = './assets/manifest.json'
 	, enabled = {
 		  // Enable static asset revisioning when `--production`

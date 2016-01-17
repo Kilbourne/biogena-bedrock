@@ -7,11 +7,26 @@
 
     if ($slides) {
         foreach ($slides as $key => $slide) {
+          $image_id=get_post_thumbnail_id($slide->ID);
+$image_meta = wp_get_attachment_metadata( $image_id );
+$image = wp_get_attachment_image_src( $image_id,'full');
+if ( $image ) {
+    $image_src = $image[0];
+    $size_array = array(
+        absint( $image[1] ),
+        absint( $image[2] )
+    );
+}
+$srcset_value = wp_calculate_image_srcset( $size_array, $image_src, $image_meta );
+$sizes_value = wp_get_attachment_image_sizes($image_id, 'full' );
+$srcset = $srcset_value ? ' srcset="' . esc_attr( $srcset_value ) . '"' : '';
+$sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
 ?>
 
         <div class="swiper-slide <?php
-            echo $slide->post_title; ?>" ><?php
-            echo get_the_post_thumbnail($slide->ID); ?>      <div class="big-claim">
+            echo $slide->post_title; ?>" >
+            <img <?php  echo $srcset.' '.$sizes;  ?> class="swiper-lazy wp-post-image" src="<?= $image_src ?>"  alt="">
+      <div class="big-claim">
           <p class="up" >
            <?php
             echo get_post_meta($slide->ID, 'claim_parte_superiore', true); ?>
@@ -78,7 +93,7 @@
         $img_src_s=wp_get_attachment_image_src( $thumb,'thumbnail')[0];
 
       ?>
-        <img src="<?= $img_src_f ?>" srcset="<?= $img_src_f  ?> 800w,  <?= $img_src_m ?> 300w, <?= $img_src_s ?> 150w" sizes="(min-width:1215px ) 22.0665vw, (min-width:912px ) 29.422vw, (min-width:608px ) 44.133vw, 94vw" alt="">
+        <img srcset="<?= $img_src_f  ?> 800w,  <?= $img_src_m ?> 300w, <?= $img_src_s ?> 150w" sizes="(min-width:1215px ) 22.0665vw, (min-width:912px ) 29.422vw, (min-width:608px ) 44.133vw, 94vw"  alt="">
       <?php //echo get_the_post_thumbnail($patologia->ID,'medium'); ?>
          <div>
 
@@ -90,6 +105,7 @@
       </div>
       <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
     </div>
 
 </div>

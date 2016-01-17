@@ -141,7 +141,9 @@ while (have_posts()):
 
                     </div>
                         <?php if(count($connected2)>1){ ?>
-                                    <div class="navigation"></div>
+                                                                                    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
               <?php } ?>
                 </div>
           </div>
