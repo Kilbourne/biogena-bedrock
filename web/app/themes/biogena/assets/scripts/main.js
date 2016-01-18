@@ -454,13 +454,13 @@ otherBox.show(800);
 
     function callbackDesktop() {
         setTimeout(bigClaim,200);
-        attiviMobileSlider();
+        attiviDesktopSlider();
         boxDesktop();
     }
 
     function callbackMobile() {
         bigClaimOff();
-        attiviDesktopSlider();
+        attiviMobileSlider();
         boxMobile();
     }
 
