@@ -49,7 +49,8 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
             <div class="content-wrapper">
               <div class="box1 boxx">
                 <div class="boxx-wrapper left"><h3><?php _e("Parliamo di...","sage");?></h3>
-                                <div class="flag-body "><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span><?php } ?> </div>
+                                <div class="flag-body "><div class="desc-foto"><img src="<?= $first['fields']['foto_descrizione'];?>" alt=""></div><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span><?php } ?>
+                                </div>
 <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/doctor-1.jpg" alt="">
                                 </div>
 
@@ -85,7 +86,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
   <?php } ?>
           <hr>
           <div class="slideshow correlati">
-              <h4>  <?php _e("Scopri","sage");?> <?= $first['linea']['title']; ?></h4>
+              <h4>  <a href="<?= $first['linea']['permalink']; ?>" title=""><?php _e("Scopri","sage");?> <?= $first['linea']['title']; ?></a></h4>
               <?php if(count($first['prodotti'])>1){ ?>
                 <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?>" >
               <?php }else {echo '<div class=" no-slider active" >';} ?>

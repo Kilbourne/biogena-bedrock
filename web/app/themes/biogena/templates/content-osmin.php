@@ -15,25 +15,29 @@
 
             <div class="content-wrapper osmin">
               <div class="box1 boxx">
-                <div class="boxx-wrapper"><h3><?php _e("Parliamo di...","sage");?></h3>
-                                <div class="flag-body "><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><?php } ?> </div></div>
+                <div class="boxx-wrapper left"><h3><?php _e("Parliamo di...","sage");?></h3>
+                                <div class="flag-body "><div class="desc-foto"><img src="<?= $first['fields']['foto_descrizione'];?>" alt=""></div><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){ // 2 ?><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><?php } ?> </div>
+                                <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/doctor-1.jpg" alt="">
+                                </div>
               </div><div class="box2 boxx">
-                <div  class="boxx-wrapper"><h3><?php _e("La soluzione Biogena","sage");?></h3>
+                <div  class="boxx-wrapper left "><h3><?php _e("La soluzione Biogena","sage");?></h3>
 
                                  <div class="flag-body">
                                    <p class="soluzione-text" ><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage");?></p>
                                    <p><?= $first['fields']['prevenzione'];?></p>
                                   <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                                  </div>
+                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/lab-2.jpg" alt="">
                                 </div>
 
               </div><div class="box3 boxx">
-                <div  class="boxx-wrapper">
+                <div  class="boxx-wrapper left">
                   <h3><?php _e("FAQ","sage"); ?></h3>
                   <div class="flag-body">
                     <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?> </p>
                     <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
                   </div>
+                  <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/woman-ask.png" alt="">
                 </div>
               </div>
             </div>

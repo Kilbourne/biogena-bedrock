@@ -364,11 +364,11 @@ function boxDesktop(){
                         wrapper.addClass('nobg');
                         parag.addClass('maxHeight padding-now now');
                         clickB.text(lang[window.wp_locale].Chiudi);
-                        wrapper.toggleClass('transparent fadeIn');
-
+                          wrapper.toggleClass('transparent fadeIn');
+                        clickBox.addClass('js-open');
                         $(this).dequeue();
                     });
-                    clickBox.addClass('js-open');
+
                 } else {
                     wrapper.toggleClass('transparent fadeIn').delay(800).queue(function() {
 
@@ -377,11 +377,12 @@ function boxDesktop(){
                         wrapper.add(img).toggleClass('transparent fadeIn');
                         wrapper.removeClass('nobg');
                         parag.removeClass('padding-now');
+                        clickBox.removeClass('js-open');
                         $(this).dequeue();
                     }).delay(800).queue(function() {
                         parag.removeClass('now');
                         wrapper.add(img).removeClass(' fadeIn');
-                        clickBox.removeClass('js-open');
+
                         $(this).dequeue();
                     });
                     parag.removeClass('maxHeight');
@@ -433,7 +434,7 @@ otherBox.show(800);
                         wrapper.toggleClass('  now  left ');
                         clickB.text(lang[window.wp_locale]['Leggi Tutto']);
                         textBody.add(img).add(otherBox.children().children('.flag-body,img')).toggleClass('transparent fadeIn');
-
+                        clickBox.removeClass('js-open');
 
                         $(this).dequeue();
                     }).delay(700).queue(function() {
@@ -441,7 +442,7 @@ otherBox.show(800);
                         allBox.removeClass('now');
                         otherBox.removeClass('absolute');
                         textBody.add(img).add(otherBox.children().children('.flag-body,img')).removeClass('fadeIn');
-                        clickBox.removeClass('js-open');
+
                         $(this).dequeue();
 
                     });

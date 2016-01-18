@@ -27,7 +27,7 @@
             }
 
             height: 100%;
-            font-size: 0.9rem;
+            font-size: 1rem;
             line-height: 1.5;
             text-align: left;
             vertical-align: top;
@@ -72,13 +72,14 @@
                 color: #fff;
                 text-align: center;
                 cursor: pointer;
+                font-size:0.9rem;
             }
             .flag-body {
                 width:100%;
-                font-size: 0.9rem;
+                font-size: 1rem;
                 line-height: 1.5;
                 >p {
-                    font-size: 0.9rem;
+                    font-size: 1rem;
                     line-height: 1.5;
                     text-align: left;
                     max-height: 0px;
@@ -87,7 +88,7 @@
                     //transition: all 1.6s linear ;
                     //transition: max-height 1.6s linear;
                 }
-                >p:first-child {
+                >p:first-of-type {
                     margin-bottom: 0;
                     max-height: 300px;
                 }
@@ -132,6 +133,31 @@
                         padding-right: 51%;
                     }
                 }
+              .desc-foto{
+                display:none;
+                vertical-align: middle;
+              }
+            }
+
+            &.js-open{
+
+              .flag-body {
+                display: inline-block;
+
+                vertical-align: top;
+                 .desc-foto{
+                  padding-bottom: 10px;
+                  display:block;
+
+                  @include media-query(lap-and-up){
+                display: inline-block;
+                float: right;
+                width: 25%;}
+                & img{
+                  @include media-query(palm){ display:block;margin:0 auto;}
+                }
+                }
+              }
             }
         }
         .box2 {
@@ -348,7 +374,7 @@
             >p {
                 display: none;
             }
-            >p:first-child {
+            >p:first-of-type {
                 margin-bottom: 0;
                 display: inline !important;
             }
@@ -532,16 +558,19 @@
             @include media-query(lap-and-up) {
       width:33.333%;
     }
-        .boxx-wrapper>h3 {
+        .boxx-wrapper{
+          padding: 1rem 0.75rem 0;
+        >h3 {
             margin: 0px 0 0.5rem;
             //padding: 1rem 1%;
             font-size: 1rem;
             //background-color: #fff;
         }
+      }
         .fotop-content {
             //color: #FFF;
             //padding: 1rem 3%;
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
     }
     .fotop-firstrow,
@@ -561,8 +590,8 @@
     .fotop1 {
         left: 0px;
         top: 0px;
-        height: 100%;
-        background: #F26B34 none repeat scroll 0% 0%;
+        //height: 100%;
+        .boxx-wrapper{background: #F26B34 none repeat scroll 0% 0%;}
         >h3 {
             color: #F26B34;
             border: 2px solid #F26B34;
@@ -578,7 +607,7 @@
     }
     .fotop2 {
         left: 50%;
-        background: rgb(255, 153, 0) none repeat scroll 0% 0%;
+        .boxx-wrapper{background: rgb(255, 153, 0) none repeat scroll 0% 0%;}
         >h3 {
             color: rgb(255, 153, 0);
             border: 2px solid rgb(255, 153, 0);
@@ -626,7 +655,7 @@
         max-width: 910px;
         padding: 0px 2%;
         margin: 1.5rem auto 0px;
-        &.no-pad{margin: 0 auto ;}
+        &.no-pad{margin: 0 auto 1rem ;}
         a {
             text-decoration: none;
         }
@@ -712,7 +741,7 @@
                 >p {
                     display: none;
                 }
-                >p:first-child {
+                >p:first-of-type {
                     margin-bottom: 0;
                     display: inline !important;
                 }
@@ -1000,7 +1029,7 @@ body.post-type-archive-linee {
             }
 
      .flag-body>.list-wrapper {
-                    font-size: 0.9rem;
+                    font-size: 1rem;
                     line-height: 1.5;
                     text-align: left;
                     max-height: 0px;

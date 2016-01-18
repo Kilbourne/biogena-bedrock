@@ -119,7 +119,7 @@ gravity_form_enqueue_scripts(1, false);
 gravity_form_enqueue_scripts(2, true);
 // Execute the action only if the user isn't logged in
 if (!is_user_logged_in()) {
-      wp_localize_script( 'sage/js', 'ajax_login_object', array(
+      wp_localize_script( 'sage-js', 'ajax_login_object', array(
         'ajaxurl' => admin_url( 'admin-ajax.php' ),
         'redirecturl' => "http://" . $_SERVER['HTTP_HOST']  . $_SERVER['REQUEST_URI'],
         'loadingmessage' => __('Sending user info, please wait...')

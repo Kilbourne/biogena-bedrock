@@ -74,7 +74,7 @@ $double_claim=str_replace ('<br/>','',$double_claim);
             </div>
           <?php } ?>
     </div>
-    <div class="content-wrapper <?php if(count($first['prodotti'])<2){ echo 'single-product-wrapper';} if(count($attivi)===0){ echo 'no-pad';}?>">
+    <div class="content-wrapper <?php if(count($first['prodotti'])<2){ echo 'single-product-wrapper ';} if(count($attivi)===0){ echo 'no-pad';}?>">
       <?php if( !$no_or_single ){ ?>
           <h3><?php _e("Trattamenti coadiuvanti per","sage");?> <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
       <?php } ?>
@@ -124,8 +124,9 @@ $double_claim=str_replace ('<br/>','',$double_claim);
           $title=isset($first['prodotti'][0])?$first['prodotti'][0]['title']:get_the_title();
           global $post;
           $post = get_page_by_title( $title, 'OBJECT', 'prodotti' );
-          query_posts( array('p'=>$post->ID,'post_type'=>'prodotti'));
-          include_once(locate_template('templates/content-single-prodotti.php'));
+          query_posts( array('p'=>$post->ID,'post_type'=>'prodotti')); ?>
+          <div class="single-linea"><?php include_once(locate_template('templates/content-single-prodotti.php')); ?></div>
+          <?php
         } ?>
       </div>
     </div>

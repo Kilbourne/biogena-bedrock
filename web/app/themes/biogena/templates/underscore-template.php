@@ -137,7 +137,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
             <div class="content-wrapper">
                <div class="box1 boxx">
                 <div class="boxx-wrapper left"><h3><?php _e("Parliamo di...","sage"); ?></h3>
-                                <div class="flag-body"><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><% } %> </div>
+                                <div class="flag-body"><div class="desc-foto"><img src="<%= first['fields']['foto_descrizione']%>" alt=""></div><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><% } %> </div>
                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/doctor-1.jpg" alt="">
                                 </div>
               </div><div class="box2 boxx">
@@ -170,7 +170,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
             <hr>
               <div class="slideshow correlati">
 
-          <h4>  <?php _e("Scopri","sage"); ?> <%= first.linea.title %>  </h4>
+          <h4>  <a href="<%= first.linea.permalink %>" title=""><?php _e("Scopri","sage"); ?> <%= first.linea.title %></a>  </h4>
               <% if(first['prodotti'].length>1){ %>
                 <div class=" slider-patologie active <%= first['prodotti'].length===2?'two':'three' %>" >
 <% }else { %> <%= '<div class=" no-slider " >' %><% } %>
