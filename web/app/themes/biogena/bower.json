@@ -52,7 +52,8 @@
     "enquire": "~2.1.2",
     "magnific-popup": "~1.0.0",
     "imagesloaded": "~3.2.0",
-    "fastclick": "~1.0.6"
+    "fastclick": "~1.0.6",
+    "matchHeight": "~0.7.0"
   },
   "overrides": {
     "background-check": {
