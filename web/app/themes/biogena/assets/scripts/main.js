@@ -360,6 +360,7 @@ function boxDesktop(){
                 contentWrapper = clickBox.parent(),
                 allBox = contentWrapper.children('.boxx'),
                 otherBox = allBox.not(clickBox);
+                var aziendaabs='';
             if (window.matchMedia("(max-width: 49.999em)").matches) {
                 if (!clickBox.hasClass('js-open')) {
                     wrapper.add(img).add('img-cont').addClass('transparent').not(img).delay(800).queue(function() {
@@ -394,7 +395,7 @@ function boxDesktop(){
 
                 if (!clickBox.hasClass('js-open')) {
                     textBody.add(img).add(imgCont).addClass('transparent').not(img).not(imgCont).delay(800).queue(function() {
-                        wrapper.addClass('now full');
+                        wrapper.addClass('now full '+aziendaabs);
                         imgCont.hide();
 
 
@@ -409,12 +410,13 @@ function boxDesktop(){
                         clickBox.addClass('full-width js-open');
                         otherBox.hide();
 
-                        wrapper.removeClass('absolute  ');
+                        wrapper.removeClass('absolute absolute2 ');
 
                         $(this).dequeue();
                     });
                     if(wrapper.hasClass('left')){wrapper.removeClass('left');}
-                    wrapper.addClass(' absolute  ');
+                    if(!azienda().length){wrapper.addClass(' absolute  ');}
+                    else{ aziendaabs='absolute';wrapper.addClass(' absolute2  ');}
 //                    otherBox.children().children('img').hide();
 
                 } else {

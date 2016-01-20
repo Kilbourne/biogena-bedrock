@@ -53,7 +53,8 @@
     "magnific-popup": "~1.0.0",
     "imagesloaded": "~3.2.0",
     "fastclick": "~1.0.6",
-    "matchHeight": "~0.7.0"
+    "matchHeight": "~0.7.0",
+    "jQuery.dotdotdot": "~1.7.4"
   },
   "overrides": {
     "background-check": {
