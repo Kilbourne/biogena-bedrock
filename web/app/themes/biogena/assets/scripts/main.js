@@ -34,6 +34,9 @@
         isSingleLinea = function() {
             return $('body.single-linee .single-linea').length;
         },
+        isBox=function(){
+          return $('.boxx:first-child .flag-body p:first-of-type');
+        },
         bodyClasses = ['home', 'post-type-archive-linee', 'azienda', 'single-linee', 'single-area-skin-care', 'post-type-archive-area-skin-care', 'no-full-slider', 'page', 'search', 'error404', 'osmin-linea-pediatrica'];
 
     var downSlider, oldPostType, fullSlider, swiperAttivi, swiperProd, linkCallbackBusy = false,
@@ -121,6 +124,7 @@
                 popUp();
                 osminMenu();
                 secondSlider();
+                initDotdot();
                 accordion();
                 postArchiveMenu();
                 aziendaMatchHeight();
@@ -536,6 +540,16 @@ otherBox.show(800);
         }
 
     })();
+
+    function initDotdot(){
+      var boxes=isBox();
+      if(boxes.length){
+        boxes.dotdotdot({
+          watch:true,
+        });
+      }
+    }
+
     function fullImage() {
         var fi = isfullImage();
         if (!!fi.length) {
