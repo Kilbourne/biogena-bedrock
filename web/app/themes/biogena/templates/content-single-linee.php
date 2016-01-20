@@ -1,6 +1,6 @@
 <?php
 $title=get_the_title();
-if($title !=='Osmin'){
+if($title !=='Linea Osmin'){
 
   $title=is_single()?html_entity_decode(get_the_title()):0;
   $by_index=is_single()?false:true;
@@ -11,6 +11,7 @@ if($title !=='Osmin'){
   $no_or_single=( isset($first['fields']['no_area_skin_care']) && $first['fields']['no_area_skin_care']===TRUE )   || (isset($first['fields']['riservato']) && $first['fields']['riservato']===TRUE);
   $riservato=isset($first['fields']['riservato']) && $first['fields']['riservato']===TRUE;
   $double=isset($first['fields']['double']) && $first['fields']['double']===TRUE;
+  $paginazione=isset($first['fields']['paginazione'])?intval($first['fields']['paginazione']):FALSE;
 ?>
 
 <?php
@@ -25,13 +26,14 @@ if($no_asc){
 $claim=str_replace ('<br></br>','',$claim);
 $claim=str_replace ('<br>','',$claim);
 $claim=str_replace ('<br/>','',$claim);
-if(!$double){
+$attivi=$first['fields']['attivi_di_linea'];
+if(!$double && !($singolo && count($attivi)===0)){
   echo '<div class="background-container specialita">';
 echo $claim;
   the_post_thumbnail( );
   echo ' </div>';
 
-}else{
+}elseif(!($singolo && count($attivi)===0)){
 $double_claim=$first['fields']['double_claim'];
 $double_claim=str_replace ('<br></br>','',$double_claim);
 $double_claim=str_replace ('<br>','',$double_claim);
@@ -49,7 +51,7 @@ $double_claim=str_replace ('<br/>','',$double_claim);
     </div>
 <?php } ?>
 <div class="content">
-    <div class="desc <?php $attivi=$first['fields']['attivi_di_linea']; if(count($attivi)===0){ echo 'no-pad';} ?>">
+    <div class="desc <?php  if(count($attivi)===0){ echo 'no-pad';} ?>">
 
 
       <div class="down-nav">
@@ -61,7 +63,7 @@ $double_claim=str_replace ('<br/>','',$double_claim);
           </svg></a></span></div></div>
 
           <?php $count=count($attivi); if($count>0){ ?>
-            <div class="attivi-wrapper">
+            <div class="attivi-wrapper <?php  if($count===2){echo " two ";};?> <?php  if($count===3){echo " three  ";};?> ">
                <h3><?php _e("Gli Attivi di Linea","sage");?> </h3>
                <ul class="attivi">
                  <?php foreach ($attivi as $key => $attivo):
@@ -82,7 +84,7 @@ $double_claim=str_replace ('<br/>','',$double_claim);
       <?php if(count($first['prodotti'])>1){ ?>
       <?php if(count($first['prodotti'])>3){ echo '<div class="swiper-wrapper">';} ?>
         <?php foreach($first['prodotti'] as $key=> $prod){ ?>
-        <?php if(count($first['prodotti'])>3 && ($key===0 || ($key) % 3 === 0 )){ echo '<div class="swiper-slide">';} ?>
+        <?php if(count($first['prodotti'])>3 && ($key===0 || (($key % 3 === 0 && !$paginazione)|| $key===$paginazione))){ echo '<div class="swiper-slide">';} ?>
             <div class="product flag-media <?php echo $key % 2 == 0?'odd':'even'; ?>">
 
                 <div>
@@ -117,9 +119,10 @@ $double_claim=str_replace ('<br/>','',$double_claim);
                 </div>
               </div>
             </div>
-             <?php if(count($first['prodotti'])>3 && (  ($key+1) % 3 === 0 || $key===(count($first['prodotti'])-1))){ echo '</div>';} ?>
+             <?php if(count($first['prodotti'])>3 && (  (($key+1) % 3 === 0 && !$paginazione)||($key===$paginazione-1) || $key===(count($first['prodotti'])-1))){ ?> <?= ' </div>'; ?> <?php } ?>
          <?php }} ?>
-         <?php if(count($first['prodotti'])>3){ echo '</div><div class="arrows-wrapper"><div class="swiper-button-prev"></div><p>'.__("Altri Prodotti","sage").'</p> <div class="swiper-button-next"></div></div><hr>';} ?>
+         <?php if(count($first['prodotti'])>3  ){ echo '</div>';} ?>
+         <?php if((count($first['prodotti'])>3 && !$paginazione ) || ( $paginazione!==count($first['prodotti']) && !!$paginazione)){ echo '<div class="arrows-wrapper"><div class="swiper-button-prev"></div><p>'.__("Altri Prodotti","sage").'</p> <div class="swiper-button-next"></div></div><hr>';} ?>
         <?php if(count($first['prodotti'])<2){
           $title=isset($first['prodotti'][0])?$first['prodotti'][0]['title']:get_the_title();
           global $post;
@@ -131,6 +134,6 @@ $double_claim=str_replace ('<br/>','',$double_claim);
       </div>
     </div>
 </div>
-<?php }elseif($title ==='Osmin'){
+<?php }elseif($title ==='Linea Osmin'){
   get_template_part( 'templates/content-osmin');
 }?>

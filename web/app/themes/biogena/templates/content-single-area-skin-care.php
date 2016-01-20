@@ -81,14 +81,14 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
 <hr>
 <div class="fotoprotezione-wrapper content-wrapper">
 
-    <div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Ma che cosa sono le radiazioni UVA e UVB?","sage");?></h3><div class=" flag-body fotop-content"><?php echo $fotoprotezione; ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage");?></h3><div class="flag-body fotop-content"><?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage");?></h3><div class="fotop-content flag-body"><?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span> </div></div></div>
+    <div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Che cosa sono i raggi UVA e UVB?","sage");?></h3><div class=" flag-body fotop-content"><?php echo $fotoprotezione; ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage");?></h3><div class="flag-body fotop-content"><?php $fotoprotezione=$first['fields']['fotoprotezione_2']; echo $fotoprotezione; ?> <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage");?></h3><div class="fotop-content flag-body"><?php $fotoprotezione=$first['fields']['fotoprotezione_3']; echo $fotoprotezione; ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span> </div></div></div>
 </div>
   <?php } ?>
           <hr>
           <div class="slideshow correlati">
               <h4>  <a href="<?= $first['linea']['permalink']; ?>" title=""><?php _e("Scopri","sage");?> <?= $first['linea']['title']; ?></a></h4>
               <?php if(count($first['prodotti'])>1){ ?>
-                <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?>" >
+                <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?> <?= count($first['prodotti'])>3?'multi':'' ?> <?= count($first['prodotti'])>2?'multi2':'' ?>" >
               <?php }else {echo '<div class=" no-slider active" >';} ?>
                     <div class="swiper-wrapper">
                   <?php foreach($first['prodotti'] as $key=> $prod){ ?>

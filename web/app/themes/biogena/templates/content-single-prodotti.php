@@ -125,7 +125,7 @@ while (have_posts()):
                <div class="slideshow correlati">
             <div class="slider-title">  <h3>  <?php _e("Trattamenti coadiuvanti complementari","sage");?> </h3></div>
               <?php if(count($connected2)>1){ ?>
-                <div class=" slider-patologie active <?= count($connected2)===2?'two':'three' ?>" >
+                <div class=" slider-patologie active <?= count($connected2)===2?'two':'three' ?> <?= count($first['prodotti'])>3?'multi':'' ?> <?= count($first['prodotti'])>2?'multi2':'' ?>" >
               <?php }else {echo '<div class=" no-slider " >';} ?>
                     <div class="swiper-wrapper">
 <?php

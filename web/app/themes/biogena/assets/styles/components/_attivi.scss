@@ -195,6 +195,7 @@ padding: 10px;
   text-align: left;
 }
   }
+
 }
   .attivi{
      //   padding: 0 2%;
@@ -243,5 +244,13 @@ display: inline-block;
     .swiper-button-next {
     //right: 3% !important;
     }
+      &.two{
+    .swiper-button{ display:none;}
+  }
+  &.three{
+    @media(min-width:875px){
+        .swiper-button{ display:none;}
+     }
+  }
   }
 }

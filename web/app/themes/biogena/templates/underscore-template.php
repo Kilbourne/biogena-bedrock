@@ -3,23 +3,24 @@
   no_asc=( !!first['fields']['no_area_skin_care'] && first['fields']['no_area_skin_care']===true ),
   singolo=!!first['fields']['prodotto_singolo'] && first['fields']['prodotto_singolo']===true,
   no_or_single=( !!first['fields']['no_area_skin_care'] && first['fields']['no_area_skin_care']===true )   || (!!first['fields']['riservato'] && first['fields']['riservato']===true),
-  riservato=!!first['fields']['riservato'] && first['fields']['riservato']===true;
-  double=!!first['fields']['double'] && first['fields']['double']===true;
+  riservato=!!first['fields']['riservato'] && first['fields']['riservato']===true,
+  double=!!first['fields']['double'] && first['fields']['double']===true,
+  paginazione=!!first['fields']['paginazione']?Number(first['fields']['paginazione']):false;
   %>
 
 <% var regex = /<br\s*[\/]?>/gi;var claim=no_asc?first['fields']['claim_'].replace(regex,''):first['area-skin-care']['fields']['claim_'].replace(regex,'');
 
 var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_claim'].replace(regex,'') : '';
-
+var attivi=first['fields']['attivi_di_linea'];
 
 
  %>
-<% if(!double) { %>
+<% if(!double && !(singolo && attivi.length===0)) { %>
         <div class="background-container specialita">
           <%= claim %>
           <%= first['thumbnail'] %>
       </div>
-<% } else { %>
+<% } else if(!(singolo && attivi.length===0)) { %>
        <div class="background-container specialita double">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
@@ -36,7 +37,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
  <div class="content">
 
 
-                              <div class="desc <% attivi=first['fields']['attivi_di_linea']; if(attivi.length===0){ %> <%= 'no-pad' %> <% } %>">
+                              <div class="desc <%  if(attivi.length===0){ %> <%= 'no-pad' %> <% } %>">
 
 
         <div class="down-nav">
@@ -72,7 +73,8 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
                 <% if(first.prodotti.length>1){ %>
                 <% if(first.prodotti.length>3){ %> <%= '<div class="swiper-wrapper">' %>  <% } %>
                   <% _.each(first.prodotti,function(prod,key){ %>
-                  <% if(first.prodotti.length >3 && (key===0 || key % 3 === 0 )){ %> <%= '<div class="swiper-slide">' %> <% } %>
+
+                  <% if(first.prodotti.length >3 && (key===0 || ((key % 3 === 0 && !paginazione) || key===paginazione ))){ %> <%= '<div class="swiper-slide">' %> <% } %>
                     <div class="product flag-media <%= key % 2 == 0?'odd':'even' %>">
 
                         <div><h3 class='product-title' >
@@ -104,9 +106,13 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
                         </div>
                       </div>
                     </div>
-                    <% if(first.prodotti.length >3 && ((key+1) % 3 === 0 || key===(first.prodotti.length-1))){ %> <%= '</div>' %> <% } %>
+                    <% if(first.prodotti.length >3 && (((key+1) % 3 === 0 && !paginazione)||key===paginazione-1 || key===(first.prodotti.length-1))){ %> <%= '</div>' %> <% } %>
                   <% } )} %>
-                  <% if(first.prodotti.length>3){ %> <%= '</div><div class="arrows-wrapper"><div class="swiper-button-prev"></div><p>' %> <?php _e("Altri Prodotti","sage"); ?> <%= '</p> <div class="swiper-button-next"></div></div><hr>' %>  <% } %>
+
+                  <% if(first.prodotti.length>3 ){ %> <%= '</div>' %>   <% } %>
+                  <% if((first.prodotti.length>3 && !paginazione) || (paginazione !== first.prodotti.length && !!paginazione ) ){ %>
+                  <%= '<div class="arrows-wrapper"><div class="swiper-button-prev"></div><p>' %> <?php _e("Altri Prodotti","sage"); ?> <%= '</p> <div class="swiper-button-next"></div></div><hr>' %>
+                  <% } %>
         <% if(first['prodotti'].length<2){ %>
  <div class="single-linea"><div class="cube1"></div><div class="cube2"></div> </div>
 <%        } %>
@@ -164,7 +170,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
 %>
 <hr>
 <div class="fotoprotezione-wrapper content-wrapper">
-<div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Ma che cosa sono le radiazioni UVA e UVB?","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage"); ?></h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span> </div> </div></div>
+<div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Che cosa sono i raggi UVA e UVB?","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage"); ?></h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span> </div> </div></div>
 </div>
   <% } %>
             <hr>
@@ -172,7 +178,7 @@ var double_claim= !!first['fields']['double_claim'] ? first['fields']['double_cl
 
           <h4>  <a href="<%= first.linea.permalink %>" title=""><?php _e("Scopri","sage"); ?> <%= first.linea.title %></a>  </h4>
               <% if(first['prodotti'].length>1){ %>
-                <div class=" slider-patologie active <%= first['prodotti'].length===2?'two':'three' %>" >
+                <div class=" slider-patologie active <%= first['prodotti'].length===2?'two':'three' %> <%= first['prodotti'].length>3?'multi':'' %> <%= first['prodotti'].length>2?'multi2':'' %>" >
 <% }else { %> <%= '<div class=" no-slider " >' %><% } %>
                     <div class="swiper-wrapper">
                   <% _.each(first.prodotti,function(prod){ %>

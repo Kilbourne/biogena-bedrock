@@ -35,7 +35,11 @@
             return $('body.single-linee .single-linea').length;
         },
         isBox=function(){
-          return $('.boxx:first-child .flag-body p:first-of-type');
+          if($('.fotop').length){
+              return $('.boxx .flag-body p:first-of-type');
+          }else{
+              return $('.boxx:first-child .flag-body p:first-of-type');
+          }
         },
         bodyClasses = ['home', 'post-type-archive-linee', 'azienda', 'single-linee', 'single-area-skin-care', 'post-type-archive-area-skin-care', 'no-full-slider', 'page', 'search', 'error404', 'osmin-linea-pediatrica'];
 
@@ -66,7 +70,8 @@
     var lineeSliderOpt = function() {
             return swiperOptions({
                 slides: 1,
-                controlsPrefix: '.products'
+                controlsPrefix: '.products',
+                custom:'changeHeight'
             });
         },
         homeSlider = function() {
@@ -245,14 +250,14 @@
             if ($('.attivi-wrapper .swiper-button,.attivi-wrapper .swiper-pagination').length) $('.attivi-wrapper .swiper-button,.attivi-wrapper .swiper-pagination').remove();
             attivi.removeClass('swiper-wrapper');
             attivo.removeClass('swiper-slide');
-            if (attivo.length > 3) {
-                if (swiperAttivi instanceof Swiper) {} else {
+            if (attivo.length > 1) {
+
                     $('.attivi-wrapper').append('<div class="swiper-button swiper-button-prev"></div><div class="swiper-button swiper-button-next"></div><div class="swiper-pagination"></div>').append(function() {
                         attivi.addClass('swiper-wrapper');
                         attivo.addClass('swiper-slide');
                         swiperAttivi = new Swiper('.attivi-wrapper', attiviSliderOptions());
                     });
-                }
+
             }
         }
     }
@@ -267,14 +272,14 @@
             attivi.removeClass('swiper-wrapper');
             $('.attivo').removeClass('swiper-slide');
             if (attivo.length > 1) {
-                if (swiperAttivi instanceof Swiper) {} else {
+
                     $('.attivi-wrapper').append('<div class="swiper-button swiper-button-prev"></div><div class="swiper-button swiper-button-next"></div><div class="swiper-pagination"></div>').append(function() {
                         attivi.addClass('swiper-wrapper');
                         attivo.addClass('swiper-slide');
 
                         swiperAttivi = new Swiper('.attivi-wrapper', attiviSliderOptions());
                     });
-                }
+
             }
         }
     }
@@ -405,7 +410,7 @@ function boxDesktop(){
 
                         wrapper.addClass('open-pad');
                         parag.addClass('maxHeight padding-now');
-
+                          isBox().trigger("destroy");
                         $(this).dequeue();
                     }).delay(800).queue(function() {
                         clickB.text(lang[window.wp_locale].Chiudi);
@@ -442,6 +447,13 @@ otherBox.show(800);
                         wrapper.removeClass('absolute');
                         wrapper.toggleClass('  now  left ');
                         clickB.text(lang[window.wp_locale]['Leggi Tutto']);
+                        isBox().dotdotdot({
+          watch:true,
+              lastCharacter : {  remove    : [ ' ', ',', ';', '.', '!', '?',':'] }
+        });
+
+
+
                         textBody.add(img).add(imgCont).add(otherBox.children().children('.flag-body,img')).toggleClass('transparent fadeIn');
                         clickBox.removeClass('js-open');
 
@@ -546,6 +558,7 @@ otherBox.show(800);
       if(boxes.length){
         boxes.dotdotdot({
           watch:true,
+          lastCharacter : {  remove    : [ ' ', ',', ';', '.', '!', '?',':'] }
         });
       }
     }
@@ -650,6 +663,7 @@ otherBox.show(800);
                 }
 
                 responsiveMediaElement();
+                initDotdot();
                 popUp();
                 secondSlider();
 
@@ -818,6 +832,7 @@ otherBox.show(800);
             downSlider = new Swiper('.slider-patologie', downSliderHomeOptions());
         } else if ($('.slider-patologie').length) {
             downSlider = new Swiper('.slider-patologie', downSliderOptions());
+            console.log(downSlider);
         }
         if ($('.products .swiper-wrapper').length) {
             if (swiperProd instanceof Swiper) swiperProd.destroy(true, true);
@@ -891,6 +906,22 @@ otherBox.show(800);
                 options.onSlideChangeEnd = function(swiper) {
                     $('.attivo-desc:visible').hide('400');
                 };
+            }else if (pref.custom === 'changeHeight'){
+              options.onSlideChangeEnd= function(swiper){
+                  var wrapper=$('.products'),
+                      change=wrapper.find('.swiper-wrapper'),
+                      active=wrapper.find('.swiper-slide-active'),
+                      products=active.find('.product'),
+                      h;
+
+                $('.products .swiper-slide-active .product').length
+                  if(products.length<3){
+                    h=active.height();
+                    change.height(h).addClass('custom');
+                  }else if(change.hasClass('custom')){
+                      change.height('100%').removeClass('custom');
+                  }
+              };
             }
         };
         return options;
