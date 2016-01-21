@@ -843,6 +843,9 @@ body.post-type-archive-linee {
 }
 
 .single-linee.osmin-linea-pediatrica {
+    .content-wrapper .boxx .flag-body > p:first-of-type{
+    height:143px;
+  }
     .content-wrapper {
         &.content-wrapper.strecth {
             height: auto;
@@ -903,7 +906,44 @@ body.post-type-archive-linee {
     max-height: 300px;
     height: 110px;
 }
+
     }
+
+        .osmin-box{
+  background-color: #F6F6F6;
+    padding: 1rem 0.75rem;
+    >h3{color: #24569B;text-align: center;}
+    .accordion{margin:0;
+        .dt{
+          //padding: 0px 2%;
+          //&>a{display:inline-block;}
+        }
+    }
+    .accordionTitle::before{line-height: 3em;}
+    .accordionTitle>p{
+      margin: 0px;
+      text-align: left;
+      font-family: robotoregular;
+      padding: 1em 6%;
+    }
+    .osmin-col{
+      @media(min-width:642px){
+          display:inline-block;
+          width:50%;
+      }
+      vertical-align: top;
+    }
+    .accordionTitle.is-expanded, .accordionTitleActive {
+    background-color: #fff;
+    }
+    .accordionTitle:hover, .accordion__Heading:hover {
+    background-color: #fff;
+    }
+    .accordion-content{
+      >p{margin-bottom:0;}
+    }
+}
+
 }
 
 
@@ -1051,10 +1091,18 @@ body.post-type-archive-linee {
                 .boxx-wrapper{
                   left:0;
                 }
+                .mejs-overlay-loading{
+                  display:none;
+                }
             }
             &:hover {
-                background-color: rgba(153, 174, 206, 0.3);
-                transition: background-color 1s linear;
+              .boxx-wrapper{
+                &,>img{
+                    background-color: rgba(153, 174, 206, 0.3);
+                    transition: background-color 1s linear;
+                }
+              }
+
             }
 
 
@@ -1064,6 +1112,7 @@ body.post-type-archive-linee {
             background-color:#F7F6F6;
             left:0;
            &.left{left:0;}
+
                 >img {
                     position: absolute;
                     top: 0px;
@@ -1105,7 +1154,7 @@ body.post-type-archive-linee {
 
                 }
                               &:nth-child(2){
-                                .boxx-wrapper.absolute2{left: calc(50% - 180px);
+                                .boxx-wrapper.absolute2{left: calc(50% - 140px);
 
                                 }
                                 .boxx-wrapper.absolute{

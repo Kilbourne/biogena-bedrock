@@ -46,11 +46,15 @@
 
 
                <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
+               <hr>
                <div class="osmin-box">
                <h3><?php _e("Interamente esente da:","sage");?></h3>
 
 
-                 <?php foreach ($attivi as $key => $attivo):?>
+                 <?php foreach ($attivi as $key => $attivo):
+                      if($key===0 || $key === (count($attivi)/2)){ echo '<div class="osmin-col">';}
+                 ?>
+
                           <div class="accordion">
           <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><?= $attivo['attivo'];?></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
@@ -60,9 +64,11 @@
           </p>
           </div>
         </div>
-                 <?php endforeach ?>
+                 <?php   if($key===count($attivi)-1 || $key === (count($attivi)/2)-1){ echo '</div>';}
+                 endforeach ?>
 
                </div>
+               <hr>
                <?php } ?>
                <div class="content-wrapper strecth">
        <div class="content-wrapper strecth">
