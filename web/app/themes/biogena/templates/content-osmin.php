@@ -70,9 +70,9 @@
                </div>
                <hr>
                <?php } ?>
-               <div class="content-wrapper strecth">
-       <div class="content-wrapper strecth">
 
+       <div class="content-wrapper strecth">
+<h4>  <?= substr($first['title'], 0,strlen('Linea'))==='Linea'?__("Scopri la","sage"):__("Scopri","sage");?> <?= $first['title']; ?></h4>
                 <div class="products">
       <?php if(count($first['prodotti'])>3){ echo '<div class="swiper-wrapper">';} ?>
         <?php foreach($first['prodotti'] as $key=> $prod){ ?>
@@ -117,5 +117,5 @@
 
                   </div>
               </div>
-              </div>
+
  </div>

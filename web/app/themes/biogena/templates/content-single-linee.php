@@ -51,7 +51,7 @@ $double_claim=str_replace ('<br/>','',$double_claim);
     </div>
 <?php } ?>
 <div class="content">
-    <div class="desc <?php  if(count($attivi)===0){ echo 'no-pad';} ?>">
+    <div class="desc <?php  if(count($attivi)===0){ echo 'no-pad';} if($singolo && count($attivi)===0){ echo ' singolo-no-attivi'; } ?>">
 
 
       <div class="down-nav">

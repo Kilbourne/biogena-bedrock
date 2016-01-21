@@ -774,7 +774,7 @@ otherBox.show(800);
     }
 
     function readmoreAttiviCallback(e) {
-        $(e.currentTarget).find('.attivo-desc').slideToggle();
+        $(e.currentTarget).find('.attivo-desc').slideToggle().toggleClass('opened');;
     }
 
     function readmoreCallback(e) {
@@ -832,7 +832,6 @@ otherBox.show(800);
             downSlider = new Swiper('.slider-patologie', downSliderHomeOptions());
         } else if ($('.slider-patologie').length) {
             downSlider = new Swiper('.slider-patologie', downSliderOptions());
-            console.log(downSlider);
         }
         if ($('.products .swiper-wrapper').length) {
             if (swiperProd instanceof Swiper) swiperProd.destroy(true, true);
@@ -867,12 +866,9 @@ otherBox.show(800);
               onTouchStart: function (){
     this.preventClicks = true;
   },
-  onTouchMove: function (){
-    this.preventClicks = false;
-  },
   onTouchEnd: function (){
     var that=this;
-    setTimeout(function(){that.preventClicks = true;},100);
+     setTimeout(function(){that.preventClicks = false;},100);
   }
         };
         var pref = {
@@ -904,19 +900,19 @@ otherBox.show(800);
                 options.autoplayDisableOnInteraction = true;
             } else if (pref.custom === 'closeText') {
                 options.onSlideChangeEnd = function(swiper) {
-                    $('.attivo-desc:visible').hide('400');
+                    $('.attivo-desc:visible').hide('400').removeClass('opened');
                 };
             }else if (pref.custom === 'changeHeight'){
-              options.onSlideChangeEnd= function(swiper){
+              options.onSlideChangeStart= function(swiper){
                   var wrapper=$('.products'),
                       change=wrapper.find('.swiper-wrapper'),
                       active=wrapper.find('.swiper-slide-active'),
                       products=active.find('.product'),
-                      h;
+                      h=active.height(),
+                      h2=change.height();
 
-                $('.products .swiper-slide-active .product').length
-                  if(products.length<3){
-                    h=active.height();
+
+                  if(h!==h2){
                     change.height(h).addClass('custom');
                   }else if(change.hasClass('custom')){
                       change.height('100%').removeClass('custom');

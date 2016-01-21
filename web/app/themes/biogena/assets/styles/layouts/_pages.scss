@@ -148,13 +148,27 @@
                 .flag-body {
                     display: inline-block;
                     vertical-align: top;
-
+                                        .desc-foto {
+                        padding-bottom: 10px;
+                        display: block;
+                        @include media-query(lap-and-up) {
+                            display: inline-block;
+                            float: right;
+                            width: 25%;
+                        }
+                        & img {
+                            @include media-query(palm) {
+                                display: block;
+                                margin: 0 auto;
+                            }
+                        }
+                    }
                 }
             }
         }
         .box2 {
-            .boxx-wrapper {
-                // background-image: url('../images/lab-2.jpg');
+            &.js-open{
+                .soluzione-text{ display:none;}
             }
         }
         .box3 {
@@ -559,9 +573,9 @@
             .boxx-wrapper {
                 padding: 1rem 0.75rem 0;
                 >h3 {
-                    margin: 0px 0 0.5rem;
+                    //margin: 0px 0 0.5rem;
                     //padding: 1rem 1%;
-                    font-size: 1rem;
+                    //font-size: 1rem;
                     //background-color: #fff;
                 }
             }
@@ -641,6 +655,11 @@
         text-align: center;
         &.no-pad {
             margin-bottom: 0;
+        }
+        &.singolo-no-attivi{
+          .down-nav{
+            margin: 0 0px 1.5rem;
+          }
         }
         .desc-text {
             padding: 0px 5%;
@@ -843,14 +862,29 @@ body.post-type-archive-linee {
 }
 
 .single-linee.osmin-linea-pediatrica {
-    .content-wrapper .boxx .flag-body > p:first-of-type{
-    height:143px;
-  }
+    .content-wrapper .boxx{
+        .flag-body > p:first-of-type{
+     height:143px;
+        }
+        &.full-width{
+                    .flag-body > p:first-of-type{
+     height:auto;
+        }
+
+        }
+    }
     .content-wrapper {
         &.content-wrapper.strecth {
             height: auto;
             max-height: none;
             margin-top: 0;
+            >h4{
+                color: #24569B;
+                font-size: 2rem;
+text-align: center;
+//font-variant: all-small-caps;
+margin: 1rem 0px;
+            }
         }
         padding: 0;
         >.flag-media {
@@ -1069,8 +1103,11 @@ body.post-type-archive-linee {
 
 // AZIENDA
 .azienda {
+
     main>.video {
         margin-top: 3rem;
+
+
     }
     .content-wrapper {
         &.auto-height {
@@ -1090,6 +1127,11 @@ body.post-type-archive-linee {
                 }
                 .boxx-wrapper{
                   left:0;
+
+                  >h3{
+                    margin: 0px 0px 0.5rem;
+                  }
+
                 }
                 .mejs-overlay-loading{
                   display:none;
@@ -1111,6 +1153,7 @@ body.post-type-archive-linee {
             z-index: 3;
             background-color:#F7F6F6;
             left:0;
+            padding: 1rem 3rem;
            &.left{left:0;}
 
                 >img {
@@ -1286,6 +1329,7 @@ body.post-type-archive-linee {
                     margin-bottom: 1rem;
                 }
                 h6 {
+                    font-size:1.1rem;
                     line-height: 1.2;
                     margin: 0 0 0.5rem;
                     color: #24569B;
