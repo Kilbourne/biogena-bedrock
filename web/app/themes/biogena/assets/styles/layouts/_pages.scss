@@ -1071,7 +1071,7 @@ body.post-type-archive-linee {
                     left: auto;
                     max-height: 100%;
                     right: 0px;
-                   left: -10vw;
+                   left: -180px;
 
                               &.transparent {
                     opacity: 0;
@@ -1098,14 +1098,14 @@ body.post-type-archive-linee {
             &.with-img {
 
                 .boxx-wrapper {
-                    width: calc(100% - 10vw);
+                    width: calc(100% - 180px);
                     display: inline-block;
-                    left:10vw;
-                    &.full{left:0;}
+                    left:180px;
+                    &.full{left:0;width:100%}
 
                 }
                               &:nth-child(2){
-                                .boxx-wrapper.absolute2{left: calc(50% - 10vw);
+                                .boxx-wrapper.absolute2{left: calc(50% - 180px);
 
                                 }
                                 .boxx-wrapper.absolute{

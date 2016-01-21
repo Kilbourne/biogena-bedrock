@@ -42,23 +42,29 @@
               </div>
             </div>
              <div class="osmin content">
-<div class="content-wrapper strecth">
-            <hr >
+
+
 
                <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
-               <div class="attivi-wrapper">
+               <div class="osmin-box">
                <h3><?php _e("Interamente esente da:","sage");?></h3>
-               <ul class="attivi">
 
-                 <?php foreach ($attivi as $key => $attivo):
-                 $image=$attivo['immagine_attivo'];
-                 if($count>3){$count=3;}
-                 ?>
-                   <li class="attivo inline-block <?= 'w'.$count ?>"><img src="<?php echo $image['url']; ?>"  alt="<?php echo $image['alt']; ?>" /><?= $attivo['attivo']."<div class='attivo-desc'>".$attivo['descrizione_attivo']."</div>" ?></li>
+
+                 <?php foreach ($attivi as $key => $attivo):?>
+                          <div class="accordion">
+          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><?= $attivo['attivo'];?></a></div>
+            <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
+            <p>
+            <?php
+        echo $attivo['descrizione_attivo']; ?>
+          </p>
+          </div>
+        </div>
                  <?php endforeach ?>
-               </ul>
+
                </div>
                <?php } ?>
+               <div class="content-wrapper strecth">
        <div class="content-wrapper strecth">
 
                 <div class="products">
