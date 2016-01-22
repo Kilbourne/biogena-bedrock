@@ -143,7 +143,7 @@ var attivi=first['fields']['attivi_di_linea'];
             <div class="content-wrapper">
                <div class="box1 boxx">
                 <div class="boxx-wrapper left"><h3><?php _e("Parliamo di...","sage"); ?></h3>
-                                <div class="flag-body"><div class="desc-foto"><img src="<%= first['fields']['foto_descrizione']%>" alt=""></div><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><% } %> </div>
+                                <div class="flag-body"><% if(first['fields']['foto_descrizione']){ %><div class="desc-foto"><img src="<%= first['fields']['foto_descrizione'] %>" alt=""></div><% } %><%= first['content'] %><% if((first['content'].match(/<\/p>/g) || []).length>1){ %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><% } %> </div>
                                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/doctor-1.jpg" alt="">
                                 </div>
               </div><div class="box2 boxx">

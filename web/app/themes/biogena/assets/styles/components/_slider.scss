@@ -1,4 +1,5 @@
  .big-claim {
+    font-family: optimaregular;
      color: #24569B;
      font-size: 1.8rem;
      display: inline-block;
@@ -14,7 +15,7 @@
      //width: 37.9vw;
      word-spacing: -2px;
      .title {
-         font-size: 2.75rem;
+         font-size: 1.527em;
          display: inline-block;
          width: 100%;
      }
@@ -24,7 +25,7 @@
          width: 100%;
          word-spacing: -2px;
          line-height: 1.2;
-         font-size: 1.1657rem;
+         font-size: 0.6476em;
      }
  }
 
@@ -32,7 +33,7 @@
      left: 54%;
      padding-right: 3%;
      padding-left: 0px;
-     width: 46%;
+     width: 51.75%;
      .title {
          white-space: normal;
          line-height: 1.2;
@@ -175,9 +176,10 @@
      .big-claim {
          left: 15px;
          top: 46%;
-         width: 40%;
+         width: 45%;
          text-align: left;
-         padding: 0 2%;
+         padding: 0;
+         margin:0 3%;
          font-size: 1.75rem;
      }
  }
@@ -222,7 +224,7 @@
  .single-linee .background-container.specialita .big-claim {
      .title {
          font-size: 1.75rem !important;
-         display: block !important;
+         display: none !important;
      }
      width: 80% !important;
      left: 0% !important;

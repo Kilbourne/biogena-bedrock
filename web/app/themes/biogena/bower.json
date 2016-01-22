@@ -54,7 +54,8 @@
     "imagesloaded": "~3.2.0",
     "fastclick": "~1.0.6",
     "matchHeight": "~0.7.0",
-    "jQuery.dotdotdot": "~1.7.4"
+    "jQuery.dotdotdot": "~1.7.4",
+    "flowtype": "~1.1.0"
   },
   "overrides": {
     "background-check": {

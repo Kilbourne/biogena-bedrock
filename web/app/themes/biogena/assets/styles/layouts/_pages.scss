@@ -89,6 +89,41 @@
                     max-height: 300px;
                     height: 125px;
                 }
+                            .list-wrapper {
+                font-size: 1rem;
+                line-height: 1.5;
+                text-align: left;
+                max-height: 0px;
+                overflow: hidden;
+                //margin: 0;
+                //transition: all 1.6s linear ;
+                //transition: max-height 1.6s linear;
+                &.maxHeight {
+                    max-height: 3000px;
+                    //margin: auto;
+                }
+                &.padding-now {
+                    padding-right: 0.75rem;
+                }
+                &.now {
+                    transition: max-height 0.8s linear;
+                }
+            }
+        .list-wrapper {
+            margin-top: 0.75rem;
+            >ol {
+                margin-left: 2rem;
+                li {
+                    margin-bottom: 1rem;
+                }
+                h6 {
+                    font-size:1.1rem;
+                    line-height: 1.2;
+                    margin: 0 0 0.5rem;
+                    color: #24569B;
+                }
+            }
+        }
             }
             &.js-open{
               .flag-body>p:first-of-type {
@@ -380,6 +415,7 @@
                 color: #24569B;
                 cursor: pointer;
             }
+
         }
         .flag-body.collapsed {
             >p {

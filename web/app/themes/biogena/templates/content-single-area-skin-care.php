@@ -49,7 +49,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
             <div class="content-wrapper">
               <div class="box1 boxx">
                 <div class="boxx-wrapper left"><h3><?php _e("Parliamo di...","sage");?></h3>
-                                <div class="flag-body "><div class="desc-foto"><img src="<?= $first['fields']['foto_descrizione'];?>" alt=""></div><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){  ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span><?php } ?>
+                                <div class="flag-body "><?php if($first['fields']['foto_descrizione']){ ?><div class="desc-foto"><img src="<?= $first['fields']['foto_descrizione'];?>" alt=""></div><?php } ?><?= $first['content'];?><?php if(substr_count($first['content'], '</p>')>1){  ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span><?php } ?>
                                 </div>
 <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/doctor-1.jpg" alt="">
                                 </div>
@@ -70,6 +70,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
                   <h3><?php _e("FAQ","sage");?></h3>
                   <div class="flag-body">
                     <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage");?> </p>
+                    <div class="list-wrapper"><?= $first['fields']['faq'];?></div>
                     <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
                   </div>
                   <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/woman-ask.png" alt="">

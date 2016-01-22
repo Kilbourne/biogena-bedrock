@@ -287,14 +287,14 @@
     function bigClaim() {
 
         if (isbigClaim().length) {
-            isbigClaim().fitText(4);
+            isbigClaim().flowtype({fontRatio : 36.5});
         } else {
-            $('.big-claim').fitText(2);
+            $('.big-claim').flowtype({fontRatio : 19.5});
         }
     }
 
     function bigClaimOff() {
-        $(window).off('resize.fittext orientationchange.fittext');
+//        $(window).off('resize.fittext orientationchange.fittext');
     }
 
     function biogena_ajax_login(e) {
