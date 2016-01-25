@@ -51,6 +51,7 @@
                 .boxx-wrapper {
                     left: 33.333%;
                     right: 33.333%;
+
                 }
             }
             &:nth-child(3) {
@@ -110,7 +111,7 @@
                 }
             }
         .list-wrapper {
-            margin-top: 0.75rem;
+            //margin-top: 0.75rem;
             >ol {
                 margin-left: 2rem;
                 li {
@@ -129,6 +130,8 @@
               .flag-body>p:first-of-type {
                 height:auto !important;
               }
+                 .list-wrapper {
+            margin-top: 0.75rem;}
             }
             &.box1,
             &.box2,
@@ -164,6 +167,11 @@
                         }
                     }
                 }
+            }
+            &.box2{
+              .boxx-wrapper {
+                    background-color: #FFF;
+              }
             }
         }
         .box1 {
@@ -207,6 +215,14 @@
         .box2 {
             &.js-open{
                 .soluzione-text{ display:none;}
+            }
+                        .flag-body {
+                >p {
+                    padding-right: 17%;
+                    @include media-query(lap-and-up) {
+                        padding-right: 50%;
+                    }
+                }
             }
         }
         .box3 {
@@ -609,8 +625,11 @@
             @include media-query(lap-and-up) {
                 width: 33.333%;
             }
+            >img{display:none;@include media-query(lap-and-up){display:block;margin-bottom:1rem; }}
             .boxx-wrapper {
-                padding: 1rem 0.75rem 0;
+                padding: 1rem 0.75rem;
+                @include media-query(lap-and-up){padding: 0 0.75rem 0;}
+
                 >h3 {
                     //margin: 0px 0 0.5rem;
                     //padding: 1rem 1%;
@@ -759,6 +778,7 @@
             padding: 0.5rem;
             border-bottom: 1px solid #2A79B2;
             margin: 0px auto 1rem;
+            font-family:optimaregular;
             a {
                 text-decoration: none;
                 color: #24569B;
@@ -949,6 +969,7 @@ body.post-type-archive-linee {
             margin-top: 0;
             >h4{
                 color: #24569B;
+                font-family:optimaregular;
                 font-size: 2rem;
 text-align: center;
 //font-variant: all-small-caps;
@@ -1457,12 +1478,32 @@ body.articoli {
 
 body.articoli {
     .content>.main {
+      text-align: center;
+      margin-bottom: 1.5rem;
         li {
+            width:33%;
             list-style: none;
             padding: 0 2%;
-            margin: 0.5rem 0;
+            display: inline-block;
+            margin: 0.5rem auto;
+            border-right: 1px solid rgb(36, 86, 155);
             >a {
                 text-decoration: none;
+                height: 26px;
+display: inline-block;
+vertical-align: middle;
+                &:before{
+                  content:'';
+                  background-image:url('../images/loghetto.png');
+                  background-repeat: no-repeat;
+                  display:inline-block;
+width: 22px;
+height: 22px;
+margin-right: 10px;
+background-size: contain;
+vertical-align: bottom;
+
+                }
             }
         }
     }
@@ -1632,4 +1673,8 @@ body.articoli {
 #field_1_6>.gfield_description {
     text-align: justify;
     line-height: 1.6;
+}
+.flag-body .list-wrapper .by-cura{
+    font-size: 0.85rem;
+    padding: 1rem 1% 0;
 }

@@ -29,17 +29,22 @@
               text-align: left;
               margin-bottom: 0px;
               vertical-align: top;
+              display:inline;
             }
             &>p:last-of-type{
               text-align:right;
-              display: inline;
-            }
-            &>a:last-child,.more-link{
-              font-size: 0.7rem;
-              float:right;
             }
             &>a:last-child{
+              font-size: 0.7rem;
               margin-left: 1rem;
+              display: inline;
+              float: right;
+              margin: 20px 0 10px;
+            }
+            .more-link{
+              font-size: 0.7rem;
+font-weight: 600;
+color: #24569B;
             }
         }
         .more {

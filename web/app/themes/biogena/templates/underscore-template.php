@@ -166,9 +166,9 @@ var attivi=first['fields']['attivi_di_linea'];
                         if(!content)content='';
   next=jQuery(el).next();
 
-if(next.length){
 
-  if(next[0].nodeName==='OL'){
+
+  if(!next.length || next[0].nodeName==='OL'){
 
     return content;
   }else if(next[0].nodeName==='P'){
@@ -176,7 +176,7 @@ if(next.length){
 
     return recursive(next,content);
   }
-}
+
 }
 final_faq='';
 if(!!first['fields']['faq'] && first['fields']['faq']!==''){
@@ -192,6 +192,7 @@ if(!!first['fields']['faq'] && first['fields']['faq']!==''){
     accordion='<div class="accordion"><div class="dt"><a href="#faq_'+key+'" aria-expanded="false" aria-controls="faq_'+key+'" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><p><strong>'+(key+1)+'. '+text+' </strong></p></a></div><div class="accordion-content accordionItem is-collapsed" aria-hidden="true" id="faq_'+key+'"><p>'+content+'</p></div></div>';
     final_faq+=accordion;
   })
+  final_faq+='<p class="by-cura">'+ '<?php echo __('A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia) ','sage'); ?>'+'</p>';
 }
                     %>
                     <div class="list-wrapper"><%= final_faq %></div>
@@ -205,7 +206,7 @@ if(!!first['fields']['faq'] && first['fields']['faq']!==''){
 %>
 <hr>
 <div class="fotoprotezione-wrapper content-wrapper">
-<div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Cosa sono i raggi UVA e UVB?","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage"); ?></h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span> </div> </div></div>
+<div class="fotop1 fotop boxx"><img class="img-cont" src="<%= first['fields']['fotoprotezione_1_img'] %>" alt=""><div class="boxx-wrapper"><h3><?php _e("Cosa sono i raggi UVA e UVB?","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop2 fotop boxx"><img class="img-cont" src="<%= first['fields']['fotoprotezione_2_img'] %>" alt=""><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop3 fotop boxx"><img class="img-cont" src="<%= first['fields']['fotoprotezione_3_img'] %>" alt=""><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage"); ?></h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span> </div> </div></div>
 </div>
   <% } %>
             <hr>

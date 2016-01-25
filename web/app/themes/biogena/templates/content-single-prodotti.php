@@ -22,7 +22,7 @@ while (have_posts()):
           <?php } ?>
 <span class="like">
         <iframe
-          src="//www.facebook.com/plugins/like.php?href=http://css-tricks.com&amp;width=130&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false"
+          src="//www.facebook.com/plugins/like.php?href=http://www.biogenalab.it&amp;width=130&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false"
           scrolling="no"
           frameborder="0"
           style="border:none; overflow:hidden; width:108px; height:22px;"
@@ -67,6 +67,7 @@ while (have_posts()):
     } ?>
         <?php
     $field = get_field('uso');
+
     if (isset($field) && $field && $field !== '') { ?>
         <div class="  accordion">
           <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("Uso","sage");?></h5></a></div>
