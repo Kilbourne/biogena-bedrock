@@ -127,7 +127,7 @@
             }
             &.js-open{
               .flag-body>p:first-of-type {
-                height:auto;
+                height:auto !important;
               }
             }
             &.box1,
@@ -147,6 +147,9 @@
                         left: auto;
                         max-height: 100%;
                         right: 0;
+                        @media(max-width:610px){
+                          display:none;
+                        }
                         @include media-query(lap-and-up) {
                             left: 0;
                             background-color: #F7F6F6;
@@ -869,7 +872,8 @@ body.post-type-archive-linee {
         }
         .under-photo {
             text-align: center;
-            margin-top: 1rem;
+            margin: 1rem 0;
+            @include media-query(lap-and-up){margin: 1rem 0 0;}
             .formato {
                 vertical-align: middle;
                 margin-right: 1rem;
@@ -1123,7 +1127,8 @@ margin: 1rem 0px;
     }
     .under-photo {
         text-align: center;
-        margin-top: 1rem;
+                    margin: 1rem 0;
+            @include media-query(lap-and-up){margin: 1rem 0 0;}
         .like {
             display: inline-block;
             line-height: 0;
@@ -1221,7 +1226,8 @@ margin: 1rem 0px;
             z-index: 3;
             background-color:#F7F6F6;
             left:0;
-            padding: 1rem 7.5%;
+            padding: 1rem 3%;
+            @include media-query(lap-and-up){padding: 1rem 7.5%;}
            &.left{left:0;}
 
                 >img {

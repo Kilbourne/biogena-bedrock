@@ -205,7 +205,7 @@ if(!!first['fields']['faq'] && first['fields']['faq']!==''){
 %>
 <hr>
 <div class="fotoprotezione-wrapper content-wrapper">
-<div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Che cosa sono i raggi UVA e UVB?","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage"); ?></h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span> </div> </div></div>
+<div class="fotop1 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Cosa sono i raggi UVA e UVB?","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop2 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Lo sapevi che…","sage"); ?></h3><div class="flag-body fotop-content"> <%= fotoprotezione2 %> <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span></div></div></div><div class="fotop3 fotop boxx"><div class="boxx-wrapper"><h3><?php _e("Guida al corretto “uso” del sole","sage"); ?></h3><div class="fotop-content flag-body "> <%= fotoprotezione3 %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span> </div> </div></div>
 </div>
   <% } %>
             <hr>

@@ -5,6 +5,12 @@
      //       max-height: calc(1276px / 1.777);
     height: 100%;
 }
+@include media-query(palm){
+  .wp-video{
+    margin-top: 1rem;
+    padding: 0 5%;
+  }
+}
 .wp-video, video.wp-video-shortcode {
   max-width: 100% !important;
 }
@@ -51,11 +57,13 @@ video.wp-video-shortcode {
 .mejs-overlay-button {
     max-width: 100px;
     max-height: 100px;
+    min-width: 40px;
+    min-height: 40px;
     margin: 0 !important;
-    height: 6.5vw !important;
+    height: 5vw !important;
     width: 5vw !important;
     background-size: 100% auto !important;
     background-repeat: no-repeat !important;
-    background-position: 0% -50% !important;
+    background-position: 0% 0% !important;
     transform: translate(-50%,-50%);
 }

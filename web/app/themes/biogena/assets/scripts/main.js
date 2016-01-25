@@ -35,11 +35,7 @@
             return $('body.single-linee .single-linea').length;
         },
         isBox=function(){
-          if($('.fotop').length){
-              return $('.boxx .flag-body p:first-of-type');
-          }else{
-              return $('.boxx:first-child .flag-body p:first-of-type');
-          }
+          return $('.boxx .flag-body p:first-of-type');
         },
         bodyClasses = ['home', 'post-type-archive-linee', 'azienda', 'single-linee', 'single-area-skin-care', 'post-type-archive-area-skin-care', 'no-full-slider', 'page', 'search', 'error404', 'osmin-linea-pediatrica'];
 
@@ -130,10 +126,10 @@
                 popUp();
                 osminMenu();
                 secondSlider();
-                initDotdot();
                 accordion();
                 postArchiveMenu();
                 aziendaMatchHeight();
+                initDotdot();
             }
         }
     };
@@ -462,7 +458,7 @@ otherBox.show(800);
 
 
 
-                        textBody.add(img).add(imgCont).add(otherBox.children().children('.flag-body,img')).toggleClass('transparent fadeIn');
+              textBody.add(img).add(imgCont).add(otherBox.children().children('.flag-body,img')).removeClass('transparent').addClass(' fadeIn');
                         clickBox.removeClass('js-open');
 
                         $(this).dequeue();
@@ -1003,8 +999,18 @@ otherBox.show(800);
             aziendaResize=true;}
           //$('.content-main>.content-wrapper').matchHeight({byRow:false});
           var video=$('.wp-video'),
+          bodies=$('.flag-body > p:first-of-type'),
+          bodyArr=[],
           h=video.parent().height()-video.prev().height();
-          setTimeout(function(){$('.wp-video').height(h);},200);
+          bodies.each(function(index, el) {
+           bodyArr.push($(el).parent().prev().outerHeight(true));
+          });
+          setTimeout(function(){
+            video.height(h);
+            bodies.each(function(index, el) {
+          $(el).height(125+48-bodyArr[index]);
+          });
+          },200);
         }
     }
 
