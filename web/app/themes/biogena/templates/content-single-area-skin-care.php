@@ -23,8 +23,30 @@ $srcset_value = wp_calculate_image_srcset( $size_array, $image_src, $image_meta 
 $sizes_value = wp_get_attachment_image_sizes($image_id, 'full' );
 $srcset = $srcset_value ? ' srcset="' . esc_attr( $srcset_value ) . '"' : '';
 $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
+use Sunra\PhpSimple\HtmlDomParser;
 
+function recursive($el,$content='') {
+  $next=$el->next_sibling();
+  if($next->tag==='ol'){
+    return $content;
+  }elseif($next->tag==='p'){
+    $content.=implode(" ",$next->find('text'));
+    return recursive($next,$content);
+  }
 
+}
+if(isset($first['fields']['faq']) && $first['fields']['faq'] !=='' && $first['fields']['faq'] !==null){
+  $faq = HtmlDomParser::str_get_html( $first['fields']['faq'] );
+  $final_faq='';
+  $ol=$faq->find('ol');
+  foreach( $ol as $key=>$li)
+  {
+    $text=$li->find('text');
+    $content=recursive($li);
+    $accordion='<div class="accordion"><div class="dt"><a href="#faq_'.$key.'" aria-expanded="false" aria-controls="faq_'.$key.'" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><p><strong>'.($key+1).'. '.implode(" ", $text).' </strong></p></a></div><div class="accordion-content accordionItem is-collapsed" aria-hidden="true" id="faq_'.$key.'"><p>'.$content.'</p></div></div>';
+    $final_faq.=$accordion;
+  }
+}
 ?>
 <div class="background-container">
 
@@ -70,7 +92,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
                   <h3><?php _e("FAQ","sage");?></h3>
                   <div class="flag-body">
                     <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage");?> </p>
-                    <div class="list-wrapper"><?= $first['fields']['faq'];?></div>
+                    <div class="list-wrapper"><?= $final_faq;?></div>
                     <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
                   </div>
                   <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/woman-ask.png" alt="">

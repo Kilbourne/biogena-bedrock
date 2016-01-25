@@ -52,19 +52,10 @@
 
 
                  <?php foreach ($attivi as $key => $attivo):
-                      if($key===0 || $key === (count($attivi)/2)){ echo '<div class="osmin-col">';}
+                      if($key===0 || $key%2 === 0){ echo '<div class="osmin-col">';}
                  ?>
-
-                          <div class="accordion">
-          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><?= $attivo['attivo'];?></a></div>
-            <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
-            <p>
-            <?php
-        echo $attivo['descrizione_attivo']; ?>
-          </p>
-          </div>
-        </div>
-                 <?php   if($key===count($attivi)-1 || $key === (count($attivi)/2)-1){ echo '</div>';}
+<div class="accordion"><div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><?= $attivo['attivo'];?></a></div><div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni"><p><?php echo $attivo['descrizione_attivo']; ?></p></div></div>
+                 <?php   if($key===count($attivi)-1 || ($key-1)%2 === 0){ echo '</div>';}
                  endforeach ?>
 
                </div>

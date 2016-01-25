@@ -86,7 +86,7 @@
                 }
                 >p:first-of-type {
                     margin-bottom: 0;
-                    max-height: 300px;
+                    max-height: 1000px;
                     height: 125px;
                 }
                             .list-wrapper {
@@ -310,7 +310,7 @@
                 }
                 >p {
                     &.maxHeight {
-                        max-height: 300px;
+                        max-height: 1000px;
                         margin: auto;
                     }
                     &.padding-now {
@@ -683,6 +683,35 @@
             }
         }
     }
+        .accordion{margin:0;
+        .dt{
+          //padding: 0px 2%;
+          //&>a{display:inline-block;}
+        }
+    }
+    .accordionTitle::before{line-height: 3em;}
+    .accordionTitle>p{
+      margin: 0px;
+      text-align: left;
+      font-family: robotoregular;
+      padding: 1em 1%;
+    }
+    .osmin-col{
+      @media(min-width:642px){
+          display:inline-block;
+          width:50%;
+      }
+      vertical-align: top;
+    }
+    .accordionTitle.is-expanded, .accordionTitleActive {
+    background-color: #fff;
+    }
+    .accordionTitle:hover, .accordion__Heading:hover {
+    background-color: #fff;
+    }
+    .accordion-content{
+      >p{margin-bottom:0;padding: 0 2%;}
+    }
 }
 
 .single-linee,
@@ -973,7 +1002,7 @@ margin: 1rem 0px;
         }
         .content-wrapper .boxx .flag-body > p:first-of-type {
     margin-bottom: 0px;
-    max-height: 300px;
+    max-height: 1000px;
     height: 110px;
 }
 
@@ -984,6 +1013,12 @@ margin: 1rem 0px;
     padding: 1rem 0.75rem;
     >h3{color: #24569B;text-align: center;}
     .accordion{margin:0;
+      font-size:1rem;
+      vertical-align: top;
+      @media(min-width:642px){
+          display:inline-block;
+          width:50%;
+      }
         .dt{
           //padding: 0px 2%;
           //&>a{display:inline-block;}
@@ -997,11 +1032,10 @@ margin: 1rem 0px;
       padding: 1em 6%;
     }
     .osmin-col{
-      @media(min-width:642px){
-          display:inline-block;
-          width:50%;
-      }
+
+      width:100%;
       vertical-align: top;
+      font-size:0;
     }
     .accordionTitle.is-expanded, .accordionTitleActive {
     background-color: #fff;
@@ -1156,14 +1190,20 @@ margin: 1rem 0px;
                 display: inline-block;
                 vertical-align: top;
             }
+            &:nth-child(2) {
+                .boxx-wrapper {
+                  left:0;
+                  @include media-query(lap-and-up){left:33%;}
+                }
+            }
             &.video {
-                height: 50%;
+                //height: 50%;
                 @include media-query(lap-and-up) {
-                    height: 100%;
+                    //height: 100%;
                 }
                 .boxx-wrapper{
                   left:0;
-
+                  @include media-query(palm){width: 100%;}
                   >h3{
                     margin: 0px 0px 0.5rem;
                   }
@@ -1173,15 +1213,7 @@ margin: 1rem 0px;
                   display:none;
                 }
             }
-            &:hover {
-              .boxx-wrapper{
-                &,>img{
-                    background-color: rgba(153, 174, 206, 0.3);
-                    transition: background-color 1s linear;
-                }
-              }
 
-            }
 
 
             .boxx-wrapper {
@@ -1189,7 +1221,7 @@ margin: 1rem 0px;
             z-index: 3;
             background-color:#F7F6F6;
             left:0;
-            padding: 1rem 3rem;
+            padding: 1rem 7.5%;
            &.left{left:0;}
 
                 >img {
@@ -1218,26 +1250,29 @@ margin: 1rem 0px;
                     padding: 1rem 3%;
 
                 }
-                &.absolute:hover {
-                    background-color: #F7F6F6;
-                }
+
 
             }
             &.with-img {
 
                 .boxx-wrapper {
-                    width: calc(100% - 180px);
+
                     display: inline-block;
+                    @include media-query(lap-and-up){
                     left:180px;
+                    width: calc(100% - 180px);
+                    }
                     &.full{left:0;width:100%}
 
                 }
                               &:nth-child(2){
-                                .boxx-wrapper.absolute2{left: calc(50% - 140px);
+                                .boxx-wrapper.absolute2{left: calc(50% + 90px);
+transform: translate(-50%);
 
                                 }
                                 .boxx-wrapper.absolute{
                                       left:0;
+                                      transform:none;
                                 }
 
               }

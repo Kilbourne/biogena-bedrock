@@ -160,6 +160,41 @@ var attivi=first['fields']['attivi_di_linea'];
                   <h3>FAQ</h3>
                   <div class="flag-body">
                     <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?> </p>
+                    <%
+
+                      function recursive(el,content) {
+                        if(!content)content='';
+  next=jQuery(el).next();
+
+if(next.length){
+
+  if(next[0].nodeName==='OL'){
+
+    return content;
+  }else if(next[0].nodeName==='P'){
+    content+=next.text();
+
+    return recursive(next,content);
+  }
+}
+}
+final_faq='';
+if(!!first['fields']['faq'] && first['fields']['faq']!==''){
+  faq = first['fields']['faq'];
+
+  ol=jQuery(faq).filter('ol');
+
+  ol.each(function(key){
+    text=jQuery(this).text();
+
+    content=recursive(this);
+
+    accordion='<div class="accordion"><div class="dt"><a href="#faq_'+key+'" aria-expanded="false" aria-controls="faq_'+key+'" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><p><strong>'+(key+1)+'. '+text+' </strong></p></a></div><div class="accordion-content accordionItem is-collapsed" aria-hidden="true" id="faq_'+key+'"><p>'+content+'</p></div></div>';
+    final_faq+=accordion;
+  })
+}
+                    %>
+                    <div class="list-wrapper"><%= final_faq %></div>
                     <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                   </div>
                   <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/woman-ask.png" alt="">

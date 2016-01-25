@@ -44,7 +44,7 @@
         bodyClasses = ['home', 'post-type-archive-linee', 'azienda', 'single-linee', 'single-area-skin-care', 'post-type-archive-area-skin-care', 'no-full-slider', 'page', 'search', 'error404', 'osmin-linea-pediatrica'];
 
     var downSlider, oldPostType, fullSlider, swiperAttivi, swiperProd, linkCallbackBusy = false,
-        prodottoSingle, titles, boxreadinaction = false,
+        prodottoSingle, titles, boxreadinaction = false,aziendaResize=false,
         safariBug = false,
         lang = {
             "it_IT": {
@@ -123,6 +123,7 @@
 
                 //$(window).scroll(videoScroll);
                 $(window).resize(_.debounce(responsiveMediaElement, 500));
+
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
                 responsiveMediaElement();
@@ -169,7 +170,7 @@
     $(document).ready(UTIL.loadEvents);
 
     function accordion() {
-        if (isAccordion()) {
+
 
             (function() {
                 var d = document,
@@ -238,7 +239,7 @@
                     accordionToggles[i].addEventListener('click', switchAccordion, false);
                 }
             })();
-        }
+
     }
 
     function attiviDesktopSlider() {
@@ -285,9 +286,13 @@
     }
 
     function bigClaim() {
-
-        if (isbigClaim().length) {
-            isbigClaim().flowtype({fontRatio : 36.5});
+      var big= isbigClaim();
+        if (big.length) {
+            if(big.hasClass('osmin-top')){
+              big.flowtype({fontRatio : 45.64});
+            }else{
+            big.flowtype({fontRatio : 36.5});
+            }
         } else {
             $('.big-claim').flowtype({fontRatio : 19.5});
         }
@@ -375,6 +380,7 @@ function boxDesktop(){
                     wrapper.add(img).add('img-cont').addClass('transparent').not(img).delay(800).queue(function() {
                         wrapper.addClass('nobg');
                         parag.addClass('maxHeight padding-now now');
+                        contentWrapper.addClass('auto-height');
                         clickB.text(lang[window.wp_locale].Chiudi);
                           wrapper.toggleClass('transparent fadeIn');
                         clickBox.addClass('js-open');
@@ -389,6 +395,7 @@ function boxDesktop(){
                         wrapper.add(img).toggleClass('transparent fadeIn');
                         wrapper.removeClass('nobg');
                         parag.removeClass('padding-now');
+                        contentWrapper.addClass('auto-height');
                         clickBox.removeClass('js-open');
                         $(this).dequeue();
                     }).delay(800).queue(function() {
@@ -404,7 +411,8 @@ function boxDesktop(){
 
                 if (!clickBox.hasClass('js-open')) {
                     textBody.add(img).add(imgCont).addClass('transparent').not(img).not(imgCont).delay(800).queue(function() {
-                        wrapper.addClass('now full '+aziendaabs);
+                      var aaa='now full '+aziendaabs;
+                        wrapper.addClass(aaa);
                         imgCont.hide();
 
 
@@ -666,7 +674,7 @@ otherBox.show(800);
                 initDotdot();
                 popUp();
                 secondSlider();
-
+                accordion();
 
                 if (isSingleLinea()) {
                     titles = titles.replace(' ', '%20');
@@ -991,7 +999,12 @@ otherBox.show(800);
     }
     function aziendaMatchHeight(e) {
         if (azienda().length) {
-          $('.content-main .content-wrapper').matchHeight({byRow:false,target:$('.content-main .content-wrapper:first-child')});
+          if(!aziendaResize){$(window).resize(_.debounce(aziendaMatchHeight, 500));
+            aziendaResize=true;}
+          //$('.content-main>.content-wrapper').matchHeight({byRow:false});
+          var video=$('.wp-video'),
+          h=video.parent().height()-video.prev().height();
+          setTimeout(function(){$('.wp-video').height(h);},200);
         }
     }
 
