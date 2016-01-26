@@ -46,7 +46,7 @@
             "it_IT": {
                 'Leggi Tutto': 'Leggi Tutto',
                 'Chiudi': 'Chiudi',
-                'Indietro':'Indietro'
+                'Indietro':'Torna indietro'
             },
             "en_GB": {
                 'Leggi Tutto': "Read More",
@@ -107,8 +107,9 @@
                 $('body').on('mouseenter mouseleave', '.swiper-container-horizontal', stopAutoplayOnHover);
                 $('body').on('click', '.attivo', readmoreAttiviCallback);
                 $('body').on('click', '.boxx .readmore-box', boxReadMore);
+
                 $('body').on('click', '.mfp-content>.content article a', linkCloseModal);
-                $('body').on('click', '.faq-main>.faq-title', faqRead);
+                $('body').on('click', '.faq-main .faq-title.real', faqRead);
                 $('body').on('click', '.faq-main>.faq-back', faqBack);
 
                 $('body').on('submit', 'form#loginform', biogena_ajax_login);
@@ -571,17 +572,23 @@ otherBox.show(800);
         });
       }
     }
+    function faqDisable(){
+      if($('.faq-title').length)$('.faq-title').each(function(el,i){
+        if($(this).next().children('div').text()!=='') $(this).addClass('real');
+      })
+
+    }
     function faqRead(e){
       var titles= $('.faq-title'),
           content=$(e.currentTarget).next();
-      var hideTitles=function(){ return titles.fadeOut(800);};
+      var hideTitles=function(){ return titles.add('.faq-main>h3,.faq-main>.sub-little').fadeOut(800);};
       var showContent=function(){ $('.faq-main').prepend('<p class="faq-back">'+ lang[window.wp_locale]['Indietro']+'</p> ');return content.fadeIn(800).addClass('active');};
       $.when(hideTitles()).done(showContent);
     }
     function faqBack(e){
       var titles= $('.faq-title'),
           content=$('.faq-content.active');
-      var hideTitles=function(){ $('.faq-back').remove(); return titles.fadeIn(800);};
+      var hideTitles=function(){ $('.faq-back').remove(); return titles.add('.faq-main>h3,.faq-main>.sub-little').fadeIn(800);};
       var showContent=function(){ return content.fadeOut(800).removeClass('active');};
       $.when(showContent()).done(hideTitles);
     }
@@ -769,7 +776,7 @@ otherBox.show(800);
             closeOnContentClick: false,
             callbacks: {
                 ajaxContentAdded: function(data) {
-
+                    if(this.st.el.hasClass('faqs')){faqDisable();}
                     var otherLinks = $('.mfp-content .ajax-popup-link-r');
                     if (otherLinks.length) {
                         revursivePopup(otherLinks);

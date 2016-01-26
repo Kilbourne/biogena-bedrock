@@ -4,7 +4,9 @@
       <h1 class="entry-title"><?php the_title(); ?></h1>
     </header>
     <div class="entry-content">
-      <?php the_content(); ?>
+      <div class="news-wrap"><?php the_post_thumbnail() ?></div><div class="news-content">
+        <?php the_content(); ?>
+      </div>
     </div>
 
 

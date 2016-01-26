@@ -1490,7 +1490,7 @@ body.articoli {
 
 body.articoli {
     .content>.main {
-      text-align: center;
+      text-align: left;
       margin-bottom: 1.5rem;
         li {
             width:33%;
@@ -1566,6 +1566,11 @@ vertical-align: bottom;
         >article{
           .entry-title{text-align: left;}
           >.entry-content {
+            >.news-wrap{
+              float: left;
+              margin-right: 1rem;
+              vertical-align: top;
+            }
           text-align: left;
             p {
                 margin-bottom: 0.5rem;
@@ -1696,10 +1701,40 @@ vertical-align: bottom;
 }
 
 .faq-main{
+  >h3{}
+  .faq-col {
+    width: 50%;
+    display: inline-block;
+}
+  .sub-little{font-size:0.75rem; }
   .faq-title{
-    cursor:pointer;
+    color:rgba(81, 144, 231, 0.69);
+    &.real{
+      cursor:pointer;
+      color:#24569B;
+      font-weight: 700;
+    }
+    >span{margin-right:0.5rem;}
   }
   .faq-content{
     display:none;
+    .faq-wrapper{
+      margin-left: 2rem;
+      >ol{
+        margin-left: -1rem;
+        margin-top: 1.5rem;
+      }
+    }
+  &.active{width:200%;}
   }
+  .faq-back{
+    cursor:pointer;
+  }
+}
+.archivio-news-title{
+  top: 10%;
+transform: translate(-50%, -50%);
+  position: absolute;
+  left: 50%;
+
 }
