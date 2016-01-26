@@ -45,7 +45,8 @@
         lang = {
             "it_IT": {
                 'Leggi Tutto': 'Leggi Tutto',
-                'Chiudi': 'Chiudi'
+                'Chiudi': 'Chiudi',
+                'Indietro':'Indietro'
             },
             "en_GB": {
                 'Leggi Tutto': "Read More",
@@ -106,6 +107,10 @@
                 $('body').on('mouseenter mouseleave', '.swiper-container-horizontal', stopAutoplayOnHover);
                 $('body').on('click', '.attivo', readmoreAttiviCallback);
                 $('body').on('click', '.boxx .readmore-box', boxReadMore);
+                $('body').on('click', '.mfp-content>.content article a', linkCloseModal);
+                $('body').on('click', '.faq-main>.faq-title', faqRead);
+                $('body').on('click', '.faq-main>.faq-back', faqBack);
+
                 $('body').on('submit', 'form#loginform', biogena_ajax_login);
                 enquire.register(breakpoints['lap-and-up'], {
                     match: callbackDesktop,
@@ -406,7 +411,7 @@ function boxDesktop(){
             } else {
 
                 if (!clickBox.hasClass('js-open')) {
-                    textBody.add(img).add(imgCont).addClass('transparent').not(img).not(imgCont).delay(800).queue(function() {
+                    textBody.add(img).add(imgCont).add(otherBox.find('img')).addClass('transparent').not(img).not(otherBox.find('img')).not(imgCont).delay(800).queue(function() {
                       var aaa='now full '+aziendaabs;
                         wrapper.addClass(aaa);
                         imgCont.hide();
@@ -428,7 +433,7 @@ function boxDesktop(){
                         $(this).dequeue();
                     });
                     if(wrapper.hasClass('left')){wrapper.removeClass('left');}
-                    if(!azienda().length){wrapper.addClass(' absolute  ');}
+                    if(!azienda().length && !clickBox.hasClass('fotop')){wrapper.addClass(' absolute  ');}
                     else{ aziendaabs='absolute';wrapper.addClass(' absolute2  ');}
 //                    otherBox.children().children('img').hide();
 
@@ -458,7 +463,7 @@ otherBox.show(800);
 
 
 
-              textBody.add(img).add(imgCont).add(otherBox.children().children('.flag-body,img')).removeClass('transparent').addClass(' fadeIn');
+              textBody.add(img).add(imgCont).add(otherBox.find('img')).add(otherBox.children().children('.flag-body,img')).removeClass('transparent').addClass(' fadeIn');
                         clickBox.removeClass('js-open');
 
                         $(this).dequeue();
@@ -466,7 +471,7 @@ otherBox.show(800);
 
                         allBox.removeClass('now');
                         otherBox.removeClass('absolute');
-                        textBody.add(img).add(imgCont).add(otherBox.children().children('.flag-body,img')).removeClass('fadeIn');
+                        textBody.add(img).add(imgCont).add(otherBox.find('img')).add(otherBox.children().children('.flag-body,img')).removeClass('fadeIn');
 
                         $(this).dequeue();
 
@@ -566,7 +571,20 @@ otherBox.show(800);
         });
       }
     }
-
+    function faqRead(e){
+      var titles= $('.faq-title'),
+          content=$(e.currentTarget).next();
+      var hideTitles=function(){ return titles.fadeOut(800);};
+      var showContent=function(){ $('.faq-main').prepend('<p class="faq-back">'+ lang[window.wp_locale]['Indietro']+'</p> ');return content.fadeIn(800).addClass('active');};
+      $.when(hideTitles()).done(showContent);
+    }
+    function faqBack(e){
+      var titles= $('.faq-title'),
+          content=$('.faq-content.active');
+      var hideTitles=function(){ $('.faq-back').remove(); return titles.fadeIn(800);};
+      var showContent=function(){ return content.fadeOut(800).removeClass('active');};
+      $.when(showContent()).done(hideTitles);
+    }
     function fullImage() {
         var fi = isfullImage();
         if (!!fi.length) {
@@ -715,6 +733,10 @@ otherBox.show(800);
             if (linkCallbackBusy) return;
             kindAjax(e.currentTarget.href, true);
         }
+    }
+
+    function linkCloseModal(){
+      $.magnificPopup.close();
     }
 
     function mobilecheck() {

@@ -300,7 +300,7 @@
      overflow: hidden;
      margin-bottom: 0 !important;
      .swiper-wrapper {
-         align-items: center;
+         //align-items: center;
      }
  }
 
@@ -613,7 +613,10 @@
     width:100% !important;
   }
   .big-claim.flogan{
+    text-transform: lowercase;
     .title{
+      text-transform: none;
+      font-size: 1em !important;
       display:inline-block !important;
       width:auto;
     }

@@ -1,0 +1,4 @@
+0000.000 (1) Opened log file at time: Mon, 25 Jan 2016 20:03:40 +0000 on http://localhost/biogena/
+0000.003 (1) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 2.11.21.22 WP: 4.3.1 PHP: 5.5.8 (Windows NT LUCA-DESK 6.1 build 7601 (Windows 7 Ultimate Edition Service Pack 1) i586) MySQL: 5.6.15 Server: Apache/2.4.7 (Win32) OpenSSL/1.0.1e PHP/5.5.8 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 38.4M | 38.8M) multisite: Y mcrypt: Y LANG:  ZipArchive::addFile: Y
+0000.006 (1) Free space on disk containing Updraft's temporary directory: 20998.6 Mb
+0000.009 (1) This backup task is either complete or began over 2 days ago: ending (1453752220.5688, )
