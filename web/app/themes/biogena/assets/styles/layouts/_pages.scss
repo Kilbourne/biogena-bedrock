@@ -1,3 +1,5 @@
+$colorList:(#E47627,#EC2623,#7D4C9D,#83C561,#3D3B8E,#71C8E3);
+
 .single-area-skin-care,
 .post-type-archive-area-skin-care,
 .single-linee,
@@ -1044,9 +1046,13 @@ margin: 1rem 0px;
     }
 
         .osmin-box{
-  background-color: #F6F6F6;
-    padding: 1rem 0.75rem;
-    >h3{color: #24569B;text-align: center;}
+background-color: aliceblue;
+padding: 0px 0px 1rem;
+    >h3{color: #24569B;text-align: center;
+      background-color: rgb(255, 255, 255);
+      padding: 1.5rem 0px;
+      margin: 0px;
+    }
     .accordion{margin:0;
       font-size:1rem;
       vertical-align: top;
@@ -1059,7 +1065,7 @@ margin: 1rem 0px;
           //&>a{display:inline-block;}
         }
     }
-    .accordionTitle::before{line-height: 3em;}
+
     .accordionTitle>p{
       margin: 0px;
       text-align: left;
@@ -1067,7 +1073,7 @@ margin: 1rem 0px;
       padding: 1em 6%;
     }
     .osmin-col{
-
+      padding: 0px 0.75rem;
       width:100%;
       vertical-align: top;
       font-size:0;
@@ -1080,6 +1086,29 @@ margin: 1rem 0px;
     }
     .accordion-content{
       >p{margin-bottom:0;}
+    }
+    .accordionTitle::before, .accordion__Heading::before { float:left;margin-left:17px;margin-right:0;line-height: 3rem;font-size: 1.6rem;}
+    $len:length($colorList);
+    @for $color from 1 through $len {
+    $c: nth($colorList, $color);
+    $c2:$len+1-$color;
+      .osmin-col:nth-of-type(#{$color}){
+        &>.accordion:first-child{
+
+         .accordionTitle::before, .accordion__Heading::before{
+          color:$c;
+        }
+        }
+      }
+            .osmin-col:nth-of-type(#{$c2}){
+        &>.accordion:nth-child(2){
+
+         .accordionTitle::before, .accordion__Heading::before{
+          color:$c;
+        }
+        }
+      }
+    // ... do something fancy with $c
     }
 }
 
@@ -1696,7 +1725,8 @@ vertical-align: bottom;
     line-height: 1.6;
 }
 .flag-body .list-wrapper .by-cura{
-    font-size: 0.85rem;
+    //font-size: 0.85rem;
+    font-style: italic;
     padding: 1rem 1% 0;
 }
 
@@ -1706,7 +1736,7 @@ vertical-align: bottom;
     width: 50%;
     display: inline-block;
 }
-  .sub-little{font-size:0.75rem; }
+  .sub-little{font-style: italic; }
   .faq-title{
     color:rgba(81, 144, 231, 0.69);
     &.real{

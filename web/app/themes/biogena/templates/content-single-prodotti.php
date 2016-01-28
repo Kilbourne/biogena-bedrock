@@ -4,7 +4,13 @@ while (have_posts()):
     the_post();
 
     $linea = biogenaData::data(get_post_type($post), get_the_title());
-        $connected2 = $linea['prodotti'];?>
+        $connected2 = $linea['prodotti'];
+        if($linea['linea']['title']==='Linea Osmin'){
+          $coadiuvanti= "Trattamenti quotidiani complementari";
+        }elseif ($linea['linea']['title']==='Linea TAE-X & TAE') {
+          $coadiuvanti= "Fotoprotettori";
+        }else{
+        $coadiuvanti= "Trattamenti coadiuvanti complementari"; }?>
   <div class="nav-bread">
       <div class="go-back"><a href="<?php echo $linea['linea']['permalink'] ?>" title=""> &lt;&lt; <?php _e("Torna alla linea","sage");?> <?php echo $linea['linea']['title'] ?></a></div>
   </div>
@@ -70,7 +76,7 @@ while (have_posts()):
 
     if (isset($field) && $field && $field !== '') { ?>
         <div class="  accordion">
-          <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("Uso","sage");?></h5></a></div>
+          <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("Modo d'uso","sage");?></h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="uso">
 
 
@@ -87,6 +93,20 @@ while (have_posts()):
     if (isset($field) && $field && $field !== '') { ?>
         <div class="accordion">
           <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("Precauzioni","sage");?></h5></a></div>
+            <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
+            <p>
+            <?php
+        echo $field; ?>
+          </p>
+          </div>
+        </div>
+        <?php
+    } ?>
+            <?php
+    $field = get_field('consigli');
+    if (isset($field) && $field && $field !== '') { ?>
+        <div class="accordion">
+          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("I consigli per una corretta protezione solare","sage");?></h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
             <p>
             <?php
@@ -124,9 +144,10 @@ while (have_posts()):
 
     if (count($connected2) > 0) { ?>
                <div class="slideshow correlati">
-            <div class="slider-title">  <h3>  <?php _e("Trattamenti coadiuvanti complementari","sage");?> </h3></div>
+            <div class="slider-title">  <h3>  <?php _e($coadiuvanti,"sage");?> </h3></div>
               <?php if(count($connected2)>1){ ?>
-                <div class=" slider-patologie active <?= count($connected2)===2?'two':'three' ?> <?= count($first['prodotti'])>3?'multi':'' ?> <?= count($first['prodotti'])>2?'multi2':'' ?>" >
+
+                <div class=" slider-patologie active <?= count($connected2)===2?'two':'three' ?> <?= count($connected2)>3?'multi':'' ?> <?= count($connected2)>2?'multi2':'' ?>" >
               <?php }else {echo '<div class=" no-slider " >';} ?>
                     <div class="swiper-wrapper">
 <?php

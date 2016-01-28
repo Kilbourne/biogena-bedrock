@@ -23,7 +23,7 @@
                 <div  class="boxx-wrapper left "><h3><?php _e("La soluzione Biogena","sage");?></h3>
 
                                  <div class="flag-body">
-                                   <p class="soluzione-text" ><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia e di innovazione scientifica.","sage");?></p>
+                                   <p class="soluzione-text" ><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia.","sage");?></p>
                                    <p><?= $first['fields']['prevenzione'];?></p>
                                   <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                                  </div>
@@ -48,7 +48,7 @@
                <?php $attivi=$first['fields']['attivi_di_linea'];$count=count($attivi); if($count>0){ ?>
                <hr>
                <div class="osmin-box">
-               <h3><?php _e("Interamente esente da:","sage");?></h3>
+               <h3><?php _e("La Linea Osmin è interamente esente da:","sage");?></h3>
 
 
                  <?php foreach ($attivi as $key => $attivo):

@@ -6,6 +6,8 @@ use Roots\Sage\Setup;
 use WP_Query;
 use stdClass;
 use Walker_Nav_Menu_Checklist;
+require_once dirname(__DIR__).'/lib/mobiledetect/mobiledetectlib/Mobile_Detect.php';
+use Mobile_Detect;
 /**
  * Add <body> classes
  */
@@ -168,6 +170,27 @@ $cont.="</div>";
   return $cont;
 }
 add_shortcode( 'materiali_riservati', __NAMESPACE__ . '\\materiali_riservati_func' );
+
+function video_azienda_func( $atts ){
+
+
+$detect = new Mobile_Detect;
+
+// Any mobile device (phones or tablets).
+if ( !$detect->isMobile() ) {
+ return '<div class=" boxx with-img video">
+            <div class="boxx-wrapper">
+                <h3>La parola al fondatore</h3>'.do_shortcode('[video src="http://www.menthalia.com/biogena/app/uploads/2015/11/Filmato-Green-1-1.m4v"][/video]').'
+
+<img class="alignleft size-full wp-image-1620" src="http://www.menthalia.com/biogena/app/uploads/2016/01/azienda-4.png" alt="azienda-01" width="180" height="300" />
+            </div>
+        </div>';
+
+}
+
+}
+add_shortcode( 'video_azienda', __NAMESPACE__ . '\\video_azienda_func' );
+
 function luca_read_more_link($link, $text) {
  return str_replace(
         'more-link',

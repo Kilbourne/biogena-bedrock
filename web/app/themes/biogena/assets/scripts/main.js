@@ -1039,6 +1039,7 @@ otherBox.show(800);
             bodies.each(function(index, el) {
           $(el).height(125+48-bodyArr[index]);
           });
+            $('.boxx-wrapper').matchHeight({byRow:false});
           },200);
         }
     }

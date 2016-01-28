@@ -465,6 +465,7 @@
          position: relative;
          height: 48px;
          text-align: center;
+         background-color: rgb(36, 86, 155);
          @include media-query(palm) {
              margin-bottom: 0.75rem;
          }
@@ -472,8 +473,14 @@
              margin: 0px;
              padding-top: 8px;
              font-size: 1.2rem;
-             color: rgb(36, 86, 155);
+             color: #fff;
          }
+         .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNyA0NCI+PHBhdGggZD0iTTI3LDIyTDI3LDIyTDUsNDRsLTIuMS0yLjFMMjIuOCwyMkwyLjksMi4xTDUsMEwyNywyMkwyNywyMnoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=");
+        }
+        .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+          background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNyA0NCI+PHBhdGggZD0iTTAsMjJMMjIsMGwyLjEsMi4xTDQuMiwyMmwxOS45LDE5LjlMMjIsNDRMMCwyMkwwLDIyTDAsMjJ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+");
+        }
      }
      .swiper-button-prev,
      .swiper-button-next {
@@ -612,14 +619,6 @@
     margin:0  !important;
     width:100% !important;
   }
-  .big-claim.flogan{
-    text-transform: lowercase;
-    .title{
-      text-transform: none;
-      font-size: 1em !important;
-      display:inline-block !important;
-      width:auto;
-    }
-  }
+
 }
  }
