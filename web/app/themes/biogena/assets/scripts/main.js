@@ -588,8 +588,8 @@ otherBox.show(800);
     function faqBack(e){
       var titles= $('.faq-title'),
           content=$('.faq-content.active');
-      var hideTitles=function(){ $('.faq-back').remove(); return titles.add('.faq-main>h3,.faq-main>.sub-little').fadeIn(800);};
-      var showContent=function(){ return content.fadeOut(800).removeClass('active');};
+      var hideTitles=function(){ content.removeClass('active');$('.faq-back').remove(); return titles.add('.faq-main>h3,.faq-main>.sub-little').fadeIn(800);};
+      var showContent=function(){ return content.fadeOut(800)};
       $.when(showContent()).done(hideTitles);
     }
     function fullImage() {
@@ -1024,11 +1024,27 @@ otherBox.show(800);
     }
     function aziendaMatchHeight(e) {
         if (azienda().length) {
-          if(!aziendaResize){$(window).resize(_.debounce(aziendaMatchHeight, 500));
-            aziendaResize=true;}
-          //$('.content-main>.content-wrapper').matchHeight({byRow:false});
+          if(!aziendaResize){
+            $(window).resize(_.debounce(resizeAzienda, 500));
+            aziendaResize=true;
+          }
+          function resizeAzienda(){
+            var video=$('.wp-video'),
+                bodies=$('.content-wrapper-azienda .flag-body > p:first-of-type'),
+                bodyArr=[],
+                h=video.parent().height()-video.prev().height();
+                bodies.each(function(index, el) {
+                 bodyArr.push($(el).parent().prev().outerHeight(true));
+                });
+                setTimeout(function(){
+                  video.height(h);
+                  bodies.each(function(index, el) {
+                    $(el).height(125+48-bodyArr[index]);
+                  });
+                },200);
+          }
           var video=$('.wp-video'),
-          bodies=$('.flag-body > p:first-of-type'),
+          bodies=$('.content-wrapper-azienda .flag-body > p:first-of-type'),
           bodyArr=[],
           h=video.parent().height()-video.prev().height();
           bodies.each(function(index, el) {
@@ -1037,9 +1053,9 @@ otherBox.show(800);
           setTimeout(function(){
             video.height(h);
             bodies.each(function(index, el) {
-          $(el).height(125+48-bodyArr[index]);
-          });
-            $('.boxx-wrapper').matchHeight({byRow:false});
+              $(el).height(125+48-bodyArr[index]);
+            });
+            $('.content-wrapper-azienda .boxx-wrapper:not(.full)').matchHeight({byRow:false});
           },200);
         }
     }

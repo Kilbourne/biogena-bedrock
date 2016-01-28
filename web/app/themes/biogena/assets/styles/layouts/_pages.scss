@@ -1087,8 +1087,8 @@ padding: 0px 0px 1rem;
     .accordion-content{
       >p{margin-bottom:0;}
     }
-    .accordionTitle::before, .accordion__Heading::before { float:left;margin-left:17px;margin-right:0;line-height: 3rem;font-size: 1.6rem;}
-    $len:length($colorList);
+    .accordionTitle::before, .accordion__Heading::before { float:left;margin-left:17px;margin-right:17px;line-height: 3rem;font-size: 1.6rem;}
+    $len:length($colorList)-1;
     @for $color from 1 through $len {
     $c: nth($colorList, $color);
     $c2:$len+1-$color;
@@ -1272,7 +1272,7 @@ padding: 0px 0px 1rem;
                   left:0;
                   @include media-query(palm){width: 100%;}
                   >h3{
-                    margin: 0px 0px 0.5rem;
+                    margin: 0px 0px 1.5rem;
                   }
 
                 }
@@ -1767,4 +1767,15 @@ transform: translate(-50%, -50%);
   position: absolute;
   left: 50%;
 
+}
+.contatti-mail{
+  display: inline-block; font-size: 1.1rem; margin-bottom: 1.5rem;flex-basis:100%;
+  @include media-query(lap-and-up){
+    flex-basis: 33.3%;
+  }
+  @include media-query(palm){
+    &.contatti-reg{
+      order:1;
+    }
+  }
 }
