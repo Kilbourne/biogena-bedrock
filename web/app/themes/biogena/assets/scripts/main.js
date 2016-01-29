@@ -967,7 +967,6 @@ otherBox.show(800);
                       var h=active.height(),
                       h2=change.height();
 
-
                   if(h!==h2){
                     change.height(h).addClass('custom');
                   }

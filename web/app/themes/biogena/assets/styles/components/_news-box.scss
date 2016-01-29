@@ -31,8 +31,8 @@
               vertical-align: top;
               display:inline;
             }
-            &>p:last-of-type{
-              text-align:right;
+            &>.more-link-wrap{
+              //text-align:right;
               display:block;
             }
             &>a:last-child{

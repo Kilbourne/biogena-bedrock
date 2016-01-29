@@ -251,3 +251,8 @@ function linea_single_product_ajax() {
 }
 add_action( 'wp_ajax_get_template_single', __NAMESPACE__ . '\\linea_single_product_ajax' );
 add_action( 'wp_ajax_nopriv_get_template_single', __NAMESPACE__ . '\\linea_single_product_ajax' );
+
+function add_p_tag($link){
+return "<p class='more-link-wrap'>$link</p>";
+}
+add_filter('the_content_more_link', __NAMESPACE__ . '\\add_p_tag'); 
