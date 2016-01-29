@@ -125,7 +125,7 @@
 
                 //$(window).scroll(videoScroll);
                 $(window).resize(_.debounce(responsiveMediaElement, 500));
-
+                $(window).resize(_.debounce(swiperHeight, 500));                
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
                 responsiveMediaElement();
@@ -951,11 +951,28 @@ otherBox.show(800);
                       change.height('100%').removeClass('custom');
                   }
               };
+               options.onInit=swiperHeight;
             }
         };
         return options;
     }
+    function swiperHeight(swiper){
+                  var wrapper=$('.products');
+                  if(wrapper.length){
 
+                  var change=wrapper.find('.swiper-wrapper'),
+                      active=wrapper.find('.swiper-slide-active'),
+                      products=active.find('.product');
+                      if(change.hasClass('custom')){ change.css('height','');}
+                      var h=active.height(),
+                      h2=change.height();
+
+
+                  if(h!==h2){
+                    change.height(h).addClass('custom');
+                  }
+                  }
+                };
     function UISearch(el, options) {
         this.el = el;
         this.inputEl = el.querySelector('form > input.sb-search-input');

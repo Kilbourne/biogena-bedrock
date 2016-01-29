@@ -172,7 +172,7 @@ $colorList:(#E47627,#EC2623,#7D4C9D,#83C561,#3D3B8E,#71C8E3);
             }
             &.box2{
               .boxx-wrapper {
-                    background-color: #FFF;
+                    background-color: #FDFDFD;
               }
             }
         }
@@ -851,7 +851,8 @@ $colorList:(#E47627,#EC2623,#7D4C9D,#83C561,#3D3B8E,#71C8E3);
                     right: 3%;
                     bottom: 10%;
                     a {
-                        color: #000;
+                        color: #24569B;
+                        font-weight:700;
                     }
                 }
                 >.readmore1 {
@@ -1066,11 +1067,14 @@ padding: 0px 0px 1rem;
         }
     }
 
-    .accordionTitle>p{
-      margin: 0px;
-      text-align: left;
-      font-family: robotoregular;
-      padding: 1em 6%;
+    .accordionTitle{
+      overflow:hidden;
+      >p{
+        margin: 0px;
+        text-align: left;
+        font-family: robotoregular;
+        padding: 1em 6%;
+      }
     }
     .osmin-col{
       padding: 0px 0.75rem;
@@ -1164,6 +1168,10 @@ padding: 0px 0px 1rem;
         position: relative;
         max-width: 510px;
         padding: 0px 5% 0%;
+                    @include media-query(palm){
+              display:block;
+              margin:0 auto;
+            }
         img {
             width: 100%;
         }

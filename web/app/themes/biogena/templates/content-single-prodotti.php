@@ -9,6 +9,12 @@ while (have_posts()):
           $coadiuvanti= "Trattamenti quotidiani complementari";
         }elseif ($linea['linea']['title']==='Linea TAE-X & TAE') {
           $coadiuvanti= "Fotoprotettori";
+        }elseif ($linea['linea']['title']==='Linea Laris') {
+          $coadiuvanti= "Trattamenti deodoranti complementari";
+        }elseif ($linea['linea']['title']==='Linea Tricologica') {
+          $coadiuvanti= "Trattamenti complementari tricologici";
+        }elseif ($linea['linea']['title']==='Biogena Slimgo & Euserpina Smagliature') {
+          $coadiuvanti= "Trattamenti complementari estetici";
         }else{
         $coadiuvanti= "Trattamenti coadiuvanti complementari"; }?>
   <div class="nav-bread">
