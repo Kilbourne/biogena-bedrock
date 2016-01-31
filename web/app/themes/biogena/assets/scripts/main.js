@@ -188,6 +188,11 @@ UISearch.prototype = {
                 aziendaMatchHeight();
                 initDotdot();
             }
+        },
+        'single_prodotti':{
+          init:function(){
+            //COOKIES_ENABLER.init();
+          }
         }
     };
 

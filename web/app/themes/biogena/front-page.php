@@ -78,7 +78,7 @@
         $img_src_s=wp_get_attachment_image_src( $thumb,'thumbnail')[0];
 
       ?>
-        <img  class="lazyload" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="  data-srcset="<?= $img_src_f  ?> 800w,  <?= $img_src_m ?> 300w, <?= $img_src_s ?> 150w" sizes="auto" alt="">
+        <img  class="lazyload" <?php if($key<4){echo 'srcset="'. $img_src_f  .' 800w,  '. $img_src_m .' 300w, '. $img_src_s .' 150w"';}else{ echo 'srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="';}?>  data-srcset="<?= $img_src_f  ?> 800w,  <?= $img_src_m ?> 300w, <?= $img_src_s ?> 150w" sizes="auto" alt="">
       <?php //echo get_the_post_thumbnail($patologia->ID,'medium'); ?>
          <div>
 

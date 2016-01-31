@@ -33,6 +33,15 @@ while (have_posts()):
             <span class="formato"><?php echo $field; ?></span>
           <?php } ?>
 <span class="like">
+       <!--
+        <iframe
+        class="ce-iframe" data-ce-src="//www.facebook.com/plugins/like.php?href=http://www.biogenalab.it&amp;width=130&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false"
+          scrolling="no"
+          frameborder="0"
+          style="border:none; overflow:hidden; width:108px; height:22px;"
+          allowTransparency="true">
+        </iframe>
+        -->
         <iframe
           src="//www.facebook.com/plugins/like.php?href=http://www.biogenalab.it&amp;width=130&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false"
           scrolling="no"
