@@ -111,12 +111,13 @@ function assets() {
     wp_enqueue_script('comment-reply');
   }
   wp_deregister_script('jquery' );
-  wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, false);
+wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, true);
   wp_enqueue_script('sage-js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_localize_script( 'sage-js', 'collegamenti', array("linee"=>biogenaData::data('linee'),"area-skin-care"=>biogenaData::data('area-skin-care'),"prodotti"=>biogenaData::data('prodotti') ));
   wp_localize_script( 'sage-js', 'wp_locale',get_locale());
-gravity_form_enqueue_scripts(1, false);
-gravity_form_enqueue_scripts(2, true);
+  wp_localize_script( 'sage-js', 'cssTarget',".img");
+//gravity_form_enqueue_scripts(1, false);
+//gravity_form_enqueue_scripts(2, true);
 // Execute the action only if the user isn't logged in
 if (!is_user_logged_in()) {
       wp_localize_script( 'sage-js', 'ajax_login_object', array(
@@ -129,5 +130,18 @@ if (!is_user_logged_in()) {
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
 
+function js_async_attr($tag){
 
+# Do not add async to these scripts
+$scripts_to_exclude = array('jquery','mediaelement-and-player');
+
+foreach($scripts_to_exclude as $exclude_script){
+    if(true == strpos($tag, $exclude_script ) )
+    return $tag;
+}
+
+# Add async to all remaining scripts
+return str_replace( ' src', ' async="async" src', $tag );
+}
+add_filter( 'script_loader_tag', __NAMESPACE__ . '\\js_async_attr', 10 );
 

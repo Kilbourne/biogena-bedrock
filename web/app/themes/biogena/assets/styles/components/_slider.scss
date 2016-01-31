@@ -531,8 +531,8 @@
              width: 93.9%;
              display: inline-block;
          }
-         >a >img {
-             width: 100%;
+         >a >img.lazyloaded {
+            width: 100%;
          }
          >a > div {
              background-color: #24569B;

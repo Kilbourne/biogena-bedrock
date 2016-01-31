@@ -61,7 +61,58 @@
             "desk": "screen and (min-width: 64em)",
             "retina": "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)"
         };
+    function UISearch(el, options) {
+        this.el = el;
+        this.inputEl = el.querySelector('form > input.sb-search-input');
+        this._initEvents();
+    }
+UISearch.prototype = {
+        _initEvents: function() {
+            var self = this,
+                initSearchFn = function(ev) {
+                    ev.stopPropagation();
+                    // trim its value
+                    self.inputEl.value = self.inputEl.value.replace(/^\s+|\s+$/g, '');
 
+                    if (!classie.has(self.el, 'sb-search-open')) { // open it
+                        ev.preventDefault();
+                        self.open();
+                    } else if (classie.has(self.el, 'sb-search-open') && /^\s*$/.test(self.inputEl.value)) { // close it
+                        ev.preventDefault();
+                        self.close();
+                    }
+                };
+
+            this.el.addEventListener('click', initSearchFn);
+            this.el.addEventListener('touchstart', initSearchFn);
+            this.inputEl.addEventListener('click', function(ev) {
+                ev.stopPropagation();
+            });
+            this.inputEl.addEventListener('touchstart', function(ev) {
+                ev.stopPropagation();
+            });
+        },
+        open: function() {
+            var self = this;
+            classie.add(this.el, 'sb-search-open');
+            // focus the input
+            if (!mobilecheck()) {
+                this.inputEl.focus();
+            }
+            // close the search input if body is clicked
+            var bodyFn = function(ev) {
+                self.close();
+                this.removeEventListener('click', bodyFn);
+                this.removeEventListener('touchstart', bodyFn);
+            };
+            document.addEventListener('click', bodyFn);
+            document.addEventListener('touchstart', bodyFn);
+        },
+        close: function() {
+            this.inputEl.blur();
+            classie.remove(this.el, 'sb-search-open');
+        }
+    };
 
 
     var lineeSliderOpt = function() {
@@ -118,14 +169,14 @@
                     unmatch: callbackMobile
                 });
                 if (window.matchMedia(breakpoints['lap-and-up']).matches) {
-                    callbackDesktop()
+                    callbackDesktop();
                 } else {
-                    callbackMobile()
+                    callbackMobile();
                 }
 
                 //$(window).scroll(videoScroll);
                 $(window).resize(_.debounce(responsiveMediaElement, 500));
-                $(window).resize(_.debounce(swiperHeight, 500));                
+                $(window).resize(_.debounce(swiperHeight, 500));
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
                 responsiveMediaElement();
@@ -355,8 +406,8 @@ function boxDesktop(){
                 contentWrapper = clickBox.parent(),
                 allBox = contentWrapper.children('.boxx'),
                 otherBox = allBox.not(clickBox);
-    contentWrapper.addClass('auto-height')
-    clickBox.addClass('full-width')
+    contentWrapper.addClass('auto-height');
+    clickBox.addClass('full-width');
     wrapper.toggleClass('now full open-apd left fadeIn');
     textBody.addClass('fadeIn');
     otherBox.hide();
@@ -575,21 +626,21 @@ otherBox.show(800);
     function faqDisable(){
       if($('.faq-title').length)$('.faq-title').each(function(el,i){
         if($(this).next().children('div').text()!=='') $(this).addClass('real');
-      })
+      });
 
     }
     function faqRead(e){
       var titles= $('.faq-title'),
           content=$(e.currentTarget).next();
       var hideTitles=function(){ return titles.add('.faq-main>h3,.faq-main>.sub-little').fadeOut(800);};
-      var showContent=function(){ $('.faq-main').prepend('<p class="faq-back">'+ lang[window.wp_locale]['Indietro']+'</p> ');return content.fadeIn(800).addClass('active');};
+      var showContent=function(){ $('.faq-main').prepend('<p class="faq-back">'+ lang[window.wp_locale].Indietro+'</p> ');return content.fadeIn(800).addClass('active');};
       $.when(hideTitles()).done(showContent);
     }
     function faqBack(e){
       var titles= $('.faq-title'),
           content=$('.faq-content.active');
       var hideTitles=function(){ content.removeClass('active');$('.faq-back').remove(); return titles.add('.faq-main>h3,.faq-main>.sub-little').fadeIn(800);};
-      var showContent=function(){ return content.fadeOut(800)};
+      var showContent=function(){ return content.fadeOut(800);};
       $.when(showContent()).done(hideTitles);
     }
     function fullImage() {
@@ -613,7 +664,7 @@ otherBox.show(800);
                 }
 
             } catch (e) {}
-            BackgroundCheck.refresh()
+            BackgroundCheck.refresh();
             var fs = $(fullSliderSelector);
             if (!!fs.length) {
                 if (fullSlider instanceof Swiper) fullSlider.destroy(true, true);
@@ -624,6 +675,18 @@ otherBox.show(800);
     }
 
     function kindAjax(URL, pop) {
+        function findPostType() {
+            return !!collegamenti[last] ? [collegamenti[last], last] : !!collegamenti[penultimate] ? [collegamenti[penultimate], penultimate] : null;
+        }
+
+        function checkIndex() {
+            var keys = Object.keys(postData);
+            var rightK = keys.filter(function(e) {
+                return url(-1, postData[e].permalink) === last;
+            })[0];
+            var index = keys.indexOf(rightK);
+            return index !== -1 ? index : 0;
+        }
         linkCallbackBusy = true;
         var index, checkPostType, postData, postType, menu, submenu, submenus,
             last = url(-1, URL),
@@ -686,9 +749,9 @@ otherBox.show(800);
                 });
 
                 if (window.matchMedia(breakpoints['lap-and-up']).matches) {
-                    callbackDesktop()
+                    callbackDesktop();
                 } else {
-                    callbackMobile()
+                    callbackMobile();
                 }
 
                 responsiveMediaElement();
@@ -716,18 +779,7 @@ otherBox.show(800);
 
 
 
-        function findPostType() {
-            return !!collegamenti[last] ? [collegamenti[last], last] : !!collegamenti[penultimate] ? [collegamenti[penultimate], penultimate] : null;
-        }
 
-        function checkIndex() {
-            var keys = Object.keys(postData);
-            var rightK = keys.filter(function(e) {
-                return url(-1, postData[e].permalink) === last;
-            })[0];
-            var index = keys.indexOf(rightK);
-            return index !== -1 ? index : 0;
-        }
 
 
     }
@@ -807,7 +859,7 @@ otherBox.show(800);
     }
 
     function readmoreAttiviCallback(e) {
-        $(e.currentTarget).find('.attivo-desc').slideToggle().toggleClass('opened');;
+        $(e.currentTarget).find('.attivo-desc').slideToggle().toggleClass('opened');
     }
 
     function readmoreCallback(e) {
@@ -953,7 +1005,7 @@ otherBox.show(800);
               };
                options.onInit=swiperHeight;
             }
-        };
+        }
         return options;
     }
     function swiperHeight(swiper){
@@ -971,60 +1023,9 @@ otherBox.show(800);
                     change.height(h).addClass('custom');
                   }
                   }
-                };
-    function UISearch(el, options) {
-        this.el = el;
-        this.inputEl = el.querySelector('form > input.sb-search-input');
-        this._initEvents();
-    }
+                }
 
-    UISearch.prototype = {
-        _initEvents: function() {
-            var self = this,
-                initSearchFn = function(ev) {
-                    ev.stopPropagation();
-                    // trim its value
-                    self.inputEl.value = self.inputEl.value.replace(/^\s+|\s+$/g, '');
 
-                    if (!classie.has(self.el, 'sb-search-open')) { // open it
-                        ev.preventDefault();
-                        self.open();
-                    } else if (classie.has(self.el, 'sb-search-open') && /^\s*$/.test(self.inputEl.value)) { // close it
-                        ev.preventDefault();
-                        self.close();
-                    }
-                };
-
-            this.el.addEventListener('click', initSearchFn);
-            this.el.addEventListener('touchstart', initSearchFn);
-            this.inputEl.addEventListener('click', function(ev) {
-                ev.stopPropagation();
-            });
-            this.inputEl.addEventListener('touchstart', function(ev) {
-                ev.stopPropagation();
-            });
-        },
-        open: function() {
-            var self = this;
-            classie.add(this.el, 'sb-search-open');
-            // focus the input
-            if (!mobilecheck()) {
-                this.inputEl.focus();
-            }
-            // close the search input if body is clicked
-            var bodyFn = function(ev) {
-                self.close();
-                this.removeEventListener('click', bodyFn);
-                this.removeEventListener('touchstart', bodyFn);
-            };
-            document.addEventListener('click', bodyFn);
-            document.addEventListener('touchstart', bodyFn);
-        },
-        close: function() {
-            this.inputEl.blur();
-            classie.remove(this.el, 'sb-search-open');
-        }
-    };
 
     function videoScroll(e) {
         if (azienda().length) {
@@ -1038,13 +1039,7 @@ otherBox.show(800);
             }
         }
     }
-    function aziendaMatchHeight(e) {
-        if (azienda().length) {
-          if(!aziendaResize){
-            $(window).resize(_.debounce(resizeAzienda, 500));
-            aziendaResize=true;
-          }
-          function resizeAzienda(){
+              function resizeAzienda(){
             var video=$('.wp-video'),
                 bodies=$('.content-wrapper-azienda .flag-body > p:first-of-type'),
                 bodyArr=[],
@@ -1059,6 +1054,13 @@ otherBox.show(800);
                   });
                 },200);
           }
+    function aziendaMatchHeight(e) {
+        if (azienda().length) {
+          if(!aziendaResize){
+            $(window).resize(_.debounce(resizeAzienda, 500));
+            aziendaResize=true;
+          }
+
           var video=$('.wp-video'),
           bodies=$('.content-wrapper-azienda .flag-body > p:first-of-type'),
           bodyArr=[],

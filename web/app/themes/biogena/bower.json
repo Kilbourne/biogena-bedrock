@@ -44,7 +44,7 @@
     "inuit-widths-responsive": "latest",
     "background-check": "~1.2.2",
     "underscore": "~1.8.3",
-    "swiper": "~3.2.0",
+    "swiper": "#master",
     "jquery": "~1.11.3",
     "font-awesome": "~4.5.0",
     "FitText.js": "~1.2.0",
@@ -55,7 +55,8 @@
     "fastclick": "~1.0.6",
     "matchHeight": "~0.7.0",
     "jQuery.dotdotdot": "~1.7.4",
-    "flowtype": "~1.1.0"
+    "flowtype": "~1.1.0",
+    "lazysizes": "~1.4.0"
   },
   "overrides": {
     "background-check": {

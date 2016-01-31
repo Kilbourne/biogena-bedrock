@@ -1,13 +1,30 @@
 {
   "dependencies": {
     "main.js": {
+      "vendor": [
+      "../../plugins/svg-support/js/min/svg-inline-min.js",
+      "../../plugins/gravityforms/js/jquery.json-1.3.js",
+      "../../plugins/gravityforms/js/gravityforms.min.js",
+      "../../plugins/gravityforms/js/jquery.maskedinput.min.js",
+      "../../plugins/gravityforms/js/conditional_logic.min.js",
+      "../../plugins/responsive-menu/public/js/touch.js",
+      "../../plugins/responsive-menu-data/js/responsive-menu-1.js"
+      ],
       "files": [
-        "scripts/*",
+        "scripts/picturefill.js",
         "scripts/main.js"
       ],
       "main": true
     },
     "main.css": {
+      "vendor": [
+      "../../plugins/menu-image/menu-image.css",
+      "../../plugins/gravityforms/css/formreset.min.css",
+      "../../plugins/gravityforms/css/formsmain.css",
+      "../../plugins/gravityforms/css/readyclass.min.css",
+      "../../plugins/gravityforms/css/browsers.min.css",
+      "../../plugins/responsive-menu-data/css/responsive-menu-2.css"
+      ],
       "files": [
         "styles/main.scss"
       ],
