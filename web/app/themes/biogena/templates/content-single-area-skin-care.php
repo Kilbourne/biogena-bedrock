@@ -35,7 +35,8 @@ function recursive($el,$content='') {
   }
 
 }
-if(isset($first['fields']['faq']) && $first['fields']['faq'] !=='' && $first['fields']['faq'] !==null){
+$is_faq=isset($first['fields']['faq']) && $first['fields']['faq'] !=='' && $first['fields']['faq'] !==null;
+if($is_faq){
   $faq = HtmlDomParser::str_get_html( $first['fields']['faq'] );
   $final_faq='';
   $ol=$faq->find('ol');
@@ -47,6 +48,25 @@ if(isset($first['fields']['faq']) && $first['fields']['faq'] !=='' && $first['fi
     $final_faq.=$accordion;
   }
   $final_faq.='<p class="by-cura">'.__('A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia) ','sage').'</p>';
+  $faq_text=__("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage");
+}else{
+	$vowels =
+    'aàáâãāăȧäảåǎȁąạḁẚầấẫẩằắẵẳǡǟǻậặæǽǣ' .
+    'AÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶÆǼǢ' .
+    'EÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜ' .
+    'eèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝ' .
+    'IÌÍÎĨĪĬİÏỈǏỊĮȈȊḬḮ' .
+    'iìíîĩīĭıïỉǐịįȉȋḭḯ' .
+    'OÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾŒ' .
+    'oòóôõōŏȯöỏőǒȍȏơǫọøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿœ' .
+    'UÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰ' .
+    'uùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǖǜǘǖǚừứữửự'
+;
+
+$isVowel=strpos($vowels,substr($first['title'], 0, 1));
+$art=$isVowel?'sull’':'sulla ';
+	$faq_t="Scopri le nostre FAQ ".$art . $first['title'] ." dal 1° aprile 2016.";
+	$faq_text="<strong>".__($faq_t,"sage")."</strong>";
 }
 ?>
 <div class="background-container">
@@ -92,9 +112,9 @@ if(isset($first['fields']['faq']) && $first['fields']['faq'] !=='' && $first['fi
                 <div  class="boxx-wrapper left">
                   <h3><?php _e("FAQ","sage");?></h3>
                   <div class="flag-body">
-                    <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage");?> </p>
+                    <p class="faq-text"><?= $faq_text; ?> </p>
                     <div class="list-wrapper"><?= $final_faq;?></div>
-                    <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
+                    <?php if($is_faq){ ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span><?php } ?>
                   </div>
                   <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/woman-ask.png" alt="">
                 </div>

@@ -66,8 +66,24 @@ var attivi=first['fields']['attivi_di_linea'];
                </div>
 
             <div class="content-wrapper <% if(first['prodotti'].length<2){ %> <%= 'single-product-wrapper' %> <% } %> <% if(attivi.length===0){ %> <%= 'no-pad' %> <% } %>">
-                <% if(!no_or_single){ %>
-                  <h3><?php _e("Trattamenti coadiuvanti per","sage"); ?> <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= first['area-skin-care']['title'] %></a></h3>
+                <% if(!no_or_single){ 
+vowels =
+    'aàáâãāăȧäảåǎȁąạḁẚầấẫẩằắẵẳǡǟǻậặæǽǣ' +
+    'AÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶÆǼǢ' +
+    'EÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜ' +
+    'eèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝ' +
+    'IÌÍÎĨĪĬİÏỈǏỊĮȈȊḬḮ' +
+    'iìíîĩīĭıïỉǐịįȉȋḭḯ' +
+    'OÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾŒ' +
+    'oòóôõōŏȯöỏőǒȍȏơǫọøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿœ' +
+    'UÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰ' +
+    'uùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǖǜǘǖǚừứữửự'
+;
+
+isVowel=vowels.indexOf(first['area-skin-care']['title'][0])!==-1;
+art=isVowel?'l’':'la ';
+                	%>
+                  <h3><?php _e("Trattamenti coadiuvanti per","sage"); ?> <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= art %><%= first['area-skin-care']['title'] %></a></h3>
                 <% } %>
                 <div class="products">
                 <% if(first.prodotti.length>1){ %>
@@ -158,8 +174,7 @@ var attivi=first['fields']['attivi_di_linea'];
               </div><div class="box3 boxx">
                          <div  class="boxx-wrapper left">
                   <h3>FAQ</h3>
-                  <div class="flag-body">
-                    <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?> </p>
+                  <div class="flag-body">                    
                     <%
 
                       function recursive(el,content) {
@@ -179,7 +194,8 @@ var attivi=first['fields']['attivi_di_linea'];
 
 }
 final_faq='';
-if(!!first['fields']['faq'] && first['fields']['faq']!==''){
+is_faq=!!first['fields']['faq'] && first['fields']['faq']!=='';
+if(is_faq){
   faq = first['fields']['faq'];
 
   ol=jQuery(faq).filter('ol');
@@ -191,12 +207,32 @@ if(!!first['fields']['faq'] && first['fields']['faq']!==''){
 
     accordion='<div class="accordion"><div class="dt"><a href="#faq_'+key+'" aria-expanded="false" aria-controls="faq_'+key+'" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><p><strong>'+(key+1)+'. '+text+' </strong></p></a></div><div class="accordion-content accordionItem is-collapsed" aria-hidden="true" id="faq_'+key+'"><p>'+content+'</p></div></div>';
     final_faq+=accordion;
+    
   })
+  faq_text="<?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?>"
   final_faq+='<p class="by-cura">'+ '<?php echo __('A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia) ','sage'); ?>'+'</p>';
+}else{
+	vowels =
+    'aàáâãāăȧäảåǎȁąạḁẚầấẫẩằắẵẳǡǟǻậặæǽǣ' +
+    'AÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶÆǼǢ' +
+    'EÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜ' +
+    'eèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝ' +
+    'IÌÍÎĨĪĬİÏỈǏỊĮȈȊḬḮ' +
+    'iìíîĩīĭıïỉǐịįȉȋḭḯ' +
+    'OÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾŒ' +
+    'oòóôõōŏȯöỏőǒȍȏơǫọøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿœ' +
+    'UÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰ' +
+    'uùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǖǜǘǖǚừứữửự'
+;
+isVowel=vowels.indexOf(first['title'][0])!==-1;
+art=isVowel?'sull’':'sulla ';
+	faq_t="<?php _e('Scopri le nostre FAQ ','sage') ?>"+art+ first['title'] +"<?php _e(' dal 1° aprile 2016.','sage') ?>";
+	faq_text="<strong>"+faq_t+"</strong>";
 }
                     %>
+                    <p class="faq-text"><%= faq_text %> </p>
                     <div class="list-wrapper"><%= final_faq %></div>
-                    <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
+                    <% if(is_faq){ %><span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span><% } %>
                   </div>
                   <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/woman-ask.png" alt="">
                 </div>

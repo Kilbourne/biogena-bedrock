@@ -1047,16 +1047,18 @@ otherBox.show(800);
               function resizeAzienda(){
             var video=$('.wp-video'),
                 bodies=$('.content-wrapper-azienda .flag-body > p:first-of-type'),
-                bodyArr=[],
-                h=video.parent().height()-video.prev().height();
+                bodyArr=[];
+                
                 bodies.each(function(index, el) {
                  bodyArr.push($(el).parent().prev().outerHeight(true));
                 });
                 setTimeout(function(){
-                  video.height(h);
+                  
                   bodies.each(function(index, el) {
                     $(el).height(125+48-bodyArr[index]);
                   });
+                  h=video.parent().height()-video.prev().outerHeight(true);
+                  video.height(h);
                 },200);
           }
     function aziendaMatchHeight(e) {
@@ -1068,17 +1070,19 @@ otherBox.show(800);
 
           var video=$('.wp-video'),
           bodies=$('.content-wrapper-azienda .flag-body > p:first-of-type'),
-          bodyArr=[],
-          h=video.parent().height()-video.prev().height();
+          bodyArr=[];
+          
           bodies.each(function(index, el) {
            bodyArr.push($(el).parent().prev().outerHeight(true));
           });
           setTimeout(function(){
-            video.height(h);
+            
             bodies.each(function(index, el) {
               $(el).height(125+48-bodyArr[index]);
             });
             $('.content-wrapper-azienda .boxx-wrapper:not(.full)').matchHeight({byRow:false});
+            var h=video.parent().height()-video.prev().outerHeight(true);
+            video.height(h);
           },200);
         }
     }

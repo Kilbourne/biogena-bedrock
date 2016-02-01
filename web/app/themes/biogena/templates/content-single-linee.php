@@ -77,8 +77,24 @@ $double_claim=str_replace ('<br/>','',$double_claim);
           <?php } ?>
     </div>
     <div class="content-wrapper <?php if(count($first['prodotti'])<2){ echo 'single-product-wrapper ';} if(count($attivi)===0){ echo 'no-pad';}?>">
-      <?php if( !$no_or_single ){ ?>
-          <h3><?php _e("Trattamenti coadiuvanti per","sage");?> <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
+      <?php if( !$no_or_single ){ 
+$vowels =
+    'aàáâãāăȧäảåǎȁąạḁẚầấẫẩằắẵẳǡǟǻậặæǽǣ' .
+    'AÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶÆǼǢ' .
+    'EÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜ' .
+    'eèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝ' .
+    'IÌÍÎĨĪĬİÏỈǏỊĮȈȊḬḮ' .
+    'iìíîĩīĭıïỉǐịįȉȋḭḯ' .
+    'OÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾŒ' .
+    'oòóôõōŏȯöỏőǒȍȏơǫọøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿœ' .
+    'UÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰ' .
+    'uùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǖǜǘǖǚừứữửự'
+;
+
+$isVowel=strpos($vowels,substr($first['area-skin-care']['title'], 0, 1));
+$art=$isVowel?'l’':'la ';
+      	?>
+          <h3><?php _e("Trattamenti coadiuvanti per","sage");?> <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $art.$first['area-skin-care']['title']; ?></a></h3>
       <?php } ?>
       <div class="products">
       <?php if(count($first['prodotti'])>1){ ?>
