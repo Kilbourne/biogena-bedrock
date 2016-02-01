@@ -110,10 +110,8 @@ function assets() {
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
-  
-if(!is_admin()){wp_deregister_script('jquery' ); wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, true);}else{
-	wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, false);
-}
+
+if(!is_admin()){wp_deregister_script('jquery' ); wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, true);}
   wp_enqueue_script('sage-js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
   wp_localize_script( 'sage-js', 'collegamenti', array("linee"=>biogenaData::data('linee'),"area-skin-care"=>biogenaData::data('area-skin-care'),"prodotti"=>biogenaData::data('prodotti') ));
   wp_localize_script( 'sage-js', 'wp_locale',get_locale());

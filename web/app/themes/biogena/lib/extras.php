@@ -190,16 +190,6 @@ if ( !$detect->isMobile() ) {
 
 }
 add_shortcode( 'video_azienda', __NAMESPACE__ . '\\video_azienda_func' );
-
-function luca_read_more_link($link, $text) {
- return str_replace(
-        'more-link',
-        'more-link ajax-popup-link',
-        $link
-    );
-}
-add_filter( 'the_content_more_link', __NAMESPACE__ . '\\luca_read_more_link',10,2 );
-
 add_action( 'wp_ajax_nopriv_ajax_login',  __NAMESPACE__ . '\\ajax_login' );
 
 function ajax_login(){
@@ -252,7 +242,3 @@ function linea_single_product_ajax() {
 add_action( 'wp_ajax_get_template_single', __NAMESPACE__ . '\\linea_single_product_ajax' );
 add_action( 'wp_ajax_nopriv_get_template_single', __NAMESPACE__ . '\\linea_single_product_ajax' );
 
-function add_p_tag($link){
-return "<p class='more-link-wrap'>$link</p>";
-}
-add_filter('the_content_more_link', __NAMESPACE__ . '\\add_p_tag'); 

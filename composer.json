@@ -72,7 +72,6 @@
     "wpackagist-plugin/wp-sweep": "1.0.6",
     "wpackagist-plugin/options-inspector": "2.1.1",
     "wpackagist-plugin/rewrite-rules-inspector": "1.2.1",
-    "wpackagist-plugin/gtmetrix-for-wordpress": "0.4.1",
     "wpackagist-plugin/google-pagespeed-insights": "1.0.6",
     "wpackagist-plugin/validated": "2.1.1"
   },

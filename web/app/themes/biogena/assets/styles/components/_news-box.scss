@@ -31,10 +31,6 @@
               vertical-align: top;
               display:inline;
             }
-            &>.more-link-wrap{
-              //text-align:right;
-              display:block;
-            }
             &>a:last-child{
               font-size: 0.85rem;
               margin-left: 1rem;
@@ -42,12 +38,18 @@
               float: right;
               margin: 20px 0 10px;
             }
+            .dotdotdot{
+              font-size: 1.2em;
+line-height: 0.9;
+margin-left: -1px;
+            }
             .more-link{
               font-size: 0.85rem;
 font-weight: 600;
 color: #24569B;
-    float: left;
-    margin: 20px 0 10px;
+    position: absolute;
+bottom: 0px;
+    margin: 0 0 10px;
             }
         }
         .more {

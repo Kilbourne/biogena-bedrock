@@ -36,7 +36,7 @@
         <h5><?php
         the_title(); ?></h5>
         <div class="content"><?php
-        the_content(__('Leggi Tutto','sage')); ?><a href="
+        the_excerpt();echo "<p class='more-link-wrap'><span class='dotdotdot'>...</span><br/><a class='more-link ajax-popup-link' href='". get_permalink($post->ID) . "''>". __('Leggi Tutto','sage')."</a></p>"; ?><a href="
 <?php  echo get_page_link(1181) ; ?>
 
 " title="" ><?php _e("Altre News","sage"); ?></a></div>
@@ -78,7 +78,8 @@
         $img_src_s=wp_get_attachment_image_src( $thumb,'thumbnail')[0];
 
       ?>
-        <img  class="lazyload" <?php if($key<4){echo 'srcset="'. $img_src_f  .' 800w,  '. $img_src_m .' 300w, '. $img_src_s .' 150w"';}else{ echo 'srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="';}?>  data-srcset="<?= $img_src_f  ?> 800w,  <?= $img_src_m ?> 300w, <?= $img_src_s ?> 150w" sizes="auto" alt="">
+        <img   <?php if($key<4){echo 'srcset="'. $img_src_f  .' 800w,  '. $img_src_m .' 300w, '. $img_src_s .' 150w" sizes="(min-width:1215px ) 22.0665vw, (min-width:912px ) 29.422vw, (min-width:608px ) 44.133vw, 94vw" ';}else{ echo 'srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAKAQAAAABDYDlUAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QAAd2KE6QAAAAOSURBVAjXY/j/jwE3AgAqcBPjc7HGgQAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAxNi0wMi0wMVQyMDoyNDoyOCswMTowMKvLYUYAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMTYtMDItMDFUMjA6MjQ6MjgrMDE6MDDaltn6AAAAAElFTkSuQmCC" class="lazyload" data-srcset="'. $img_src_f  .' 800w,  '. $img_src_m .' 300w, '. $img_src_s .' 150w"  sizes="auto" data-expand="300"';}?>   alt="">
+
       <?php //echo get_the_post_thumbnail($patologia->ID,'medium'); ?>
          <div>
 
