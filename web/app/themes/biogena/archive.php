@@ -13,12 +13,18 @@ Template Name: Archives
 
 
  $args = array(
-  'type'            => 'postbypost',
-  'order'           => 'DESC'
+'posts_per_page'=>-1
 );
  echo '<div style="position:relative;"><img src="'.get_stylesheet_directory_uri() .'/dist/images/archvio-news.jpg" alt=""><h1 class="archivio-news-title">'.__('Archivio News','sage').'</h1></div>';
 
-wp_get_archives( $args );
 
+$posts_array = get_posts( $args ); 
+?>
 
+<?php foreach ( $posts_array as $post ) : setup_postdata( $post ); ?>
+<?php get_template_part('templates/content', 'single-post2'); ?>
+<?php endforeach; 
+wp_reset_postdata();?> 
+  
+<?php
 } ?>

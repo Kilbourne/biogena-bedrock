@@ -33,7 +33,6 @@ while (have_posts()):
             <span class="formato"><?php echo $field; ?></span>
           <?php } ?>
 <span class="like">
-       <!--
         <iframe
         class="ce-iframe" data-ce-src="//www.facebook.com/plugins/like.php?href=http://www.biogenalab.it&amp;width=130&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false"
           scrolling="no"
@@ -41,14 +40,7 @@ while (have_posts()):
           style="border:none; overflow:hidden; width:108px; height:22px;"
           allowTransparency="true">
         </iframe>
-        -->
-        <iframe
-          src="//www.facebook.com/plugins/like.php?href=http://www.biogenalab.it&amp;width=130&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false"
-          scrolling="no"
-          frameborder="0"
-          style="border:none; overflow:hidden; width:108px; height:22px;"
-          allowTransparency="true">
-        </iframe>
+
       </span>
           </div>
 
@@ -189,3 +181,12 @@ while (have_posts()):
   </article>
 <?php
 endwhile; ?>
+<script id="ce-iframePlaceholder-html" type="text/plain">
+
+            <p class="cookie-text">Facebook Like | <?php _e('Per visualizzare questo contenuto è necessario accettare i cookie','sage'); ?></p><p class="cookie-link">
+          <a href="#" class="ce-accept"><?php _e('Accetta i cookie','sage'); ?></a>
+          <a href="<?php  echo get_page_link(640) ; ?>" title="" class="ajax-popup-link"><?php _e('Cookie policy','sage'); ?></a>
+      </p>
+
+
+</script>

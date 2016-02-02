@@ -65,7 +65,7 @@ if($is_faq){
 
 $isVowel=strpos($vowels,substr($first['title'], 0, 1));
 $art=$isVowel?'sull’':'sulla ';
-	$faq_t="Scopri le nostre FAQ ".$art . $first['title'] ." dal 1° aprile 2016.";
+	$faq_t="Scopri le nostre FAQ ".$art . $first['title'] ." da aprile 2016.";
 	$faq_text="<strong>".__($faq_t,"sage")."</strong>";
 }
 ?>

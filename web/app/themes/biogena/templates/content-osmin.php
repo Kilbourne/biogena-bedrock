@@ -3,6 +3,51 @@
  $default_attr = array(
   'class' => "wp-post-image"
 );
+use Sunra\PhpSimple\HtmlDomParser;
+
+function recursive($el,$content='') {
+  $next=$el->next_sibling();
+  if(!isset($next)|| $next === null || $next->tag==='ol'){
+    return $content;
+  }elseif($next->tag==='p'){
+    $content.=implode(" ",$next->find('text'));
+    return recursive($next,$content);
+  }
+
+}
+$is_faq=isset($first['fields']['faq']) && $first['fields']['faq'] !=='' && $first['fields']['faq'] !==null;
+if($is_faq){
+  $faq = HtmlDomParser::str_get_html( $first['fields']['faq'] );
+  $final_faq='';
+  $ol=$faq->find('ol');
+  foreach( $ol as $key=>$li)
+  {
+    $text=$li->find('text');
+    $content=recursive($li);
+    $accordion='<div class="accordion"><div class="dt"><a href="#faq_'.$key.'" aria-expanded="false" aria-controls="faq_'.$key.'" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><p><strong>'.($key+1).'. '.implode(" ", $text).' </strong></p></a></div><div class="accordion-content accordionItem is-collapsed" aria-hidden="true" id="faq_'.$key.'"><p>'.$content.'</p></div></div>';
+    $final_faq.=$accordion;
+  }
+  $final_faq.='<p class="by-cura">'.__('A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia) ','sage').'</p>';
+  $faq_text=__("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage");
+}else{
+	$vowels =
+    'aàáâãāăȧäảåǎȁąạḁẚầấẫẩằắẵẳǡǟǻậặæǽǣ' .
+    'AÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶÆǼǢ' .
+    'EÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜ' .
+    'eèéêẽēĕėëẻěȅȇẹȩęḙḛềếễểḕḗệḝ' .
+    'IÌÍÎĨĪĬİÏỈǏỊĮȈȊḬḮ' .
+    'iìíîĩīĭıïỉǐịįȉȋḭḯ' .
+    'OÒÓÔÕŌŎȮÖỎŐǑȌȎƠǪỌØỒỐỖỔȰȪȬṌṐṒỜỚỠỞỢǬỘǾŒ' .
+    'oòóôõōŏȯöỏőǒȍȏơǫọøồốỗổȱȫȭṍṏṑṓờớỡởợǭộǿœ' .
+    'UÙÚÛŨŪŬÜỦŮŰǓȔȖƯỤṲŲṶṴṸṺǛǗǕǙỪỨỮỬỰ' .
+    'uùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǖǜǘǖǚừứữửự'
+;
+
+$isVowel=strpos($vowels,substr($first['title'], 0, 1));
+$art=$isVowel?'sull’':'sulla ';
+	$faq_t="Scopri le nostre FAQ ".$art . $first['title'] ." da aprile 2016.";
+	$faq_text="<strong>".__($faq_t,"sage")."</strong>";
+}
 ?>
 <div class="osmin background-container">
 <?= wp_get_attachment_image($first['fields']['immagine_full_width']['id'],'full',false,$default_attr).$first['fields']['claim_'] ; ?>
@@ -23,7 +68,7 @@
                 <div  class="boxx-wrapper left "><h3><?php _e("La soluzione Biogena","sage");?></h3>
 
                                  <div class="flag-body">
-                                   <p class="soluzione-text" ><?php _e("Garantiamo l consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia.","sage");?></p>
+                                   <p class="soluzione-text" ><?php _e("Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati standard di qualità, sicurezza ed efficacia.","sage");?></p>
                                    <p><?= $first['fields']['prevenzione'];?></p>
                                   <span class="readmore-box"><?php _e("Leggi Tutto","sage"); ?></span>
                                  </div>
@@ -34,8 +79,9 @@
                 <div  class="boxx-wrapper left">
                   <h3><?php _e("FAQ","sage"); ?></h3>
                   <div class="flag-body">
-                    <p class="faq-text"><?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?> </p>
-                    <span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span>
+                             <p class="faq-text"><?= $faq_text; ?> </p>
+                    <div class="list-wrapper"><?= $final_faq;?></div>
+                    <?php if($is_faq){ ?><span class="readmore-box"><?php _e("Leggi Tutto","sage");?></span><?php } ?>
                   </div>
                   <img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/images/woman-ask.png" alt="">
                 </div>

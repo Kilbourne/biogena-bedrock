@@ -180,18 +180,21 @@ UISearch.prototype = {
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
                 responsiveMediaElement();
-                popUp();
+                
                 osminMenu();
                 secondSlider();
                 accordion();
                 postArchiveMenu();
                 aziendaMatchHeight();
                 initDotdot();
+            },
+            finalize:function(){
+                popUp();
             }
         },
         'single_prodotti':{
           init:function(){
-            //COOKIES_ENABLER.init();
+            COOKIES_ENABLER.init({bannerHTML:''});
           }
         }
     };
@@ -1048,12 +1051,12 @@ otherBox.show(800);
             var video=$('.wp-video'),
                 bodies=$('.content-wrapper-azienda .flag-body > p:first-of-type'),
                 bodyArr=[];
-                
+
                 bodies.each(function(index, el) {
                  bodyArr.push($(el).parent().prev().outerHeight(true));
                 });
                 setTimeout(function(){
-                  
+
                   bodies.each(function(index, el) {
                     $(el).height(125+48-bodyArr[index]);
                   });
@@ -1071,12 +1074,12 @@ otherBox.show(800);
           var video=$('.wp-video'),
           bodies=$('.content-wrapper-azienda .flag-body > p:first-of-type'),
           bodyArr=[];
-          
+
           bodies.each(function(index, el) {
            bodyArr.push($(el).parent().prev().outerHeight(true));
           });
           setTimeout(function(){
-            
+
             bodies.each(function(index, el) {
               $(el).height(125+48-bodyArr[index]);
             });

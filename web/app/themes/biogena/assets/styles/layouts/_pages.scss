@@ -1562,8 +1562,12 @@ vertical-align: bottom;
     left: 1.5%;
     width: 97%;
     @include media-query(lap-and-up) {
-        width: 66%;
-        left: 17.5%;
+max-width: 66%;
+
+min-width: 22%;
+left: 50%;
+transform: translate( -50% );
+width:auto;
     }
     ;
 }
@@ -1787,3 +1791,95 @@ transform: translate(-50%, -50%);
     }
   }
 }
+.ce-iframe-placeholder{
+  line-height: 1.2;
+  text-align: left;
+  margin: 0.5rem 0px;
+  color: #24569B;
+  .cookie-text{
+    margin-bottom: 0.5rem;
+  }
+  .cookie-link{
+    margin-bottom: 0px;
+    >a{text-decoration: none;}
+  }
+  .ce-accept{margin-right: 5px;}
+}
+
+body.single-post{
+        h1,
+        h3,
+        h4 {
+            color: #24569B;
+        }
+        
+        article{
+          .entry-title{text-align: left;}
+          >.entry-content {
+            >.news-wrap{
+              float: left;
+              margin-right: 1rem;
+              vertical-align: top;
+            }
+          text-align: left;
+            p {
+                margin-bottom: 0.5rem;
+            }
+          }
+        }
+        .archivio-titolo{
+          margin: 1.5rem 0;
+        }
+        .article-wrap{
+          padding: 0px 3%;
+        }
+        .article-wrap2{
+          width: 70%;
+display: inline-block;
+border-right: 1px solid rgb(36, 86, 155);
+padding: 0px 2%;
+        }
+        .news-archive-wrap{
+          display: inline-block;
+width: 30%;
+vertical-align: top;
+padding: 0px 2%;
+        }
+
+            .content>.main {
+      text-align: left;
+      margin-bottom: 1.5rem;
+        li {
+            width:100%;
+            list-style: none;
+            padding: 0 2%;
+            display: inline-block;
+            margin: 0.5rem auto;
+//            border-right: 1px solid rgb(36, 86, 155);
+                        &:before{
+                  content:'';
+                  background-image:url('../images/loghetto.png');
+                  background-repeat: no-repeat;
+                  display:inline-block;
+width: 22px;
+height: 22px;
+position: absolute;
+background-size: contain;
+vertical-align: bottom;
+
+                }
+            >a {
+                text-decoration: none;
+                height: 26px;
+display: inline-block;
+margin-left: 34px;
+word-break: break-all;
+word-wrap: break-word;
+width: 100%;
+vertical-align: top;
+
+            }
+        } 
+}
+}
+
