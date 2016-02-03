@@ -4,9 +4,9 @@ use Roots\Sage\Setup;
 use Roots\Sage\Wrapper;
 
 
-if(get_post_type()==='post'&& is_single()){ 
+if(get_post_type()==='post'&& is_single()){
 	if($_GET["ajax"] === "true"){?>
-    
+
   <div class="content row">
         <main class="main">
           <?php include Wrapper\template_path(); ?>
@@ -37,11 +37,11 @@ if(get_post_type()==='post'&& is_single()){
       <div class="content row">
         <main class="main">
 
-          <?php echo '<div style="position:relative;"><img src="'.get_stylesheet_directory_uri() .'/dist/images/archvio-news.jpg" alt=""></div><div class="article-wrap" ><div class="article-wrap2" >';include Wrapper\template_path();$field = get_field('foto_nascosta');echo "</div><meta property='og:image' content='".$field."'/><img src='".$field."' style='display:none;' alt='Immagine Articolo' title='Immagine Articolo' >"; $args = array(
+          <?php echo '<div style="position:relative;"><img src="'.get_stylesheet_directory_uri() .'/dist/images/archvio-news.jpg" alt=""></div><div class="article-wrap" ><div class="article-wrap2" >';include Wrapper\template_path();$field = get_field('foto_nascosta');echo "</div><img src='".$field."' style='display:none;' alt='Immagine Articolo' title='Immagine Articolo' >"; $args = array(
   'type'            => 'postbypost',
   'order'           => 'DESC'
 );
- 
+
 echo '<div class="news-archive-wrap"> <h3 class="archivio-titolo">'.__('Archivio News','sage').'</h3>';
 wp_get_archives( $args ); ?>
         </div></div></main><!-- /.main -->
@@ -63,8 +63,8 @@ wp_get_archives( $args ); ?>
     ?>
   </body>
 </html>
-	
-	
+
+
 <?php
 }}else{
 ?>
