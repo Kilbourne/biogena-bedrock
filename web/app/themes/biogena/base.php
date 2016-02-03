@@ -37,7 +37,7 @@ if(get_post_type()==='post'&& is_single()){
       <div class="content row">
         <main class="main">
 
-          <?php echo '<div style="position:relative;"><img src="'.get_stylesheet_directory_uri() .'/dist/images/archvio-news.jpg" alt=""></div><div class="article-wrap" ><div class="article-wrap2" >';include Wrapper\template_path();$field = get_field('foto_nascosta');echo "</div><img src='".$field."' style='display:none;' alt='Immagine Articolo' title='Immagine Articolo' >"; $args = array(
+          <?php echo '<div style="position:relative;"><img src="'.get_stylesheet_directory_uri() .'/dist/images/archvio-news.jpg" alt=""></div><div class="article-wrap" ><div class="article-wrap2" >';include Wrapper\template_path();echo "</div>";$args = array(
   'type'            => 'postbypost',
   'order'           => 'DESC'
 );
