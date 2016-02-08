@@ -74,18 +74,18 @@ define('DISALLOW_FILE_EDIT', true);
  */
 
 $BEDROCK_DEV_PLUGINS = array(
-    'query-monitor/query-monitor.php',
-    'debug-bar/debug-bar.php',
-    'p3-profiler/p3-profiler.php'
+
 );
 
 define( 'WP_ALLOW_MULTISITE', true );
+
 define('MULTISITE', true);
 define('SUBDOMAIN_INSTALL', false);
 define('DOMAIN_CURRENT_SITE', getenv('WP_DOMAIN_CURRENT_SITE'));
 define('PATH_CURRENT_SITE', getenv('WP_PATH_CURRENT_SITE'));
 define('SITE_ID_CURRENT_SITE', 1);
 define('BLOG_ID_CURRENT_SITE', 1);
+
 
 /**
  * Bootstrap WordPress

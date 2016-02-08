@@ -66,7 +66,7 @@ var attivi=first['fields']['attivi_di_linea'];
                </div>
 
             <div class="content-wrapper <% if(first['prodotti'].length<2){ %> <%= 'single-product-wrapper' %> <% } %> <% if(attivi.length===0){ %> <%= 'no-pad' %> <% } %>">
-                <% if(!no_or_single){ 
+                <% if(!no_or_single){
 vowels =
     'aàáâãāăȧäảåǎȁąạḁẚầấẫẩằắẵẳǡǟǻậặæǽǣ' +
     'AÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶÆǼǢ' +
@@ -140,8 +140,8 @@ art=isVowel?'l’':'la ';
 
  <div class="background-container">
  <picture>
-   <source media="(max-width: 49.999em)" srcset='<%  arrStr = first.thumbnail.split('src="').pop().split('"').shift() %><%= arrStr %> 280w' sizes="(max-width: 280px) 100vw, 280px">
-   <img  class="attachment-post-thumbnail wp-post-image" src="<%= first['fields']['immagine_full_width']['url'] %>"   alt="">
+   <source media="(max-width: 49.999em)" srcset='<%  arrStr = first.thumbnail.split('src="').pop().split('"').shift() %><%= arrStr %> 801w' sizes="(max-width: 801px) 100vw, 801px">
+   <img  class="attachment-post-thumbnail wp-post-image" srcset="<%= first['fields']['immagine_full_width']['url'] %>"   alt="">
  </picture>
  <%= first.fields.claim_ %>
  </div>
@@ -174,7 +174,7 @@ art=isVowel?'l’':'la ';
               </div><div class="box3 boxx">
                          <div  class="boxx-wrapper left">
                   <h3>FAQ</h3>
-                  <div class="flag-body">                    
+                  <div class="flag-body">
                     <%
 
                       function recursive(el,content) {
@@ -207,7 +207,7 @@ if(is_faq){
 
     accordion='<div class="accordion"><div class="dt"><a href="#faq_'+key+'" aria-expanded="false" aria-controls="faq_'+key+'" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"><p><strong>'+(key+1)+'. '+text+' </strong></p></a></div><div class="accordion-content accordionItem is-collapsed" aria-hidden="true" id="faq_'+key+'"><p>'+content+'</p></div></div>';
     final_faq+=accordion;
-    
+
   })
   faq_text="<?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?>"
   final_faq+='<p class="by-cura">'+ '<?php echo __('A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia) ','sage'); ?>'+'</p>';

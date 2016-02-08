@@ -180,7 +180,7 @@ UISearch.prototype = {
                 window.onpopstate = popstateCallback;
                 var search = new UISearch(document.getElementById('sb-search'));
                 responsiveMediaElement();
-                
+
                 osminMenu();
                 secondSlider();
                 accordion();
@@ -494,7 +494,7 @@ function boxDesktop(){
                     });
                     if(wrapper.hasClass('left')){wrapper.removeClass('left');}
                     if(!azienda().length && !clickBox.hasClass('fotop')){wrapper.addClass(' absolute  ');}
-                    else{ aziendaabs='absolute';wrapper.addClass(' absolute2  ');}
+                    else{ aziendaabs='absolute';wrapper.addClass(' absolute2  ').css('height', '');}
 //                    otherBox.children().children('img').hide();
 
                 } else {
@@ -740,7 +740,7 @@ otherBox.show(800);
                 }
 
                 fullImage();
-
+                picturefill();
                 menu = $('.' + postType);
                 if (menu.length !== menu.add('.active').length) {
                     $('#menu-menu-1>.menu-item,#menu-mobile-menu>.menu-item').removeClass('active');
