@@ -126,6 +126,8 @@ if (!is_user_logged_in()) {
         'loadingmessage' => __('Sending user info, please wait...')
     ));
 
+}else{
+      wp_localize_script( 'sage-js', 'ajaxurl',  admin_url( 'admin-ajax.php' ));
 }
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
