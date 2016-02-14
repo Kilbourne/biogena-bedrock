@@ -8,7 +8,7 @@
         'posts_per_page'   => -1,
         'orderby'          => 'title',
         'order'            => 'ASC',
-        'post_type'        => 'area-skin-care',
+        'post_type'        => __('area-skin-care','sage'),
       );
       $posts_array = get_posts( $args );
       $posts_count = count($posts_array);

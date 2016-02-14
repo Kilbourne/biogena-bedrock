@@ -12,7 +12,7 @@ var gulp              = require('gulp')
       // Fail due to JSHint warnings only when `--production`
       failJSHint: false,
       // Strip debug statments from javascript when `--production`
-      stripJSDebug: argv.production
+      stripJSDebug: false
     }
   , writeToManifest   = require('./manifest').writeToManifest
   , manifest = require('../gulpconfig').manifest.manifest

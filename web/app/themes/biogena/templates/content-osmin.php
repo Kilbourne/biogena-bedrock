@@ -1,5 +1,5 @@
 <?php
- $first=biogenaData::data('linee',get_the_title());
+ $first=biogenaData::data(__('linee','sage'),get_the_title());
  $default_attr = array(
   'class' => "wp-post-image"
 );

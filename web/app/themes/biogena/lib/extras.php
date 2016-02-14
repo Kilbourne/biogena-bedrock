@@ -18,7 +18,7 @@ function body_class($classes) {
       $classes[] = basename(get_permalink());
     }
   }
-  if (!is_home() && 'area-skin-care' != get_post_type() && 'osmin-linea-pediatrica' !== basename(get_permalink()) || is_search() ){
+  if (!is_home() && __('linee','sage')	 != get_post_type() && __('osmin-linea-pediatrica','sage') !== basename(get_permalink()) || is_search() ){
     $classes[] = 'no-full-slider';
   }
   // Add class if sidebar is active
@@ -69,8 +69,8 @@ function add_biogena_logo_menu( $items, $args ){
 function connection_patologie_to_linee() {
     p2p_register_connection_type( array(
         'name' => 'area-skin-care_to_linee',
-        'from' => 'area-skin-care',
-        'to' => 'linee'
+        'from' => __('area-skin-care','sage')	,
+        'to' => __('linee','sage')
     ) );
 }
 add_action( 'p2p_init', __NAMESPACE__ . '\\connection_patologie_to_linee' );
@@ -78,8 +78,8 @@ add_action( 'p2p_init', __NAMESPACE__ . '\\connection_patologie_to_linee' );
 function connection_linee_to_prodotti() {
     p2p_register_connection_type( array(
         'name' => 'linee_to_prodotti',
-        'from' => 'linee',
-        'to' => 'prodotti'
+        'from' => __('linee','sage')	,
+        'to' => __('prodotti','sage')
     ) );
 }
 add_action( 'p2p_init', __NAMESPACE__ . '\\connection_linee_to_prodotti' );
@@ -230,8 +230,8 @@ function linea_single_product_ajax() {
   $title=isset($_POST['prodottoSingle']) && $_POST['prodottoSingle'] !==''?$_POST['prodottoSingle']:$_POST['title'];
 
   global $post;
-  $post = get_page_by_title( urldecode($title), 'OBJECT', 'prodotti' );
-  query_posts( array('p'=>$post->ID,'post_type'=>'prodotti'));
+  $post = get_page_by_title( urldecode($title), 'OBJECT', __('prodotti','sage') );
+  query_posts( array('p'=>$post->ID,'post_type'=>__('prodotti','sage')));
   ob_start();
   include_once(locate_template('templates/content-single-prodotti.php'));
   $output = ob_get_contents();

@@ -65,7 +65,7 @@
     <?php
       $args = array(
   'posts_per_page'   => -1,
-  'post_type'        => 'area-skin-care',
+  'post_type'        => __('area-skin-care','sage'),
   );
   $posts_array = get_posts( $args );
    foreach ( $posts_array as $key=>$patologia ){ ?>

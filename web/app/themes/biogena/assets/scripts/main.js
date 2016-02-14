@@ -11,15 +11,33 @@
  * ======================================================================== */
 
 (function($) {
-    var isfullImage = function() {
+    var         lang = {
+            "it_IT": {
+                'Leggi Tutto': 'Leggi Tutto',
+                'Chiudi': 'Chiudi',
+                'Indietro':'Torna indietro',
+                'linee':'linee',
+                'area-skin-care':'area-skin-care',
+                'prodotti':'prodotti'
+            },
+            "en_GB": {
+                'Leggi Tutto': "Read More",
+                'Chiudi': "Close",
+                'Indietro':'Back',
+                'linee':'lines',
+                'area-skin-care':'skin-care-area',
+                'prodotti':'products'
+            }
+        },
+        isfullImage = function() {
             return $('.background-slider .wp-post-image,.background-container .wp-post-image');
         },
         fullSliderSelector = '.background-slider,.background-container.specialita.double',
         isbigClaim = function() {
-            return $('.post-type-archive-linee .background-container.specialita .big-claim,  .single-linee .background-container.specialita .big-claim');
+            return $('.post-type-archive-'+lang[window.wp_locale]['linee']+' .background-container.specialita .big-claim,  .single-'+lang[window.wp_locale]['linee']+' .background-container.specialita .big-claim');
         },
         ask = function() {
-            return $('.post-type-archive-area-skin-care,.single-area-skin-care');
+            return $('.post-type-archive-'+lang[window.wp_locale]['area-skin-care']+',.single-'+lang[window.wp_locale]['area-skin-care']+'');
         },
         azienda = function() {
             return $('body.azienda');
@@ -29,30 +47,19 @@
             return $('.attivi');
         },
         isAccordion = function() {
-            return $('body.single-prodotti,body.single-linee .single-product-wrapper,body.post-type-archive-linee .single-product-wrapper,body.osmin-linea-pediatrica').length;
+            return $('body.single-prodotti,body.single-'+lang[window.wp_locale]['linee']+' .single-product-wrapper,body.post-type-archive-'+lang[window.wp_locale]['linee']+' .single-product-wrapper,body.osmin-linea-pediatrica').length;
         },
         isSingleLinea = function() {
-            return $('body.single-linee .single-linea').length;
+            return $('body.single-'+lang[window.wp_locale]['linee']+' .single-linea').length;
         },
         isBox=function(){
           return $('.boxx .flag-body p:first-of-type');
         },
-        bodyClasses = ['home', 'post-type-archive-linee', 'azienda', 'single-linee', 'single-area-skin-care', 'post-type-archive-area-skin-care', 'no-full-slider', 'page', 'search', 'error404', 'osmin-linea-pediatrica'];
+        bodyClasses = ['home', 'post-type-archive-'+lang[window.wp_locale]['linee']+'', 'azienda', 'single-'+lang[window.wp_locale]['linee']+'', 'single-'+lang[window.wp_locale]['area-skin-care']+'', 'post-type-archive-'+lang[window.wp_locale]['area-skin-care']+'', 'no-full-slider', 'page', 'search', 'error404', 'osmin-linea-pediatrica'];
 
     var downSlider, oldPostType, fullSlider, swiperAttivi, swiperProd, linkCallbackBusy = false,
         prodottoSingle, titles, boxreadinaction = false,aziendaResize=false,
         safariBug = false,
-        lang = {
-            "it_IT": {
-                'Leggi Tutto': 'Leggi Tutto',
-                'Chiudi': 'Chiudi',
-                'Indietro':'Torna indietro'
-            },
-            "en_GB": {
-                'Leggi Tutto': "Read More",
-                'Chiudi': "Close"
-            }
-        },
         breakpoints = {
             "palm": "screen and (max-width: 49.9375em)",
             "lap": "screen and (min-width: 50em) and (max-width: 63.9375em)",
@@ -153,7 +160,8 @@ UISearch.prototype = {
             init: function() {
                 FastClick.attach(document.body);
                 fullImage();
-                $('body').on('click', 'a[href*="/area-skin-care/"],a[href*="/linee/"]', linkCallback);
+                var aaa= 'a[href*="/'+lang[window.wp_locale]['area-skin-care']+'/"],a[href*="/'+lang[window.wp_locale]['linee']+'/"]';
+                $('body').on('click',aaa , linkCallback);
                 $('body').on('click', '.readmore1', readmoreCallback);
                 $('body').on('mouseenter mouseleave', '.swiper-container-horizontal', stopAutoplayOnHover);
                 $('body').on('click', '.attivo', readmoreAttiviCallback);
@@ -193,6 +201,11 @@ UISearch.prototype = {
             }
         },
         'single_prodotti':{
+          init:function(){
+            COOKIES_ENABLER.init({bannerHTML:''});
+          }
+        },
+        'single_products':{
           init:function(){
             COOKIES_ENABLER.init({bannerHTML:''});
           }
@@ -726,7 +739,7 @@ otherBox.show(800);
                 body.removeClass(bodyClasses.join(' '));
                 body.addClass('single-' + postType);
 
-                if (postType === 'linee') body.addClass('no-full-slider');
+                if (postType === lang[window.wp_locale]['linee']) body.addClass('no-full-slider');
                 document.title = postData[keys[index]].title + " | Biogena";
                 if (!!pop) {
                     history.pushState({
@@ -777,7 +790,7 @@ otherBox.show(800);
                         title: titles,
                         prodottoSingle: prodottoSingle
                     }, function(data) {
-                        $('body.single-linee .single-linea').html(data);
+                        $('body.single-'+lang[window.wp_locale]['linee']+' .single-linea').html(data);
                         accordion();
                     });
                 }
