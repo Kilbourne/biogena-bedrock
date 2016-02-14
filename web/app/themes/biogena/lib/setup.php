@@ -113,6 +113,7 @@ function assets() {
 
 if(!is_admin()){wp_deregister_script('jquery' ); wp_enqueue_script('jquery',  Assets\asset_path('scripts/jquery.js'), array(),null, true);}
   wp_enqueue_script('sage-js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_localize_script( 'sage-js', 'collegamenti', array(__('linee','sage')=>biogenaData::data(__('linee','sage')),__('area-skin-care','sage')=>biogenaData::data(__('area-skin-care','sage')),__('prodotti','sage')=>biogenaData::data(__('prodotti','sage')) ));
   wp_localize_script( 'sage-js', 'wp_locale',get_locale());
   wp_localize_script( 'sage-js', 'cssTarget',".img");
 //gravity_form_enqueue_scripts(1, false);
