@@ -36,10 +36,7 @@
         <h5><?php
         the_title(); ?></h5>
         <div class="content"><?php
-        the_excerpt();echo "<p class='more-link-wrap'><span class='dotdotdot'>...</span><br/><a class='more-link ajax-popup-link' href='". get_permalink($post->ID) . "?ajax=true' >". __('Leggi Tutto','sage')."</a></p>"; ?><a href="
-<?php  echo get_page_link(1181) ; ?>
-
-" title="" ><?php _e("Altre News","sage"); ?></a></div>
+        the_excerpt();echo "<p class='more-link-wrap'><span class='dotdotdot'>...</span><br/><a class='more-link ajax-popup-link' href='". get_permalink($post->ID) . "?ajax=true' >". __('Leggi Tutto','sage')."</a></p>"; ?><a href="<?php  echo get_page_link(1181) ; ?>"   ><?php _e("Altre News","sage"); ?></a></div>
       </div>
     </div>
     <?php
