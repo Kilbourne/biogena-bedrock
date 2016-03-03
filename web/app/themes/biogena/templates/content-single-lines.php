@@ -95,7 +95,7 @@ $vowels =
 $isVowel=strpos($vowels,substr($first['area-skin-care']['title'], 0, 1));
 $art=$isVowel?'l’':'la ';
         ?>
-          <h3><?php _e("Trattamenti coadiuvanti per","sage");?> <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $art.$first['area-skin-care']['title']; ?></a></h3>
+          <h3><?php _e("Trattamenti coadiuvanti per","sage");?> <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $first['area-skin-care']['title']; ?></a></h3>
       <?php } ?>
       <div class="products">
       <?php if(count($first['prodotti'])>1){ ?>

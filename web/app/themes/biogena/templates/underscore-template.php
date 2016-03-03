@@ -136,12 +136,12 @@ art=isVowel?'l’':'la ';
               </div>
  </div>
  </script>
-  <script id="<?php _e("area_skin_care","sage")?>" type="text/template" >
+  <script id="<?php _e("area-skin-care","sage")?>" type="text/template" >
 
  <div class="background-container">
  <picture>
    <source media="(max-width: 49.999em)" srcset='<%  arrStr = first.thumbnail.split('src="').pop().split('"').shift() %><%= arrStr %> 801w' sizes="(max-width: 801px) 100vw, 801px">
-   <img  class="attachment-post-thumbnail wp-post-image" srcset="<%= first['fields']['immagine_full_width']['url'] %>"   alt="">
+   <img  class="attachment-post-thumbnail wp-post-image" srcset="<%= first['fields']['immagine_full_width']['url'] %> 1440w" sizes="(max-width: 1440px) 100vw, 1440px"  alt="">
  </picture>
  <%= first.fields.claim_ %>
  </div>

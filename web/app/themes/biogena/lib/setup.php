@@ -105,7 +105,11 @@ function display_page_title() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage-css', Assets\asset_path('styles/main.css'), false, null);
+  if(get_locale()=== "it_IT"){
+    wp_enqueue_style('sage-css', Assets\asset_path('styles/main.css'), false, null);
+  }else{
+    wp_enqueue_style('sage-css', Assets\asset_path('styles/main-EN.css'), false, null);
+  }
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');

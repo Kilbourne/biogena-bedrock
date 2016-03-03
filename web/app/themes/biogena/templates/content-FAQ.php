@@ -1,7 +1,7 @@
 <div class="faq-main">
 
-<h3>Domande ricorrenti relative alle aree skin care. </h3>
-<p class="sub-little">A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia)  </p>
+<h3><?= __('Domande ricorrenti relative alle aree skin care.','sage'); ?> </h3>
+<p class="sub-little"><?= __('A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia)','sage'); ?>  </p>
 
 <?php
       $args = array(

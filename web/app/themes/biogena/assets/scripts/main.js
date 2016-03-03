@@ -847,6 +847,7 @@ otherBox.show(800);
             type: 'ajax',
             tLoading: '<div class="cube1"></div><div class="cube2"></div>',
             closeOnContentClick: false,
+            midClick:true,
             callbacks: {
                 ajaxContentAdded: function(data) {
                     if(this.st.el.hasClass('faqs')){faqDisable();}
@@ -865,7 +866,8 @@ otherBox.show(800);
             }
         });
         $('.inline-popup-link').magnificPopup({
-            type: 'inline'
+            type: 'inline',
+            midClick:true
         });
     }
 

@@ -6,17 +6,17 @@ while (have_posts()):
     $linea = biogenaData::data(get_post_type($post), get_the_title());
         $connected2 = $linea['prodotti'];
         if($linea['linea']['title']===__('Linea Osmin','sage')){
-          $coadiuvanti= "Trattamenti quotidiani complementari";
-        }elseif ($linea['linea']['title']==='Linea TAE-X & TAE') {
-          $coadiuvanti= "Fotoprotettori";
-        }elseif ($linea['linea']['title']==='Linea Laris') {
-          $coadiuvanti= "Trattamenti deodoranti complementari";
-        }elseif ($linea['linea']['title']==='Linea Tricologica') {
-          $coadiuvanti= "Trattamenti complementari tricologici";
-        }elseif ($linea['linea']['title']==='Biogena Slimgo & Euserpina Smagliature') {
-          $coadiuvanti= "Trattamenti complementari estetici";
+          $coadiuvanti= __("Trattamenti quotidiani complementari",'sage');
+        }elseif ($linea['linea']['title']===__('Linea TAE-X & TAE','sage')) {
+          $coadiuvanti= __("Fotoprotettori",'sage');
+        }elseif ($linea['linea']['title']===__('Linea Laris','sage')) {
+          $coadiuvanti= __("Trattamenti deodoranti complementari",'sage');
+        }elseif ($linea['linea']['title']===__('Linea Tricologica','sage')) {
+          $coadiuvanti= __("Trattamenti complementari tricologici",'sage');
+        }elseif ($linea['linea']['title']===__('Biogena Slimgo & Euserpina Smagliature','sage')) {
+          $coadiuvanti= __("Trattamenti complementari estetici",'sage');
         }else{
-        $coadiuvanti= "Trattamenti coadiuvanti complementari"; }?>
+        $coadiuvanti= __("Trattamenti coadiuvanti complementari",'sage'); }?>
   <div class="nav-bread">
       <div class="go-back"><a href="<?php echo $linea['linea']['permalink'] ?>" title=""> &lt;&lt; <?php _e("Torna alla linea","sage");?> <?php echo $linea['linea']['title'] ?></a></div>
   </div>

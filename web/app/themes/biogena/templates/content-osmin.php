@@ -44,8 +44,8 @@ if($is_faq){
 ;
 
 $isVowel=strpos($vowels,substr($first['title'], 0, 1));
-$art=$isVowel?'sull’':'sulla ';
-	$faq_t="Scopri le nostre FAQ ".$art . $first['title'] ." da aprile 2016.";
+$art=$isVowel?__('sull’',"sage"):__('sulla ',"sage");
+	$faq_t=__("Scopri le nostre FAQ ","sage").$art . $first['title'] .__(" da aprile 2016.","sage");
 	$faq_text="<strong>".__($faq_t,"sage")."</strong>";
 }
 ?>
@@ -141,7 +141,7 @@ $art=$isVowel?'sull’':'sulla ';
                 <div class="more">
                 <?php if($riservato){
 
-                  echo '<a href="'.get_page_link(634).'" class="ajax-popup-link" ><?php _e("Accedi alla nostra area riservata.","sage");?></a>';
+                  echo '<a href="'.get_page_link(634).'" class="ajax-popup-link" >'. __("Accedi alla nostra area riservata.","sage").'</a>';
                 } else{?>
                   <a href="<?= $prod['permalink']; ?>"  title=""><?php _e("Vai alla scheda prodotto","sage");?></a>
                 <?php } ?>

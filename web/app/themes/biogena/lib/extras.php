@@ -180,7 +180,7 @@ $detect = new Mobile_Detect;
 if ( !$detect->isMobile() ) {
  return '<div class=" boxx with-img video">
             <div class="boxx-wrapper">
-                <h3>La parola al fondatore</h3>'.do_shortcode('[video src="http://www.biogena-lab.com/app/uploads/2015/11/Filmato-Green-1-1.m4v"][/video]').'
+                <h3>'. _e("La parola al fondatore","sage").'</h3>'.do_shortcode('[video src="http://www.biogena-lab.com/app/uploads/2015/11/Filmato-Green-1-1.m4v"][/video]').'
 
 <img class="alignleft size-full wp-image-1620" src="http://www.biogena-lab.com/app/uploads/2016/01/azienda-4.png" alt="azienda-01" width="180" height="300" />
             </div>

@@ -30,6 +30,20 @@
       ],
       "main": true
     },
+        "main-EN.css": {
+      "vendor": [
+      "../../plugins/menu-image/menu-image.css",
+      "../../plugins/gravityforms/css/formreset.min.css",
+      "../../plugins/gravityforms/css/formsmain.css",
+      "../../plugins/gravityforms/css/readyclass.min.css",
+      "../../plugins/gravityforms/css/browsers.min.css",
+      "../../plugins/responsive-menu-data/css/responsive-menu-2.css"
+      ],
+      "files": [
+        "styles/main-EN.scss"
+      ],
+      "main": true
+    },
     "jquery.js": {
       "bower": ["jquery"]
     }
