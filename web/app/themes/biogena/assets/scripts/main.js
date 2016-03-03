@@ -18,7 +18,9 @@
                 'Indietro':'Torna indietro',
                 'linee':'linee',
                 'area-skin-care':'area-skin-care',
-                'prodotti':'prodotti'
+                'prodotti':'prodotti',
+                'azienda':'azienda',
+                'osmin-linea-pediatrica':'osmin-linea-pediatrica'
             },
             "en_GB": {
                 'Leggi Tutto': "Read More",
@@ -26,7 +28,9 @@
                 'Indietro':'Back',
                 'linee':'lines',
                 'area-skin-care':'skin-care-area',
-                'prodotti':'products'
+                'prodotti':'products',
+                'azienda':'about',
+                'osmin-linea-pediatrica':'osmin-line'
             }
         },
         isfullImage = function() {
@@ -40,14 +44,14 @@
             return $('.post-type-archive-'+lang[window.wp_locale]['area-skin-care']+',.single-'+lang[window.wp_locale]['area-skin-care']+'');
         },
         azienda = function() {
-            return $('body.azienda');
+            return $('body.'+lang[window.wp_locale]['azienda']);
         },
-        osmin = 'osmin-linea-pediatrica',
+        osmin = lang[window.wp_locale]['osmin-linea-pediatrica'],
         attiviSelector = function() {
             return $('.attivi');
         },
         isAccordion = function() {
-            return $('body.single-prodotti,body.single-'+lang[window.wp_locale]['linee']+' .single-product-wrapper,body.post-type-archive-'+lang[window.wp_locale]['linee']+' .single-product-wrapper,body.osmin-linea-pediatrica').length;
+            return $('body.single-prodotti,body.single-'+lang[window.wp_locale]['linee']+' .single-product-wrapper,body.post-type-archive-'+lang[window.wp_locale]['linee']+' .single-product-wrapper,body.'+lang[window.wp_locale]['osmin-linea-pediatrica']).length;
         },
         isSingleLinea = function() {
             return $('body.single-'+lang[window.wp_locale]['linee']+' .single-linea').length;
@@ -55,7 +59,7 @@
         isBox=function(){
           return $('.boxx .flag-body p:first-of-type');
         },
-        bodyClasses = ['home', 'post-type-archive-'+lang[window.wp_locale]['linee']+'', 'azienda', 'single-'+lang[window.wp_locale]['linee']+'', 'single-'+lang[window.wp_locale]['area-skin-care']+'', 'post-type-archive-'+lang[window.wp_locale]['area-skin-care']+'', 'no-full-slider', 'page', 'search', 'error404', 'osmin-linea-pediatrica'];
+        bodyClasses = ['home', 'post-type-archive-'+lang[window.wp_locale]['linee']+'', lang[window.wp_locale]['azienda'], 'single-'+lang[window.wp_locale]['linee']+'', 'single-'+lang[window.wp_locale]['area-skin-care']+'', 'post-type-archive-'+lang[window.wp_locale]['area-skin-care']+'', 'no-full-slider', 'page', 'search', 'error404', lang[window.wp_locale]['osmin-linea-pediatrica']];
 
     var downSlider, oldPostType, fullSlider, swiperAttivi, swiperProd, linkCallbackBusy = false,
         prodottoSingle, titles, boxreadinaction = false,aziendaResize=false,

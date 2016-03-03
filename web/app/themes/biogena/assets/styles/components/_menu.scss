@@ -96,7 +96,7 @@
         .menu-item.active:hover>a {
           text-decoration:none;
         }
-        .menu-area-baby:hover a,.menu-linea-osmin:hover a{
+        .menu-area-baby:hover a,.menu-linea-osmin:hover a,.menu-baby-area:hover a,.menu-osmin-line:hover a{
           text-decoration:none;
         }
     }
@@ -180,11 +180,11 @@ min-height: 271px;
 }
 
 .nav-primary > .nav >.menu-logo,.nav-primary > .nav >.menu-item.other{ margin-top:0;}
-.nav-primary > .nav .menu-area-baby{
+.nav-primary > .nav .menu-baby-area,.nav-primary > .nav .menu-area-baby{
     .sub-menu{
       width: 100%;
     padding: 5%;
-.menu-linea-osmin>a{
+.menu-linea-osmin>a,.menu-osmin-line>a{
   padding:0;
   >span{display: block;}
 }
@@ -319,7 +319,7 @@ vertical-align: middle;
   #responsive-menu #responsive-menu-title {
     padding: 16px 0px 16px 5%;
   }
-  #responsive-menu .menu-area-baby{
+  #responsive-menu .menu-baby-area,#responsive-menu .menu-area-baby{
     .sub-menu{
       margin:0;
       .menu-image-title-below{

@@ -4,7 +4,7 @@ $colorList:(#E47627,#EC2623,#7D4C9D,#83C561,#3D3B8E,#71C8E3);
 .post-type-archive-skin-care-area,
 .single-lines,
 .post-type-archive-lines,
-.azienda {
+.about {
     .flag-media {
         padding: 1em 2%;
     }
@@ -407,8 +407,8 @@ $colorList:(#E47627,#EC2623,#7D4C9D,#83C561,#3D3B8E,#71C8E3);
 
 .single-skin-care-area,
 .post-type-archive-skin-care-area,
-.osmin-linea-pediatrica,
-.azienda {
+.osmin-line,
+.about {
     .content {
         position: relative;
         img {
@@ -964,7 +964,7 @@ body.post-type-archive-lines {
     }
 }
 
-.single-lines.osmin-linea-pediatrica {
+.single-lines.osmin-line {
     .content-wrapper .boxx{
         .flag-body > p:first-of-type{
      height:143px;
@@ -1248,7 +1248,7 @@ padding: 0px 0px 1rem;
 }
 
 // AZIENDA
-.azienda {
+.about {
 
     main>.video {
         margin-top: 3rem;
@@ -1509,7 +1509,7 @@ body.search {
 
 body.search,
 body.error404,
-body.articoli {
+body.news {
     h1 {
         color: #24569B;
     }
@@ -1526,7 +1526,7 @@ body.articoli {
     }
 }
 
-body.articoli {
+body.news {
     .content>.main {
       text-align: left;
       margin-bottom: 1.5rem;
