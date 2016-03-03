@@ -81,7 +81,7 @@ vowels =
 ;
 
 isVowel=vowels.indexOf(first['area-skin-care']['title'][0])!==-1;
-art=isVowel?<?php _e('l’','sage'); ?>:<?php _e('la ','sage'); ?>;
+art=isVowel?<?php echo "'".__('l’','sage')."'"; ?>:<?php echo "'".__('la ','sage')."'"; ?>
                 	%>
                   <h3><?php _e("Trattamenti coadiuvanti per","sage"); ?> <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= art %><%= first['area-skin-care']['title'] %></a></h3>
                 <% } %>
@@ -225,7 +225,8 @@ if(is_faq){
     'uùúûũūŭüủůűǔȕȗưụṳųṷṵṹṻǖǜǘǖǚừứữửự'
 ;
 isVowel=vowels.indexOf(first['title'][0])!==-1;
-art=isVowel?<?php _e('sull’','sage') ?>:<?php _e('sulla ','sage') ?>;
+
+art=isVowel?<?php echo "'".__('sull’','sage')."'"; ?>:<?php echo "'".__('sulla ','sage')."'"; ?>;
 	faq_t="<?php _e('Scopri le nostre FAQ ','sage') ?>"+art+ first['title'] +"<?php _e(' da aprile 2016.','sage') ?>";
 	faq_text="<strong>"+faq_t+"</strong>";
 }
