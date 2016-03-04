@@ -18,7 +18,7 @@ function body_class($classes) {
       $classes[] = basename(get_permalink());
     }
   }
-  if (!is_home() && __('linee','sage')	 != get_post_type() && __('osmin-linea-pediatrica','sage') !== basename(get_permalink()) || is_search() ){
+  if (!is_home() && __('area-skin-care','sage')   != get_post_type() && __('osmin-linea-pediatrica','sage') !== basename(get_permalink()) || is_search() ){
     $classes[] = 'no-full-slider';
   }
   // Add class if sidebar is active
@@ -60,7 +60,9 @@ function add_biogena_logo_menu( $items, $args ){
     $search .= '</form>';
     $search .= '</div>';
     $lang ='<div class="lang-container inline-block"><span class="it active">IT</span><span class="en">EN</span> </div>';
-    $others='<li class="menu-item other">'.$search.$lang.'</li>';
+    $others='<li class="menu-item other">'.$search.$lang.
+    //get_the_msls().
+    '</li>';
     $items .= $others;
     }
     return $items;
@@ -215,6 +217,10 @@ function ajax_login(){
 add_action( 'save_post_area-skin-care', __NAMESPACE__ . '\\delete_transient_on_update' );
 add_action( 'save_post_linee', __NAMESPACE__ . '\\delete_transient_on_update' );
 add_action( 'save_post_prodotti',__NAMESPACE__ . '\\delete_transient_on_update' );
+add_action( 'save_post_skin-care-area', __NAMESPACE__ . '\\delete_transient_on_update' );
+add_action( 'save_post_lines', __NAMESPACE__ . '\\delete_transient_on_update' );
+add_action( 'save_post_products',__NAMESPACE__ . '\\delete_transient_on_update' );
+
 function delete_transient_on_update($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if ( wp_is_post_revision( $post_id ) ) return;
@@ -223,7 +229,11 @@ function delete_transient_on_update($post_id) {
     delete_transient( 'biogena_data_linee');
     delete_transient( 'biogena_data_area-skin-care');
     delete_transient( 'biogena_data_prodotti');
+    delete_transient( 'biogena_data_lines');
+    delete_transient( 'biogena_data_skin-care-area');
+    delete_transient( 'biogena_data_products');
     delete_transient( 'biogena_data_area-baby');
+
 }
 
 function linea_single_product_ajax() {
@@ -242,3 +252,13 @@ function linea_single_product_ajax() {
 add_action( 'wp_ajax_get_template_single', __NAMESPACE__ . '\\linea_single_product_ajax' );
 add_action( 'wp_ajax_nopriv_get_template_single', __NAMESPACE__ . '\\linea_single_product_ajax' );
 
+function my_msls_options_get_permalink( $url, $language ) {
+//echo var_dump($url).var_dump($language);
+    if ( 'en_GB' == $language ) {
+        $url = str_replace( '/prodotti/', '/products/', $url );
+        $url = str_replace( '/area-skin-care/', '/skin-care-area/', $url );
+        $url = str_replace( '/linee/', '/lines/', $url );
+    }
+    return $url;
+}
+add_filter( 'msls_options_get_permalink', __NAMESPACE__ . '\\my_msls_options_get_permalink', 10, 2 );

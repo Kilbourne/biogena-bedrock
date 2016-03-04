@@ -833,7 +833,7 @@ otherBox.show(800);
 
     function osminMenu() {
         if (document.location.toString().indexOf(osmin) > -1) {
-            $('li.menu-prodotti,li.menu-products,.menu-linea-osmin,.menu-osmin-line').removeClass('active');
+            $('li.menu-prodotti,li.menu-lines,.menu-linea-osmin,.menu-osmin-line').removeClass('active');
         }
     }
 

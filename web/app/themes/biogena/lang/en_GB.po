@@ -1,15 +1,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: biogena\n"
-"POT-Creation-Date: 2016-03-03 14:35+0100\n"
-"PO-Revision-Date: 2016-03-03 14:55+0100\n"
+"POT-Creation-Date: 2016-03-03 19:12+0100\n"
+"PO-Revision-Date: 2016-03-03 20:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-Basepath: localweb/biogena/web/app/themes/biogena\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -63,7 +63,7 @@ msgstr "News"
 #: templates/content-single-skin-care-area.php:117
 #: templates/content-single-skin-care-area.php:128
 #: templates/underscore-template.php:162 templates/underscore-template.php:170
-#: templates/underscore-template.php:235 templates/underscore-template.php:245
+#: templates/underscore-template.php:236 templates/underscore-template.php:246
 msgid "Leggi Tutto"
 msgstr "Read More"
 
@@ -71,7 +71,7 @@ msgstr "Read More"
 msgid "Altre News"
 msgstr "All News"
 
-#: front-page.php:65 lib/extras.php:72 lib/setup.php:120
+#: front-page.php:65 lib/extras.php:72 lib/extras.php:228 lib/setup.php:120
 #: templates/content-FAQ.php:11 templates/underscore-template.php:139
 msgid "area-skin-care"
 msgstr "skin-care-area"
@@ -85,8 +85,9 @@ msgstr "Error locating %s for inclusion"
 msgid "Sorry, no results were found."
 msgstr "Sorry, no results were found."
 
-#: lib/extras.php:21 lib/extras.php:73 lib/extras.php:81 lib/setup.php:120
-#: templates/content-osmin.php:2 templates/underscore-template.php:1
+#: lib/extras.php:21 lib/extras.php:73 lib/extras.php:81 lib/extras.php:227
+#: lib/setup.php:120 templates/content-osmin.php:2
+#: templates/underscore-template.php:1
 msgid "linee"
 msgstr "lines"
 
@@ -102,8 +103,8 @@ msgstr "Continued"
 msgid "LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span>"
 msgstr "ITALIAN RESEARCH<span>FOR HEALTHY CARE</span>"
 
-#: lib/extras.php:82 lib/extras.php:233 lib/extras.php:234 lib/setup.php:120
-#: templates/content-single-linee.php:146
+#: lib/extras.php:82 lib/extras.php:229 lib/extras.php:237 lib/extras.php:238
+#: lib/setup.php:120 templates/content-single-linee.php:146
 #: templates/content-single-linee.php:147
 #: templates/content-single-linee.php:148
 #: templates/content-single-lines.php:146
@@ -204,30 +205,30 @@ msgstr ""
 #: templates/content-osmin.php:47
 #: templates/content-single-area-skin-care.php:67
 #: templates/content-single-skin-care-area.php:67
-#: templates/underscore-template.php:228
+#: templates/underscore-template.php:229
 msgid "sull’"
-msgstr "on"
+msgstr "on "
 
 #: templates/content-osmin.php:47
 #: templates/content-single-area-skin-care.php:67
 #: templates/content-single-skin-care-area.php:67
-#: templates/underscore-template.php:228
+#: templates/underscore-template.php:229
 msgid "sulla "
-msgstr "on"
+msgstr "on "
 
 #: templates/content-osmin.php:48
 #: templates/content-single-area-skin-care.php:68
 #: templates/content-single-skin-care-area.php:68
-#: templates/underscore-template.php:229
+#: templates/underscore-template.php:230
 msgid "Scopri le nostre FAQ "
-msgstr "Discover our FAQ"
+msgstr "Discover our FAQ "
 
 #: templates/content-osmin.php:48
 #: templates/content-single-area-skin-care.php:68
 #: templates/content-single-skin-care-area.php:68
-#: templates/underscore-template.php:229
+#: templates/underscore-template.php:230
 msgid " da aprile 2016."
-msgstr "from April 2016."
+msgstr " from April 2016."
 
 #: templates/content-osmin.php:63
 #: templates/content-single-area-skin-care.php:94
@@ -273,7 +274,7 @@ msgstr "Discover the"
 #: templates/content-osmin.php:112
 #: templates/content-single-area-skin-care.php:133
 #: templates/content-single-skin-care-area.php:133
-#: templates/underscore-template.php:251
+#: templates/underscore-template.php:252
 msgid "Scopri"
 msgstr "Discover"
 
@@ -283,14 +284,12 @@ msgid "Accedi alla nostra area riservata."
 msgstr "Access to Reserved Area."
 
 #: templates/content-osmin.php:146 templates/content-single-linee.php:134
-#: templates/content-single-lines.php:134
-#: templates/underscore-template.php:120
+#: templates/content-single-lines.php:134 templates/underscore-template.php:120
 msgid "Vai alla scheda prodotto"
 msgstr "Go to product"
 
 #: templates/content-osmin.php:153 templates/content-single-linee.php:142
-#: templates/content-single-lines.php:142
-#: templates/underscore-template.php:130
+#: templates/content-single-lines.php:142 templates/underscore-template.php:130
 msgid "Altri Prodotti"
 msgstr "Other products"
 
@@ -300,19 +299,19 @@ msgstr "Pages:"
 
 #: templates/content-single-area-skin-care.php:128
 #: templates/content-single-skin-care-area.php:128
-#: templates/underscore-template.php:245
+#: templates/underscore-template.php:246
 msgid "Cosa sono i raggi UVA e UVB?"
 msgstr "What are UVA and UVB rays ?"
 
 #: templates/content-single-area-skin-care.php:128
 #: templates/content-single-skin-care-area.php:128
-#: templates/underscore-template.php:245
+#: templates/underscore-template.php:246
 msgid "Lo sapevi che…"
 msgstr "Did you Know?"
 
 #: templates/content-single-area-skin-care.php:128
 #: templates/content-single-skin-care-area.php:128
-#: templates/underscore-template.php:245
+#: templates/underscore-template.php:246
 msgid "Guida al corretto “uso” del sole"
 msgstr "The guide to correct “use” of Sun"
 
@@ -496,7 +495,7 @@ msgstr "Credits"
 msgid "Accedi alla nostra area riservata"
 msgstr "Access to Reserved Area"
 
-#: templates/underscore-template.php:251
+#: templates/underscore-template.php:252
 msgid " la"
 msgstr " the"
 
