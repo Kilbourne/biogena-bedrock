@@ -18,7 +18,7 @@ function body_class($classes) {
       $classes[] = basename(get_permalink());
     }
   }
-  if (!is_home() && __('area-skin-care','sage')   != get_post_type() && __('osmin-linea-pediatrica','sage') !== basename(get_permalink()) || is_search() ){
+  if (!is_home() && 'area-skin-care' != get_post_type() && 'osmin-linea-pediatrica' !== basename(get_permalink()) || is_search() ){
     $classes[] = 'no-full-slider';
   }
   // Add class if sidebar is active
@@ -59,9 +59,8 @@ function add_biogena_logo_menu( $items, $args ){
     $search .= '<i class="icon-search sb-icon-search fa-search"></i>';
     $search .= '</form>';
     $search .= '</div>';
-    $lang ='<div class="lang-container inline-block"><span class="it active">IT</span><span class="en">EN</span> </div>';
+    $lang ='<div class="lang-container inline-block hide">'.get_the_msls(). '</div>';
     $others='<li class="menu-item other">'.$search.$lang.
-    //get_the_msls().
     '</li>';
     $items .= $others;
     }
@@ -71,8 +70,8 @@ function add_biogena_logo_menu( $items, $args ){
 function connection_patologie_to_linee() {
     p2p_register_connection_type( array(
         'name' => 'area-skin-care_to_linee',
-        'from' => __('area-skin-care','sage')	,
-        'to' => __('linee','sage')
+        'from' => 'area-skin-care',
+        'to' => 'linee'
     ) );
 }
 add_action( 'p2p_init', __NAMESPACE__ . '\\connection_patologie_to_linee' );
@@ -80,8 +79,8 @@ add_action( 'p2p_init', __NAMESPACE__ . '\\connection_patologie_to_linee' );
 function connection_linee_to_prodotti() {
     p2p_register_connection_type( array(
         'name' => 'linee_to_prodotti',
-        'from' => __('linee','sage')	,
-        'to' => __('prodotti','sage')
+        'from' => 'linee',
+        'to' => 'prodotti'
     ) );
 }
 add_action( 'p2p_init', __NAMESPACE__ . '\\connection_linee_to_prodotti' );
@@ -217,10 +216,6 @@ function ajax_login(){
 add_action( 'save_post_area-skin-care', __NAMESPACE__ . '\\delete_transient_on_update' );
 add_action( 'save_post_linee', __NAMESPACE__ . '\\delete_transient_on_update' );
 add_action( 'save_post_prodotti',__NAMESPACE__ . '\\delete_transient_on_update' );
-add_action( 'save_post_skin-care-area', __NAMESPACE__ . '\\delete_transient_on_update' );
-add_action( 'save_post_lines', __NAMESPACE__ . '\\delete_transient_on_update' );
-add_action( 'save_post_products',__NAMESPACE__ . '\\delete_transient_on_update' );
-
 function delete_transient_on_update($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if ( wp_is_post_revision( $post_id ) ) return;
@@ -229,19 +224,15 @@ function delete_transient_on_update($post_id) {
     delete_transient( 'biogena_data_linee');
     delete_transient( 'biogena_data_area-skin-care');
     delete_transient( 'biogena_data_prodotti');
-    delete_transient( 'biogena_data_lines');
-    delete_transient( 'biogena_data_skin-care-area');
-    delete_transient( 'biogena_data_products');
     delete_transient( 'biogena_data_area-baby');
-
 }
 
 function linea_single_product_ajax() {
   $title=isset($_POST['prodottoSingle']) && $_POST['prodottoSingle'] !==''?$_POST['prodottoSingle']:$_POST['title'];
 
   global $post;
-  $post = get_page_by_title( urldecode($title), 'OBJECT', __('prodotti','sage') );
-  query_posts( array('p'=>$post->ID,'post_type'=>__('prodotti','sage')));
+  $post = get_page_by_title( urldecode($title), 'OBJECT', 'prodotti' );
+  query_posts( array('p'=>$post->ID,'post_type'=>'prodotti'));
   ob_start();
   include_once(locate_template('templates/content-single-prodotti.php'));
   $output = ob_get_contents();
@@ -258,6 +249,10 @@ function my_msls_options_get_permalink( $url, $language ) {
         $url = str_replace( '/prodotti/', '/products/', $url );
         $url = str_replace( '/area-skin-care/', '/skin-care-area/', $url );
         $url = str_replace( '/linee/', '/lines/', $url );
+    }elseif ( 'it_IT' == $language ) {
+        $url = str_replace( '/products/','/prodotti/' , $url );
+        $url = str_replace(  '/skin-care-area/','/area-skin-care/', $url );
+        $url = str_replace( '/lines/', '/linee/', $url );
     }
     return $url;
 }

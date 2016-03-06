@@ -1,4 +1,4 @@
- <script id="<?php _e("linee","sage")?>" type="text/template" >
+ <script id="linee" type="text/template" >
  <% var special_field=( (!!first['fields']['no_area_skin_care'] && first['fields']['no_area_skin_care']===true )  || (!!first['fields']['prodotto_singolo'] && first['fields']['prodotto_singolo']===true)),
   no_asc=( !!first['fields']['no_area_skin_care'] && first['fields']['no_area_skin_care']===true ),
   singolo=!!first['fields']['prodotto_singolo'] && first['fields']['prodotto_singolo']===true,
@@ -136,7 +136,7 @@ art=isVowel?<?php echo "'".__('l’','sage')."'"; ?>:<?php echo "'".__('la ','sa
               </div>
  </div>
  </script>
-  <script id="<?php _e("area-skin-care","sage")?>" type="text/template" >
+  <script id="area-skin-care" type="text/template" >
 
  <div class="background-container">
  <picture>

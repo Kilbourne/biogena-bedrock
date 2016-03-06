@@ -33,15 +33,23 @@
                 'osmin-linea-pediatrica':'osmin-line'
             }
         },
+        postType_lang={
+          'linee':'linee',
+                'area-skin-care':'area-skin-care',
+                'prodotti':'prodotti',
+                'lines':'linee',
+                'skin-care-area':'area-skin-care',
+                'products':'prodotti'
+        },
         isfullImage = function() {
             return $('.background-slider .wp-post-image,.background-container .wp-post-image');
         },
         fullSliderSelector = '.background-slider,.background-container.specialita.double',
         isbigClaim = function() {
-            return $('.post-type-archive-'+lang[window.wp_locale]['linee']+' .background-container.specialita .big-claim,  .single-'+lang[window.wp_locale]['linee']+' .background-container.specialita .big-claim');
+            return $('.post-type-archive-linee .background-container.specialita .big-claim,  .single-linee .background-container.specialita .big-claim');
         },
         ask = function() {
-            return $('.post-type-archive-'+lang[window.wp_locale]['area-skin-care']+',.single-'+lang[window.wp_locale]['area-skin-care']+'');
+            return $('.post-type-archive-area-skin-care,.single-area-skin-care');
         },
         azienda = function() {
             return $('body.'+lang[window.wp_locale]['azienda']);
@@ -51,15 +59,15 @@
             return $('.attivi');
         },
         isAccordion = function() {
-            return $('body.single-prodotti,body.single-'+lang[window.wp_locale]['linee']+' .single-product-wrapper,body.post-type-archive-'+lang[window.wp_locale]['linee']+' .single-product-wrapper,body.'+lang[window.wp_locale]['osmin-linea-pediatrica']).length;
+            return $('body.single-prodotti,body.single-linee .single-product-wrapper,body.post-type-archive-linee .single-product-wrapper,body.'+lang[window.wp_locale]['osmin-linea-pediatrica']).length;
         },
         isSingleLinea = function() {
-            return $('body.single-'+lang[window.wp_locale]['linee']+' .single-linea').length;
+            return $('body.single-linee .single-linea').length;
         },
         isBox=function(){
           return $('.boxx .flag-body p:first-of-type');
         },
-        bodyClasses = ['home', 'post-type-archive-'+lang[window.wp_locale]['linee']+'', lang[window.wp_locale]['azienda'], 'single-'+lang[window.wp_locale]['linee']+'', 'single-'+lang[window.wp_locale]['area-skin-care']+'', 'post-type-archive-'+lang[window.wp_locale]['area-skin-care']+'', 'no-full-slider', 'page', 'search', 'error404', lang[window.wp_locale]['osmin-linea-pediatrica']];
+        bodyClasses = ['home', 'post-type-archive-linee', lang[window.wp_locale]['azienda'], 'single-linee', 'single-area-skin-care', 'post-type-archive-area-skin-care', 'no-full-slider', 'page', 'search', 'error404', lang[window.wp_locale]['osmin-linea-pediatrica']];
 
     var downSlider, oldPostType, fullSlider, swiperAttivi, swiperProd, linkCallbackBusy = false,
         prodottoSingle, titles, boxreadinaction = false,aziendaResize=false,
@@ -701,7 +709,7 @@ otherBox.show(800);
 
     function kindAjax(URL, pop) {
         function findPostType() {
-            return !!collegamenti[last] ? [collegamenti[last], last] : !!collegamenti[penultimate] ? [collegamenti[penultimate], penultimate] : null;
+            return !!collegamenti[postType_lang[last]] ? [collegamenti[postType_lang[last]], postType_lang[last]] : !!collegamenti[postType_lang[penultimate]] ? [collegamenti[postType_lang[penultimate]], postType_lang[penultimate]] : null;
         }
 
         function checkIndex() {
@@ -743,7 +751,7 @@ otherBox.show(800);
                 body.removeClass(bodyClasses.join(' '));
                 body.addClass('single-' + postType);
 
-                if (postType === lang[window.wp_locale]['linee']) body.addClass('no-full-slider');
+                if (postType === 'linee') body.addClass('no-full-slider');
                 document.title = postData[keys[index]].title + " | Biogena";
                 if (!!pop) {
                     history.pushState({
@@ -773,6 +781,16 @@ otherBox.show(800);
                     }
                 });
 
+                var langSwitcher=$('.lang-container').length>0?$('.lang-container'):null,
+                    langAnchor=langSwitcher.children('a'),
+                    langObj=data.first.lang;
+                    langAnchor.each(function(index, el) {
+                      if(langObj[el.title]){ el.href=langObj[el.title]; }
+                      else{ el.href=URL;}
+                    });
+
+
+
                 if (window.matchMedia(breakpoints['lap-and-up']).matches) {
                     callbackDesktop();
                 } else {
@@ -794,7 +812,7 @@ otherBox.show(800);
                         title: titles,
                         prodottoSingle: prodottoSingle
                     }, function(data) {
-                        $('body.single-'+lang[window.wp_locale]['linee']+' .single-linea').html(data);
+                        $('body.single-linee .single-linea').html(data);
                         accordion();
                     });
                 }

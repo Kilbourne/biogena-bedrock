@@ -204,19 +204,17 @@ min-height: 271px;
 
 .lang-container{
   font-size: 0.85rem;
-  display:none;
-  .active{
-
+  &.hide{display:none;}
+  >a{
+    padding: 0% 15%;
+    vertical-align: middle;
+    &.current_language{
+      font-weight: 700;
+    }
+    &:first-of-type{ border-right: 1px solid #FFF; }
   }
-    .it{
-    border-right: 1px solid #FFF;
-    }
-    .it,.en{
-        padding: 0% 15%;
-vertical-align: middle;
-    }
 }
-
+.nav-primary > .nav > .other > .lang-container > a{ display:inline-block;font-size:1em;}
 .fake-opacity {
     width: 100%;
     left: 0px;

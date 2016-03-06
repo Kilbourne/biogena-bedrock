@@ -94,7 +94,7 @@ $vowels =
 
 $isVowel=strpos($vowels,substr($first['area-skin-care']['title'], 0, 1));
 $art=$isVowel?__('l’','sage'):__('la ','sage');
-      	?>
+        ?>
           <h3><?php _e("Trattamenti coadiuvanti per","sage");?> <a href="<?= $first['area-skin-care']['permalink']; ?>" title=""><?= $art.$first['area-skin-care']['title']; ?></a></h3>
       <?php } ?>
       <div class="products">
@@ -143,9 +143,9 @@ $art=$isVowel?__('l’','sage'):__('la ','sage');
         <?php if(count($first['prodotti'])<2){
           $title=isset($first['prodotti'][0])?$first['prodotti'][0]['title']:get_the_title();
           global $post;
-              $post = get_page_by_title( $title, 'OBJECT', __('prodotti','sage') );
-          query_posts( array('p'=>$post->ID,'post_type'=>__('prodotti','sage'))); ?>
-          <div class="single-linea"><?php include_once(locate_template('templates/content-single-'.__('prodotti','sage').'.php')); ?></div>      <?php
+          $post = get_page_by_title( $title, 'OBJECT', 'prodotti' );
+          query_posts( array('p'=>$post->ID,'post_type'=>'prodotti')); ?>
+          <div class="single-linea"><?php include_once(locate_template('templates/content-single-prodotti.php')); ?></div>      <?php
         } ?>
       </div>
     </div>
