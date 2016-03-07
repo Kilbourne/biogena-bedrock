@@ -18,7 +18,7 @@ function body_class($classes) {
       $classes[] = basename(get_permalink());
     }
   }
-  if (!is_home() && 'area-skin-care' != get_post_type() && 'osmin-linea-pediatrica' !== basename(get_permalink()) || is_search() ){
+  if (!is_home() && 'area-skin-care' != get_post_type() && __('osmin-linea-pediatrica','sage') !== basename(get_permalink()) || is_search() ){
     $classes[] = 'no-full-slider';
   }
   // Add class if sidebar is active
