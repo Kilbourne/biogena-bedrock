@@ -9,6 +9,10 @@
     width: 0;
     vertical-align: bottom;
     margin-right: 1em;
+    display:none;
+    @include media-query(lap-and-up){
+      display:inline-block;
+    }
 }
 
 #s {

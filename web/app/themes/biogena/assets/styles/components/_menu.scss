@@ -48,6 +48,7 @@
               padding: 0;
               color: rgb(255, 255, 255);
               white-space: nowrap;
+              display:inline-block;
           }
           &.menu-logo:hover> a {
               background-color: inherit;
@@ -204,7 +205,13 @@ min-height: 271px;
 
 .lang-container{
   font-size: 0.85rem;
+  position: relative;
+  z-index: 9999;
   &.hide{display:none;}
+      @include media-query(palm){
+      position: fixed;
+      right: 4%;
+    }
   >a{
     padding: 0% 15%;
     vertical-align: middle;
@@ -213,6 +220,9 @@ min-height: 271px;
     }
     &:first-of-type{ border-right: 1px solid #FFF; }
   }
+}
+#responsive-menu #responsiveSearch{
+  width:100%;
 }
 .nav-primary > .nav > .other > .lang-container > a{ display:inline-block;font-size:1em;}
 .fake-opacity {
@@ -234,7 +244,7 @@ min-height: 271px;
    a,.menu-item.other{
     color: #24569B;
     }
-    .menu-item.other .it{
+    .menu-item.other >.lang-container>a:first-of-type{
     border-right: 1px solid #5E9CC3;
     }
   }
