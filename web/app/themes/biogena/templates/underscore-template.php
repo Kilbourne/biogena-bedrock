@@ -252,7 +252,7 @@ art=isVowel?<?php echo "'".__('sull’','sage')."'"; ?>:<?php echo "'".__('sulla
           <h4>  <a href="<%= first.linea.permalink %>" title=""><?php _e("Scopri","sage"); ?> <% if(first.linea.title.slice(0, 'Linea'.length) == 'Linea'){ %><?php _e(" la","sage"); ?><% } %> <%= first.linea.title %></a>  </h4>
               <% if(first['prodotti'].length>1){ %>
                 <div class=" slider-patologie active <%= first['prodotti'].length===2?'two':'three' %> <%= first['prodotti'].length>3?'multi':'' %> <%= first['prodotti'].length>2?'multi2':'' %>" >
-<% }else { %> <%= '<div class=" no-slider " >' %><% } %>
+<% }else { %> <%= '<div class="slider-patologie no-slider " >' %><% } %>
                     <div class="swiper-wrapper">
                   <% _.each(first.prodotti,function(prod){ %>
                                 <div class="swiper-slide"><a href="<%= first['prodotti'].length>1?prod.permalink:first.linea.permalink %>"><%= prod.thumbnail %> <div><h3><%= prod.title %> </h3> </div> </a></div>

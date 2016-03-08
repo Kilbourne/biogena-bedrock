@@ -101,7 +101,7 @@ msgstr "Continued"
 
 #: lib/extras.php:49
 msgid "LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span>"
-msgstr "ITALIAN RESEARCH<span>FOR HEALTHY CARE</span>"
+msgstr "ITALIAN RESEARCH<span>FOR SKIN CARE</span>"
 
 #: lib/extras.php:82 lib/extras.php:229 lib/extras.php:237 lib/extras.php:238
 #: lib/setup.php:120 templates/content-single-linee.php:146

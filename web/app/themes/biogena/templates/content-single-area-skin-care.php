@@ -133,7 +133,7 @@ $art=$isVowel?__('sull’',"sage"):__('sulla ',"sage");
               <h4>  <a href="<?= $first['linea']['permalink']; ?>" title=""><?= substr($first['linea']['title'], 0,strlen('Linea'))==='Linea'?__("Scopri la","sage"):__("Scopri","sage");?> <?= $first['linea']['title']; ?></a></h4>
               <?php if(count($first['prodotti'])>1){ ?>
                 <div class=" slider-patologie active <?= count($first['prodotti'])===2?'two':'three' ?> <?= count($first['prodotti'])>3?'multi':'' ?> <?= count($first['prodotti'])>2?'multi2':'' ?>" >
-              <?php }else {echo '<div class=" no-slider active" >';} ?>
+              <?php }else {echo '<div class="slider-patologie no-slider active" >';} ?>
                     <div class="swiper-wrapper">
                   <?php foreach($first['prodotti'] as $key=> $prod){ ?>
                                 <div class="swiper-slide"><a href="<?= count($first['prodotti'])>1?$prod['permalink']:$first['linea']['permalink']; ?>"><?= $prod['thumbnail']; ?> <div><h3><?= $prod['title']; ?> </h3> </div> </a></div>
