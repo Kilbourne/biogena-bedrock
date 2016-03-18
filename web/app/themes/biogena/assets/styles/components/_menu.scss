@@ -240,6 +240,7 @@ min-height: 271px;
   .fake-opacity {
     opacity:1;
   }
+  @media-query(lap-and-up){
   &>.nav{
    a,.menu-item.other{
     color: #24569B;
@@ -247,6 +248,7 @@ min-height: 271px;
     .menu-item.other >.lang-container>a:first-of-type{
     border-right: 1px solid #5E9CC3;
     }
+  }
   }
 }
 .no-full-slider{

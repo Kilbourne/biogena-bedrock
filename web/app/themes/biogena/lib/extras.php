@@ -59,7 +59,7 @@ function add_biogena_logo_menu( $items, $args ){
     $search .= '<i class="icon-search sb-icon-search fa-search"></i>';
     $search .= '</form>';
     $search .= '</div>';
-    $lang ='<div class="lang-container inline-block hide">'.get_the_msls(). '</div>';
+    $lang ='<div class="lang-container inline-block">'.get_the_msls(). '</div>';
     $others='<li class="menu-item other">'.$search.$lang.
     '</li>';
     $items .= $others;
