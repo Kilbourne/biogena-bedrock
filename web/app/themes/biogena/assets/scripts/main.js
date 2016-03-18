@@ -729,6 +729,7 @@ otherBox.show(800);
         postType = checkPostType[1];
         index = checkIndex();
         var keys = Object.keys(postData);
+
         var circleRpl = _.template($('#' + postType).text()),
             data = {
                 first: postData[keys[index]],
@@ -736,6 +737,7 @@ otherBox.show(800);
                 prev: postData[keys[(index - 1) > -1 ? (index - 1) : keys.length - 1]]
             },
             aaa = circleRpl(data);
+            if(typeof _cache_content !== "undefined" && _cache_content===data.first.permalink){linkCallbackBusy = false;return;}else{_cache_content=data.first.permalink;}
         prodottoSingle = data.first.prodotti.length === 1 ? data.first.prodotti[0].title : '';
         titles = data.first.title;
         var pageW = $('.page-wrapper>.content');
@@ -785,8 +787,7 @@ otherBox.show(800);
                     langAnchor=langSwitcher.children('a'),
                     langObj=data.first.lang;
                     langAnchor.each(function(index, el) {
-                      if(langObj[el.title]){ el.href=langObj[el.title]; }
-                      else{ el.href=URL;}
+                      el.href=!!langObj[el.title]?langObj[el.title]:URL;
                     });
 
 
@@ -856,11 +857,19 @@ otherBox.show(800);
     }
 
     function popstateCallback(event) {
-        if (!!event.state) {
-            kindAjax(event.state.href, false);
-        } else if (safariBug) {
 
+        if (!!event.state) {
+
+            if(event.state.mpf){
+                $('a[href="'+event.state.href+'"]').first().addClass('pop').click();
+            }else{
+            $.magnificPopup.instance.isOpen && ( $.magnificPopup.luca = true, $.magnificPopup.close());
+            kindAjax(event.state.href, false);
+            }
+        } else if (safariBug) {
             document.location.reload();
+        }else{
+            $.magnificPopup.instance.isOpen && ($.magnificPopup.luca = true) && $.magnificPopup.close();
         }
     }
 
@@ -884,6 +893,14 @@ otherBox.show(800);
                     $('.mfp-bg,.mfp-wrap ').remove();
 
 
+                },
+                elementParse: function(item) {
+                    if(item.el.hasClass('pop')){ item.el.removeClass('pop'); }else{
+                   window.history.pushState({"mpf":true,"href":item.src},item.src,item.src);
+                   }
+                },
+                afterClose: function() {
+                    if( typeof $.magnificPopup.luca != "undefined"  && $.magnificPopup.luca ){ $.magnificPopup.luca = false;}else{window.history.back();}
                 }
             }
         });
