@@ -240,7 +240,7 @@ min-height: 271px;
   .fake-opacity {
     opacity:1;
   }
-  @media-query(lap-and-up){
+  @include media-query(lap-and-up){
   &>.nav{
    a,.menu-item.other{
     color: #24569B;
