@@ -45,8 +45,8 @@ if($is_faq){
 
 $isVowel=strpos($vowels,substr($first['title'], 0, 1));
 $art=$isVowel?__('sull’',"sage"):__('sulla ',"sage");
-	$faq_t=__("Scopri le nostre FAQ ","sage").$art . $first['title'] .__(" da aprile 2016.","sage");
-	$faq_text="<strong>".__($faq_t,"sage")."</strong>";
+	$faq_t=__("Le FAQ di questa Area Skin Care saranno disponibili prossimamente","sage");
+	$faq_text="<strong>".$faq_t."</strong>";
 }
 ?>
 <div class="osmin background-container">

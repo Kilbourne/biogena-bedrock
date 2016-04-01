@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: biogena\n"
-"POT-Creation-Date: 2016-03-03 19:11+0100\n"
+"POT-Creation-Date: 2016-04-01 09:23+0100\n"
 "PO-Revision-Date: 2016-02-14 01:34+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -10,7 +10,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.1\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -57,22 +57,15 @@ msgstr ""
 #: templates/content-single-area-skin-care.php:106
 #: templates/content-single-area-skin-care.php:117
 #: templates/content-single-area-skin-care.php:128
-#: templates/content-single-skin-care-area.php:95
-#: templates/content-single-skin-care-area.php:106
-#: templates/content-single-skin-care-area.php:117
-#: templates/content-single-skin-care-area.php:128
-#: templates/underscore-template.php:162 templates/underscore-template.php:170
-#: templates/underscore-template.php:236 templates/underscore-template.php:246
+#: templates/underscore-template.php:162
+#: templates/underscore-template.php:170
+#: templates/underscore-template.php:236
+#: templates/underscore-template.php:246
 msgid "Leggi Tutto"
 msgstr ""
 
 #: front-page.php:39
 msgid "Altre News"
-msgstr ""
-
-#: front-page.php:65 lib/extras.php:72 lib/extras.php:228 lib/setup.php:120
-#: templates/content-FAQ.php:11 templates/underscore-template.php:139
-msgid "area-skin-care"
 msgstr ""
 
 #: functions.php:23
@@ -82,12 +75,6 @@ msgstr ""
 
 #: index.php:5
 msgid "Sorry, no results were found."
-msgstr ""
-
-#: lib/extras.php:21 lib/extras.php:73 lib/extras.php:81 lib/extras.php:227
-#: lib/setup.php:120 templates/content-osmin.php:2
-#: templates/underscore-template.php:1
-msgid "linee"
 msgstr ""
 
 #: lib/extras.php:21
@@ -102,33 +89,23 @@ msgstr ""
 msgid "LA RICERCA ITALIANA PER<span>IL BENESSERE DELLA CUTE</span>"
 msgstr ""
 
-#: lib/extras.php:82 lib/extras.php:229 lib/extras.php:237 lib/extras.php:238
-#: lib/setup.php:120 templates/content-single-linee.php:146
-#: templates/content-single-linee.php:147
-#: templates/content-single-linee.php:148
-#: templates/content-single-lines.php:146
-#: templates/content-single-lines.php:147
-#: templates/content-single-lines.php:148
-msgid "prodotti"
-msgstr ""
-
-#: lib/extras.php:132
+#: lib/extras.php:133
 msgid "Add to Menu"
 msgstr ""
 
-#: lib/extras.php:142
+#: lib/extras.php:143
 msgid "Materiali riservati"
 msgstr ""
 
-#: lib/extras.php:183
+#: lib/extras.php:184
 msgid "La parola al fondatore"
 msgstr ""
 
-#: lib/extras.php:208
+#: lib/extras.php:209
 msgid "Nome Utente o Password errata"
 msgstr ""
 
-#: lib/extras.php:210
+#: lib/extras.php:211
 msgid "Login successful, redirecting..."
 msgstr ""
 
@@ -148,7 +125,7 @@ msgstr ""
 msgid "Footer"
 msgstr ""
 
-#: lib/setup.php:130
+#: lib/setup.php:126
 msgid "Sending user info, please wait..."
 msgstr ""
 
@@ -177,73 +154,58 @@ msgstr ""
 msgid "Risultati successivi"
 msgstr ""
 
-#: templates/content-FAQ.php:3
+#: templates/content-faq.php:3
 msgid "Domande ricorrenti relative alle aree skin care."
 msgstr ""
 
-#: templates/content-FAQ.php:4
+#: templates/content-faq.php:4
 msgid "A cura di"
 msgstr ""
 
 #: templates/content-osmin.php:30
 #: templates/content-single-area-skin-care.php:50
-#: templates/content-single-skin-care-area.php:50
 msgid ""
 "A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia) "
 msgstr ""
 
 #: templates/content-osmin.php:31
 #: templates/content-single-area-skin-care.php:51
-#: templates/content-single-skin-care-area.php:51
 msgid ""
 "Consulta le nostre FAQ per avere risposta alle tue domande più frequenti"
 msgstr ""
 
 #: templates/content-osmin.php:47
 #: templates/content-single-area-skin-care.php:67
-#: templates/content-single-skin-care-area.php:67
 #: templates/underscore-template.php:229
 msgid "sull’"
 msgstr ""
 
 #: templates/content-osmin.php:47
 #: templates/content-single-area-skin-care.php:67
-#: templates/content-single-skin-care-area.php:67
 #: templates/underscore-template.php:229
 msgid "sulla "
 msgstr ""
 
 #: templates/content-osmin.php:48
 #: templates/content-single-area-skin-care.php:68
-#: templates/content-single-skin-care-area.php:68
 #: templates/underscore-template.php:230
-msgid "Scopri le nostre FAQ "
-msgstr ""
-
-#: templates/content-osmin.php:48
-#: templates/content-single-area-skin-care.php:68
-#: templates/content-single-skin-care-area.php:68
-#: templates/underscore-template.php:230
-msgid " da aprile 2016."
+msgid "Le FAQ di questa Area Skin Care saranno disponibili prossimamente"
 msgstr ""
 
 #: templates/content-osmin.php:63
 #: templates/content-single-area-skin-care.php:94
-#: templates/content-single-skin-care-area.php:94
 #: templates/underscore-template.php:161
 msgid "Parliamo di..."
 msgstr ""
 
 #: templates/content-osmin.php:68
 #: templates/content-single-area-skin-care.php:101
-#: templates/content-single-skin-care-area.php:101
 #: templates/underscore-template.php:166
 msgid "La soluzione Biogena"
 msgstr ""
 
 #: templates/content-osmin.php:71
 #: templates/content-single-area-skin-care.php:104
-#: templates/content-single-skin-care-area.php:104
 #: templates/underscore-template.php:168
 msgid ""
 "Garantiamo al consumatore prodotti e soluzioni che soddisfano i più elevati "
@@ -251,8 +213,7 @@ msgid ""
 msgstr ""
 
 #: templates/content-osmin.php:80
-#: templates/content-single-area-skin-care.php:113
-#: templates/content-single-skin-care-area.php:113 templates/footer.php:6
+#: templates/content-single-area-skin-care.php:113 templates/footer.php:6
 msgid "FAQ"
 msgstr ""
 
@@ -262,30 +223,25 @@ msgstr ""
 
 #: templates/content-osmin.php:112
 #: templates/content-single-area-skin-care.php:133
-#: templates/content-single-skin-care-area.php:133
 msgid "Scopri la"
 msgstr ""
 
 #: templates/content-osmin.php:112
 #: templates/content-single-area-skin-care.php:133
-#: templates/content-single-skin-care-area.php:133
 #: templates/underscore-template.php:252
 msgid "Scopri"
 msgstr ""
 
 #: templates/content-osmin.php:144 templates/content-single-linee.php:132
-#: templates/content-single-lines.php:132
 msgid "Accedi alla nostra area riservata."
 msgstr ""
 
 #: templates/content-osmin.php:146 templates/content-single-linee.php:134
-#: templates/content-single-lines.php:134
 #: templates/underscore-template.php:120
 msgid "Vai alla scheda prodotto"
 msgstr ""
 
 #: templates/content-osmin.php:153 templates/content-single-linee.php:142
-#: templates/content-single-lines.php:142
 #: templates/underscore-template.php:130
 msgid "Altri Prodotti"
 msgstr ""
@@ -295,32 +251,27 @@ msgid "Pages:"
 msgstr ""
 
 #: templates/content-single-area-skin-care.php:128
-#: templates/content-single-skin-care-area.php:128
 #: templates/underscore-template.php:246
 msgid "Cosa sono i raggi UVA e UVB?"
 msgstr ""
 
 #: templates/content-single-area-skin-care.php:128
-#: templates/content-single-skin-care-area.php:128
 #: templates/underscore-template.php:246
 msgid "Lo sapevi che…"
 msgstr ""
 
 #: templates/content-single-area-skin-care.php:128
-#: templates/content-single-skin-care-area.php:128
 #: templates/underscore-template.php:246
 msgid "Guida al corretto “uso” del sole"
 msgstr ""
 
-#: templates/content-single-linee.php:4 templates/content-single-linee.php:153
-#: templates/content-single-lines.php:4 templates/content-single-lines.php:153
+#: templates/content-single-linee.php:4
+#: templates/content-single-linee.php:153
 #: templates/content-single-prodotti.php:8
-#: templates/content-single-products.php:8
 msgid "Linea Osmin"
 msgstr ""
 
-#: templates/content-single-linee.php:68 templates/content-single-lines.php:68
-#: templates/underscore-template.php:53
+#: templates/content-single-linee.php:68 templates/underscore-template.php:53
 msgid "Gli Attivi di Linea"
 msgstr ""
 
@@ -332,123 +283,99 @@ msgstr ""
 msgid "la "
 msgstr ""
 
-#: templates/content-single-linee.php:98 templates/content-single-lines.php:98
-#: templates/underscore-template.php:86
+#: templates/content-single-linee.php:98 templates/underscore-template.php:86
 msgid "Trattamenti coadiuvanti per"
 msgstr ""
 
 #: templates/content-single-prodotti.php:9
-#: templates/content-single-products.php:9
 msgid "Trattamenti quotidiani complementari"
 msgstr ""
 
 #: templates/content-single-prodotti.php:10
-#: templates/content-single-products.php:10
 msgid "Linea TAE-X & TAE"
 msgstr ""
 
 #: templates/content-single-prodotti.php:11
-#: templates/content-single-products.php:11
 msgid "Fotoprotettori"
 msgstr ""
 
 #: templates/content-single-prodotti.php:12
-#: templates/content-single-products.php:12
 msgid "Linea Laris"
 msgstr ""
 
 #: templates/content-single-prodotti.php:13
-#: templates/content-single-products.php:13
 msgid "Trattamenti deodoranti complementari"
 msgstr ""
 
 #: templates/content-single-prodotti.php:14
-#: templates/content-single-products.php:14
 msgid "Linea Tricologica"
 msgstr ""
 
 #: templates/content-single-prodotti.php:15
-#: templates/content-single-products.php:15
 msgid "Trattamenti complementari tricologici"
 msgstr ""
 
 #: templates/content-single-prodotti.php:16
-#: templates/content-single-products.php:16
 msgid "Biogena Slimgo & Euserpina Smagliature"
 msgstr ""
 
 #: templates/content-single-prodotti.php:17
-#: templates/content-single-products.php:17
 msgid "Trattamenti complementari estetici"
 msgstr ""
 
 #: templates/content-single-prodotti.php:19
-#: templates/content-single-products.php:19
 msgid "Trattamenti coadiuvanti complementari"
 msgstr ""
 
 #: templates/content-single-prodotti.php:21
-#: templates/content-single-products.php:21
 msgid "Torna alla linea"
 msgstr ""
 
 #: templates/content-single-prodotti.php:60
-#: templates/content-single-products.php:60
 msgid "Proprietà"
 msgstr ""
 
 #: templates/content-single-prodotti.php:69
-#: templates/content-single-products.php:69
 msgid "Composizione"
 msgstr ""
 
 #: templates/content-single-prodotti.php:86
-#: templates/content-single-products.php:86
 msgid "Modo d'uso"
 msgstr ""
 
 #: templates/content-single-prodotti.php:102
-#: templates/content-single-products.php:102
 msgid "Precauzioni"
 msgstr ""
 
 #: templates/content-single-prodotti.php:116
-#: templates/content-single-products.php:116
 msgid "I consigli per una corretta protezione solare"
 msgstr ""
 
 #: templates/content-single-prodotti.php:130
-#: templates/content-single-products.php:130
 msgid "Evidenze Cliniche"
 msgstr ""
 
 #: templates/content-single-prodotti.php:143
-#: templates/content-single-products.php:143
 msgid "FAQ Prodotto"
 msgstr ""
 
 #: templates/content-single-prodotti.php:143
-#: templates/content-single-products.php:143
 msgid "Non trovi il prodotto in farmacia? Questo è il codice a barre: EAN"
 msgstr ""
 
 #: templates/content-single-prodotti.php:143
-#: templates/content-single-products.php:143
 msgid "Non trovi il prodotto in farmacia? Questo è il codice a barre: PARAF"
 msgstr ""
 
 #: templates/content-single-prodotti.php:186
-#: templates/content-single-products.php:186
 msgid "Per visualizzare questo contenuto è necessario accettare i cookie"
 msgstr ""
 
 #: templates/content-single-prodotti.php:187
-#: templates/content-single-products.php:187
 msgid "Accetta i cookie"
 msgstr ""
 
 #: templates/content-single-prodotti.php:188
-#: templates/content-single-products.php:188
 msgid "Cookie policy"
 msgstr ""
 

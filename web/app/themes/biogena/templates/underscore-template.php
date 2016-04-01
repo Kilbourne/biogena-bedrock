@@ -227,7 +227,7 @@ if(is_faq){
 isVowel=vowels.indexOf(first['title'][0])!==-1;
 
 art=isVowel?<?php echo "'".__('sull’','sage')."'"; ?>:<?php echo "'".__('sulla ','sage')."'"; ?>;
-	faq_t="<?php _e('Scopri le nostre FAQ ','sage') ?>"+art+ first['title'] +"<?php _e(' da aprile 2016.','sage') ?>";
+	faq_t="<?php _e('Le FAQ di questa Area Skin Care saranno disponibili prossimamente','sage') ?>";
 	faq_text="<strong>"+faq_t+"</strong>";
 }
                     %>
