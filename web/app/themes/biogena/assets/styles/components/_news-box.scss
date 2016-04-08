@@ -1,9 +1,10 @@
 .news-box {
     background-color: rgb(255, 255, 255);
     position: absolute;
-    bottom: 25px;
+    bottom: 11px;
     left: 30px;
-    max-width: 32%;
+    max-width: 43%;
+    max-height: 160px;
     z-index: 20;
     h3 {
         margin: 0px;
@@ -18,7 +19,7 @@
             margin: 0px;
             color: #24569B;
             font-size: 1rem;
-            line-height: 2;
+            line-height: 1.3;
             padding-left: 10px;
         }
         .content {
@@ -36,7 +37,7 @@
               margin-left: 1rem;
               display: inline;
               float: right;
-              margin: 20px 0 10px;
+              //margin: 20px 0 10px;
             }
             .dotdotdot{
               font-size: 1.2em;
@@ -47,7 +48,7 @@ margin-left: -1px;
               font-size: 0.85rem;
 font-weight: 600;
 color: #24569B;
-    position: absolute;
+    //position: absolute;
 bottom: 0px;
     margin: 0 0 10px;
             }
