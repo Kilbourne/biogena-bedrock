@@ -10,8 +10,38 @@
 ?>
 
         <div class="swiper-slide <?php
-            echo $slide->post_title; ?>" ><?php
-            echo get_the_post_thumbnail($slide->ID); ?>      <div class="big-claim">
+            echo $slide->post_title; ?>" >
+            <?php
+            if(get_field('second',$slide->ID)){
+              $image_obj=get_field('second',$slide->ID);
+$default_attr = array(
+  'class' => "wp-post-image"
+);
+$image_id=$image_obj["id"];
+$image_meta = wp_get_attachment_metadata( $image_id );
+$image = wp_get_attachment_image_src( $image_id,'full');
+if ( $image ) {
+    $image_src = $image[0];
+    $size_array = array(
+        absint( $image[1] ),
+        absint( $image[2] )
+    );
+}
+$srcset_value = wp_calculate_image_srcset( $size_array, $image_src, $image_meta );
+$sizes_value = wp_get_attachment_image_sizes($image_id, 'full' );
+$srcset = $srcset_value ? ' srcset="' . esc_attr( $srcset_value ) . '"' : '';
+$sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
+              ?>
+              <picture>
+  <source media="(max-width: 49.999em)" <?php echo $srcset; ?> <?php echo $sizes; ?> >
+<?php   echo get_the_post_thumbnail($slide->ID); ?>
+
+</picture><?php
+            }else{
+
+            echo get_the_post_thumbnail($slide->ID);
+            }
+            ?>      <div class="big-claim">
           <p class="up" >
            <?php
             echo get_post_meta($slide->ID, 'claim_parte_superiore', true); ?>
