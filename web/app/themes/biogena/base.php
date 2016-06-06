@@ -17,7 +17,14 @@ if(get_post_type()==='post'&& is_single()){
           </aside><!-- /.sidebar -->
         <?php endif; ?>
       </div><!-- /.content -->
-
+      <script>
+      
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-75826071-1', 'auto');
+ga('set', 'anonymizeIp', true);
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 <?php }else{ ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -58,6 +65,14 @@ wp_get_archives( $args ); ?>
 
     ?>
     </div><!-- /.wrap -->
+          <script>
+      
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-75826071-1', 'auto');
+ga('set', 'anonymizeIp', true);
+ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
     <?php get_template_part('templates/underscore-template');
  wp_footer();
     ?>

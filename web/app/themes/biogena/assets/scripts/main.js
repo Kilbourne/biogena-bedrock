@@ -720,7 +720,13 @@ otherBox.show(800);
             var index = keys.indexOf(rightK);
             return index !== -1 ? index : 0;
         }
+        function gaTrack(path, title) {
+  ga('set', { page: path, title: title });
+  ga('send', 'pageview');
+}
+
         linkCallbackBusy = true;
+
         var index, checkPostType, postData, postType, menu, submenu, submenus,
             last = url(-1, URL),
             penultimate = url(-2, URL);
@@ -728,8 +734,8 @@ otherBox.show(800);
         postData = checkPostType[0];
         postType = checkPostType[1];
         index = checkIndex();
-        var keys = Object.keys(postData);
-
+        var keys = Object.keys(postData),title=postData[keys[index]].title + " | Biogena";
+        gaTrack(URL,title);
         var circleRpl = _.template($('#' + postType).text()),
             data = {
                 first: postData[keys[index]],
@@ -754,7 +760,7 @@ otherBox.show(800);
                 body.addClass('single-' + postType);
 
                 if (postType === 'linee') body.addClass('no-full-slider');
-                document.title = postData[keys[index]].title + " | Biogena";
+                document.title = title;
                 if (!!pop) {
                     history.pushState({
                             href: URL
