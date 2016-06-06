@@ -18,9 +18,9 @@ use Roots\Sage\Wrapper;
         <?php endif; ?>
       </div><!-- /.content -->
       <script>
-      
+
 window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-75826071-1', 'auto');
+ga('create', 'UA-73351910-1', 'auto');
 ga('set', 'anonymizeIp', true);
 ga('send', 'pageview');
 </script>
