@@ -887,6 +887,7 @@ otherBox.show(800);
             midClick:true,
             callbacks: {
                 ajaxContentAdded: function(data) {
+
                     if(this.st.el.hasClass('faqs')){faqDisable();}
                     var otherLinks = $('.mfp-content .ajax-popup-link-r');
                     if (otherLinks.length) {
@@ -904,6 +905,10 @@ otherBox.show(800);
                     if(item.el.hasClass('pop')){ item.el.removeClass('pop'); }else{
                    window.history.pushState({"mpf":true,"href":item.src},item.src,item.src);
                    }
+                },
+                parseAjax:function(){
+                    // HACK: do not work on Safari so...
+                    if(!$('.mfp-container').hasClass('mfp-s-ready'))$('.mfp-container').addClass('mfp-s-ready');
                 },
                 afterClose: function() {
                     if( typeof $.magnificPopup.luca != "undefined"  && $.magnificPopup.luca ){ $.magnificPopup.luca = false;}else{window.history.back();}
