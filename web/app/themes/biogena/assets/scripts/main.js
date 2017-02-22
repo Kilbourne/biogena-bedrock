@@ -193,7 +193,7 @@ UISearch.prototype = {
                 } else {
                     callbackMobile();
                 }
-
+                $('.down-nav .line .title').text()==='Propso Cap & Mellis Cap'?$('body').addClass('psoriasi-2'):$('body').removeClass('psoriasi-2');
                 //$(window).scroll(videoScroll);
                 $(window).resize(_.debounce(responsiveMediaElement, 500));
                 $(window).resize(_.debounce(swiperHeight, 500));
@@ -758,7 +758,7 @@ otherBox.show(800);
                 var body = $('body');
                 body.removeClass(bodyClasses.join(' '));
                 body.addClass('single-' + postType);
-
+                $('.down-nav .line .title').text()==='Propso Cap & Mellis Cap'?$('body').addClass('psoriasi-2'):$('body').removeClass('psoriasi-2');
                 if (postType === 'linee') body.addClass('no-full-slider');
                 document.title = title;
                 if (!!pop) {
