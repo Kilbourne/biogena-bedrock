@@ -57,9 +57,17 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
 
      </div>
    <?php
-    $posts = get_posts(array('numberposts' => - 1));
+   $default_category = get_option('default_category');
+
+
+    $posts = get_posts(array('numberposts' => - 1,
+'cat'=>$default_category));
+global $post;
+$old_post=$post;
+
     if ($posts):
-        setup_postdata($posts[0]) ?>
+      $post=$posts[0];
+         ?>
      <div class="news-box">
       <h3><?php _e("News","sage"); ?></h3>
       <div class="news">
@@ -70,6 +78,7 @@ $sizes = $sizes_value ? ' sizes="' . esc_attr( $sizes_value ) . '"' : '';
       </div>
     </div>
     <?php
+    $post=$old_post;
     endif;
 ?>
 </div>

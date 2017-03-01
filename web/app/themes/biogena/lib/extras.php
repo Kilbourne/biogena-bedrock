@@ -227,6 +227,16 @@ function delete_transient_on_update($post_id) {
     delete_transient( 'biogena_data_area-baby');
 }
 
+add_action( 'save_post', function ( $post_id ) {
+
+  // If this is just a revision, don't send the email.
+  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+  if ( wp_is_post_revision( $post_id ) )
+    return;
+  $type=get_post_type( $post_id );
+  if( $type !== 'post' || !has_category( get_option('default_category'), get_post( $post_id ) ) ) return;
+  delete_transient( 'biogena_data_area-skin-care');
+} );
 function linea_single_product_ajax() {
   $title=isset($_POST['prodottoSingle']) && $_POST['prodottoSingle'] !==''?$_POST['prodottoSingle']:$_POST['title'];
 
@@ -257,3 +267,62 @@ function my_msls_options_get_permalink( $url, $language ) {
     return $url;
 }
 add_filter( 'msls_options_get_permalink', __NAMESPACE__ . '\\my_msls_options_get_permalink', 10, 2 );
+
+
+
+add_action( 'wp_insert_post', function( $post_id, $post, $update ){
+  if ( wp_is_post_revision( $post_id ) || $update || $post->post_type !=='area-skin-care' )
+    return;
+  if(!term_exists( $post->post_title , 'category'))wp_create_category( $post->post_title);
+}, 10, 3 );
+
+add_action('admin_init',function(){
+  $aree = get_posts(array(
+    'post_type'=>'area-skin-care',
+    'posts_per_page'=>-1
+  )
+  );
+  if($aree){
+    foreach ($aree as $key => $area) {
+      if(!term_exists( $area->post_title , 'category'))
+        wp_create_category( $area->post_title);
+    }
+  }
+});
+
+add_filter('excerpt_more', function ($more) {
+   global $post;
+   $default_category = get_option('default_category');
+
+   if ($post->post_type == 'post' && !has_category($default_category ))
+   {
+      return "";
+   }
+}
+);
+
+
+add_filter( 'getarchives_where', function ( $where, $r ){
+global $post;
+$post_id = $post->ID;
+  $category = $post_id ? wp_get_post_terms( $post_id, 'category' )[0]->slug : sanitize_title(get_option('default_category'));
+  global $wpdb;
+$prefix=$wpdb->get_blog_prefix();
+    return "WHERE ".$prefix."posts.post_type = 'post' AND ".$prefix."posts.post_status = 'publish' AND ".$prefix."terms.slug = '".$category."' AND ".$prefix."term_taxonomy.taxonomy = 'category'";
+}
+, 10, 2 );
+
+add_filter( 'getarchives_join', function( $join, $r ){
+    global $wpdb;
+$prefix=$wpdb->get_blog_prefix();
+    return 'inner join '.$prefix.'term_relationships on '.$prefix.'posts.ID = '.$prefix.'term_relationships.object_id inner join '.$prefix.'term_taxonomy on '.$prefix.'term_relationships.term_taxonomy_id = '.$prefix.'term_taxonomy.term_taxonomy_id inner join '.$prefix.'terms on '.$prefix.'term_taxonomy.term_id = '.$prefix.'terms.term_id';
+}, 10, 2 );
+
+/**
+ * Defines the necessary joins to query the terms
+ * @param $join
+ * @param $r
+ *
+ * @return string
+ */
+

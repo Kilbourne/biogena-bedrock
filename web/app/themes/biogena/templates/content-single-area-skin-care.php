@@ -50,7 +50,7 @@ if($is_faq){
   $final_faq.='<p class="by-cura">'.__('A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia) ','sage').'</p>';
   $faq_text=__("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage");
 }else{
-	$vowels =
+  $vowels =
     'aàáâãāăȧäảåǎȁąạḁẚầấẫẩằắẵẳǡǟǻậặæǽǣ' .
     'AÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶÆǼǢ' .
     'EÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜ' .
@@ -120,6 +120,40 @@ $art=$isVowel?__('sull’',"sage"):__('sulla ',"sage");
                 </div>
               </div>
             </div>
+            <?php
+            $area_post=  get_posts(array('numberposts' => 4,
+'category_name'=>sanitize_title(get_the_title( ))));
+
+            if($area_post){
+              ?>
+<section class="area-post">
+   <h3><?php _e('I nostri consigli','biogena') ?></h3>
+   <ul>
+
+                <?php
+              foreach ($area_post as $key => $postetto) {
+                $postet_id=$postetto->ID;
+                ?>
+  <li><div class="area-post-img-wrapper"><?php echo get_the_post_thumbnail($postet_id) ?><div class="scopri-overflow"><a href="<?php echo get_permalink($postet_id).'?ajax=true' ?> " class="more-link ajax-popup-link"><span><?php _e('Scopri','biogena') ?></span></a></div> </div>
+  <h3><?php echo get_the_title( $postet_id ); ?></h3>
+  <div class="area-post-excerpt">
+    <?php echo wp_trim_words( $postetto->post_content) ?>
+  </div> </li>
+                <?php
+              }
+              ?>
+</ul>
+<?php $category = get_term_by('name',get_the_title( ), 'category');
+$posts_in_category = $category->count;
+if($posts_in_category>4){ ?>
+<a class="archivio-link" href="<?php $category_id = get_cat_ID( get_the_title( ) ); echo get_category_link( $category_id ); ?> "><?php _e('Tutti gli articoli','biogena') ?></a>
+<?php } ?>
+ </section>
+
+                <?php
+            }
+
+             ?>
                                       <?php $fotoprotezione=$first['fields']['fotoprotezione_1'];if(isset($fotoprotezione)){
 ?>
 <hr>

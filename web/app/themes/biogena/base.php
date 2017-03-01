@@ -5,7 +5,7 @@ use Roots\Sage\Wrapper;
 
 
 if(get_post_type()==='post'&& is_single()){
-	if($_GET["ajax"] === "true"){?>
+  if($_GET["ajax"] === "true" && (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')){?>
 
   <div class="content row">
         <main class="main">
@@ -48,8 +48,12 @@ ga('send', 'pageview');
   'type'            => 'postbypost',
   'order'           => 'DESC'
 );
+          global $post;
+$post_id = $post->ID;
+$category = $post_id ? ' - '.wp_get_post_terms( $post_id, 'category' )[0]->name : '';
 
-echo '<div class="news-archive-wrap"> <h3 class="archivio-titolo">'.__('Archivio News','sage').'</h3>';
+if(wp_get_post_terms( $post_id, 'category' )[0]->term_id == get_option('default_category'))$category = '' ;
+echo '<div class="news-archive-wrap"> <h3 class="archivio-titolo">'.__('Archivio News','sage').$category.'</h3>';
 wp_get_archives( $args ); ?>
         </div></div></main><!-- /.main -->
         <?php if (Setup\display_sidebar()) : ?>

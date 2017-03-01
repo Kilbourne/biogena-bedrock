@@ -82,7 +82,7 @@ vowels =
 
 isVowel=vowels.indexOf(first['area-skin-care']['title'][0])!==-1;
 art=isVowel?<?php echo "'".__('l’','sage')."'"; ?>:<?php echo "'".__('la ','sage')."'"; ?>
-                	%>
+                  %>
                   <h3><?php _e("Trattamenti coadiuvanti per","sage"); ?> <a href="<%= first['area-skin-care']['permalink'] %>" title=""><%= art %><%= first['area-skin-care']['title'] %></a></h3>
                 <% } %>
                 <div class="products">
@@ -212,7 +212,7 @@ if(is_faq){
   faq_text="<?php _e("Consulta le nostre FAQ per avere risposta alle tue domande più frequenti","sage"); ?>"
   final_faq+='<p class="by-cura">'+ '<?php echo __('A cura di AIDECO (Associazione Italiana di Dermatologia e Cosmetologia) ','sage'); ?>'+'</p>';
 }else{
-	vowels =
+  vowels =
     'aàáâãāăȧäảåǎȁąạḁẚầấẫẩằắẵẳǡǟǻậặæǽǣ' +
     'AÀÁÂÃĀĂȦÄẢÅǍȀȂĄẠḀẦẤẪẨẰẮẴẲǠǞǺẬẶÆǼǢ' +
     'EÈÉÊẼĒĔĖËẺĚȄȆẸȨĘḘḚỀẾỄỂḔḖỆḜ' +
@@ -227,8 +227,8 @@ if(is_faq){
 isVowel=vowels.indexOf(first['title'][0])!==-1;
 
 art=isVowel?<?php echo "'".__('sull’','sage')."'"; ?>:<?php echo "'".__('sulla ','sage')."'"; ?>;
-	faq_t="<?php _e('Le FAQ di questa Area Skin Care saranno disponibili prossimamente','sage') ?>";
-	faq_text="<strong>"+faq_t+"</strong>";
+  faq_t="<?php _e('Le FAQ di questa Area Skin Care saranno disponibili prossimamente','sage') ?>";
+  faq_text="<strong>"+faq_t+"</strong>";
 }
                     %>
                     <p class="faq-text"><%= faq_text %> </p>
@@ -239,6 +239,38 @@ art=isVowel?<?php echo "'".__('sull’','sage')."'"; ?>:<?php echo "'".__('sulla
                 </div>
               </div>
               </div>
+           <%
+           console.log(first);
+            area_post=first.posts;
+
+            if(area_post.length){
+              %>
+<section class="area-post">
+   <h3><?php _e('I nostri consigli','biogena') ?></h3>
+   <ul>
+
+                <%
+              _.each (area_post ,function(postetto){
+                %>
+  <li><div class="area-post-img-wrapper"><%= postetto.img %><div class="scopri-overflow"><a href="<%= postetto.permalink %>?ajax=true" class="more-link ajax-popup-link"><span><?php _e('Scopri','biogena') ?></span></a></div> </div>
+  <h3><%= postetto.title %></h3>
+  <div class="area-post-excerpt">
+    <%= postetto.excerpt %>
+  </div> </li>
+                <%
+          })
+              %>
+</ul>
+<% if( first.more_than_four ){%>
+<a class="archivio-link" href="<%= first.categoryLink %>" ><?php _e('Tutti gli articoli','biogena') ?></a>
+<% } %>
+ </section>
+
+                <%
+            }
+
+             %>
+
                   <% fotoprotezione=first['fields']['fotoprotezione_1'];fotoprotezione2=first['fields']['fotoprotezione_2'];fotoprotezione3=first['fields']['fotoprotezione_3'];if(fotoprotezione){
 %>
 <hr>
