@@ -1923,7 +1923,8 @@ body.single-post {
     .content>.main {
         text-align: left;
         margin-bottom: 1.5rem;
-        li {
+        .toc-text li,
+        .news-archive-wrap li {
             width: 100%;
             list-style: none;
             padding: 0 2%;
@@ -2126,6 +2127,10 @@ body.single-post {
             .scopri-overflow {
                 background-color: rgba(51, 102, 204, .6);
                 visibility: visible;
+                >.more-link {
+                    width: 100%;
+                    display: inline-block;
+                }
             }
         }
     }
@@ -2136,4 +2141,8 @@ body.single-post {
         display: inline-block;
         width: 100%;
     }
+}
+
+.toc-text a {
+    cursor: pointer;
 }
