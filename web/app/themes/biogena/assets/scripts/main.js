@@ -937,7 +937,7 @@
         })
 
         var listEl = $('<ul></ul>').append(list);
-        container.find('article h1').first().after($('<div class="toc-text"></div>').append(listEl));
+        container.find('article h1').first().after($('<div class="toc-text"><h3>Indice articolo:</h3> </div>').append(listEl));
     }
 
     function popUp() {
