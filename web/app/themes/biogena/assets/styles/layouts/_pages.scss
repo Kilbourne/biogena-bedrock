@@ -1644,9 +1644,15 @@ body.news {
             .entry-title {
                 text-align: left;
             }
+            img {
+                display: block;
+                margin: 0 auto;
+                height: auto;
+                max-width: 100% !important;
+            }
             >.entry-content {
                 >.news-wrap {
-                    float: left;
+                    //float: left;
                     margin-right: 1rem;
                     vertical-align: top;
                 }
@@ -1878,9 +1884,15 @@ body.single-post {
         .entry-title {
             text-align: left;
         }
+        img {
+            display: block;
+            margin: 0 auto;
+            height: auto;
+            max-width: 100% !important;
+        }
         >.entry-content {
             >.news-wrap {
-                float: left;
+                //float: left;
                 margin-right: 1rem;
                 vertical-align: top;
             }
@@ -2090,7 +2102,8 @@ body.single-post {
         }
         .area-post-img-wrapper {
             position: relative;
-            padding: 1rem 0;
+            margin: 1rem 0;
+            padding: 0;
             text-align: center;
             >img {
                 height: auto;

@@ -137,7 +137,7 @@ $art=$isVowel?__('sull’',"sage"):__('sulla ',"sage");
   <li><div class="area-post-img-wrapper"><?php echo get_the_post_thumbnail($postet_id) ?><div class="scopri-overflow"><a href="<?php echo get_permalink($postet_id).'?ajax=true' ?> " class="more-link ajax-popup-link"><span><?php _e('Scopri','biogena') ?></span></a></div> </div>
   <h3><?php echo get_the_title( $postet_id ); ?></h3>
   <div class="area-post-excerpt">
-    <?php echo wp_trim_words( $postetto->post_content) ?>
+    <?php echo apply_filters('the_excerpt', get_post_field('post_excerpt', $postet_id)); ?>
   </div> </li>
                 <?php
               }
