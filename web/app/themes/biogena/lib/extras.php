@@ -213,9 +213,10 @@ function ajax_login(){
 
     die();
 }
-add_action( 'save_post_area-skin-care', __NAMESPACE__ . '\\delete_transient_on_update' );
-add_action( 'save_post_linee', __NAMESPACE__ . '\\delete_transient_on_update' );
-add_action( 'save_post_prodotti',__NAMESPACE__ . '\\delete_transient_on_update' );
+//add_action( 'save_post_area-skin-care', __NAMESPACE__ . '\\delete_transient_on_update' );
+//add_action( 'save_post_linee', __NAMESPACE__ . '\\delete_transient_on_update' );
+//add_action( 'save_post_prodotti',__NAMESPACE__ . '\\delete_transient_on_update' );
+add_action( 'save_post',__NAMESPACE__ . '\\delete_transient_on_update' );
 function delete_transient_on_update($post_id) {
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if ( wp_is_post_revision( $post_id ) ) return;
