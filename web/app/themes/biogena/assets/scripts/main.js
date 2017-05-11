@@ -932,12 +932,15 @@
         var list = [];
         var popup = $('.mfp-content');
         var container = popup.length ? popup : $('.article-wrap');
-        container.find(' .news-content h2').each(function(el, i) {
-            list.push($('<li></li> ').append($('<a ></a>').text($(this).text())));
-        })
+        var titoli = container.find(' .news-content h2');
+        if (titoli.length) {
+            titoli.each(function(el, i) {
+                list.push($('<li></li> ').append($('<a ></a>').text($(this).text())));
+            })
 
-        var listEl = $('<ul></ul>').append(list);
-        container.find('article h1').first().after($('<div class="toc-text"><h3>Indice articolo:</h3> </div>').append(listEl));
+            var listEl = $('<ul></ul>').append(list);
+            container.find('article h1').first().after($('<div class="toc-text"><h3>Indice articolo:</h3> </div>').append(listEl));
+        }
     }
 
     function popUp() {

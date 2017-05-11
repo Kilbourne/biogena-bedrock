@@ -28,9 +28,9 @@ while (have_posts()):
       </header>
     <div class="thumb-wrapper u-1/2-lap-and-up inline-block">
       <?php the_post_thumbnail('large'); ?>
-      <div class="under-photo">          <?php $field = get_field('formato');
-          if (isset($field) && $field && $field !== '') { ?>
-            <span class="formato"><?php echo $field; ?></span>
+      <div class="under-photo">          <?php $field = get_field_object('formato');
+          if (isset($field['value']) && $field['value'] && $field['value'] !== '') { ?>
+            <span class="formato"><?php echo $field['value']; ?></span>
           <?php } ?>
 <span class="like">
         <iframe
@@ -54,97 +54,97 @@ while (have_posts()):
         <?php the_content(); ?>
 
       </div>
-      <?php  $field = get_field('proprietà');
-      if (isset($field) && $field && $field !== '') { ?>
+      <?php  $field = get_field_object('proprietà');
+      if (isset($field['value']) && $field['value'] && $field['value'] !== '') { ?>
         <div class="accordion">
-          <div class="dt"><a href="#proprieta" aria-expanded="false" aria-controls="proprieta" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right  "> <h5><?php _e("Proprietà","sage");?></h5></a></div>
+          <div class="dt"><a href="#proprieta" aria-expanded="false" aria-controls="proprieta" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right  "> <h5><?php echo $field['label'];?></h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="proprieta ">
-            <p><?php echo $field; ?> </p>
+            <p><?php echo $field['value']; ?> </p>
           </div>
         </div>
       <?php } ?>
-      <?php $field = get_field('composizione');
-    if (isset($field) && $field && $field !== '') { ?>
+      <?php $field = get_field_object('composizione');
+    if (isset($field['value']) && $field['value'] && $field['value'] !== '') { ?>
         <div class="accordion">
-          <div class="dt"><a href="#composizione" aria-expanded="false" aria-controls="composizione" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("Composizione","sage");?></h5></a></div>
+          <div class="dt"><a href="#composizione" aria-expanded="false" aria-controls="composizione" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php echo $field['label'];?></h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="composizione ">
 
 
           <p>
             <?php
-        echo $field; ?>
+        echo $field['value']; ?>
           </p>
           </div>
         </div>
         <?php
     } ?>
         <?php
-    $field = get_field('uso');
+    $field = get_field_object('uso');
 
-    if (isset($field) && $field && $field !== '') { ?>
+    if (isset($field['value']) && $field['value'] && $field['value'] !== '') { ?>
         <div class="  accordion">
-          <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("Modo d'uso","sage");?></h5></a></div>
+          <div class="dt"><a href="#uso" aria-expanded="false" aria-controls="uso" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php echo $field['label'];?></h5></a></div>
           <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="uso">
 
 
           <p>
             <?php
-        echo $field; ?>
+        echo $field['value']; ?>
           </p>
           </div>
         </div>
         <?php
     } ?>
         <?php
-    $field = get_field('precauzioni');
-    if (isset($field) && $field && $field !== '') { ?>
+    $field = get_field_object('precauzioni');
+    if (isset($field['value']) && $field['value'] && $field['value'] !== '') { ?>
         <div class="accordion">
-          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("Precauzioni","sage");?></h5></a></div>
+          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php echo $field['label'];?></h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
             <p>
             <?php
-        echo $field; ?>
+        echo $field['value']; ?>
           </p>
           </div>
         </div>
         <?php
     } ?>
             <?php
-    $field = get_field('consigli');
-    if (isset($field) && $field && $field !== '') { ?>
+    $field = get_field_object('consigli');
+    if (isset($field['value']) && $field['value'] && $field['value'] !== '') { ?>
         <div class="accordion">
-          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("I consigli per una corretta protezione solare","sage");?></h5></a></div>
+          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php echo $field['label'];?></h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
             <p>
             <?php
-        echo $field; ?>
+        echo $field['value']; ?>
           </p>
           </div>
         </div>
         <?php
     } ?>
         <?php
-    $field = get_field('evidenze_cliniche');
-    if (isset($field) && $field && $field !== '') { ?>
+    $field = get_field_object('evidenze_cliniche');
+    if (isset($field['value']) && $field['value'] && $field['value'] !== '') { ?>
         <div class="accordion">
-          <div class="dt"><a href="#evidenze_cliniche" aria-expanded="false" aria-controls="evidenze_cliniche" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php _e("Evidenze Cliniche","sage");?></h5></a></div>
+          <div class="dt"><a href="#evidenze_cliniche" aria-expanded="false" aria-controls="evidenze_cliniche" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php echo $field['label'];?></h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="evidenze_cliniche">
             <p>
             <?php
-        echo $field; ?>
+        echo $field['value']; ?>
         <?php
-    $field = get_field('bibliografia');
-    if (isset($field) && $field && $field !== '') { echo '<p class="rif-bib">'.$field.'</p>';}?>
+    $field = get_field_object('bibliografia');
+    if (isset($field['value']) && $field['value'] && $field['value'] !== '') { echo '<p class="rif-bib">'.$field['value'].'</p>';}?>
           </p>
           </div>
         </div>
         <?php
     } ?>
-    <div class="product-last-line"><?php $field = get_field('faq');if(isset($field) && $field && $field !=='') {echo '<span class="faq-single" ><a href="#product-faq" title="FAQ Prodotto" class="inline-popup-link"><span> '.__("FAQ Prodotto","sage").' </span></a> </span>'; } ?><span class="ean"><?php $field = get_field('ean');if(isset($field) && $field && $field !=='') {echo '<span>'.__("Non trovi il prodotto in farmacia? Questo è il codice a barre: EAN","sage").' - </span>' . $field;}else{ $field = get_field('paraf');if(isset($field) && $field && $field !=='') {echo '<span>'.__("Non trovi il prodotto in farmacia? Questo è il codice a barre: PARAF","sage").' - </span>' . $field;} } ?></span></div>
+    <div class="product-last-line"><?php $field = get_field_object('faq');if(isset($field['value']) && $field['value'] && $field['value'] !=='') {echo '<span class="faq-single" ><a href="#product-faq" title="FAQ Prodotto" class="inline-popup-link"><span> '.$field['label'].' </span></a> </span>'; } ?><span class="ean"><?php $field = get_field_object('ean');if(isset($field['value']) && $field['value'] && $field['value'] !=='') {echo '<span>'.__("Non trovi il prodotto in farmacia? Questo è il codice a barre: EAN","sage").' - </span>' . $field['value'];}else{ $field = get_field_object('paraf');if(isset($field['value']) && $field['value'] && $field['value'] !=='') {echo '<span>'.__("Non trovi il prodotto in farmacia? Questo è il codice a barre: PARAF","sage").' - </span>' . $field['value'];} } ?></span></div>
     </div>
-    <?php $field = get_field('faq');if(isset($field) && $field && $field !=='') { ?>
+    <?php $field = get_field_object('faq');if(isset($field['value']) && $field['value'] && $field['value'] !=='') { ?>
     <div id="product-faq" class="white-popup mfp-hide">
- <?= $field; ?>
+ <?= $field['value']; ?>
 </div>
 <?php } ?>
     <?php

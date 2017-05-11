@@ -3,4 +3,38 @@
 .inline-block {
     display: inline-block;
 }
-.little-text{font-size:12px !important;}
+
+.little-text {
+    font-size: 12px !important;
+}
+
+.alignnone {
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    height: auto;
+}
+
+.aligncenter {
+    display: block;
+    margin: (1rem / 2) auto;
+    height: auto;
+}
+
+.alignleft,
+.alignright {
+    margin-bottom: (1rem / 2);
+    height: auto;
+}
+
+@media(min-width: $screen-xs) {
+    // Only float if not on an extra small device
+    .alignleft {
+        float: left;
+        margin-right: (1rem / 2);
+    }
+    .alignright {
+        float: right;
+        margin-left: (1rem / 2);
+    }
+}

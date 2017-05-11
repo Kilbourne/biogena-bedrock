@@ -1958,9 +1958,9 @@ body.single-post {
                 text-decoration: none;
                 //height: 26px;
                 display: inline-block;
-                margin-left: 34px;
-                word-break: break-all;
-                word-wrap: break-word;
+                padding-left: 34px;
+                //word-break: break-all;
+                //word-wrap: break-word;
                 width: 100%;
                 vertical-align: top;
             }
@@ -2010,6 +2010,7 @@ body.single-post {
         >h3 {
             font-size: 1.3rem;
             margin: 1rem 0;
+            color: #245CA2;
         }
         .area-post-img-wrapper {
             position: relative;
@@ -2047,9 +2048,6 @@ body.single-post {
             text-align: justify;
         }
         &:hover {
-            >h3 {
-                color: #245CA2;
-            }
             .scopri-overflow {
                 background-color: rgba(51, 102, 204, .6);
                 visibility: visible;

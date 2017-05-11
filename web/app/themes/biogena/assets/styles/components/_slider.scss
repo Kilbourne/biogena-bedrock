@@ -1,5 +1,5 @@
  .big-claim {
-    font-family: optimaregular;
+     font-family: optimaregular;
      color: #24569B;
      font-size: 1.8rem;
      display: inline-block;
@@ -28,7 +28,7 @@
          font-size: 0.6476em;
      }
  }
-
+ 
  .big-claim.big-claim-right {
      left: 54%;
      padding-right: 3%;
@@ -39,18 +39,22 @@
          line-height: 1.2;
      }
  }
-body.single-linee.psoriasi-2{
-    .background-container.specialita .big-claim{
-        left: 13% !important;
-        width: 62% !important;
-        top: -10px;
-        white-space: normal;
-    }
-}
- .girasole {
-     @include media-query(lap-and-up){margin: -3% 3% 0 !important;}
+ 
+ body.single-linee.psoriasi-2 {
+     .background-container.specialita .big-claim {
+         left: 13% !important;
+         width: 62% !important;
+         top: -10px;
+         white-space: normal;
+     }
  }
-
+ 
+ .girasole {
+     @include media-query(lap-and-up) {
+         margin: -3% 3% 0 !important;
+     }
+ }
+ 
  .single-linee,
  .post-type-archive-linee {
      .girasole {
@@ -73,7 +77,7 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .background-slider {
      position: relative;
      img {
@@ -99,14 +103,12 @@ body.single-linee.psoriasi-2{
          }
      }
      .swiper-slide.Slide1 {
-          .up{
-            @media(max-width:390px)
-            {
-              vertical-align: middle;
-                line-height: 2;
-
-            }
-          }
+         .up {
+             @media(max-width: 390px) {
+                 vertical-align: middle;
+                 line-height: 2;
+             }
+         }
          .down {
              margin-left: 2.5rem;
          }
@@ -124,30 +126,63 @@ body.single-linee.psoriasi-2{
      .swiper-slide.Slide4 {
          .big-claim {
              top: 25%;
-             @include media-query(palm){line-height: 0;}
-
-             .up,.down {
-                 margin:0;
-                 @media(max-width:631px){vertical-align: text-bottom;}
+             @include media-query(palm) {
+                 line-height: 0;
              }
-             .up-1{
-                font-size: 0.5em;line-height: 1;
-                @include media-query(palm){display:none;}
+             .up,
+             .down {
+                 margin: 0;
+                 @media(max-width: 631px) {
+                     vertical-align: text-bottom;
+                 }
              }
-             .up-2{
-                font-size: 1em; line-height: 1;
-
-                @include media-query(lap-and-up){font-size:2.2em; text-transform:uppercase;}
+             .up-1 {
+                 font-size: 0.5em;
+                 line-height: 1;
+                 @include media-query(palm) {
+                     display: none;
+                 }
+             }
+             .up-2 {
+                 font-size: 1em;
+                 line-height: 1;
+                 @include media-query(lap-and-up) {
+                     font-size: 2.2em;
+                     text-transform: uppercase;
+                 }
              }
              .down span {
-                font-size: 1em; color: rgb(36, 86, 155);line-height: 1;
-                @include media-query(palm){text-transform: lowercase;}
-                @include media-query(lap-and-up){font-size:1.25em;}
+                 font-size: 1em;
+                 color: rgb(36, 86, 155);
+                 line-height: 1;
+                 @include media-query(palm) {
+                     text-transform: lowercase;
+                 }
+                 @include media-query(lap-and-up) {
+                     font-size: 1.25em;
+                 }
              }
          }
      }
+     .swiper-slide.Slide5 .big-claim {
+         top: 55%;
+         padding-left: 52px;
+         >p>span {
+             color: #fff
+         }
+         .up-1 {
+             font-size: 26px;
+         }
+         .down {
+             font-size: .7em;
+             margin-left: 0;
+         }
+         .up {
+             margin-bottom: 1.2rem;
+         }
+     }
  }
-
+ 
  .background-container {
      position: relative;
      .wp-post-image {
@@ -155,7 +190,7 @@ body.single-linee.psoriasi-2{
          height: auto;
      }
  }
-
+ 
  .single-linee,
  .post-type-archive-linee {
      .background-container {
@@ -205,7 +240,7 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .osmin.background-container {
      margin: 0;
      padding: 0;
@@ -219,11 +254,11 @@ body.single-linee.psoriasi-2{
          width: 45%;
          text-align: left;
          padding: 0;
-         margin:0 3%;
+         margin: 0 3%;
          font-size: 1.75rem;
      }
  }
-
+ 
  @media (max-width:49.999em) {
      .post-type-archive-linee .background-container.specialita .big-claim,
      .single-linee .background-container.specialita .big-claim,
@@ -259,7 +294,7 @@ body.single-linee.psoriasi-2{
          padding-right: 0 !important;
      }
  }
-
+ 
  .post-type-archive-linee .background-container.specialita .big-claim,
  .single-linee .background-container.specialita .big-claim {
      .title {
@@ -286,17 +321,17 @@ body.single-linee.psoriasi-2{
          margin: 0 !important;
      }
  }
-
+ 
  .slider-patologie {
      overflow: hidden;
  }
-
+ 
  .slider-patologie .swiper-slide {
      text-align: center;
      width: 100%;
      height: auto;
  }
-
+ 
  @include media-query(lap-and-up) {
      .slider-patologie.two .swiper-slide {
          width: 49%;
@@ -308,7 +343,7 @@ body.single-linee.psoriasi-2{
          width: 25%;
      }
  }
-
+ 
  .slider-patologie .swiper-slide a {
      //display: inline-block;
      height: 100%;
@@ -316,7 +351,7 @@ body.single-linee.psoriasi-2{
      //border: 2px solid #E6E6E6;
      text-decoration: none;
  }
-
+ 
  .slider-patologie,
  .slider-patologie2 {
      .swiper-slide a div {
@@ -328,14 +363,14 @@ body.single-linee.psoriasi-2{
          white-space: nowrap;
      }
  }
-
+ 
  .slider-patologie .swiper-slide a h3 {
      margin: 0;
      color: rgb(36, 86, 155);
      font-size: 1.25rem;
  }
  /* SLIDER */
-
+ 
  .slider {
      overflow: hidden;
      margin-bottom: 0 !important;
@@ -343,7 +378,7 @@ body.single-linee.psoriasi-2{
          //align-items: center;
      }
  }
-
+ 
  .slideshow {
      position: relative;
      padding: 0px 3%;
@@ -374,7 +409,7 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .slideshow.correlati {
      @include media-query(lap-and-up) {
          .slider-patologie {
@@ -384,7 +419,7 @@ body.single-linee.psoriasi-2{
      color:#24569B;
      &>h4 {
          font-size: 2rem;
-         font-family:optimaregular;
+         font-family: optimaregular;
          text-align: center;
          //font-variant: all-small-caps;
          >a {
@@ -404,13 +439,13 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .single .slideshow.correlati {
      margin-top: 1.5rem;
      background: rgba(255, 255, 255, 1);
      background-image: linear-gradient(to bottom, #ffffff 0%, #F6F6F6 47%, #ededed 100%);
  }
-
+ 
  .post-type-archive-area-skin-care,
  .single-area-skin-care {
      .slideshow.correlati {
@@ -435,7 +470,7 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .single-prodotti {
      .slider-title {
          padding: 0 5%;
@@ -454,15 +489,15 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .swiper-button-prev {
      left: 0.75% !important;
  }
-
+ 
  .swiper-button-next {
      right: 0.75% !important;
  }
-
+ 
  .swiper-button-prev,
  .swiper-button-next {
      height: 18.5%;
@@ -476,7 +511,7 @@ body.single-linee.psoriasi-2{
      }
      ;
  }
-
+ 
  .swiper-container-horizontal {
      &>.navigation,
      &>.swiper-pagination {
@@ -496,7 +531,7 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .products {
      overflow: hidden;
      position: relative;
@@ -515,12 +550,14 @@ body.single-linee.psoriasi-2{
              font-size: 1.2rem;
              color: #fff;
          }
-         .swiper-button-next, .swiper-container-rtl .swiper-button-prev {
-          background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNyA0NCI+PHBhdGggZD0iTTI3LDIyTDI3LDIyTDUsNDRsLTIuMS0yLjFMMjIuOCwyMkwyLjksMi4xTDUsMEwyNywyMkwyNywyMnoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=");
-        }
-        .swiper-button-prev, .swiper-container-rtl .swiper-button-next {
-          background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNyA0NCI+PHBhdGggZD0iTTAsMjJMMjIsMGwyLjEsMi4xTDQuMiwyMmwxOS45LDE5LjlMMjIsNDRMMCwyMkwwLDIyTDAsMjJ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+");
-        }
+         .swiper-button-next,
+         .swiper-container-rtl .swiper-button-prev {
+             background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNyA0NCI+PHBhdGggZD0iTTI3LDIyTDI3LDIyTDUsNDRsLTIuMS0yLjFMMjIuOCwyMkwyLjksMi4xTDUsMEwyNywyMkwyNywyMnoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=");
+         }
+         .swiper-button-prev,
+         .swiper-container-rtl .swiper-button-next {
+             background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNyA0NCI+PHBhdGggZD0iTTAsMjJMMjIsMGwyLjEsMi4xTDQuMiwyMmwxOS45LDE5LjlMMjIsNDRMMCwyMkwwLDIyTDAsMjJ6IiBmaWxsPSIjZmZmIi8+PC9zdmc+");
+         }
      }
      .swiper-button-prev,
      .swiper-button-next {
@@ -541,7 +578,7 @@ body.single-linee.psoriasi-2{
          left: 50%;
      }
  }
-
+ 
  .no-slider {
      text-align: center;
      .swiper-wrapper {
@@ -564,7 +601,7 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .slider-patologie-home.slider-patologie {
      .swiper-slide {
          >a {
@@ -572,8 +609,8 @@ body.single-linee.psoriasi-2{
              display: inline-block;
          }
          >a >img {
-            width: 100%;
-            //&.lazyload{width:auto;}
+             width: 100%;
+             //&.lazyload{width:auto;}
          }
          >a > div {
              background-color: #24569B;
@@ -593,7 +630,7 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  .slideshow.correlati {
      .slider-patologie.three,
      .slider-patologie2.three {
@@ -622,13 +659,13 @@ body.single-linee.psoriasi-2{
      }
      .slider-patologie.two {
          @include media-query(lap-and-up) {
-              .swiper-slide{
-                width: auto;
-                margin: 0px auto;
-                &:first-child{
-                  margin-right: 0;
-                }
-              }
+             .swiper-slide {
+                 width: auto;
+                 margin: 0px auto;
+                 &:first-child {
+                     margin-right: 0;
+                 }
+             }
              .swiper-button-prev,
              .swiper-button-next {
                  display: none;
@@ -636,7 +673,7 @@ body.single-linee.psoriasi-2{
          }
      }
  }
-
+ 
  @include media-query(palm) {
      .slider-patologie,
      .slideshow .slider {
@@ -648,24 +685,23 @@ body.single-linee.psoriasi-2{
      .swiper-wrapper {
          //margin-bottom: 1rem;
      }
-     body.home .background-slider{
-      .swiper-slide{
-        height:auto;
-      }
-      .big-claim{
-      font-size: 1.5rem !important;
-      height:calc(100% - 44.923vw);
+     body.home .background-slider {
+         .swiper-slide {
+             height: auto;
          }
-    }
+         .big-claim {
+             font-size: 1.5rem !important;
+             height: calc(100% - 44.923vw);
+         }
+     }
  }
-
+ 
  .single-linee,
- .post-type-archive-linee{
-.background-container.specialita {
-  .big-claim.osmin-top{
-    margin:0  !important;
-    width:100% !important;
-  }
-
-}
+ .post-type-archive-linee {
+     .background-container.specialita {
+         .big-claim.osmin-top {
+             margin: 0 !important;
+             width: 100% !important;
+         }
+     }
  }
