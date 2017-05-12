@@ -97,9 +97,11 @@ while (have_posts()):
     } ?>
         <?php
     $field = get_field_object('precauzioni');
-    if (isset($field['value']) && $field['value'] && $field['value'] !== '') { ?>
+    if (isset($field['value']) && $field['value'] && $field['value'] !== '') {
+      $label = get_field('etichetta_precauzioni');
+      $label = (isset($label) && $label && $label !== '') ? $label : $field['label'];?>
         <div class="accordion">
-          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php echo $field['label'];?></h5></a></div>
+          <div class="dt"><a href="#precauzioni" aria-expanded="false" aria-controls="precauzioni" class="accordion-title accordionTitle js-accordionTrigger fa fa-caret-right"> <h5><?php echo $label;?></h5></a></div>
             <div class="accordion-content accordionItem is-collapsed"  aria-hidden="true" id="precauzioni">
             <p>
             <?php
